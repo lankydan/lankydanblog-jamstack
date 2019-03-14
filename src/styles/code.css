@@ -38,8 +38,9 @@ pre[class*="language-"] {
 	padding: .1em;
 	border-radius: .3em;
   white-space: normal;
-  color: rgb(151, 89, 193);
+  color: rgb(97, 51, 128);
   background: rgb(243, 230, 241);
+  font-weight: 500
 }
 
 .token.comment,
