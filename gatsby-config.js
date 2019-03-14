@@ -46,7 +46,7 @@ module.exports = {
               inlineCodeMarker: null,
               aliases: {},
               showLineNumbers: false,
-              noInlineHighlight: true,
+              noInlineHighlight: false,
             },
           },
           `gatsby-remark-copy-linked-files`,

@@ -2,5 +2,7 @@
 import "typeface-montserrat"
 import "typeface-merriweather"
 import "typeface-ubuntu"
-require("prismjs/themes/prism-tomorrow.css")
+import "./src/styles/code.css"
+// require("prismjs/themes/prism-tomorrow.css")
+require("./src/styles/code.css")
 // require("prismjs/themes/prism.css")
