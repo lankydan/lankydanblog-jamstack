@@ -1,0 +1,17 @@
+body {
+  font-family: ubuntu
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: ubuntu
+}
+
+p {
+  margin-top: 1.2em;
+  margin-bottom: 1.2em;
+}

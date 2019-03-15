@@ -5,4 +5,5 @@ import "typeface-ubuntu"
 import "./src/styles/code.css"
 // require("prismjs/themes/prism-tomorrow.css")
 require("./src/styles/code.css")
+require("./src/styles/text.css")
 // require("prismjs/themes/prism.css")
