@@ -19,17 +19,19 @@ class BlogPostTemplate extends React.Component {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
-        <Img
-          fluid={post.frontmatter.cover_image.childImageSharp.fluid}
-          style={{
-            position: `relative`,
-            width: `100%`,
-            margin: `auto`,
-            background: `transparent no-repeat center center`,
-            backgroundSize: `cover`,
-            zIndex: 2,
-          }}
-        />
+        {post.frontmatter.cover_image !== null && (
+          <Img
+            fluid={post.frontmatter.cover_image.childImageSharp.fluid}
+            style={{
+              position: `relative`,
+              width: `100%`,
+              margin: `auto`,
+              background: `transparent no-repeat center center`,
+              backgroundSize: `cover`,
+              zIndex: 2,
+            }}
+          />
+        )}
         <h1
           style={{
             marginTop: `2rem`,
@@ -54,7 +56,6 @@ class BlogPostTemplate extends React.Component {
           }}
         />
         <Bio />
-
         <ul
           style={{
             display: `flex`,
