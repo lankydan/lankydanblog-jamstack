@@ -6,6 +6,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
 import Img from "gatsby-image"
+import Socials from "../components/socials";
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -49,6 +50,7 @@ class BlogPostTemplate extends React.Component {
         >
           {post.frontmatter.date}
         </p>
+        <Socials postPath={this.props.pageContext} postNode={post} />
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
           style={{
