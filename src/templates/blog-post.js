@@ -14,20 +14,8 @@ class BlogPostTemplate extends React.Component {
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
 
-    const socials = (
-      <Socials
-        siteUrl={this.props.data.site.siteMetadata.siteUrl}
-        postPath={this.props.pageContext.slug}
-        postNode={post}
-      />
-    )
-
     return (
-      <Layout
-        location={this.props.location}
-        title={siteTitle}
-        sideBar={socials}
-      >
+      <Layout location={this.props.location} title={siteTitle}>
         <SEO
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
@@ -62,6 +50,11 @@ class BlogPostTemplate extends React.Component {
         >
           {post.frontmatter.date}
         </p>
+        <Socials
+          siteUrl={this.props.data.site.siteMetadata.siteUrl}
+          postPath={this.props.pageContext.slug}
+          postNode={post}
+        />
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
           style={{
