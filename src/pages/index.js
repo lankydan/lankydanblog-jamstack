@@ -27,8 +27,9 @@ class BlogIndex extends React.Component {
               <div
                 key={node.fields.slug}
                 style={{
-                  border: `1px solid #d6d6d6`,
+                  border: `2px solid #d6d6d6`,
                   margin: `0.5em auto 0px`,
+                  boxShadow: `3px 3px 0px rgba(97, 51, 128, 0.612)`
                 }}
               >
                 {node.frontmatter.cover_image && (
