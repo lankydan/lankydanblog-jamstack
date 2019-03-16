@@ -14,8 +14,7 @@ import {
   LinkedinIcon,
   RedditIcon,
 } from "react-share"
-// import urljoin from "url-join";
-// import config from "../../../data/SiteConfig";
+import urljoin from "url-join";
 import style from "./socials.module.css"
 
 /*
@@ -23,10 +22,9 @@ Not going to do any share counts for now
 */
 class Socials extends Component {
   render() {
-    const { postNode, postPath, mobile } = this.props
+    const { siteUrl, postNode, postPath, mobile } = this.props
     const post = postNode.frontmatter
-    // const url = urljoin(config.siteUrl, config.pathPrefix, postPath);
-    const url = "poop"
+    const url = urljoin(siteUrl, postPath)
     const iconSize = mobile ? 36 : 48
     // const filter = count => (count > 0 ? count : "")
     // const renderShareCount = count => (
