@@ -84,7 +84,7 @@ class BlogPostTemplate extends React.Component {
               <Link
                 style={{
                   boxShadow: `none`,
-                  width: `500px`,
+                  width: rhythm(15),
                   display: `inline-block`,
                   maxWidth: `94%`,
                   padding: `10px`,
