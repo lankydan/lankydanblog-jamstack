@@ -103,6 +103,7 @@ class BlogPostTemplate extends React.Component {
                     margin: `0.5em 0px 0px`,
                     boxShadow: `3px 3px 0px rgba(97, 51, 128, 0.612)`,
                     maxWidth: `100%`,
+                    minHeight: rhythm(12.5),
                   }}
                 >
                   {node.frontmatter.cover_image && (
