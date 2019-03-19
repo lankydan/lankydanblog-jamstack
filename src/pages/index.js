@@ -4,6 +4,7 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import BlogList from "../components/blog-list"
 import { rhythm } from "../utils/typography"
 import Img from "gatsby-image"
 
@@ -20,59 +21,11 @@ class BlogIndex extends React.Component {
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
         <Bio />
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
-          return (
-            <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-              <div
-                key={node.fields.slug}
-                style={{
-                  border: `2px solid #d6d6d6`,
-                  margin: `0.5em auto 0px`,
-                  boxShadow: `3px 3px 0px rgba(97, 51, 128, 0.612)`
-                }}
-              >
-                {node.frontmatter.cover_image && (
-                  <Img
-                    fluid={node.frontmatter.cover_image.childImageSharp.fluid}
-                    style={{
-                      position: `relative`,
-                      width: `100%`,
-                      margin: `auto`,
-                      background: `transparent no-repeat center center`,
-                      backgroundSize: `cover`,
-                      zIndex: 2,
-                    }}
-                  />
-                )}
-                <div
-                  style={{
-                    padding: `1em`,
-                  }}
-                >
-                  <h3
-                    style={{
-                      marginBottom: rhythm(1 / 4),
-                      marginTop: rhythm(1 / 4),
-                      color: `black`,
-                    }}
-                  >
-                    {title}
-                  </h3>
-                  <small style={{ color: `grey` }}>
-                    {node.frontmatter.date}
-                  </small>
-                  <p
-                    style={{ color: `black` }}
-                    dangerouslySetInnerHTML={{
-                      __html: node.frontmatter.description || node.excerpt,
-                    }}
-                  />
-                </div>
-              </div>
-            </Link>
-          )
-        })}
+        <BlogList
+          posts={posts}
+          cardWidth={rhythm(16.5)}
+          cardHeight={rhythm(12.5)}
+        />
       </Layout>
     )
   }
