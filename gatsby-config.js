@@ -1,3 +1,5 @@
+console.log(`Google tracking id: '${process.env.GOOGLE_ANALYTICS_TRACKING_CODE}'`)
+
 module.exports = {
   siteMetadata: {
     title: `Lanky Dan Blog`,
@@ -59,7 +61,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_CODE,
       },
     },
     `gatsby-plugin-feed`,
