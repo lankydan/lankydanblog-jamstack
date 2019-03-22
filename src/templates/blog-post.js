@@ -21,6 +21,12 @@ class BlogPostTemplate extends React.Component {
         <SEO
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
+          image={
+            post.frontmatter.cover_image &&
+            post.frontmatter.cover_image.childImageSharp.resize.src
+          }
+          date={post.frontmatter.date}
+          timeToRead={post.timeToRead}
         />
         {post.frontmatter.cover_image !== null && (
           <Img
@@ -135,6 +141,7 @@ export const pageQuery = graphql`
           }
         }
       }
+      timeToRead
     }
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
