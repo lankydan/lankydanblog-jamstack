@@ -63,7 +63,16 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
+    // commented out code is from gatsby starter and retrieves via relative path (blog/sub-folder-n/blog-post-sub-folder)
+    // const value = createFilePath({ node, getNode })
+
+    // use title for slug value
+    // replace whitespace with `-`
+    // remove all invalid url characters with
+    const value = `/${node.frontmatter.title
+      .replace(/\s+/g, `-`)
+      .replace(/[^a-zA-Z0-9-_]/g, "")
+      .toLowerCase()}`
     createNodeField({
       name: `slug`,
       node,
