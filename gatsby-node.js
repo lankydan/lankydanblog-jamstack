@@ -19,6 +19,8 @@ exports.createPages = ({ graphql, actions }) => {
               }
               frontmatter {
                 title
+                date(formatString: "YYYY/MM/DD")
+                include_date_in_url
               }
             }
           }
@@ -37,8 +39,13 @@ exports.createPages = ({ graphql, actions }) => {
       const previous = index === posts.length - 1 ? null : posts[index + 1].node
       const next = index === 0 ? null : posts[index - 1].node
 
+      const dateUrl = post.node.frontmatter.include_date_in_url
+        ? `/${post.node.frontmatter.date}`
+        : ``
+      const path = dateUrl + post.node.fields.slug
+
       createPage({
-        path: post.node.fields.slug,
+        path: path,
         component: blogPost,
         context: {
           slug: post.node.fields.slug,

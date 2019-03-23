@@ -19,6 +19,10 @@ class BlogList extends React.Component {
       >
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
+          const dateUrl = node.frontmatter.include_date_in_url
+            ? `/${node.frontmatter.dateUrl}`
+            : ``
+          const path = dateUrl + node.fields.slug
           return (
             <Link
               key={node.fields.slug}
@@ -34,7 +38,7 @@ class BlogList extends React.Component {
                 position: `relative`,
                 margin: `0 auto`,
               }}
-              to={node.fields.slug}
+              to={path}
             >
               <div
                 style={{
