@@ -85,15 +85,11 @@ module.exports = {
           {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
               return allMarkdownRemark.edges.map(edge => {
-                const dateUrl = edge.node.frontmatter.include_date_in_url
-                  ? `/${edge.node.frontmatter.dateUrl}`
-                  : ``
-                const path = dateUrl + edge.node.fields.slug
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
                   date: edge.node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + path,
-                  guid: site.siteMetadata.siteUrl + path,
+                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
                   custom_elements: [{ "content:encoded": edge.node.html }],
                 })
               })
@@ -113,7 +109,6 @@ module.exports = {
                       frontmatter {
                         title
                         date
-                        dateUrl: date(formatString: "YYYY/MM/DD")
                         include_date_in_url
                       }
                     }

@@ -1,5 +1,6 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
+const moment = require(`moment`)
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
@@ -19,9 +20,6 @@ exports.createPages = ({ graphql, actions }) => {
               }
               frontmatter {
                 title
-                slug
-                date(formatString: "YYYY/MM/DD")
-                include_date_in_url
               }
             }
           }
@@ -39,14 +37,8 @@ exports.createPages = ({ graphql, actions }) => {
     posts.forEach((post, index) => {
       const previous = index === posts.length - 1 ? null : posts[index + 1].node
       const next = index === 0 ? null : posts[index - 1].node
-
-      const dateUrl = post.node.frontmatter.include_date_in_url
-        ? `/${post.node.frontmatter.date}`
-        : ``
-      const path = dateUrl + post.node.fields.slug
-
       createPage({
-        path: path,
+        path: post.node.fields.slug,
         component: blogPost,
         context: {
           slug: post.node.fields.slug,
@@ -67,16 +59,21 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     // commented out code is from gatsby starter and retrieves via relative path (blog/sub-folder-n/blog-post-sub-folder)
     // const value = createFilePath({ node, getNode })
 
-    // use title for slug value
+    // use the title or manually set slug value to be the slug of the post
     // replace whitespace with `-`
     // remove all invalid url characters with
-    const value =
-    `/${node.frontmatter.slug !== undefined
+    const postName = `/${
+      node.frontmatter.slug !== undefined
         ? node.frontmatter.slug
         : node.frontmatter.title
             .replace(/\s+/g, `-`)
             .replace(/[^a-zA-Z0-9-_]/g, "")
-            .toLowerCase()}`
+            .toLowerCase()
+    }`
+    const dateUrl = node.frontmatter.include_date_in_url
+      ? `/${moment(node.frontmatter.date).format(`YYYY/MM/DD`)}`
+      : ``
+    const value = dateUrl + postName
     createNodeField({
       name: `slug`,
       node,

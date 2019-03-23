@@ -6,7 +6,6 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import BlogList from "../components/blog-list"
 import { rhythm } from "../utils/typography"
-import Img from "gatsby-image"
 
 class BlogIndex extends React.Component {
   render() {
@@ -49,8 +48,6 @@ export const pageQuery = graphql`
           }
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
-            dateUrl: date(formatString: "YYYY/MM/DD")
-            include_date_in_url
             title
             description
             cover_image {

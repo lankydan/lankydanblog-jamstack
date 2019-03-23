@@ -15,11 +15,6 @@ class BlogPostTemplate extends React.Component {
     const posts = this.props.data.allMarkdownRemark.edges
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
-    const dateUrl = post.frontmatter.include_date_in_url
-      ? `/${post.frontmatter.dateUrl}`
-      : ``
-    const path = dateUrl + this.props.pageContext.slug
-
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
@@ -65,7 +60,7 @@ class BlogPostTemplate extends React.Component {
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <Socials
           siteUrl={this.props.data.site.siteMetadata.siteUrl}
-          postPath={path}
+          postPath={this.props.pageContext.slug}
           postNode={post}
         />
         <hr
@@ -133,8 +128,6 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
-        dateUrl: date(formatString: "YYYY/MM/DD")
-        include_date_in_url
         description
         cover_image {
           childImageSharp {
