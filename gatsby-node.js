@@ -19,6 +19,7 @@ exports.createPages = ({ graphql, actions }) => {
               }
               frontmatter {
                 title
+                slug
                 date(formatString: "YYYY/MM/DD")
                 include_date_in_url
               }
@@ -69,10 +70,13 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     // use title for slug value
     // replace whitespace with `-`
     // remove all invalid url characters with
-    const value = `/${node.frontmatter.title
-      .replace(/\s+/g, `-`)
-      .replace(/[^a-zA-Z0-9-_]/g, "")
-      .toLowerCase()}`
+    const value =
+    `/${node.frontmatter.slug !== undefined
+        ? node.frontmatter.slug
+        : node.frontmatter.title
+            .replace(/\s+/g, `-`)
+            .replace(/[^a-zA-Z0-9-_]/g, "")
+            .toLowerCase()}`
     createNodeField({
       name: `slug`,
       node,
