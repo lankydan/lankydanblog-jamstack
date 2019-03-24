@@ -1,27 +1,20 @@
 import React from "react"
 import { graphql } from "gatsby"
-
 import BlogIndexPageList from "../components/blog-index-page-list"
 
-class IndexPage extends React.Component {
+export default class PaginatedBlogList extends React.Component {
   render() {
     const posts = this.props.data.allMarkdownRemark.edges
     return <BlogIndexPageList posts={posts} location={this.props.location} />
   }
 }
 
-export default IndexPage
-
-export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
+export const blogListQuery = graphql`
+  query blogListQuery($skip: Int!, $limit: Int!) {
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      limit: 10
+      limit: $limit
+      skip: $skip
     ) {
       edges {
         node {
