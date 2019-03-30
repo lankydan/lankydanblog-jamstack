@@ -8,6 +8,7 @@ module.exports = {
     author: `Dan Newton`,
     description: `Lanky Dan - Software Development Blog`,
     siteUrl: `https://lankydan.dev`,
+    disqusShortName: `lankydan-dev`,
     social: {
       twitter: `LankyDanDev`,
     },

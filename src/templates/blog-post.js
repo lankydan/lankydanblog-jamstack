@@ -8,6 +8,8 @@ import { rhythm, scale } from "../utils/typography"
 import Img from "gatsby-image"
 import Socials from "../components/socials"
 import BlogList from "../components/blog-list"
+import Disqus from "disqus-react"
+import urljoin from "url-join"
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -15,6 +17,14 @@ class BlogPostTemplate extends React.Component {
     const posts = this.props.data.allMarkdownRemark.edges
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
+    const disqusConfig = {
+      url: urljoin(
+        this.props.data.site.siteMetadata.siteUrl,
+        this.props.pageContext.slug
+      ),
+      identifier: this.props.pageContext.slug,
+      title: post.frontmatter.title,
+    }
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
@@ -74,6 +84,10 @@ class BlogPostTemplate extends React.Component {
             marginBottom: rhythm(1),
           }}
         />
+        <Disqus.DiscussionEmbed
+          shortname={this.props.data.site.siteMetadata.disqusShortName}
+          config={disqusConfig}
+        />
         <BlogList
           posts={posts}
           cardWidth={rhythm(15)}
@@ -119,6 +133,7 @@ export const pageQuery = graphql`
         title
         author
         siteUrl
+        disqusShortName
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
