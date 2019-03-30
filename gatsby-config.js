@@ -69,20 +69,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-feed`,
       options: {
-        query: `
-          {
-            site {
-              siteMetadata {
-                title
-                description
-                siteUrl
-                site_url: siteUrl
-              }
-            }
-          }
-        `,
+        // not using base query here since it does not seem to work with
+        // multiple feeds, therefore site data has been added to each
+        // feeds query manually
         feeds: [
           {
+            output: "/all.xml",
+            title: "All posts RSS Feed",
             serialize: ({ query: { site, allMarkdownRemark } }) => {
               return allMarkdownRemark.edges.map(edge => {
                 return Object.assign({}, edge.node.frontmatter, {
@@ -96,10 +89,18 @@ module.exports = {
             },
             query: `
               {
+                site {
+                  siteMetadata {
+                    title
+                    description
+                    siteUrl
+                    site_url: siteUrl
+                  }
+                }
                 allMarkdownRemark(
                   limit: 1000,
                   sort: { order: DESC, fields: [frontmatter___date] },
-                  filter: {frontmatter: { published: { in: [true] } }}
+                  filter: {frontmatter: { published: { eq: true } }}
                 ) {
                   edges {
                     node {
@@ -115,9 +116,54 @@ module.exports = {
                   }
                 }
               }
-            `,
-            output: "/all.xml",
-            title: "All posts RSS Feed",
+            `
+          },
+          {
+            output: "/jvm.xml",
+            title: "JVM posts RSS Feed",
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.edges.map(edge => {
+                return Object.assign({}, edge.node.frontmatter, {
+                  description: edge.node.excerpt,
+                  date: edge.node.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  custom_elements: [{ "content:encoded": edge.node.html }],
+                })
+              })
+            },
+            query: `
+              {
+                site {
+                  siteMetadata {
+                    title
+                    description
+                    siteUrl
+                    site_url: siteUrl
+                  }
+                }
+                allMarkdownRemark(
+                  limit: 1000,
+                  sort: { order: DESC, fields: [frontmatter___date] },
+                  filter: {frontmatter: { 
+                    published: { eq: true } 
+                    tags: { in: ["java", "spring", "kotlin"] }
+                  }}
+                ) {
+                  edges {
+                    node {
+                      excerpt
+                      html
+                      fields { slug }
+                      frontmatter {
+                        title
+                        date
+                      }
+                    }
+                  }
+                }
+              }
+            `
           },
         ],
       },
