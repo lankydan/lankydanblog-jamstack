@@ -17,6 +17,7 @@ class BlogPostTemplate extends React.Component {
     const post = this.props.data.markdownRemark
     const posts = this.props.data.allMarkdownRemark.edges
     const siteTitle = this.props.data.site.siteMetadata.title
+    const githubUrl = post.frontmatter.github_url
     const { previous, next } = this.props.pageContext
     const disqusConfig = {
       url: urljoin(
@@ -68,7 +69,32 @@ class BlogPostTemplate extends React.Component {
         >
           {post.frontmatter.date}
         </p>
-        <BlogTags post={post}/>
+        <BlogTags post={post} />
+        {githubUrl !== null && githubUrl !== undefined && (
+          <div
+            style={{
+              backgroundColor: `#24292e`,
+              textAlign: `center`,
+              maxWidth: `200px`,
+              margin: `10px 0 0`,
+              borderRadius: `4px`,
+            }}
+          >
+            <a
+              href={post.frontmatter.github_url}
+              target="_blank"
+              style={{
+                maxWidth: `200px`,
+                margin: `5px 0px`,
+                color: `white`,
+                textDecoration: `none`,
+                boxShadow: `0 0`,
+              }}
+            >
+              GITHUB REPO FOR POST
+            </a>
+          </div>
+        )}
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <Socials
           siteUrl={this.props.data.site.siteMetadata.siteUrl}
@@ -147,6 +173,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         description
         tags
+        github_url
         cover_image {
           childImageSharp {
             resize(width: 1500, height: 1500) {
