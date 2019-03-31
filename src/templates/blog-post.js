@@ -8,6 +8,7 @@ import { rhythm, scale } from "../utils/typography"
 import Img from "gatsby-image"
 import Socials from "../components/socials"
 import BlogList from "../components/blog-list"
+import BlogTags from "../components/blog-tags"
 import Disqus from "disqus-react"
 import urljoin from "url-join"
 
@@ -61,12 +62,13 @@ class BlogPostTemplate extends React.Component {
           style={{
             ...scale(-1 / 5),
             display: `block`,
-            marginBottom: rhythm(1),
+            marginBottom: rhythm(0),
             marginTop: rhythm(-1),
           }}
         >
           {post.frontmatter.date}
         </p>
+        <BlogTags post={post}/>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <Socials
           siteUrl={this.props.data.site.siteMetadata.siteUrl}
@@ -144,6 +146,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        tags
         cover_image {
           childImageSharp {
             resize(width: 1500, height: 1500) {
@@ -171,6 +174,7 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            tags
             cover_image {
               childImageSharp {
                 resize(width: 1500, height: 1500) {

@@ -33,6 +33,7 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            tags
             cover_image {
               childImageSharp {
                 resize(width: 1500, height: 1500) {

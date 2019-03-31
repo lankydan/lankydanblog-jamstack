@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 import { rhythm } from "../utils/typography"
+import BlogTags from "./blog-tags"
 
 class BlogList extends React.Component {
   render() {
@@ -75,6 +76,7 @@ class BlogList extends React.Component {
                   <small style={{ color: `grey` }}>
                     {node.frontmatter.date}
                   </small>
+                 <BlogTags post={node}/>
                   <p
                     style={{ color: `black` }}
                     dangerouslySetInnerHTML={{
