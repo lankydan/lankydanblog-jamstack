@@ -1,4 +1,5 @@
 import React from "react"
+import BlogTag from "./blog-tag"
 
 export default class BlogTags extends React.Component {
   render() {
@@ -9,21 +10,7 @@ export default class BlogTags extends React.Component {
         {tags !== null &&
           tags !== undefined &&
           tags.map((tag, index) => {
-            return (
-              <small
-                key={tag}
-                style={{
-                  backgroundColor: `rgba(97, 51, 128, 0.612)`,
-                  color: `white`,
-                  display: `inline-block`,
-                  marginRight: `2px`,
-                  padding: `0px 8px`,
-                  borderRadius: `4px`,
-                }}
-              >
-                {tag}
-              </small>
-            )
+            return <BlogTag name={tag} />
           })}
       </div>
     )
