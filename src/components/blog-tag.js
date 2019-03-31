@@ -6,7 +6,6 @@ export default class BlogTag extends React.Component {
     const { backgroundColor, color } = this.getTagColorScheme(name)
     return (
       <small
-        key={name}
         style={{
           backgroundColor: backgroundColor,
           color: color,

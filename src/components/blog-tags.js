@@ -10,7 +10,7 @@ export default class BlogTags extends React.Component {
         {tags !== null &&
           tags !== undefined &&
           tags.map((tag, index) => {
-            return <BlogTag name={tag} />
+            return <BlogTag key={tag} name={tag} />
           })}
       </div>
     )
