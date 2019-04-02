@@ -78,6 +78,9 @@ module.exports = {
             output: "/all.xml",
             title: "All posts RSS Feed",
             serialize: ({ query: { site, allMarkdownRemark } }) => {
+              if(allMarkdownRemark === null) {
+                return []
+              }
               return allMarkdownRemark.edges.map(edge => {
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
@@ -123,6 +126,9 @@ module.exports = {
             output: "/jvm.xml",
             title: "JVM posts RSS Feed",
             serialize: ({ query: { site, allMarkdownRemark } }) => {
+              if(allMarkdownRemark === null) {
+                return []
+              }
               return allMarkdownRemark.edges.map(edge => {
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
@@ -149,6 +155,57 @@ module.exports = {
                   filter: {frontmatter: { 
                     published: { eq: true } 
                     tags: { in: ["java", "spring", "kotlin"] }
+                  }}
+                ) {
+                  edges {
+                    node {
+                      excerpt
+                      html
+                      fields { slug }
+                      frontmatter {
+                        title
+                        date
+                      }
+                    }
+                  }
+                }
+              }
+            `
+          },
+          {
+            output: "/corda.xml",
+            title: "Corda posts RSS Feed",
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              if(allMarkdownRemark === null) {
+                return []
+              }
+              console.log(allMarkdownRemark)
+              return allMarkdownRemark.edges.map(edge => {
+                return Object.assign({}, edge.node.frontmatter, {
+                  description: edge.node.excerpt,
+                  date: edge.node.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  custom_elements: [{ "content:encoded": edge.node.html }],
+                })
+              })
+            },
+            query: `
+              {
+                site {
+                  siteMetadata {
+                    title
+                    description
+                    siteUrl
+                    site_url: siteUrl
+                  }
+                }
+                allMarkdownRemark(
+                  limit: 1000,
+                  sort: { order: DESC, fields: [frontmatter___date] },
+                  filter: {frontmatter: { 
+                    published: { eq: true } 
+                    tags: { in: ["corda"] }
                   }}
                 ) {
                   edges {
