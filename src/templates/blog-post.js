@@ -9,6 +9,7 @@ import Img from "gatsby-image"
 import Socials from "../components/socials"
 import BlogList from "../components/blog-list"
 import BlogTags from "../components/blog-tags"
+import BlogPostDate from "../components/blog-post-date"
 import Disqus from "disqus-react"
 import urljoin from "url-join"
 
@@ -59,16 +60,7 @@ class BlogPostTemplate extends React.Component {
         >
           {post.frontmatter.title}
         </h1>
-        <p
-          style={{
-            ...scale(-1 / 5),
-            display: `block`,
-            marginBottom: rhythm(0),
-            marginTop: rhythm(-1),
-          }}
-        >
-          {post.frontmatter.date}
-        </p>
+        <BlogPostDate post={post} />
         <BlogTags post={post} />
         {githubUrl !== null && githubUrl !== undefined && (
           <div
@@ -171,6 +163,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        updated_date(formatString: "MMMM DD, YYYY")
         description
         tags
         github_url
