@@ -21,6 +21,18 @@ export default class BlogTag extends React.Component {
   }
 
   getTagColorScheme(name) {
+    if(name.includes(`spring`)) {
+      return {
+        backgroundColor: `#6db33f`,
+        color: `white`,
+      }
+    }
+    if(name.includes(`corda`)) {
+      return {
+        backgroundColor: `#e11c1b`,
+        color: `white`,
+      }
+    }
     switch (name) {
       case `java`:
         return {
@@ -32,32 +44,13 @@ export default class BlogTag extends React.Component {
           backgroundColor: `#5f77df`,
           color: `#ffa032`,
         }
-      case `spring`:
-        return {
-          backgroundColor: `#6db33f`,
-          color: `white`,
-        }
-      case `spring-boot`:
-        return {
-          backgroundColor: `#6db33f`,
-          color: `white`,
-        }
-      case `spring-data`:
-        return {
-          backgroundColor: `#6db33f`,
-          color: `white`,
-        }
       case `cassandra`:
         return {
           backgroundColor: `#36f7ba`,
           color: `#5824db`,
         }
-      case `corda`:
-        return {
-          backgroundColor: `#e11c1b`,
-          color: `white`,
-        }
       case `dlt`:
+      case `distributed ledger technology`:
         return {
           backgroundColor: `#ff6f16`,
           color: `#2439de`,
