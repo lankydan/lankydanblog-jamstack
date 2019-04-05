@@ -1,10 +1,10 @@
 ---
 title: Developing with Corda 4
 date: "2019-04-05"
-published: false
+published: true
 tags: [corda, corda 4, kotlin, dlt, distributed ledger technology, blockchain]
 canonical_url: https://lankydanblog.com/2018/06/05/developing-with-corda/
-cover_image: ./corda-tree.png
+cover_image: ./corda-sunset-mountains.png
 github_url: https://github.com/corda/corda-training-solutions
 ---
 
@@ -567,3 +567,5 @@ Here we are, at the end at last.
 This post should have hopefully given you some help in understanding how to go about developing with Corda. There is much more to learn as I have only covered the basics in this post. In this post, we implemented the process of an IOU while inspecting the components that are required to do so. States are facts that are shared among parties on the network, contracts are used to validate transactions and flows contain the logic to propose new transactions. With this information, you should be in a good place to start writing your own flows. There is much more you can do with flows that hasn't been covered within this post, but these basics should serve you well through any flows that you try to write.
 
 If you found this post helpful and want to keep up with my posts as I write them, then you can follow me on Twitter at [@LankyDanDev](https://twitter.com/lankydandev).
+
+You can also join the [Corda slack channel](https://slack.corda.net/) if you have any questions or are interested in learning about Corda further after reading this post.
