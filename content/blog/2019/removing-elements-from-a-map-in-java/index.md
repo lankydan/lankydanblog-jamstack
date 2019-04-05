@@ -6,6 +6,7 @@ tags: [java, java 8, basics, beginners]
 canonical_url: https://lankydanblog.com/2019/03/03/removing-elements-from-a-map-in-java/
 cover_image: ./picking_records.png
 include_date_in_url: true
+description: Very short and simple post on removing elements from a `Map` in Java.
 ---
 
 Very short and simple post on removing elements from a `Map` in Java. We will be focusing on removing multiple elements and ignore the fact you can remove a single element using `Map.remove`.
