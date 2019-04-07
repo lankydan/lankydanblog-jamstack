@@ -1,6 +1,6 @@
 ---
 title: Cached Prepared Statements with Spring Data Cassandra
-date: "2018-08-23"
+date: "2018-10-23"
 published: true
 tags: [spring, spring data, spring boot, spring data cassandra, cassandra, java]
 canonical_url: https://lankydanblog.com/2018/10/23/cached-prepared-statements-with-spring-data-cassandra/
