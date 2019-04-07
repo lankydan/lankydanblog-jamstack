@@ -39,6 +39,7 @@ class BlogPostTemplate extends React.Component {
           }
           date={post.frontmatter.date}
           timeToRead={post.timeToRead}
+          keywords={post.frontmatter.tags}
         />
         {post.frontmatter.cover_image !== null && (
           <Img
@@ -182,7 +183,10 @@ export const pageQuery = graphql`
     }
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { fields: { slug: { ne: $slug } } }
+      filter: {
+        fields: { slug: { ne: $slug } }
+        frontmatter: { published: { eq: true } }
+      }
       limit: 5
     ) {
       edges {
