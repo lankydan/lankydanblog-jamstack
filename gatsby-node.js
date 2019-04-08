@@ -48,15 +48,27 @@ exports.createPages = ({ graphql, actions }) => {
       })
     })
 
+    // create blog post index page urls
+    const blogIndexPages = []
     const postsPerPage = 10
     const numPages = Math.ceil(posts.length / postsPerPage)
-    Array.from({ length: numPages }).forEach((_, i) => {
+    Array.from({ length: numPages }).forEach((_, index) => {
+      const url = index === 0 ? `/blog` : `/blog/${index + 1}`
+      blogIndexPages.push(url)
+    })
+    // create the blog post index pages and use urls for previous and next pages
+    blogIndexPages.forEach((url, index) => {
+      const previous = index === 0 ? null : blogIndexPages[index - 1]
+      const next =
+        index === blogIndexPages.length - 1 ? null : blogIndexPages[index + 1]
       createPage({
-        path: i === 0 ? `/blog` : `/blog/${i + 1}`,
+        path: url,
         component: path.resolve("./src/templates/paginated-blog-list.js"),
         context: {
           limit: postsPerPage,
-          skip: i * postsPerPage,
+          skip: index * postsPerPage,
+          previous: previous,
+          next: next,
         },
       })
     })

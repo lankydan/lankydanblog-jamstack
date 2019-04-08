@@ -5,7 +5,15 @@ import BlogIndexPageList from "../components/blog-index-page-list"
 export default class PaginatedBlogList extends React.Component {
   render() {
     const posts = this.props.data.allMarkdownRemark.edges
-    return <BlogIndexPageList posts={posts} location={this.props.location} />
+    const { previous, next } = this.props.pageContext
+    return (
+      <BlogIndexPageList
+        posts={posts}
+        location={this.props.location}
+        previous={previous}
+        next={next}
+      />
+    )
   }
 }
 
