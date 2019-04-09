@@ -20,6 +20,7 @@ exports.createPages = ({ graphql, actions }) => {
               }
               frontmatter {
                 title
+                published
               }
             }
           }
@@ -51,7 +52,8 @@ exports.createPages = ({ graphql, actions }) => {
     // create blog post index page urls
     const blogIndexPages = []
     const postsPerPage = 10
-    const numPages = Math.ceil(posts.length / postsPerPage)
+    const publishedPosts = posts.filter(post => post.node.frontmatter.published)
+    const numPages = Math.ceil(publishedPosts.length / postsPerPage)
     Array.from({ length: numPages }).forEach((_, index) => {
       const url = index === 0 ? `/blog` : `/blog/${index + 1}`
       blogIndexPages.push(url)
