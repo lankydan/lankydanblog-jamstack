@@ -11,6 +11,8 @@ module.exports = {
     disqusShortName: `lankydan-dev`,
     social: {
       twitter: `LankyDanDev`,
+      linkedin: `https://www.linkedin.com/in/danknewton/`,
+      github: `https://github.com/lankydan`
     },
   },
   plugins: [

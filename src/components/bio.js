@@ -39,17 +39,21 @@ function Bio() {
             />
             <div>
               Written by <strong>{author}</strong>.{` `}
-              <a href={`https://twitter.com/${social.twitter}`}>
-                <div
-                  style={{
-                    backgroundColor: `rgba(97, 51, 128, 0.612)`,
-                    textAlign: `center`,
-                    color: `white`,
-                  }}
-                >
-                  FOLLOW++
-                </div>
-              </a>
+              <FollowButton
+                text={`TWITTER`}
+                link={`https://twitter.com/${social.twitter}`}
+                colour={`#00ACEE`}
+              />
+              <FollowButton
+                text={`LINKEDIN`}
+                link={`${social.linkedin}`}
+                colour={`#0077B5`}
+              />
+              <FollowButton
+                text={`GITHUB`}
+                link={`${social.github}`}
+                colour={`#333`}
+              />
             </div>
           </div>
         )
@@ -72,6 +76,8 @@ const bioQuery = graphql`
         author
         social {
           twitter
+          linkedin
+          github
         }
       }
     }
@@ -79,3 +85,23 @@ const bioQuery = graphql`
 `
 
 export default Bio
+
+class FollowButton extends React.Component {
+  render() {
+    const { text, link, colour } = this.props
+    return (
+      <a href={link} target="_blank">
+        <div
+          style={{
+            backgroundColor: colour,
+            textAlign: `center`,
+            color: `white`,
+            marginBottom: `2px`,
+          }}
+        >
+          {`${text}++`}
+        </div>
+      </a>
+    )
+  }
+}
