@@ -73,6 +73,7 @@ pre[class*="language-"] {
 
 .token.function {
 	color: #82AAFF;
+	font-weight: 500
 }
 
 .token.generics.function {
