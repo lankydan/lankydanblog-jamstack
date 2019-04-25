@@ -20,17 +20,19 @@ class BlogPostTemplate extends React.Component {
     const siteTitle = this.props.data.site.siteMetadata.title
     const githubUrl = post.frontmatter.github_url
     const { previous, next } = this.props.pageContext
+    const postUrl = urljoin(
+      this.props.data.site.siteMetadata.siteUrl,
+      this.props.pageContext.slug
+    )
     const disqusConfig = {
-      url: urljoin(
-        this.props.data.site.siteMetadata.siteUrl,
-        this.props.pageContext.slug
-      ),
+      url: postUrl,
       identifier: this.props.pageContext.slug,
       title: post.frontmatter.title,
     }
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
+          url={postUrl}
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
           image={

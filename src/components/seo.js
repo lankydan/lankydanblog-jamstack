@@ -12,6 +12,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import urljoin from "url-join"
 
 function SEO({
+  url,
   description,
   lang,
   meta,
@@ -59,6 +60,10 @@ function SEO({
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
+        {
+          name: `og:url`,
+          content: url
+        },
         {
           name: `description`,
           content: metaDescription,
