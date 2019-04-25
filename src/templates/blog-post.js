@@ -172,7 +172,7 @@ export const pageQuery = graphql`
         github_url
         cover_image {
           childImageSharp {
-            resize(width: 1500, height: 1500) {
+            resize(width: 1500, cropFocus: CENTER) {
               src
             }
             fluid(maxWidth: 786, maxHeight: 300, cropFocus: CENTER) {
