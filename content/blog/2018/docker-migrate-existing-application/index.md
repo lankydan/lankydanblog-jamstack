@@ -23,7 +23,13 @@ First up, the Spring Boot application.
 
 This is the only part of the project that contains our code. The rest are just images downloaded from someone else's repository. To start moving this application towards running in a container, we need to create a `Dockerfile` that specifies the content of an image:
 
-[gist https://gist.github.com/lankydan/0f14d4c6f53cea31de677996d07e54b6 /]
+```dockerfile
+FROM openjdk:8-jdk-alpine
+LABEL maintainer="Dan Newton"
+ADD target/spring-boot-jms-tutorial-1.0.0.jar app.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "/app.jar"]
+```
 
 This takes the base image of `openjdk:8-jdk-alpine` which is a good starting point for the application, adds the Jar built from the application code (naming it `app.jar`) and exposes a port for communication between containers. The final line defines the command that executed when the image is run in a container. This is what starts the Spring application.
 
@@ -89,11 +95,44 @@ One last thing before we move onto looking at Mongo and ActiveMQ.
 
 The `dockerfile-maven-plugin` could also be used to help with the above which builds the container as part of running `mvn install`. I chose not to use it since I couldn't get it to work properly with `docker-compose`. Below is a quick example of using the plugin:
 
-[gist https://gist.github.com/lankydan/ae780633c6a418f54cbbe1440ebf1b88 /]
+```xml
+<build>
+    <plugins>
+        <plugin>
+            <groupId>com.spotify</groupId>
+            <artifactId>dockerfile-maven-plugin</artifactId>
+            <version>1.4.4</version>
+            <executions>
+                <execution>
+                    <id>default</id>
+                    <goals>
+                        <goal>build</goal>
+                        <goal>push</goal>
+                    </goals>
+                </execution>
+            </executions>
+            <configuration>
+                <!-- Names the image: spring-boot-jms-tutorial -->
+                <repository>${project.artifactId}</repository>
+                <buildArgs>
+                    <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+                </buildArgs>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+```
 
 This then allows us to replace a few of the lines in the `Dockerfile`:
 
-[gist https://gist.github.com/lankydan/b285267fb45689acceac6af3a3f33034 /]
+```dockerfile
+FROM openjdk:8-jdk-alpine
+LABEL maintainer="Dan Newton"
+ARG JAR_FILE 
+ADD target/${JAR_FILE} app.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "/app.jar"]
+```
 
 Here one line has been added and one existing line is changed. The `JAR_FILE` argument replaces the original name of the Jar which is injected in by the plugin from the `pom.xml`. Make these changes and run `mvn install` and bam, your container is built with all the required code.
 
@@ -145,11 +184,34 @@ We could have stopped there, but this next section will make running everything 
 
 To do this, we need to create a `docker-compose.yml` file:
 
-[gist https://gist.github.com/lankydan/0ee436d07ec642d87116daa14463f853 /]
+```yml
+version: '3'
+services:
+  appcontainer:
+    build:
+      context: .
+      args:
+        JAR_FILE: /spring-boot-jms-tutorial-1.0.0.jar
+    ports:
+    - "4000:8080"
+  activemqcontainer:
+    image: "rmohr/activemq"
+    ports:
+    - "8161:8161"
+  mongocontainer:
+    image: "mongo"
+```
 
 Use with this version of the `Dockerfile`:
 
-[gist https://gist.github.com/lankydan/b285267fb45689acceac6af3a3f33034 /]
+```dockerfile
+FROM openjdk:8-jdk-alpine
+LABEL maintainer="Dan Newton"
+ARG JAR_FILE 
+ADD target/${JAR_FILE} app.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "/app.jar"]
+```
 
 This is pretty much everything that needs to be done.
 
