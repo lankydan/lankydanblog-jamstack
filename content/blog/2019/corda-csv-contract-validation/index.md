@@ -34,6 +34,7 @@ private fun attachment(): AttachmentId {
       )
     )
   ).first()
+}
 ```
 
 Adding the attachment to the transaction does not include any fancy code. Retrieving the attachment is a bit more involved but is not hard to put together either. In this example the attachment is being queried by name and the returned `AttachmentId` is then passed to the `TransactionBuilder`'s `addAttachment` (it takes the `AttachmentId` not the attachment itself). Using the name of the attachment is my preference but passing in the `AttachmentId` is also possible, assuming you know it beforehand.
