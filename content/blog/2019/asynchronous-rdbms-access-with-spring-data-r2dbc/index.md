@@ -31,6 +31,11 @@ Furthermore, I have also written a post about using [Spring WebFlux](https://lan
 ### Dependencies
 
 ```xml
+<parent>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-parent</artifactId>
+  <version>2.2.0.M3</version>
+</parent>
 <dependencies>
   <dependency>
     <groupId>org.springframework.boot</groupId>
@@ -39,12 +44,12 @@ Furthermore, I have also written a post about using [Spring WebFlux](https://lan
   <dependency>
     <groupId>org.springframework.data</groupId>
     <artifactId>spring-data-r2dbc</artifactId>
-    <version>1.0.0.M1</version>
+    <version>1.0.0.M2</version>
   </dependency>
   <dependency>
     <groupId>io.r2dbc</groupId>
     <artifactId>r2dbc-postgresql</artifactId>
-    <version>1.0.0.M6</version>
+    <version>0.8.0.M8</version>
   </dependency>
   <dependency>
     <groupId>io.projectreactor</groupId>
