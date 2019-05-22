@@ -1,12 +1,5 @@
-/**
- * Bio component that queries for data
- * with Gatsby's StaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/static-query/
- */
-
 import React from "react"
-import { StaticQuery, graphql } from "gatsby"
+import { StaticQuery, graphql, Link } from "gatsby"
 import Image from "gatsby-image"
 
 import { rhythm } from "../utils/typography"
@@ -37,23 +30,59 @@ function Bio() {
                 borderRadius: `50%`,
               }}
             />
-            <div>
+            <div
+              style={{
+                width: `100%`,
+              }}
+            >
               Written by <strong>{author}</strong>.{` `}
-              <FollowButton
-                text={`TWITTER`}
-                link={`https://twitter.com/${social.twitter}`}
-                colour={`#00ACEE`}
-              />
-              <FollowButton
-                text={`LINKEDIN`}
-                link={`${social.linkedin}`}
-                colour={`#0077B5`}
-              />
-              <FollowButton
-                text={`GITHUB`}
-                link={`${social.github}`}
-                colour={`#333`}
-              />
+              <div>
+                <div
+                  style={{
+                    display: `inline-block`,
+                    width: rhythm(5),
+                  }}
+                >
+                  <FollowButton
+                    text={`TWITTER`}
+                    link={`https://twitter.com/${social.twitter}`}
+                    colour={`#00ACEE`}
+                  />
+                  <FollowButton
+                    text={`LINKEDIN`}
+                    link={`${social.linkedin}`}
+                    colour={`#0077B5`}
+                  />
+                  <FollowButton
+                    text={`GITHUB`}
+                    link={`${social.github}`}
+                    colour={`#333`}
+                  />
+                </div>
+                <div
+                  style={{
+                    display: `inline-block`,
+                    width: rhythm(5),
+                  }}
+                >
+                  <FollowButton
+                    text={`ALL RSS FEED`}
+                    link={`/all.xml`}
+                    colour={`rgba(97, 51, 128, 0.612)`}
+                  />
+                  <FollowButton
+                    text={`JVM RSS FEED`}
+                    link={`/jvm.xml`}
+                    colour={`#292D3E`}
+                    fontColour={`#82AAFF`}
+                  />
+                  <FollowButton
+                    text={`CORDA RSS FEED`}
+                    link={`/corda.xml`}
+                    colour={`#e11c1b`}
+                  />
+                </div>
+              </div>
             </div>
           </div>
         )
@@ -88,20 +117,42 @@ export default Bio
 
 class FollowButton extends React.Component {
   render() {
-    const { text, link, colour } = this.props
+    const { text, link, colour, fontColour } = this.props
     return (
       <a href={link} target="_blank">
-        <div
-          style={{
-            backgroundColor: colour,
-            textAlign: `center`,
-            color: `white`,
-            marginBottom: `2px`,
-          }}
-        >
-          {`${text}++`}
-        </div>
+        <Button text={text} colour={colour} fontColour={fontColour} />
       </a>
+    )
+  }
+}
+
+class RssButton extends React.Component {
+  render() {
+    const { text, link, colour, fontColour } = this.props
+    return (
+      <Link to={link} target="_blank">
+        <Button text={text} colour={colour} fontColour={fontColour} />
+      </Link>
+    )
+  }
+}
+
+class Button extends React.Component {
+  render() {
+    const { text, colour, fontColour } = this.props
+    return (
+      <div
+        style={{
+          backgroundColor: colour,
+          textAlign: `center`,
+          color: fontColour !== undefined ? fontColour : `white`,
+          marginBottom: `2px`,
+          marginRight: `2px`,
+          fontSize: `14px`,
+        }}
+      >
+        {`${text}`}
+      </div>
     )
   }
 }
