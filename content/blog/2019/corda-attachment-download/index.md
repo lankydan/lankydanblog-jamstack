@@ -25,7 +25,7 @@ private val proxy: CordaRPCOps = rpc.proxy
 fun upload(@RequestParam file: MultipartFile, @RequestParam uploader: String): ResponseEntity<String> {
   val filename = file.originalFilename
   require(filename != null) { "File name must be set" }
-  val hash: SecureHash = if (file.contentType != "zip" || file.contentType != "jar") {
+  val hash: SecureHash = if (!(file.contentType == "zip" || file.contentType == "jar")) {
     uploadZip(file.inputStream, uploader, filename!!)
   } else {
     proxy.uploadAttachmentWithMetadata(
