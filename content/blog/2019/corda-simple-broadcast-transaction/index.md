@@ -4,6 +4,7 @@ date: "2019-05-29"
 published: true
 tags: [corda, kotlin, dlt, distributed ledger technology, blockchain]
 cover_image: ./corda-concert.png
+github_url: https://github.com/lankydan/corda-broadcast-transaction
 ---
 
 Corda does not globally broadcast transactions between organisations/nodes by default. Privacy and not sharing unnecessary data is a central component of Corda's design. Compared to other DLT (Distributed Ledger Technology) platforms and blockchains, this is indeed a big difference. But, this statement comes with one fallacy. There is a belief that Corda cannot broadcast transactions to external nodes at all. This is simply wrong. It may not be the default behaviour but it is definitely within Corda's capabilities. In this post, I will demonstrate the small amount of code required to send a transaction to any desired node.
