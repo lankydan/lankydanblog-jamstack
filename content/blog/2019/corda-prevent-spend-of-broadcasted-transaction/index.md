@@ -30,7 +30,6 @@ Using this state as an example, I can help you think about the design of your ow
 
 I hope you already know this. Contract verification is important. This is the validation that is ran by each signer of a transaction. You want to put the rules that your states abide by. Who can create them, who can spend them, how many of them per transaction and so on.
 
-# ASK ED ABOUT THE `THAT`s IN THIS SENTENCE
 Below are some general requirements that I believe are important in ensuring that states are controlled by the contract's design:
 
 ```kotlin
