@@ -9,7 +9,7 @@ github_url: https://github.com/lankydan/corda-broadcast-transaction
 
 Corda is super flexible and will allow you to put together the code needed to write many complex workflows. This flexibility does come with one disadvantage. You, the developer, need to spend some time and thought on designing your application. No more blank contracts. No more responder flows that sign anything that they receive. You'll be glad you put in the effort when your application is working seamlessly in production. Luckily for you, I am here to protect your vaults from dodgy transactions and invalid spending of your states.
 
-In this post, I will cover the sort of checks you should be adding to your contracts and flows to prevent other nodes from abusing the holes in your application. Once these are added, states can only be spent by parties that the application fully intended to allow.
+In this post, I will cover the sort of checks you should be adding to your contracts and flows to prevent other nodes from abusing the holes in your application. After making these changes, states can only be spent by parties that the application fully intended to allow.
 
 I will be using the `MessageState` (a `LinearState`) that I have included in all of my Corda posts. Added below for clarity:
 
@@ -28,7 +28,7 @@ Using this state as an example, I can help you think about the design of your ow
 
 ## Contract verification
 
-I hope you already know this. Contract verification is important. This is the validation that is ran by each signer of a transaction. You want to put the rules that your states abide by. Who can create them, who can spend them, how many of them per transaction and so on.
+I hope you already know this. Contract verification is important. This is the validation that is run by each signer of a transaction. You want to put the rules that your states abide by here. Who can create them, who can spend them, how many of them per transaction, and so on.
 
 Below are some general requirements that I believe are important in ensuring that states are controlled by the contract's design:
 
@@ -47,7 +47,7 @@ override fun verify(tx: LedgerTransaction) {
 }
 ```
 
-Although this validation is for a `LinearState`, I actually nicked the rules from `ContractsDSL.verifyMoveCommand`. Maybe this is an indication that my `MessageState` is actually an `OwnableState`, but lets brush that under the rug 🙈🙊.
+Although this validation is for a `LinearState`, I actually nicked the rules from `ContractsDSL.verifyMoveCommand`. Maybe this is an indication that my `MessageState` is actually an `OwnableState`, but let's brush that under the rug 🙈🙊.
 
 The rules in the snippet above, check that the transaction is going to be signed by all the participants of the input and output states. Ensuring all the relevant parties have a chance to validate the transaction. In other words, the flow must include the parties mentioned by the input and output states in the command's required signers, and sessions opened to send them the transaction.
 
@@ -84,13 +84,13 @@ These rules are specific to the `MessageState`'s use-case. Restricting the parti
 
 Even with these rules, dodgy transactions can still go through. The contract checks the signatures based on the transaction's states as well as the contents of the states. But, there are still some ways around these.
 
-That being said, some of the situations can only occur if transactions have been sent to parties not originally involved in the exchange. I briefly mentioned this in my previous post, [Broadcasting a transaction to external organisations](https://lankydan.dev/broadcasting-a-transaction-to-external-organisations). Broadcasting transactions is what this whole post is predicated around. It might be worth reading the title again as a refresher since I haven't touched on the topic much in this section.
+That being said, some of the situations can only occur if transactions have been sent to parties not originally involved in the exchange. I briefly mentioned this in my previous post, [Broadcasting a transaction to external organisations](https://lankydan.dev/broadcasting-a-transaction-to-external-organisations). Broadcasting transactions is what this whole post is predicated around. It might be worth rereading the title as a refresher since I haven't touched on the topic much in this section.
 
-Now that I have set the stage, let me explain a hole in the contract above. There is nothing preventing a third-party from creating a mimicked reply to the original message. In that, the sender and recipient of the reply are valid, but the message is created by someone else that is not actually the sender. It is a bit to get your head around, so you might need to read that sentence a few times.
+Now that I have set the stage let me explain a hole in the contract above. There is nothing preventing a third-party from creating a mimicked reply to the original message. In that, the sender and recipient of the reply are valid, but the message is created by someone else that is not actually the sender. It is a bit to get your head around, so you might need to read that sentence a few times.
 
 To prevent this from occurring, some logic needs to be added into the flow that creates this transaction. This will be the topic of the following section.
 
-Before we move on, I want to highlight again that this situation can only occur when the original transaction has been shared around with other parties. Therefore, it could be a situation that never occurs. But it could. Covering your bases in these scenarios really depends on your use-case and how paranoid you are of users being naughty.
+Before we move on, I want to highlight again that this situation can only occur when the original transaction has been shared around with other parties. Therefore, it could be a situation that never happens. But it could. Covering your bases in these scenarios really depends on your use-case and how paranoid you are of users being naughty.
 
 ## Flow verification
 
@@ -125,19 +125,19 @@ class ReplyToMessageResponder(private val session: FlowSession) : FlowLogic<Sign
 }
 ```
 
-The `require` blocks in this example are not possible from inside the contract as they require information that the contract does not contain. This extra context is key. The contract can only validate based on the information it is given. On the other hand, the flow knows that it is on the receiving end of a proposed transaction and who is the counterparty sending it.
+The `require` blocks in this example are not possible from inside the contract as they need information that the contract does not contain. This extra context is vital. The contract can only validate based on the information it is given. On the other hand, the flow knows that it is on the receiving end of a proposed transaction and who is the counterparty sending it.
 
-Using this knowledge, the flow can add add two new rules.
+Using this knowledge, the flow can add two new rules.
 
 - The sender of the reply cannot have the flow's identity. Preventing another party from impersonating their identity and attempting to send a reply on their behalf.
 - The sender of the reply must be the owner of the counterparty session. Preventing another party from mimicking the identity of the sender.
 
-Although the second rule is a superset of the first, splitting them out provides an opportunity for a better error message. If the messages are not important then removing the first `require` statement is ok.
+Although the second rule is a superset of the first, splitting them out provides an opportunity for a better error message. If the messages are not important to you, then removing the first `require` statement is ok.
 
-Thanks to the contract, the transaction has to gather this party's signature before it can be persisted. Providing the opportunity for their responder flow to add extra validation and decline it if needed. With the contract and flow working as a team the chances of the flow being used illegally are vastly reduced.
+Thanks to the contract, the transaction has to gather this party's signature before it can be persisted. Providing the opportunity for their responder flow to add additional validation and decline it if needed. With the contract and flow working as a team, the chances of the flow being used illegally are vastly reduced.
 
 ## Conclusion
 
-Due to Corda's flexibility it is your responsibility as a CorDapp developer to restrain your application enough to prevent invalid usage. This is further complicated by the ability to share transactions with nodes not involved in original interactions. If the CorDapp is not put together in a thoughtful manner, a transaction's states could be spent by a party that does not have direct ownership over the states. The validation found inside your contracts and flows are important to prevent these scenarios from occurring.
+Due to Corda's flexibility, it is your responsibility as a CorDapp developer to restrain your application enough to prevent invalid usage. This is further complicated by the ability to share transactions with nodes not involved in original interactions. If the CorDapp is not put together thoughtfully, a transaction's states could be spent by a party that does not have direct ownership over the states. The validation found inside your contracts and flows is essential to prevent these scenarios from occurring.
 
 However, it is important to remember that it really does depend on your use-case. Maybe you want to allow parties to spend states they don't own from transactions shared with them. In that case, you could relax the CorDapps restrictions. As long as it is by design rather than an oversight.
