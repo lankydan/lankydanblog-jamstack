@@ -141,3 +141,5 @@ Thanks to the contract, the transaction has to gather this party's signature bef
 Due to Corda's flexibility, it is your responsibility as a CorDapp developer to restrain your application enough to prevent invalid usage. This is further complicated by the ability to share transactions with nodes not involved in original interactions. If the CorDapp is not put together thoughtfully, a transaction's states could be spent by a party that does not have direct ownership over the states. The validation found inside your contracts and flows is essential to prevent these scenarios from occurring.
 
 However, it is important to remember that it really does depend on your use-case. Maybe you want to allow parties to spend states they don't own from transactions shared with them. In that case, you could relax the CorDapps restrictions. As long as it is by design rather than an oversight.
+
+If you enjoyed this post or found it helpful (or both) then please feel free to follow me on Twitter at [@LankyDanDev](https://twitter.com/LankyDanDev) and remember to share with anyone else who might find this useful!
