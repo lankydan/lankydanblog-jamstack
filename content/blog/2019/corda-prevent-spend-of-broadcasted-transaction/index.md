@@ -3,7 +3,7 @@ title: Preventing invalid spending of broadcasted states
 date: "2019-05-29"
 published: true
 tags: [corda, kotlin, dlt, distributed ledger technology, blockchain]
-cover_image: ./corda-concert.png
+cover_image: ./corda-crowd.png
 github_url: https://github.com/lankydan/corda-broadcast-transaction
 ---
 
@@ -28,7 +28,7 @@ Using this state as an example, I can help you think about the design of your ow
 
 ## Contract verification
 
-I hope you already know this. Contract verification is important. This is the validation that is run by each signer of a transaction. You want to put the rules that your states abide by here. Who can create them, who can spend them, how many of them per transaction, and so on.
+I hope you already know this. Contract verification is important. This is the validation that is run by each signer of a transaction and anyone who needs to verify that same transaction in the future. You want to put the rules that your states abide by here. Who can create them, who can spend them, how many of them per transaction, and so on.
 
 Below are some general requirements that I believe are important in ensuring that states are controlled by the contract's design:
 
