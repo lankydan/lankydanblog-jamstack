@@ -11,7 +11,7 @@ Corda is super flexible and will allow you to put together the code needed to wr
 
 In my previous post, [Broadcasting a transaction to external organisations](https://lankydan.dev/broadcasting-a-transaction-to-external-organisations), I showed you how to share transactions and the states within them with anyone in a network. Raising potential avenues for states to be spent in ways that were not foreseen. Possibly leading to the business process that a CorDapp(s) defines to fall apart.
 
-I gave you the knowledge to end up in this situation and now I am trying to prevent you from making stupid 🤦‍♀️, and potentially big, mistakes. In other words, I gave you the keys to the car and now I am trying to prevent you from crashing or running someone over 🚗💀. 
+I gave you the knowledge to end up in this situation, and now I am trying to prevent you from making stupid 🤦‍♀️, and potentially significant, mistakes. In other words, I gave you the keys to the car, and now I am trying to prevent you from crashing or running someone over 🚗💀. 
 
 Or even,
 
@@ -92,7 +92,7 @@ These rules are specific to the `MessageState`'s use-case. Restricting the parti
 
 Even with these rules, dodgy transactions can still go through. The contract checks the signatures based on the transaction's states as well as the contents of the states. But, there are still some ways around these.
 
-That being said, some of these situations can only occur if a transaction have been sent to parties not originally involved in an exchange. This is the sort of scenario that can arise from broadcasting transactions like I mentioned in the introduction and in [Broadcasting a transaction to external organisations](https://lankydan.dev/broadcasting-a-transaction-to-external-organisations).
+That being said, some of these situations can only occur if a transaction has been sent to parties not originally involved in an exchange. This is the sort of scenario that can arise from broadcasting transactions as I mentioned in the introduction and in [Broadcasting a transaction to external organisations](https://lankydan.dev/broadcasting-a-transaction-to-external-organisations).
 
 Now that I have set the stage let me explain a hole in the contract above. There is nothing preventing a third-party from creating a mimicked reply to the original message. In that, the sender and recipient of the reply are valid, but the message is created by someone else that is not actually the sender. It is a bit to get your head around, so you might need to read that sentence a few times.
 
