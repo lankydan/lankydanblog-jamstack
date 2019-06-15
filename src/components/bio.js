@@ -65,18 +65,18 @@ function Bio() {
                     width: rhythm(5),
                   }}
                 >
-                  <FollowButton
+                  <RssButton
                     text={`ALL RSS FEED`}
                     link={`/all.xml`}
                     colour={`rgba(97, 51, 128, 0.612)`}
                   />
-                  <FollowButton
+                  <RssButton
                     text={`JVM RSS FEED`}
                     link={`/jvm.xml`}
                     colour={`#292D3E`}
                     fontColour={`#82AAFF`}
                   />
-                  <FollowButton
+                  <RssButton
                     text={`CORDA RSS FEED`}
                     link={`/corda.xml`}
                     colour={`#e11c1b`}
@@ -120,7 +120,7 @@ class FollowButton extends React.Component {
     const { text, link, colour, fontColour } = this.props
     return (
       <a href={link} target="_blank">
-        <Button text={text} colour={colour} fontColour={fontColour} />
+        <Button text={`${text}++`} colour={colour} fontColour={fontColour} />
       </a>
     )
   }
@@ -130,9 +130,9 @@ class RssButton extends React.Component {
   render() {
     const { text, link, colour, fontColour } = this.props
     return (
-      <Link to={link} target="_blank">
+      <a href={link} target="_blank">
         <Button text={text} colour={colour} fontColour={fontColour} />
-      </Link>
+      </a>
     )
   }
 }
