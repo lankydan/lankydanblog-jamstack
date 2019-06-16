@@ -175,7 +175,7 @@ export const pageQuery = graphql`
             resize(width: 1500, cropFocus: CENTER) {
               src
             }
-            fluid(maxWidth: 786, maxHeight: 300, cropFocus: CENTER) {
+            fluid(maxWidth: 780, maxHeight: 300, cropFocus: CENTER) {
               ...GatsbyImageSharpFluid
             }
           }
@@ -207,7 +207,7 @@ export const pageQuery = graphql`
                 resize(width: 1500, height: 1500) {
                   src
                 }
-                fluid(maxWidth: 786, maxHeight: 200, cropFocus: CENTER) {
+                fluid(maxWidth: 780, maxHeight: 300, cropFocus: CENTER) {
                   ...GatsbyImageSharpFluid
                 }
               }
