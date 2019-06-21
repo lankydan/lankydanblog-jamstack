@@ -1,12 +1,12 @@
 ---
-title: Kotlin primitive and wrapped arrays
-date: "2019-06-20"
+title: Kotlin primitive and object arrays
+date: "2019-06-21"
 published: true
 tags: [kotlin, java, beginner]
-cover_image: ./coffee.jpg
+cover_image: ./title-card.png
 ---
 
-I initially set out to write this post because I was playing around with some reflection code and thought I found something interesting. Alas, that was definitely not the case. Instead, it was just a basic feature of Kotlin that I haven't needed to use or focus on yet. Although this post didn't turn out the way I wanted it to be, I still think it is a nice little post to bring a little clarity to this subject.
+I initially set out to write this post because I was playing around with some reflection code and thought I found something interesting. Alas, that was definitely not the case. Instead, it was just a basic feature of Kotlin that I haven't needed to use or focus on yet. Although this post didn't turn out the way I wanted it to be, I still think it is a nice little post to bring a some clarity to this subject.
 
 In Java, there is the concept of [primitive types](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html) and their [wrapped versions](https://docs.oracle.com/javase/tutorial/java/data/autoboxing.html). Thanks to autoboxing and unboxing, types can be interchanged between their primitive and wrapped versions. In other words, in most situations you can use a `long` instead of a `Long` or a `Long` instead of a `long`. If you didn't notice where the capitals were in that last sentence then I imagine it probably looked quite confusing. The wording in that sentence is also crucial. More specifically, the statement "in most situations".
 
@@ -41,7 +41,7 @@ val array = Array<Long>(3)
 val array: Array<Long> = arrayOf(1,2,3)
 ```
 
-The fact that you can see the `Array` uses generics should highlight that it is not a primitive array. This is a fact in both Java and Kotlin, that generic types cannot be primitives. Otherwise, it could be switched out for `Array<long>`, and we would all be happy. The code above compiles down to a wrapped array of `Long[]` instead of a primitive `long[]`.
+The fact that you can see the `Array` uses generics should highlight that it is not a primitive array. This is a fact in both Java and Kotlin, that generic types cannot be primitives. Otherwise, it could be switched out for `Array<long>`, and we would all be happy. The code above compiles down to a object array of `Long[]` instead of a primitive `long[]`.
 
 This situation is somewhat unique to arrays. A Kotlin `Long` used by itself can compile to either a `Long` or `long` in JVM bytecode. The compiled type depends on the nullability of the field. Arrays are more explicit, so their types won't change when compiled.
 
@@ -64,7 +64,7 @@ There are also further classes for arrays of unsigned types.
 
 These classes can also be interchanged between Kotlin and Java without any extra effort.
 
-As a final piece of evidence showing you the differences between primitive and wrapped arrays in Kotlin, I want to show you some Kotlin code that is converted to its Java counterpart:
+As a final piece of evidence showing you the differences between primitive and wrapped/object arrays in Kotlin, I want to show you some Kotlin code that is converted to its Java counterpart:
 
 ```kotlin
 @file:JvmName("PrimitiveArrays")
@@ -108,7 +108,7 @@ public final class PrimitiveArrays {
 }
 ```
 
-Firstly, note that Kotlin provides you with useful initialisation functions for your arrays. Both for primitive and wrapped type arrays. Secondly, how they are compiled. For example, `LongArray` becomes `long[]` and `Array<Long>` becomes `Long[]`.
+Firstly, note that Kotlin provides you with useful initialisation functions for your arrays. Both for primitive and object arrays. Secondly, how they are compiled. For example, `LongArray` becomes `long[]` and `Array<Long>` becomes `Long[]`.
 
 You can now see the differences between these arrays. But, I have not mentioned which ones you should be utilising. You should defer to primitive types in the same way that Java does. This is due to the performance impact that autoboxing and unboxing can have on your application. 
 
@@ -116,4 +116,6 @@ For smaller workloads, the result is likely to be negligible. On the other hand,
 
 If you need to store nulls in your arrays, then you will still need to refer back to a wrapped/object array. In most situations, I think you should be able to utilise primitive arrays, but there are always going to be times when you can't. That being said, most of the time we all just use `List`s, so none of this really matters 😛.
 
-You should now have a better understanding of the differences between primitive arrays like `LongArray` and wrapped arrays such as `Array<Long>`. If not, then I have failed you, and I apologise for that 😥.
+You should now have a better understanding of the differences between primitive arrays like `LongArray` and object arrays such as `Array<Long>`. If not, then I have failed you, and I apologise for that 😥.
+
+If you found this post helpful, you can follow me on Twitter at [@LankyDanDev](https://twitter.com/LankyDanDev) to keep up with my new posts.
