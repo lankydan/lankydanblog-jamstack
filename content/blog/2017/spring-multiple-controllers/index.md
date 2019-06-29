@@ -4,7 +4,7 @@ date: "2017-04-08"
 published: true
 tags: [java, spring, spring boot, spring web]
 cover_image: ./title-card.png
-canonical_url: https://lankydanblog.com/2017/04/18/setting-up-bootstrap-4-alpha6-in-rails-5/
+canonical_url: https://lankydanblog.com/2017/04/08/request-mapping-with-multiple-rest-controllers/
 github_url: https://github.com/lankydan/spring-boot-rest-controllers-tutorial
 include_date_in_url: true
 ---
