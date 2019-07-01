@@ -102,7 +102,7 @@ dependencies {
 
 I'm not an expert in Gradle, so there are probably some things in this snippet that could be done better, but it does what it needs to.
 
-So, there are a few things I want to highlight. Spring Boot `2.0.3.RELEASE` is being used and to go along with this the `kotlin-spring` plugin is used to add `open` to all Kotlin classes marked with certain Spring annotations. This is needed for quite a lot of situations since Spring requires some classes to be non-final. This isn't a problem in Java but is problematic for Kotlin since all classes are final by default. More information on the plugin can be found at <a href="https://kotlinlang.org/docs/reference/compiler-plugins.html#spring-support" target="_blank" rel="noopener">kotlinlang.org</a>.
+So, there are a few things I want to highlight. Spring Boot `2.0.3.RELEASE` is being used and to go along with this the `kotlin-spring` plugin is used to add `open` to all Kotlin classes marked with certain Spring annotations. This is needed for quite a lot of situations since Spring requires some classes to be non-final. This isn't a problem in Java but is problematic for Kotlin since all classes are final by default. More information on the plugin can be found at [kotlinlang.org](https://kotlinlang.org/docs/reference/compiler-plugins.html#spring-support).
 
 `spring-boot-starter-webflux` pulls in the WebFlux dependencies along with general Spring web server code to get everything up and running.
 

@@ -260,11 +260,11 @@ If you found this post helpful, you can follow me on Twitter at [@LankyDanDev](h
 ## Links to my Spring Data Cassandra posts
 
 - [Getting started with Spring Data Cassandra](https://lankydanblog.com/2017/10/12/getting-started-with-spring-data-cassandra)
-- <[Separate keyspaces with Spring Data Cassandra](https://lankydanblog.com/2017/10/22/separate-keyspaces-with-spring-data-cassandra/)
+- [Separate keyspaces with Spring Data Cassandra](https://lankydanblog.com/2017/10/22/separate-keyspaces-with-spring-data-cassandra/)
 - [Multiple keyspaces using a single Spring Data CassandraTemplate](https://lankydanblog.com/2017/11/12/multiple-keyspaces-using-a-single-spring-data-cassandratemplate/)
 - [More complex modelling with Spring Data Cassandra](https://lankydanblog.com/2017/11/26/more-complex-modelling-with-spring-data-cassandra/)
-- <[Startup and shutdown scripts in Spring Data Cassandra](https://lankydanblog.com/2017/12/03/startup-and-shutdown-scripts-in-spring-data-cassandra/)</a>
-- <[Reactive Streams with Spring Data Cassandra](https://lankydanblog.com/2017/12/11/reactive-streams-with-spring-data-cassandra/)
+- [Startup and shutdown scripts in Spring Data Cassandra](https://lankydanblog.com/2017/12/03/startup-and-shutdown-scripts-in-spring-data-cassandra/)
+- [Reactive Streams with Spring Data Cassandra](https://lankydanblog.com/2017/12/11/reactive-streams-with-spring-data-cassandra/)
 - [Plumbing included with auto-configuration in Spring Data Cassandra](https://lankydanblog.com/2017/12/16/plumbing-included-with-auto-configuration-in-spring-data-cassandra/)
 - [Interacting with Cassandra using the Datastax Java driver](https://lankydanblog.com/2018/04/15/interacting-with-cassandra-using-the-datastax-java-driver/)
 

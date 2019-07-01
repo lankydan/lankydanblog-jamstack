@@ -277,7 +277,7 @@ If you found this post helpful, you can follow me on Twitter at [@LankyDanDev](h
 
 ## Some links that I found helpful
 
-- [Docker get started - part 2](https://docs.docker.com/get-started/part2/)</a>
+- [Docker get started - part 2](https://docs.docker.com/get-started/part2/)
 - [Docker compose getting started - Define services in a compose file](https://docs.docker.com/compose/gettingstarted/#step-3-define-services-in-a-compose-file)
 - [Docker compose - build](https://docs.docker.com/compose/compose-file/#build)
 - [Brians Java Blog - Docker multi container app](http://www.briansjavablog.com/2016/08/docker-multi-container-app.html)

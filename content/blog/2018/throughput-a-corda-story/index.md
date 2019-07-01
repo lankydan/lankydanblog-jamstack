@@ -67,7 +67,7 @@ Another area that will improve the network’s overall performance is the use of
 
 Every time I say “multiple Notaries”, I just feel like I need to clarify that I am not talking about a Notary Cluster.
 
-I have already written a post, <a href="https://lankydanblog.com/2018/11/18/increasing-network-throughput-with-multiple-notaries/" target="_blank" rel="noreferrer noopener">Increasing network throughput with multiple Notaries</a>, covering this topic and rather than repeating myself, I will direct you there instead.
+I have already written a post, [Increasing network throughput with multiple Notaries](https://lankydanblog.com/2018/11/18/increasing-network-throughput-with-multiple-notaries/), covering this topic and rather than repeating myself, I will direct you there instead.
 
 <div style="background-color:#f7f7f7;">
   <a href="https://lankydanblog.com/2018/11/18/increasing-network-throughput-with-multiple-notaries/"><p><strong>Increasing network throughput with multiple Notaries</strong></p>
@@ -100,7 +100,7 @@ Taking this information into account, make sure you think about whether you real
 
 Yes, yes, yes. Although, we didn’t measure the impact including multi-threading made I am sure it made a good improvement. But, be careful. If you don’t do it correctly then you might get bit in the arse. At of the time of writing, Corda does not support multi-threading within Flows. You will get some weird errors if you do. That being said, it is possible. You can do so from within a Corda Service which runs slightly outside of the territory of a Flow. By delegating some processing to a service, we were able to make use of threads to start new Flows which each run asynchronously, processing similar but separated tasks.
 
-I have written about this in my earlier post <a href="https://lankydanblog.com/2018/09/22/asynchronous-flow-invocations-with-corda-services/" target="_blank" rel="noreferrer noopener">Asynchronous Flow invocations with Corda Services</a> which dives into this topic and to why you might end up falling over when trying this.
+I have written about this in my earlier post [Asynchronous Flow invocations with Corda Services](https://lankydanblog.com/2018/09/22/asynchronous-flow-invocations-with-corda-services/) which dives into this topic and to why you might end up falling over when trying this.
 
 <div style="background-color:#f7f7f7;">
   <a href="https://lankydanblog.com/2018/09/22/asynchronous-flow-invocations-with-corda-services/"><p><strong>Asynchronous Flow invocations with Corda Services</strong></p>
@@ -114,7 +114,7 @@ I found using Corda relatively simple. It does get more difficult as you try to 
 
 As it gets more complicated, you need to keep in mind which party needs to do what. For example, spending cash. As an initiator, you can’t put other people’s cash states into a transaction. You need to send them some information and request them to add it to a transaction. Scenarios like this took me a while to get to grips with. As more developers spend time working with Corda, I am sure these concepts will become easier to understand. More examples will be published and knowledge of how to write good Flows will be distributed.
 
-Furthermore, I stand by the <a rel="noreferrer noopener" href="https://docs.corda.net/key-concepts.html" target="_blank">Key Concepts</a> that Corda have produced. Going through these and the documentation provided took me pretty far in my understanding of Corda.
+Furthermore, I stand by the [Key Concepts](https://docs.corda.net/key-concepts.html) that Corda have produced. Going through these and the documentation provided took me pretty far in my understanding of Corda.
 
 <div style="background-color:#f7f7f7;">
   <a href="https://docs.corda.net/key-concepts.html"><p><strong>Key concepts - R3 Corda V3.3 documentation</strong></p>
