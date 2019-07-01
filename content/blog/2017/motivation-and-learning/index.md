@@ -1,0 +1,27 @@
+---
+title: Motivation and learning
+date: "2017-02-27"
+published: true
+tags: [personal]
+cover_image: ./title-card.png
+canonical_url: https://lankydanblog.com/2017/02/27/motivation-and-learning/
+include_date_in_url: true
+---
+
+Something strange happened to me a few months ago where I found this urge that I could be better myself. It all started with one of my higher ups at work telling me and my colleagues that we should be spending some time out of work doing some extra learning, whether that was listening to podcasts, reading blogs or spending some time on a side project. For some reason, something clicked in my head and I thought "yeah, I want to do that", although I didn't do anything about it right away I had this thought in the back of my mind that I eventually acted upon.
+
+It began with me picking up my final year project from university which I knew was awfully coded, so I wanted to try refactor it so it was no longer an abomination. Using the knowledge that I had gained from working as a programmer I did my best to improve the project's code, but it was a losing battle as there was to much code and therefore too much effort would be needed to really make a dent in it, I did spend a whole year on that project in university after all. Although I didn't make it as far as I hoped, my motivation to learn more did not falter.
+
+Sometime later I had to travel back home after Christmas and thought this was a good time to listen to some podcasts. So I went onto the internet and googled "programming podcasts" found some results, downloaded them and listened to a few. Again something clicked and listening to podcasts, such as [Hansel Minutes](http://hanselminutes.com/) and [This Developer's Life](http://thisdeveloperslife.com/) I felt this urge to learn increase again.
+
+The next step that occurred was making the decision to write a blog. I didn't know if I would like it or if I would be any good, but I felt like I had something to give so I gave it a shot. So I wrote my first post [Should you write comments?](https://lankydanblog.wordpress.com/2017/01/07/should-you-write-comments/) which didn't involve any preparation to write and was something I felt like I had reasonable knowledge on. And quite frankly I really enjoyed it, I'm not much of a writer but it still felt great. So I wrote another. And then I decided to post them onto [Dzone](https://dzone.com/) as no one was going to find and read my random blog and thousands of people ended up viewing them. After seeing so many people read my posts I decided to keep at it and now I spend some time each week learning something that I will eventually turn into a blog post.
+
+So why am I writing this post? I wanted to share some of steps that I took that I believe are leading me to not only be a better programmer but also enjoy the experience.
+
+Let's start with the one that requires the least amount of experience, listening to podcasts. Personally I listen to them on the way to work and is a nice replacement for music. Some podcasts that I recommend listening to including [Software Engineering Daily](https://softwareengineeringdaily.com/), [Developer on Fire](http://developeronfire.com/) and the two I mentioned earlier [Hansel Minutes](http://hanselminutes.com/) and [This Developer's Life](http://thisdeveloperslife.com/). These are general podcasts and don't focus on specific programming languages but are good for nurturing interests in various topics from professionals that have thorough knowledge in their areas. Now obviously there is a possibility that you do not enjoy these podcasts, but there are probably some out there for you. Just remember that the most important thing is that you are interested and enjoy the podcast that you listen to.
+
+Now let's talk about writing a blog. It doesn't take much effort to get started, for example I created this blog on WordPress which is free and requires no effort on my end other than writing the posts. So what do you write about? Anything you want really, preferably something that is going to be helpful to someone else such as tutorials on topics you are interested in. Now I just mentioned writing tutorials, this is the perfect way to prove to yourself that you understand something. If you can write code examples and explain what it is and why it works then your understanding in this topic will become more concrete. Eventually your going to run out of topics that you know so if you want to keep writing posts your going to need to do some learning. This is exactly what I do, I spend some time each week learning a new skill and then once I feel confident in the subject I will transfer what I learnt into a post.
+
+Talking to other programmers about what they are working on or asking for their ideas on problems your are trying to solve is another way to motivate yourself while also learning new skills or insights that you might not have. This is something that I do at work a lot as I have colleagues that have good knowledge in certain areas and therefore I ask for their opinions on solutions that I wrote. On the flip side I enjoy helping my colleagues when they require assistance, for two reasons; if you successfully solve their problem it's a good confidence booster proving that you have good knowledge in that area and for the simple fact that helping someone feels good.
+
+To TL;DR this post, try listening to podcasts, writing a blog, working on a side project, asking others what they are working on and most importantly find what you enjoy and want to do to keep learning.
