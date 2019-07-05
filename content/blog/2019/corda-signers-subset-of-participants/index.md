@@ -6,19 +6,19 @@ tags: [corda, kotlin, dlt, distributed ledger technology, blockchain]
 cover_image: ./title-card.png
 ---
 
-It took a while to think of a title that could summarise the contents of this post without becoming a full sentence itself. I think I have managed to choose something legible 😅. Either way, let me clarify what I am actually talking about.
+It took a while for me to think of a title that could summarise the contents of this post without becoming a full sentence itself. I think I have managed to choose something legible 😅. Either way, let me clarify what I am actually talking about.
 
 I have seen several people ask questions like the below in Slack:
 
 > In the example, it shows a responder flow when the node which is running the responder flow is one of the required signers. But how about the case when the node running the responder flow is not a required signer (e.g. one of the participants of a state involved in the tx)? Do I need to write responder flow for such node? If so, how should I write the responder flow?
 
-This is an actual question that was asked this week.
+That was actually a copy and paste of a question I was asked this week.
 
 In other words:
 
 > I have a state that has a set of participants. Some of them must sign the transaction, some must not. How do I structure my flows, especially the responder flow to cope with this?
 
-Due to how the responder flows work, where every counterparty runs the same responder code (unless overridden). Having a group of counterparties do one thing, and another do something else is not handled by the simple code found in samples. Your flows need to be constructed to handle this explicitly.
+Due to how responder flows work, where every counterparty runs the same responder code (unless overridden). Having a group of counterparties do one thing, and another do something else is not handled by the _simple_ code found in samples. Your flows need to be constructed to handle this explicitly.
 
 The code to do this is relatively simple, but might not be evident unless you have been developing with Corda for a while.
 
@@ -45,7 +45,7 @@ class SendMessageResponder(private val session: FlowSession) : FlowLogic<SignedT
 }
 ```
 
-If a initiating flow triggers this responder for a non signing counterparty, an error occurs:
+If a initiating flow triggers this responder for a non-signing counterparty, an error occurs:
 
 ```java
 net.corda.core.flows.UnexpectedFlowEndException: Tried to access ended session SessionId(toLong=3446769309292325575) with empty buffer
@@ -63,9 +63,13 @@ net.corda.core.flows.UnexpectedFlowEndException: Tried to access ended session S
 
 This is because the non-signer is never sent the transaction to sign, but, alas, their code is sitting there waiting to sign a transaction that never comes. How sad 😿. I'm here to stop the counterparties of your flows from being sad like this one here.
 
+This is another good teaching moment. If you ever see a stack trace like the one above, it is most likely due to miss placed `send`s and `receive`s. Either they are in the wrong order or there a missing `send` or `receive`. Run through your code line by line and you should hopefully be able to pin point where the mismatch is.
+
 ## Differentiating by flag
 
-This solution is the one that first came to me as it is the easier one to understand. A counterparty is notified whether they need to sign the transaction or not. Their responder flow will then execute `SignTransactionFlow` or skip over it and go straight to `ReceiveFinalityFlow`. Both paths will always receive the flag and call `ReceiveFinalityFlow`.
+This solution is the one that came to me first as it is the easier one to understand. 
+
+A counterparty is notified whether they need to sign the transaction or not. Their responder flow will then execute `SignTransactionFlow` or skip over it and go straight to `ReceiveFinalityFlow`. Both paths will always receive the flag and call `ReceiveFinalityFlow`.
 
 An example can be found below:
 
@@ -123,12 +127,14 @@ Important points to the code above:
 
 - The `spy` (another party) is added to the state's `participants` list
 - Flags are sent to the participants telling them whether to sign or not
-- The responder flow `receive`s the flag and skips of `SignTransactionFlow` if told to
+- The responder flow `receive`s the flag and skips `SignTransactionFlow` if told to
 - `ReceiveFinalityFlow` is invoked waiting for the initiator to call `FinalityFlow`
 
 I'll leave the explanation at that as there is not much else to say.
 
 ## Separating logic by extra initiating flows
+
+This solution is a bit more involved due to the indirection caused by the different flows intermingling with each other. This solution really needs to be read before any explaining can be done:
 
 ```kotlin
 @InitiatingFlow
@@ -156,6 +162,7 @@ class SendMessageWithExtraInitiatingFlowFlow(private val message: MessageState) 
 
   private fun transaction(spy: Party) =
     TransactionBuilder(notary()).apply {
+      // the spy is added to the messages participants
       val spiedOnMessage = message.copy(participants = message.participants + spy)
       addOutputState(spiedOnMessage, MessageContract.CONTRACT_ID)
       addCommand(Command(Send(), listOf(message.recipient, message.sender).map(Party::owningKey)))
@@ -208,15 +215,13 @@ The flow of the code above is as follows:
 - More sessions are initiated for each participant
 - `FinalityFlow` is called which triggers the `SendMessageWithExtraInitiatingFlowResponder` linked to the original/top-level flow
 
-This solution is a bit more involved due to the indirection caused by the different flows intermingling with each other.
-
-It is built upon the fact that any flow annotated with `@InitiatingFlow` will be routed to its `@InitiatedBy` partner and is done so in a __new session__. Leveraging this allows a responder flow to be added that is only triggered for required signers. Sessions are still created for the top level flow (`SendMessageWithExtraInitiatingFlowFlow`) and are used in `FinalityFlow`.
+The code above, is built upon the fact that any flow annotated with `@InitiatingFlow` will be routed to its `@InitiatedBy` partner and is done so in a __new session__. Leveraging this allows a responder flow to be added that is only triggered for required signers. Sessions are still created for the top level flow (`SendMessageWithExtraInitiatingFlowFlow`) and are used in `FinalityFlow`.
 
 There are a few other things that happen under the covers, but they are not needed for the context of this post.
 
 ## Which is better?
 
-Hard to say at the moment. I would have to do a little performance testing and playing around with the code a bit...
+Hard to say at the moment. I would have to do a little performance testing and play around with the code some more...
 
 My current opinion is the __extra initiating flows__ works a bit better. It removes the need for an extra trip across the network from the initiator to each individual counterparty. It adds a bit of additional boilerplate code but also extracts the signing logic out from the rest of the responder/counterparty code.
 
