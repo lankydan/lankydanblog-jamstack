@@ -63,7 +63,7 @@ net.corda.core.flows.UnexpectedFlowEndException: Tried to access ended session S
 
 This is because the non-signer is never sent the transaction to sign, but, alas, their code is sitting there waiting to sign a transaction that never comes. How sad 😿. I'm here to stop the counterparties of your flows from being sad like this one here.
 
-## Differentiating by a flag
+## Differentiating by flag
 
 This solution is the one that first came to me as it is the easier one to understand. A counterparty is notified whether they need to sign the transaction or not. Their responder flow will then execute `SignTransactionFlow` or skip over it and go straight to `ReceiveFinalityFlow`. Both paths will always receive the flag and call `ReceiveFinalityFlow`.
 
