@@ -56,8 +56,10 @@ The last important line of code in these snippets is the `@InitiatingFlow` annot
 ```kotlin
 subFlow(FinalityFlow(stx, sessions)).also {
   // sends to everyone in the network
-  val broadcastToParties =
-    serviceHub.networkMapCache.allNodes.map { node -> node.legalIdentities.first() } - message.recipient - message.sender
+  val broadcastToParties = serviceHub.networkMapCache.allNodes.map { node -> node.legalIdentities.first() }
+    .minus(serviceHub.networkMapCache.notaryIdentities)
+    .minus(message.recipient)
+    .minus(message.sender)
   subFlow(BroadcastTransactionFlow(it, broadcastToParties))
 }
 ```
