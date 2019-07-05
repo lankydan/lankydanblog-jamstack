@@ -8,11 +8,9 @@ cover_image: ./title-card.png
 
 It took a while for me to think of a title that could summarise the contents of this post without becoming a full sentence itself. I think I have managed to choose something legible 😅. Either way, let me clarify what I am actually talking about.
 
-I have seen several people ask questions like the below in Slack:
+I have seen several people ask questions like the one below in Slack:
 
 > In the example, it shows a responder flow when the node which is running the responder flow is one of the required signers. But how about the case when the node running the responder flow is not a required signer (e.g. one of the participants of a state involved in the tx)? Do I need to write responder flow for such node? If so, how should I write the responder flow?
-
-That was actually a copy and paste of a question I was asked this week.
 
 In other words:
 
@@ -63,13 +61,13 @@ net.corda.core.flows.UnexpectedFlowEndException: Tried to access ended session S
 
 This is because the non-signer is never sent the transaction to sign, but, alas, their code is sitting there waiting to sign a transaction that never comes. How sad 😿. I'm here to stop the counterparties of your flows from being sad like this one here.
 
-This is another good teaching moment. If you ever see a stack trace like the one above, it is most likely due to miss placed `send`s and `receive`s. Either they are in the wrong order or there a missing `send` or `receive`. Run through your code line by line and you should hopefully be able to pin point where the mismatch is.
+This is also a good teaching moment. If you ever see a stack trace like the one above, it is most likely due to misplaced `send`s and `receive`s. Either they are in the wrong order or there is a missing `send` or `receive`. Run through your code line by line and you should hopefully be able to pin point where the mismatch is.
 
 ## Differentiating by flag
 
 This solution is the one that came to me first as it is the easier one to understand. 
 
-A counterparty is notified whether they need to sign the transaction or not. Their responder flow will then execute `SignTransactionFlow` or skip over it and go straight to `ReceiveFinalityFlow`. Both paths will always receive the flag and call `ReceiveFinalityFlow`.
+A counterparty is notified telling them whether they need to sign the transaction or not. Their responder flow will then execute `SignTransactionFlow` or skip over it and go straight to `ReceiveFinalityFlow`. Both paths will always receive the flag and call `ReceiveFinalityFlow`.
 
 An example can be found below:
 
@@ -112,12 +110,15 @@ class SendMessageResponder(private val session: FlowSession) : FlowLogic<SignedT
 
   @Suspendable
   override fun call(): SignedTransaction {
+    // receive the flag
     val needsToSignTransaction = session.receive<Boolean>().unwrap { it }
+    // only sign if instructed to do so
     if (needsToSignTransaction) {
       subFlow(object : SignTransactionFlow(session) {
         override fun checkTransaction(stx: SignedTransaction) { }
       })
     }
+    // always save the transaction
     return subFlow(ReceiveFinalityFlow(otherSideSession = session))
   }
 }
