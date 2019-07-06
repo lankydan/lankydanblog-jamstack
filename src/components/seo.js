@@ -62,7 +62,7 @@ function SEO({
       meta={[
         {
           name: `og:url`,
-          content: url
+          content: url,
         },
         {
           name: `description`,
@@ -107,6 +107,10 @@ function SEO({
         {
           name: `article:published_time`,
           content: date,
+        },
+        {
+          name: `google-site-verification`,
+          content: `Gdg19vWoDs-Ch1tVhs9C2prThL_r0AkMKAgVxDBPke4`,
         },
       ]
         .concat(
