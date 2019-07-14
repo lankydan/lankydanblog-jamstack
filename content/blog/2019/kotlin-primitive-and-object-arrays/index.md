@@ -6,7 +6,7 @@ tags: [kotlin, java, beginner]
 cover_image: ./title-card.png
 ---
 
-I initially set out to write this post because I was playing around with some reflection code and thought I found something interesting. Alas, that was definitely not the case. Instead, it was just a basic feature of Kotlin that I haven't needed to use or focus on yet. Although this post didn't turn out the way I wanted it to be, I still think it is a nice little post to bring a some clarity to this subject.
+I initially set out to write this post because I was playing around with some reflection code and thought I found something interesting. Alas, that was definitely not the case. Instead, it was just a basic feature of Kotlin that I haven't needed to use or focus on yet. Although this post didn't turn out the way I wanted it to be, I still think it is a nice little post to bring some clarity to this subject.
 
 In Java, there is the concept of [primitive types](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html) and their [wrapped versions](https://docs.oracle.com/javase/tutorial/java/data/autoboxing.html). Thanks to autoboxing and unboxing, types can be interchanged between their primitive and wrapped versions. In other words, in most situations you can use a `long` instead of a `Long` or a `Long` instead of a `long`. If you didn't notice where the capitals were in that last sentence then I imagine it probably looked quite confusing. The wording in that sentence is also crucial. More specifically, the statement "in most situations".
 
@@ -41,7 +41,7 @@ val array = Array<Long>(3)
 val array: Array<Long> = arrayOf(1,2,3)
 ```
 
-The fact that you can see the `Array` uses generics should highlight that it is not a primitive array. This is a fact in both Java and Kotlin, that generic types cannot be primitives. Otherwise, it could be switched out for `Array<long>`, and we would all be happy. The code above compiles down to a object array of `Long[]` instead of a primitive `long[]`.
+The fact that you can see the `Array` uses generics should highlight that it is not a primitive array. This is a fact in both Java and Kotlin, that generic types cannot be primitives. Otherwise, it could be switched out for `Array<long>`, and we would all be happy. The code above compiles down to an object array of `Long[]` instead of a primitive `long[]`.
 
 This situation is somewhat unique to arrays. A Kotlin `Long` used by itself can compile to either a `Long` or `long` in JVM bytecode. The compiled type depends on the nullability of the field. Arrays are more explicit, so their types won't change when compiled.
 
