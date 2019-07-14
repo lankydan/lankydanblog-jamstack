@@ -20,7 +20,7 @@ Due to how responder flows work, where every counterparty runs the same responde
 
 The code to do this is relatively simple, but might not be evident unless you have been developing with Corda for a while.
 
-So far, I have two solutions to this problem. I am pretty sure these are best solutions currently available, and I cannot think of any others that would work or are worth pursuing. These solutions are:
+So far, I have two solutions to this problem. I am pretty sure these are the best solutions currently available, and I cannot think of any others that would work or are worth pursuing. These solutions are:
 
 - Sending a flag to counterparties to tell them whether they are signers or not
 - Using subflow'd `@InitiatingFlow`s to collect signatures or to save the transaction
@@ -43,7 +43,7 @@ class SendMessageResponder(private val session: FlowSession) : FlowLogic<SignedT
 }
 ```
 
-If a initiating flow triggers this responder for a non-signing counterparty, an error occurs:
+If an initiating flow triggers this responder for a non-signing counterparty, an error occurs:
 
 ```java
 net.corda.core.flows.UnexpectedFlowEndException: Tried to access ended session SessionId(toLong=3446769309292325575) with empty buffer
@@ -61,7 +61,7 @@ net.corda.core.flows.UnexpectedFlowEndException: Tried to access ended session S
 
 This is because the non-signer is never sent the transaction to sign, but, alas, their code is sitting there waiting to sign a transaction that never comes. How sad 😿. I'm here to stop the counterparties of your flows from being sad like this one here.
 
-This is also a good teaching moment. If you ever see a stack trace like the one above, it is most likely due to misplaced `send`s and `receive`s. Either they are in the wrong order or there is a missing `send` or `receive`. Run through your code line by line and you should hopefully be able to pin point where the mismatch is.
+This is also a good teaching moment. If you ever see a stack trace like the one above, it is most likely due to misplaced `send`s and `receive`s. Either they are in the wrong order or there is a missing `send` or `receive`. Run through your code line by line and you should hopefully be able to pinpoint where the mismatch is.
 
 ## Differentiating by flag
 
