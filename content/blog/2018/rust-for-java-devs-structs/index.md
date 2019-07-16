@@ -4,7 +4,6 @@ slug: rust-for-java-devs-structs
 date: "2018-03-01"
 published: true
 tags: [rust, java]
-canonical_url: https://lankydanblog.com/2018/03/01/rust-for-java-devs-structs/
 cover_image: ./rust-icon-with-background.jpg
 include_date_in_url: true
 ---

@@ -3,7 +3,6 @@ title: Corda Services 101
 date: "2018-08-19"
 published: true
 tags: [corda, kotlin, dlt, blockchain, distributed ledger technology]
-canonical_url: https://lankydanblog.com/2018/08/19/corda-services-101/
 cover_image: ./corda-hong-kong.png
 include_date_in_url: true
 github_url: https://github.com/lankydan/corda-services

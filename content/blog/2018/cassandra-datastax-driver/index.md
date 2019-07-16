@@ -3,7 +3,6 @@ title: Interacting with Cassandra using the Datastax Java driver
 date: "2018-04-15"
 published: true
 tags: [java, cassandra, datastax, spring, spring boot]
-canonical_url: https://lankydanblog.com/2018/04/15/interacting-with-cassandra-using-the-datastax-java-driver/
 cover_image: ./datastax.jpg
 include_date_in_url: true
 github_url: https://github.com/lankydan/datastax-java-driver

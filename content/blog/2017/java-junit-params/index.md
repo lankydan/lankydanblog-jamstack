@@ -4,7 +4,6 @@ date: "2017-03-04"
 published: true
 tags: [java, junit, testing]
 cover_image: ./title-card.png
-canonical_url: https://lankydanblog.com/2017/03/04/getting-started-with-junitparams/
 github_url: https://github.com/lankydan/JUnitParamsTutorial
 include_date_in_url: true
 ---

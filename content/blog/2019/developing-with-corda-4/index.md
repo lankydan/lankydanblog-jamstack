@@ -3,7 +3,6 @@ title: Developing with Corda 4
 date: "2019-04-05"
 published: true
 tags: [corda, corda 4, kotlin, dlt, distributed ledger technology, blockchain]
-canonical_url: https://lankydanblog.com/2018/06/05/developing-with-corda/
 cover_image: ./corda-sunset-mountains.png
 github_url: https://github.com/corda/corda-training-solutions
 ---

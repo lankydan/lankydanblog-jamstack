@@ -3,7 +3,6 @@ title: Increasing network throughput with multiple Notaries
 date: "2018-11-18"
 published: true
 tags: [corda, dlt, distributed ledger technology, blockchain, performance]
-canonical_url: https://lankydanblog.com/2018/11/18/increasing-network-throughput-with-multiple-notaries/
 cover_image: ./corda-sunset.png
 include_date_in_url: true
 github_url: https://github.com/lankydan/corda-multiple-notaries

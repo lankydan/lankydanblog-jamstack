@@ -4,7 +4,6 @@ date: "2017-04-01"
 published: true
 tags: [java, patterns]
 cover_image: ./title-card.png
-canonical_url: https://lankydanblog.com/2017/04/01/building-with-the-builder-pattern/
 include_date_in_url: true
 ---
 

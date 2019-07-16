@@ -4,7 +4,6 @@ date: "2017-02-11"
 published: true
 tags: [java, javafx]
 cover_image: ./title-card.png
-canonical_url: https://lankydanblog.com/2017/02/11/editable-table-in-javafx/
 github_url: https://github.com/lankydan/JavaFX-Table-Tutorial
 include_date_in_url: true
 ---

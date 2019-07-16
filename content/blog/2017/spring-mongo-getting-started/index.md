@@ -3,7 +3,6 @@ title: Getting started with Spring Data and MongoDB
 date: "2017-05-20"
 published: true
 tags: [spring, java, spring boot, spring data, mongo, mongodb, spring data mongodb]
-canonical_url: https://lankydanblog.com/2017/05/20/getting-started-with-spring-data-and-mongodb/
 cover_image: ./spring-forest.jpeg
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-data-mongodb-basic

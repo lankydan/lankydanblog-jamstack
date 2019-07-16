@@ -4,7 +4,6 @@ slug: running-on-time-with-springs-scheduled-tasks
 date: "2018-02-04"
 published: true
 tags: [java, spring, spring boot, scheduling]
-canonical_url: https://lankydanblog.com/2018/02/04/running-on-time-with-springs-scheduled-tasks/
 cover_image: ./alarm-clocks.jpg
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-scheduled-tasks

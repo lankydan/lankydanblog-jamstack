@@ -3,7 +3,6 @@ title: Learning Big O Notation with O(n) complexity
 date: "2017-04-23"
 published: true
 tags: [computer science, theory]
-canonical_url: https://lankydanblog.com/2017/04/23/learning-big-o-notation-with-on-complexity/
 cover_image: ./title-card.png
 include_date_in_url: true
 ---

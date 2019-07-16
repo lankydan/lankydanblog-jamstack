@@ -3,7 +3,6 @@ title: Debugging a Rails server in Visual Studio Code
 date: "2017-05-12"
 published: true
 tags: [ruby, beginners, vscode, visual studio code, rails]
-canonical_url: https://lankydanblog.com/2017/05/12/debugging-a-rails-server-in-visual-studio-code/
 cover_image: ./ruby-extension.jpeg
 include_date_in_url: true
 ---

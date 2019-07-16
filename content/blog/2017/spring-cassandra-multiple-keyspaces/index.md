@@ -3,7 +3,6 @@ title: Multiple keyspaces using a single Spring Data CassandraTemplate
 date: "2017-11-12"
 published: true
 tags: [spring, spring data, spring data cassandra, cassandra, spring boot, java]
-canonical_url: https://lankydanblog.com/2017/11/12/multiple-keyspaces-using-a-single-spring-data-cassandratemplate/
 cover_image: ./keys.jpg
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-data-cassandra/tree/multiple_keyspaces_with_cassandra_template

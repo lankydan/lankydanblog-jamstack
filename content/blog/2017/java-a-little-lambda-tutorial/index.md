@@ -4,7 +4,6 @@ date: "2017-01-14"
 published: true
 tags: [java, java 8]
 cover_image: ./title-card.png
-canonical_url: https://lankydanblog.com/2017/01/14/a-little-lambda-tutorial/
 include_date_in_url: true
 ---
 

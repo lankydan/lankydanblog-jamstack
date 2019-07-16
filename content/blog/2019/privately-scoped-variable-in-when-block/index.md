@@ -4,7 +4,6 @@ slug: storing-when-block-subject-in-a-variable
 date: "2019-01-03"
 published: true
 tags: [kotlin]
-canonical_url: https://lankydanblog.com/2019/01/03/storing-when-block-subject-in-a-variable/
 cover_image: ./kotlin-chain-fence.png
 include_date_in_url: true
 ---

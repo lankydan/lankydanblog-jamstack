@@ -4,7 +4,6 @@ slug: global-exception-handling-with-controlleradvice
 date: "2017-09-12"
 published: true
 tags: [spring, spring boot, java, spring web, controlleradvice, exception handling, spring hateoas, hateoas]
-canonical_url: https://lankydanblog.com/2017/09/12/global-exception-handling-with-controlleradvice/
 cover_image: ./spring.png
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-boot-hateoas

@@ -4,7 +4,6 @@ date: "2017-02-27"
 published: true
 tags: [personal]
 cover_image: ./title-card.png
-canonical_url: https://lankydanblog.com/2017/02/27/motivation-and-learning/
 include_date_in_url: true
 ---
 

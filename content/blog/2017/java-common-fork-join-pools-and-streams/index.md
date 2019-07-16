@@ -4,7 +4,6 @@ date: "2017-02-01"
 published: true
 tags: [java, java 8, java streams, threading]
 cover_image: ./title-card.png
-canonical_url: https://lankydanblog.com/2017/02/01/common-fork-join-pool-and-streams/
 include_date_in_url: true
 ---
 

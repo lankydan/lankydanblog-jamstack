@@ -4,7 +4,6 @@ date: "2017-01-29"
 published: true
 tags: [theory, general]
 cover_image: ./title-card.png
-canonical_url: https://lankydanblog.com/2017/01/29/abstraction-do-i-need-to-know-this/
 include_date_in_url: true
 ---
 

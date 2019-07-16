@@ -3,7 +3,6 @@ title: Using JMS in Spring Boot
 date: "2017-06-18"
 published: true
 tags: [activemq, spring, spring boot, spring boot jms]
-canonical_url: https://lankydanblog.com/2017/06/18/using-jms-in-spring-boot/
 cover_image: ./spring-jms-tube.jpeg
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-boot-jms

@@ -4,7 +4,6 @@ date: "2017-03-11"
 published: true
 tags: [java, spring, spring boot, spring web]
 cover_image: ./title-card.png
-canonical_url: https://lankydanblog.com/2017/03/11/passing-data-transfer-objects-with-get-in-spring-boot/
 github_url: https://github.com/lankydan/spring-boot-dto-tutorial-1
 include_date_in_url: true
 ---

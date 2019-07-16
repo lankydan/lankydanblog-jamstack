@@ -4,7 +4,6 @@ date: "2017-04-22"
 published: true
 tags: [java, java 8]
 cover_image: ./title-card.png
-canonical_url: https://lankydanblog.com/2017/04/22/a-little-lazy-lambda-tutorial/
 include_date_in_url: true
 ---
 

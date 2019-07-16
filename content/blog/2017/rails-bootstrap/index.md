@@ -4,7 +4,6 @@ date: "2017-04-18"
 published: true
 tags: [ruby on rails, bootstrap]
 cover_image: ./title-card.png
-canonical_url: https://lankydanblog.com/2017/04/18/setting-up-bootstrap-4-alpha6-in-rails-5/
 include_date_in_url: true
 ---
 

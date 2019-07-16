@@ -5,7 +5,6 @@ date: "2017-03-04"
 published: true
 tags: [testing, basics, beginner]
 cover_image: ./title-card.png
-canonical_url: https://lankydanblog.com/2017/03/04/writing-your-f-i-r-s-t-unit-tests/
 include_date_in_url: true
 ---
 

@@ -3,7 +3,6 @@ title: Embedded documents with Spring Data and MongoDB
 date: "2017-05-29"
 published: true
 tags: [spring, java, spring boot, spring data, mongo, mongodb, spring data mongodb]
-canonical_url: https://lankydanblog.com/2017/06/07/mongodb-indexes-with-spring-data/
 cover_image: ./spring-forest.jpeg
 include_date_in_url: true
 github_url: https://github.com/lankydan/mongodb-relationships-with-spring

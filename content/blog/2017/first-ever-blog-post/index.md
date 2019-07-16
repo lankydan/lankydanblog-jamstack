@@ -5,7 +5,6 @@ date: "2017-01-06"
 published: true
 tags: [personal]
 cover_image: ./title-card.png
-canonical_url: https://lankydanblog.com/2017/01/06/first-blog-post/
 include_date_in_url: true
 ---
 

@@ -4,7 +4,6 @@ slug: rust-for-java-devs-compiling-code-and-using-cargo
 date: "2018-01-21"
 published: true
 tags: [rust, java]
-canonical_url: https://lankydanblog.com/2018/01/21/rust-for-java-devs-compiling-code-and-using-cargo/
 cover_image: ./rust-icon-with-background.png
 include_date_in_url: true
 ---

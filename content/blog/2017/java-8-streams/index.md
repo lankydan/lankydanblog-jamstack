@@ -4,7 +4,6 @@ date: "2017-01-22"
 published: true
 tags: [java, java 8, java streams]
 cover_image: ./title-card.png
-canonical_url: https://lankydanblog.com/2017/01/22/java-8-streams/
 include_date_in_url: true
 ---
 

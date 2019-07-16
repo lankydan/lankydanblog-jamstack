@@ -3,7 +3,6 @@ title: Starting Flows with trackBy
 date: "2018-10-05"
 published: true
 tags: [corda, dlt, distributed ledger technology, blockchain, kotlin]
-canonical_url: https://lankydanblog.com/2018/10/05/starting-flows-with-trackby/
 cover_image: ./corda-new-york.png
 include_date_in_url: true
 github_url: https://github.com/lankydan/corda-service-trackby-flows

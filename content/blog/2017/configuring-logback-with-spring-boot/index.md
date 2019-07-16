@@ -5,7 +5,6 @@ date: "2017-08-31"
 updated_date: "2019-01-09"
 published: true
 tags: [spring, spring boot, java, logback, logging]
-canonical_url: https://lankydanblog.com/2019/01/09/configuring-logback-with-spring-boot/
 cover_image: ./spring-boot.png
 github_url: https://github.com/lankydan/logback-with-springboot-config
 ---

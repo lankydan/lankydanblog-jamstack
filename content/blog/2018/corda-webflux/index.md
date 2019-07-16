@@ -3,7 +3,6 @@ title: Streaming data out of a Corda node with Spring WebFlux
 date: "2018-07-25"
 published: true
 tags: [corda, kotlin, dlt, blockchain, distributed ledger technology]
-canonical_url: https://lankydanblog.com/2018/07/25/streaming-data-out-of-a-corda-node-with-spring-webflux/
 cover_image: ./corda-hong-kong.jpg
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-webflux-and-corda

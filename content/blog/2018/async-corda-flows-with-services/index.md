@@ -3,7 +3,6 @@ title: Asynchronous Flow invocations with Corda Services
 date: "2018-09-22"
 published: true
 tags: [corda, dlt, distributed ledger technology, blockchain, performance, kotlin]
-canonical_url: https://lankydanblog.com/2018/09/22/asynchronous-flow-invocations-with-corda-services/
 cover_image: ./corda-clouds.png
 include_date_in_url: true
 github_url: https://github.com/lankydan/corda-services-multi-threading-flows

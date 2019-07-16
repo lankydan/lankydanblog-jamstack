@@ -3,7 +3,6 @@ title: Testing a HATEOAS service
 date: "2017-09-18"
 published: true
 tags: [spring, testing, hateoas, spring boot, java, spring hateoas, spring rest]
-canonical_url: https://lankydanblog.com/2017/09/18/testing-a-hateoas-service/
 cover_image: ./arches.jpg
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-boot-hateoas

@@ -3,7 +3,6 @@ title: Reactive Streams with Spring Data Cassandra
 date: "2017-12-11"
 published: true
 tags: [spring, spring data, spring data cassandra, cassandra, spring boot, java]
-canonical_url: https://lankydanblog.com/2017/12/16/plumbing-included-with-auto-configuration-in-spring-data-cassandra/
 cover_image: ./river.jpeg
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-data-cassandra/tree/reactive-spring-data-cassandra

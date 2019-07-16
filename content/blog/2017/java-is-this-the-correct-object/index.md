@@ -4,7 +4,6 @@ date: "2017-03-02"
 published: true
 tags: [java]
 cover_image: ./title-card.png
-canonical_url: https://lankydanblog.com/2017/03/02/is-this-the-correct-object/
 include_date_in_url: true
 ---
 

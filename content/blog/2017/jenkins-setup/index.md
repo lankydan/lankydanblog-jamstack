@@ -3,7 +3,6 @@ title: Setting up Jenkins to deploy to Heroku
 date: "2017-06-11"
 published: true
 tags: [jenkins, heroku, maven]
-canonical_url: https://lankydanblog.com/2017/06/11/setting-up-jenkins-to-deploy-to-heroku/
 cover_image: ./jenkins-bar.jpeg
 include_date_in_url: true
 ---

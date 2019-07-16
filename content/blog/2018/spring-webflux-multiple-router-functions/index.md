@@ -3,7 +3,6 @@ title: Creating multiple RouterFunctions in Spring WebFlux
 date: "2018-03-21"
 published: true
 tags: [java, spring, spring boot, spring webflux]
-canonical_url: https://lankydanblog.com/2018/03/21/creating-multiple-routerfunctions-in-spring-webflux/
 cover_image: ./spring-webflux.jpg
 include_date_in_url: true
 ---

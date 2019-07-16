@@ -3,7 +3,6 @@ title: Getting started with Spring Data Cassandra
 date: "2017-10-12"
 published: true
 tags: [spring, spring data, spring data cassandra, cassandra, spring boot, java]
-canonical_url: https://lankydanblog.com/2017/10/12/getting-started-with-spring-data-cassandra/
 cover_image: ./office.jpg
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-data-cassandra

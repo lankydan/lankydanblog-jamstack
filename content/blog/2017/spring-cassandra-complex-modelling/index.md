@@ -3,7 +3,6 @@ title: More complex modelling with Spring Data Cassandra
 date: "2017-11-26"
 published: true
 tags: [spring, spring data, spring data cassandra, cassandra, spring boot, java]
-canonical_url: https://lankydanblog.com/2017/11/26/more-complex-modelling-with-spring-data-cassandra/
 cover_image: ./architecture.jpg
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-data-cassandra/tree/using_entities_the_cassandra_way

@@ -3,7 +3,6 @@ title: Startup and shutdown scripts in Spring Data Cassandra
 date: "2017-12-03"
 published: true
 tags: [spring, spring data, spring data cassandra, cassandra, spring boot, java]
-canonical_url: https://lankydanblog.com/2017/12/03/startup-and-shutdown-scripts-in-spring-data-cassandra/
 cover_image: ./running.jpeg
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-data-cassandra/tree/cassandra_startup_shutdown_scripts
