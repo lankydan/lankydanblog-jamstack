@@ -12,7 +12,7 @@ After my last post seemed to be well received I am back with another Rust for Ja
 
 So lets jump in.
 
-In my previous post [Rust for Java Devs: Creating Variables](https://lankydanblog.com/2018/01/13/rust-for-java-devs-creating-variables-first-rust-post/) I showed code examples and what they output, but without any other knowledge you would not be able to try it yourself because you can't compile it. I am here to correct that.
+In my previous post [Rust for Java Devs: Creating Variables](https://lankydan.dev/2018/01/13/rust-for-java-devs-creating-variables-first-rust-post/) I showed code examples and what they output, but without any other knowledge you would not be able to try it yourself because you can't compile it. I am here to correct that.
 
 Compiling is straight forward and most likely you won't actually need to use it very often as you will use Cargo instead. Nevertheless it is still worth knowing how to compile your code manually. To compile your code run the `rustc` command with the name of the file you wish to compile.
 

@@ -8,9 +8,9 @@ include_date_in_url: true
 github_url: https://github.com/lankydan/spring-data-cassandra/tree/reactive-spring-data-cassandra
 ---
 
-Today we are going to look at reactive Spring Data Cassandra. This post is actually very similar to one that I did on [Reactive Spring Data MongoDB](https://lankydanblog.com/2017/07/16/a-quick-look-into-reactive-streams-with-spring-data-and-mongodb/) with the only real difference being that they are obviously using different databases.
+Today we are going to look at reactive Spring Data Cassandra. This post is actually very similar to one that I did on [Reactive Spring Data MongoDB](https://lankydan.dev/2017/07/16/a-quick-look-into-reactive-streams-with-spring-data-and-mongodb/) with the only real difference being that they are obviously using different databases.
 
-For background information that will not be included in this post have a look at [Getting started with Spring Data Cassandra](https://lankydanblog.com/2017/10/12/getting-started-with-spring-data-cassandra/).
+For background information that will not be included in this post have a look at [Getting started with Spring Data Cassandra](https://lankydan.dev/2017/10/12/getting-started-with-spring-data-cassandra/).
 
 I have been leaving out the dependencies from my recent posts on Cassandra because they all made use of the `spring-boot-starter-data-cassandra` dependency. But for this post we have something different! Although it is only adding the word "reactive" to the dependency that is normally used, turning it into `spring-boot-starter-data-cassandra-reactive`. I have also put it below for reference.
 
@@ -28,7 +28,7 @@ In this post we will be using Reactor Core instead of RxJava.
 
 Now if you haven't realised yet, I am going to say the word "reactive" a lot. Most of the setup required to go from a normal Spring Data Cassandra application to a reactive one is the addition of "reactive" to the class name. For example we will use `AbstractReactiveCassandraConfiguration` instead of `AbstractCassandraConfiguration` and `@EnableReactiveCassandraRepositories` rather than `@EnableCassandraRepositories`.
 
-Below is a basic configuration class to get everything setup. More explanation into the individual components of this class can be found in my earlier post [Getting started with Spring Data Cassandra](https://lankydanblog.com/2017/10/12/getting-started-with-spring-data-cassandra/).
+Below is a basic configuration class to get everything setup. More explanation into the individual components of this class can be found in my earlier post [Getting started with Spring Data Cassandra](https://lankydan.dev/2017/10/12/getting-started-with-spring-data-cassandra/).
 
 ```java
 @Configuration
@@ -179,7 +179,7 @@ The rest of the example focuses on retrieving data from Cassandra. A reactive st
 
 There is quite a lot being printed out here but hopefully you can get the idea of what is going on. `onSubscribe` is output due to calling `subscribe` onto one of the reactive streams triggering a request to retrieve elements from the stream which then leads to `onNext` being executed on each element, finally after the last element is received `onComplete` is called. Stuck in between these log messages are the print lines that were output from the `subscribe` method. It is also worth noticing that the streams are triggered in the order they are called but they are executed asynchronously and therefore their order is no longer guaranteed.
 
-I stole this conclusion straight from [A quick look into reactive streams with Spring Data and MongoDB](https://lankydanblog.com/2017/07/16/a-quick-look-into-reactive-streams-with-spring-data-and-mongodb/). In conclusion getting up a running using Reactive Streams with Spring Data and Cassandra is no harder than it's non reactive counterpart. All we need to do is insert the word “reactive” into a few classes and interface names and then use the `Flux` and `Mono` types (from Reactor) instead of directly returning a list or object.
+I stole this conclusion straight from [A quick look into reactive streams with Spring Data and MongoDB](https://lankydan.dev/2017/07/16/a-quick-look-into-reactive-streams-with-spring-data-and-mongodb/). In conclusion getting up a running using Reactive Streams with Spring Data and Cassandra is no harder than it's non reactive counterpart. All we need to do is insert the word “reactive” into a few classes and interface names and then use the `Flux` and `Mono` types (from Reactor) instead of directly returning a list or object.
 
 The code used in this post can be found on my [GitHub](https://github.com/lankydan/spring-data-cassandra/tree/reactive-spring-data-cassandra).
 

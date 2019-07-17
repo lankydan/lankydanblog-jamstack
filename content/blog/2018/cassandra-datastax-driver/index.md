@@ -10,7 +10,7 @@ github_url: https://github.com/lankydan/datastax-java-driver
 
 I'm back with more Cassandra and Java integration today this time focusing on using the Datastax Java driver rather than Spring Data Cassandra which I have already written about quite a lot. The Datastax driver is actually used by Spring Data to interact with Cassandra but comes with some extra goodies built on top of it. But we don't want any of these today! We are going to use the Datastax driver directly and at the end of the post once we have seen how use it we will compare it against Spring Data.
 
-This post makes the assumption that you are already familiar with Cassandra and possibly Spring Data Cassandra. Since I have already written quite a few posts around this subject I have only brushed over how Cassandra works where context is required. If you do not have this background information I recommend reading [Getting started with Spring Data Cassandra](https://lankydanblog.com/2017/10/12/getting-started-with-spring-data-cassandra/) where I obviously talked about using Spring Data Cassandra but also went into more thorough explanations of how Cassandra works than I do in this post. There is also the [Datastax Academy](https://academy.datastax.com/courses) which provide some very useful resources for learning how to use Cassandra yourself.
+This post makes the assumption that you are already familiar with Cassandra and possibly Spring Data Cassandra. Since I have already written quite a few posts around this subject I have only brushed over how Cassandra works where context is required. If you do not have this background information I recommend reading [Getting started with Spring Data Cassandra](https://lankydan.dev/2017/10/12/getting-started-with-spring-data-cassandra/) where I obviously talked about using Spring Data Cassandra but also went into more thorough explanations of how Cassandra works than I do in this post. There is also the [Datastax Academy](https://academy.datastax.com/courses) which provide some very useful resources for learning how to use Cassandra yourself.
 
 First things first, dependencies.
 
@@ -158,7 +158,7 @@ CREATE TABLE IF NOT EXISTS people_by_country(
 );
 ```
 
-The primary key consists of the `country`, `first_name`, `last_name` and `id` field. The partition key consists of just the `country` field and the clustering columns are the remaining keys in the key, `id` is only included for uniqueness as you can obviously have people with the same names. I go into the topic of primary keys in much more depth in my earlier post, [Getting started with Spring Data Cassandra](https://lankydanblog.com/2017/10/12/getting-started-with-spring-data-cassandra/).
+The primary key consists of the `country`, `first_name`, `last_name` and `id` field. The partition key consists of just the `country` field and the clustering columns are the remaining keys in the key, `id` is only included for uniqueness as you can obviously have people with the same names. I go into the topic of primary keys in much more depth in my earlier post, [Getting started with Spring Data Cassandra](https://lankydan.dev/2017/10/12/getting-started-with-spring-data-cassandra/).
 
 This code makes use of the `commons-io` and `commons-lang3` dependencies. If we are not executing CQL in this way, then these dependencies can be removed (within the context of this post).
 

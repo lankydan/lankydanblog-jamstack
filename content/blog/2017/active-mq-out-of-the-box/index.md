@@ -8,9 +8,9 @@ include_date_in_url: true
 github_url: https://github.com/lankydan/spring-boot-activemq-default-tutorial
 ---
 
-In my previous post [Using JMS in Spring Boot](http://lankydanblog.com/2017/06/18/using-jms-in-spring-boot/) I mentioned some characteristics that message queues exhibit, redundancy and asynchronous messaging but didn't mention them any further. ActiveMQ, which was used in the earlier post, provides both of these by default and therefore does not require any sort of special setup to get them working. In this post we will look at some evidence that proves that ActiveMQ provides redundancy and asynchronous messaging out of the box.
+In my previous post [Using JMS in Spring Boot](https://lankydan.dev/2017/06/18/using-jms-in-spring-boot/) I mentioned some characteristics that message queues exhibit, redundancy and asynchronous messaging but didn't mention them any further. ActiveMQ, which was used in the earlier post, provides both of these by default and therefore does not require any sort of special setup to get them working. In this post we will look at some evidence that proves that ActiveMQ provides redundancy and asynchronous messaging out of the box.
 
-As always we will be using Spring Boot to get everything up and running nice and quickly, extra information that provides the foundation for this post can be found [here](http://lankydanblog.com/2017/06/18/using-jms-in-spring-boot/).
+As always we will be using Spring Boot to get everything up and running nice and quickly, extra information that provides the foundation for this post can be found [here](https://lankydan.dev/2017/06/18/using-jms-in-spring-boot/).
 
 Lets look at asynchronous messaging first as it's quite easy to prove. A synchronous messaging allows the client to continue while the messages are being processed, which makes it simple to write an example to prove this. All we need is a client that sends messages at a faster rate than they can be consumed and with the magic of some print lines we can see this.
 

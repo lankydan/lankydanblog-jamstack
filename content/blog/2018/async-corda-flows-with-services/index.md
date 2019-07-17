@@ -22,7 +22,7 @@ Luckily for me, R3 was able to help.
 
 For reference, I will be using Corda Enterprise `3.1` for this post. To actually gain any benefit from the contents of this post you will need to be using Enterprise. This is due to Enterprise supporting multiple Flows executing asynchronously. Open Source does not currently allow this.
 
-I also recommend looking at my previous post [Corda Services 101](https://lankydanblog.com/2018/08/19/corda-services-101/) as we will be building off the foundation laid there.
+I also recommend looking at my previous post [Corda Services 101](https://lankydan.dev/2018/08/19/corda-services-101/) as we will be building off the foundation laid there.
 
 ## Scenario
 
@@ -71,7 +71,7 @@ class ReplyToMessagesFlow : FlowLogic<List<SignedTransaction>>() {
 }
 ```
 
-If you did have a read through [Corda Services 101]("https://lankydanblog.com/2018/08/19/corda-services-101/) then you might have recognised this class. As I mentioned earlier, putting together a solution for the proposed problem is very easy. Retrieve the `MessageState`s from the Vault and start a `subFlow` to reply to them.
+If you did have a read through [Corda Services 101]("https://lankydan.dev/2018/08/19/corda-services-101/) then you might have recognised this class. As I mentioned earlier, putting together a solution for the proposed problem is very easy. Retrieve the `MessageState`s from the Vault and start a `subFlow` to reply to them.
 
 This code will happily chug along through the messages one by one.
 

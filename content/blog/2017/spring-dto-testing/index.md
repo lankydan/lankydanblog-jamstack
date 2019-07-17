@@ -10,7 +10,7 @@ include_date_in_url: true
 
 In this post I will cover some tests that can be run to ensure that your DTOs (Data Transfer Objects) are being serialized and deserialized correctly leading onto testing whether they are being passed to and returned from a Rest Controller without errors.
 
-Have a look at my previous posts, [Passing Data Transfer Objects with GET in Spring Boot](https://lankydanblog.wordpress.com/2017/03/11/passing-data-transfer-objects-with-get-in-spring-boot/) and [Returning Data Transfer Objects from a Rest Controller in Spring Boot](https://lankydanblog.wordpress.com/2017/03/19/returning-data-transfer-objects-from-rest-controller-in-spring-boot/) for information about how the DTOs are being passed to and returned from the Rest Controller. Also have a look at [Spring’s starter guide](https://spring.io/guides/gs/spring-boot/) if your starting from scratch. The setup that is not described in this post is covered there.
+Have a look at my previous posts, [Passing Data Transfer Objects with GET in Spring Boot](https://lankydan.dev/2017/03/11/passing-data-transfer-objects-with-get-in-spring-boot/) and [Returning Data Transfer Objects from a Rest Controller in Spring Boot](https://lankydan.dev/2017/03/19/returning-data-transfer-objects-from-rest-controller-in-spring-boot/) for information about how the DTOs are being passed to and returned from the Rest Controller. Also have a look at [Spring’s starter guide](https://spring.io/guides/gs/spring-boot/) if your starting from scratch. The setup that is not described in this post is covered there.
 
 The Maven dependencies required in this post are
 

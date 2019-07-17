@@ -12,7 +12,7 @@ I have finally got round to learning how to use Docker past the level of knowing
 
 This will be a short post that takes an existing project (from one of my other posts) and alters it so it can run inside of containers. I doubt this post will contain anything impressive but I know it will help me in the future and maybe it will help you now.
 
-Before we begin, let's take a look at the existing project. Here are links to the [code](https://github.com/lankydan/spring-boot-jms) and the corresponding [blog post](https://lankydanblog.com/2017/06/18/using-jms-in-spring-boot/). The blog post covers all the information about the code. Here's the quick rundown so we can get on with this post. The old project is a Spring Boot application with a MongoDB database and ActiveMQ message queue. All these components are prime fodder for containerisation.
+Before we begin, let's take a look at the existing project. Here are links to the [code](https://github.com/lankydan/spring-boot-jms) and the corresponding [blog post](https://lankydan.dev/2017/06/18/using-jms-in-spring-boot/). The blog post covers all the information about the code. Here's the quick rundown so we can get on with this post. The old project is a Spring Boot application with a MongoDB database and ActiveMQ message queue. All these components are prime fodder for containerisation.
 
 One last comment, for the content of this post, I am assuming that you have already installed Docker or can figure out how to do so yourself.
 

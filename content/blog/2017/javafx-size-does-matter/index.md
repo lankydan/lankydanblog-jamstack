@@ -12,7 +12,7 @@ Does size matter? That's a question that's been around for a while and the answe
 
 ![Not controlling size](./javafx-size-example-1.png)
 
-I am going to be reusing some of the code that I wrote in previous posts, so have a look at [Getting Started with JavaFX](https://lankydanblog.wordpress.com/2017/01/08/getting-started-with-javafx/) and [JavaFX Charts look pretty good!](https://lankydanblog.wordpress.com/2017/01/29/javafx-graphs-look-pretty-good/) for explanations of some of the code that will be used here.
+I am going to be reusing some of the code that I wrote in previous posts, so have a look at [Getting Started with JavaFX](https://lankydan.dev/2017/01/08/getting-started-with-javafx/) and [JavaFX Charts look pretty good!](https://lankydan.dev/2017/01/29/javafx-graphs-look-pretty-good/) for explanations of some of the code that will be used here.
 
 A good place to start is controlling the minimum and maximum size of the window, although controlling the maximum size is not as useful as you will probably want users to be able to full screen the application. The window is know as the `Stage` in terms of JavaFX so to control the min/max size of the window some properties on the `Stage` will need to be adjusted.
 

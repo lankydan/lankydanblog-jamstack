@@ -72,7 +72,7 @@ public interface PersonRepository extends ReactiveMongoRepository<Person, String
 }
 ```
 
-As described in one of my earlier posts [Getting started with Spring Data and MongoDB](https://lankydanblog.com/2017/05/20/getting-started-with-spring-data-and-mongodb/) the implementation of `PersonRepository` is not required as the executed code is inferred from the name of the methods specified on the interface. Again this another example of where the reactive version closely resembles it's original (`MongoRepository` in case your wondering). `ReactiveMongoRepository` inherits from `ReactiveCrudRepository` allowing the `@EnableReactiveMongoRepositories` to include it when setting up. As mentioned earlier in this post `Mono<Person>` and `Flux<Person>` are returned instead of `Person` and `List<Person>` respectively.
+As described in one of my earlier posts [Getting started with Spring Data and MongoDB](https://lankydan.dev/2017/05/20/getting-started-with-spring-data-and-mongodb/) the implementation of `PersonRepository` is not required as the executed code is inferred from the name of the methods specified on the interface. Again this another example of where the reactive version closely resembles it's original (`MongoRepository` in case your wondering). `ReactiveMongoRepository` inherits from `ReactiveCrudRepository` allowing the `@EnableReactiveMongoRepositories` to include it when setting up. As mentioned earlier in this post `Mono<Person>` and `Flux<Person>` are returned instead of `Person` and `List<Person>` respectively.
 
 Finally to put it all together we need to create the main application and using the `CommandLineRunner` we can give the code a quick trial run.
 

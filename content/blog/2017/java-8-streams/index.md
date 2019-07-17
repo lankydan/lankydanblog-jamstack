@@ -9,7 +9,7 @@ include_date_in_url: true
 
 Streams are another feature that were added with Java 8. It provides a different way of performing operations on a `Collection`. Rather than implementing how to perform an operation on a `Collection` you instead define what you want to come out of it, which follows the Functional Programming paradigm that was made available with Java 8. This is similar to how SQL queries work, you define what you want it to select, pass it some criteria to meet, press run and out pops the result of the query. You didn't need to tell it how to go through all the records in the table, it just does it. That's basically what using a `Stream` does in Java 8.
 
-Before using streams you will need to know about [Lambda expressions](https://lankydanblog.wordpress.com/2017/01/14/a-little-lambda-tutorial/) and [Method references](https://lankydanblog.wordpress.com/2017/01/18/methodreference/), you could read mine if you want!
+Before using streams you will need to know about [Lambda expressions](https://lankydan.dev/2017/01/14/a-little-lambda-tutorial/) and [Method references](https://lankydan.dev/2017/01/18/methodreference/), you could read mine if you want!
 
 Lets start with a simple example.
 

@@ -10,7 +10,7 @@ github_url: https://github.com/lankydan/spring-webflux-and-corda
 
 It's been a while since my last post but I'm finally back! Since I am still on my project, I will be writing about using Corda again. This time, rather than focusing on Corda, we'll look at using Spring with Corda. More specifically, Spring WebFlux. Why do this? One, because we can. Two, because it allows us to stream events coming out of the Corda node. This provides us with the possibility to track the progress of flows or retrieve updates to the vault and send them to any clients registered to the relevant endpoints. Using WebFlux with Corda did introduce a few problems. Some originating from Corda and some from Spring. Although, the Spring issues were to do with me expecting the Spring Boot + WebFlux combo to do more by default for me.
 
-In this post, I'm going to assume you have some experience with Corda but if you do need some extra information on the subject I recommend reading through my previous posts: [What is Corda](https://lankydanblog.com/2018/06/05/what-is-corda/) and [Developing with Corda](https://lankydanblog.com/2018/06/05/developing-with-corda/). Furthermore, I also suggest taking a look at [Doing stuff with Spring WebFlux](https://lankydanblog.com/2018/03/15/doing-stuff-with-spring-webflux/) as an introduction to WebFlux.
+In this post, I'm going to assume you have some experience with Corda but if you do need some extra information on the subject I recommend reading through my previous posts: [What is Corda](https://lankydan.dev/2018/06/05/what-is-corda/) and [Developing with Corda](https://lankydan.dev/2018/06/05/developing-with-corda/). Furthermore, I also suggest taking a look at [Doing stuff with Spring WebFlux](https://lankydan.dev/2018/03/15/doing-stuff-with-spring-webflux/) as an introduction to WebFlux.
 
 The `3.2` Open Source version of Corda will be used for the contents of this tutorial. I actually started writing this post based on `3.1` but the newer version was released during this time. Due to this, there are a few comments based on moving between these versions.
 
@@ -111,7 +111,7 @@ Finally, the `netty-all` version is forced to `4.1.25.Final` to resolve a depend
 
 ## Routing functions
 
-WebFlux introduces a functional approach for routing requests to the functions that handle them. More information on this can be found in [Doing stuff with Spring WebFlux](https://lankydanblog.com/2018/03/15/doing-stuff-with-spring-webflux/). I don't want to jump deep into how WebFlux is working but we will take a quick look at defining the routing functions. The main reason for this is due to using Kotlin instead of Java. Kotlin provides a different way to define the functions by using a DSL.
+WebFlux introduces a functional approach for routing requests to the functions that handle them. More information on this can be found in [Doing stuff with Spring WebFlux](https://lankydan.dev/2018/03/15/doing-stuff-with-spring-webflux/). I don't want to jump deep into how WebFlux is working but we will take a quick look at defining the routing functions. The main reason for this is due to using Kotlin instead of Java. Kotlin provides a different way to define the functions by using a DSL.
 
 Below is the code to define the routing for this tutorial:
 
@@ -144,7 +144,7 @@ The second function receives updates from the Corda node. To do this it returns 
 
 In this section, we will look at the `MessageHandler` that was mentioned a few times in the previous section. This class contains all the functions that perform the actual business logic. The routing was just a means to reach this point.
 
-My previous post, [Doing stuff with Spring WebFlux](https://lankydanblog.com/2018/03/15/doing-stuff-with-spring-webflux/) will explain the more WebFlux specific parts of these examples in more depth than I will in this post.
+My previous post, [Doing stuff with Spring WebFlux](https://lankydan.dev/2018/03/15/doing-stuff-with-spring-webflux/) will explain the more WebFlux specific parts of these examples in more depth than I will in this post.
 
 Below is the handler code:
 
@@ -304,7 +304,7 @@ class MessageClient(
 
 The `MessageClient` wraps and uses a `WebClient` to send requests to the address specified in the `WebClient`'s builder. There is some extra configuration going on in this class around deserialisation, but I want to brush over that for now as there is a section further down covering that topic.
 
-As before <a href="https://lankydanblog.com/2018/03/15/doing-stuff-with-spring-webflux/" target="_blank" rel="noopener">Doing stuff with Spring WebFlux</a> provides in-depth explanations into the WebFlux specific methods.
+As before <a href="https://lankydan.dev/2018/03/15/doing-stuff-with-spring-webflux/" target="_blank" rel="noopener">Doing stuff with Spring WebFlux</a> provides in-depth explanations into the WebFlux specific methods.
 
 So let's look at each request individually, first up the `POST` request to the `/messages` endpoint:
 

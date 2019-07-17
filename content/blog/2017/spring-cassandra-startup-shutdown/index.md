@@ -10,7 +10,7 @@ github_url: https://github.com/lankydan/spring-data-cassandra/tree/cassandra_sta
 
 Shorter post this time round, it feels nice to get something finished faster than 2 weeks for once. Today we will look at startup and shutdown scripts in Spring Data Cassandra. This is something I probably should of done myself ages ago as it would of made testing my earlier posts much easier. I spent so much time (slightly over exaggerated) constantly truncating tables between each execution which was pretty annoying.
 
-The content in this post is related to my earlier posts on Spring Data Cassandra, but does not directly require them to be read. That being said, it is worth looking at [Getting started with Spring Data Cassandra](https://lankydanblog.com/2017/10/12/getting-started-with-spring-data-cassandra/) for a basic understanding of the subject. The dependencies can also be found there.
+The content in this post is related to my earlier posts on Spring Data Cassandra, but does not directly require them to be read. That being said, it is worth looking at [Getting started with Spring Data Cassandra](https://lankydan.dev/2017/10/12/getting-started-with-spring-data-cassandra/) for a basic understanding of the subject. The dependencies can also be found there.
 
 Anyway, lets get started before the introduction is longer than the actual post.
 
@@ -77,7 +77,7 @@ public class CassandraConfig extends AbstractCassandraConfiguration {
 }
 ```
 
-Here we have `CassandraConfig` which does general configuration for cassandra. The methods we are overriding today though are actually found in `AbstractClusterConfiguration` which is extended by `AbstractCassandraConfiguration`. The rest of the Cassandra configuration has been hidden as it is not directly relevant to this post (this is all covered in [Getting started with Spring Data Cassandra](https://lankydanblog.com/2017/10/12/getting-started-with-spring-data-cassandra/)).
+Here we have `CassandraConfig` which does general configuration for cassandra. The methods we are overriding today though are actually found in `AbstractClusterConfiguration` which is extended by `AbstractCassandraConfiguration`. The rest of the Cassandra configuration has been hidden as it is not directly relevant to this post (this is all covered in [Getting started with Spring Data Cassandra](https://lankydan.dev/2017/10/12/getting-started-with-spring-data-cassandra/)).
 
 By extending `AbstractCassandraConfiguration` (or `AbstractClusterConfiguration`) we are able to override `getKeyspaceCreations` and `getKeyspaceDrops` which will be run at startup and shutdown. As the method names suggest these will create and drop keyspaces. By creating and dropping a table we are effectively truncating the table which can be helpful when testing your code.
 

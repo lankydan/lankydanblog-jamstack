@@ -10,7 +10,7 @@ include_date_in_url: true
 
 In this post I will cover returning a DTO (Data Transfer Object) from a Rest Controller in Spring Boot. Returning data from a REST call in a DTO is a tidy way of retrieving data from the server which otherwise would be returned as a `List<Object>`.
 
-Have a look at my previous post, [Passing Data Transfer Objects with GET in Spring Boot](https://lankydanblog.wordpress.com/2017/03/11/passing-data-transfer-objects-with-get-in-spring-boot/) for information about how the DTOs are being passed to the Rest Controller. Also have a look at [Spring’s starter guide](https://spring.io/guides/gs/spring-boot/) if your starting from scratch. The setup that is not described in this post is covered there.
+Have a look at my previous post, [Passing Data Transfer Objects with GET in Spring Boot](https://lankydan.dev/2017/03/11/passing-data-transfer-objects-with-get-in-spring-boot/) for information about how the DTOs are being passed to the Rest Controller. Also have a look at [Spring’s starter guide](https://spring.io/guides/gs/spring-boot/) if your starting from scratch. The setup that is not described in this post is covered there.
 
 The only Maven dependency required in this post is
 

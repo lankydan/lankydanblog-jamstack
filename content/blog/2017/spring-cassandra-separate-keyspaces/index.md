@@ -8,9 +8,9 @@ include_date_in_url: true
 github_url: https://github.com/lankydan/spring-data-cassandra/tree/multiple_key_spaces
 ---
 
-Following on from my previous post [Getting started with Spring Data Cassandra](https://lankydanblog.com/2017/10/12/getting-started-with-spring-data-cassandra) we will look into using multiple keyspaces within an application. This will be a relatively short post due to most of the content being covered in the earlier post allowing us to focus on the code needed to allow multiple keyspaces and reasons why you might want to switch from a single one to using multiple.
+Following on from my previous post [Getting started with Spring Data Cassandra](https://lankydan.dev/2017/10/12/getting-started-with-spring-data-cassandra) we will look into using multiple keyspaces within an application. This will be a relatively short post due to most of the content being covered in the earlier post allowing us to focus on the code needed to allow multiple keyspaces and reasons why you might want to switch from a single one to using multiple.
 
-As mentioned a minute ago, [Getting started with Spring Data Cassandra](https://lankydanblog.com/2017/10/12/getting-started-with-spring-data-cassandra) contains fundamental information required in this post, including dependencies and code snippets that are not shown here.
+As mentioned a minute ago, [Getting started with Spring Data Cassandra](https://lankydan.dev/2017/10/12/getting-started-with-spring-data-cassandra) contains fundamental information required in this post, including dependencies and code snippets that are not shown here.
 
 Firstly lets start off with why you might want to use multiple keyspaces. When creating a multi tenant application there are a few ways to separate each tenant's data from each other; including a column in the partition key to distinguish each tenant, creating individual tables for each tenant or using a keyspace for each tenant. Each come with their advantages and disadvantages for example sharing a table between tenants is efficient and easy to use but more active tenants will take over all the key and row caches due to the volume of data they have and the higher number of queries they run.
 
@@ -54,7 +54,7 @@ public abstract class CassandraConfig extends AbstractCassandraConfiguration {
 }
 ```
 
-If you did view my [previous post](https://lankydanblog.com/2017/10/12/getting-started-with-spring-data-cassandra) this class might look familiar. This was originally the main configuration class for a application that was designed to work for a single keyspace. To make the application suitable for multiple keyspaces I turned it into an abstract class and removed the `@Configuration` and `@EnableCassandraRepositories` annotations. It is then extended by other configuration classes which provide alterations to a few beans to allow them to point to their chosen keyspace. It is worth mentioning that `getEntityBasePackages` is defined here so that all entities can be defined in a single place where they can be used from whatever keyspaces are defined.
+If you did view my [previous post](https://lankydan.dev/2017/10/12/getting-started-with-spring-data-cassandra) this class might look familiar. This was originally the main configuration class for a application that was designed to work for a single keyspace. To make the application suitable for multiple keyspaces I turned it into an abstract class and removed the `@Configuration` and `@EnableCassandraRepositories` annotations. It is then extended by other configuration classes which provide alterations to a few beans to allow them to point to their chosen keyspace. It is worth mentioning that `getEntityBasePackages` is defined here so that all entities can be defined in a single place where they can be used from whatever keyspaces are defined.
 
 ```java
 @Configuration

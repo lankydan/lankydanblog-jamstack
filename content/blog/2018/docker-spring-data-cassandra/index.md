@@ -12,7 +12,7 @@ I'm continuing my journey of learning Docker. I am still keeping it simple at th
 
 I wish I looked at doing this change a while ago. I have written a fair amount of posts on Cassandra and each time I had to `cd` to the correct directory or have a shortcut to start it up. I guess it's not that big of a deal, but there were a few other things involved. Such as, dropping and recreating keyspaces so I could test my application from scratch. Now, I just delete the container and restart it. To me anyway, this is helpful!
 
-This post will be slightly different from my previous post, [Using Docker to shove an existing application into containers](https://lankydanblog.com/2018/09/02/using-docker-to-shove-an-existing-application-into-some-containers). Instead, I will focus slightly more on the application side and remove the intermediate steps of using only Docker and instead will jump straight into Docker Compose.
+This post will be slightly different from my previous post, [Using Docker to shove an existing application into containers](https://lankydan.dev/2018/09/02/using-docker-to-shove-an-existing-application-into-some-containers). Instead, I will focus slightly more on the application side and remove the intermediate steps of using only Docker and instead will jump straight into Docker Compose.
 
 ## Containers, containers, containers
 
@@ -258,13 +258,13 @@ If you found this post helpful, you can follow me on Twitter at [@LankyDanDev](h
 
 ## Links to my Spring Data Cassandra posts
 
-- [Getting started with Spring Data Cassandra](https://lankydanblog.com/2017/10/12/getting-started-with-spring-data-cassandra)
-- [Separate keyspaces with Spring Data Cassandra](https://lankydanblog.com/2017/10/22/separate-keyspaces-with-spring-data-cassandra/)
-- [Multiple keyspaces using a single Spring Data CassandraTemplate](https://lankydanblog.com/2017/11/12/multiple-keyspaces-using-a-single-spring-data-cassandratemplate/)
-- [More complex modelling with Spring Data Cassandra](https://lankydanblog.com/2017/11/26/more-complex-modelling-with-spring-data-cassandra/)
-- [Startup and shutdown scripts in Spring Data Cassandra](https://lankydanblog.com/2017/12/03/startup-and-shutdown-scripts-in-spring-data-cassandra/)
-- [Reactive Streams with Spring Data Cassandra](https://lankydanblog.com/2017/12/11/reactive-streams-with-spring-data-cassandra/)
-- [Plumbing included with auto-configuration in Spring Data Cassandra](https://lankydanblog.com/2017/12/16/plumbing-included-with-auto-configuration-in-spring-data-cassandra/)
-- [Interacting with Cassandra using the Datastax Java driver](https://lankydanblog.com/2018/04/15/interacting-with-cassandra-using-the-datastax-java-driver/)
+- [Getting started with Spring Data Cassandra](https://lankydan.dev/2017/10/12/getting-started-with-spring-data-cassandra)
+- [Separate keyspaces with Spring Data Cassandra](https://lankydan.dev/2017/10/22/separate-keyspaces-with-spring-data-cassandra/)
+- [Multiple keyspaces using a single Spring Data CassandraTemplate](https://lankydan.dev/2017/11/12/multiple-keyspaces-using-a-single-spring-data-cassandratemplate/)
+- [More complex modelling with Spring Data Cassandra](https://lankydan.dev/2017/11/26/more-complex-modelling-with-spring-data-cassandra/)
+- [Startup and shutdown scripts in Spring Data Cassandra](https://lankydan.dev/2017/12/03/startup-and-shutdown-scripts-in-spring-data-cassandra/)
+- [Reactive Streams with Spring Data Cassandra](https://lankydan.dev/2017/12/11/reactive-streams-with-spring-data-cassandra/)
+- [Plumbing included with auto-configuration in Spring Data Cassandra](https://lankydan.dev/2017/12/16/plumbing-included-with-auto-configuration-in-spring-data-cassandra/)
+- [Interacting with Cassandra using the Datastax Java driver](https://lankydan.dev/2018/04/15/interacting-with-cassandra-using-the-datastax-java-driver/)
 
 Wow, I didn't realise I wrote so many Cassandra posts.

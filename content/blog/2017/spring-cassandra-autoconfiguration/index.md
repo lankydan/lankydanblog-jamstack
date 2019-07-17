@@ -9,13 +9,13 @@ include_date_in_url: true
 github_url: https://github.com/lankydan/spring-data-cassandra/tree/spring-data-cassandra-autoconfiguration
 ---
 
-I received a few comments on my repository for [Reactive Streams with Spring Data Cassandra](https://lankydanblog.com/2017/12/11/reactive-streams-with-spring-data-cassandra/) regarding configuration that was not required. This was due to me not making use of Spring Boot's auto-configuration which would of allowed me to remove a whole class from my code! Therefore, in an attempt to redeem myself for not taking advantage of auto-configuration I decided to write a post about what it does for you and how to use it in conjunction with Spring Data Cassandra.
+I received a few comments on my repository for [Reactive Streams with Spring Data Cassandra](https://lankydan.dev/2017/12/11/reactive-streams-with-spring-data-cassandra/) regarding configuration that was not required. This was due to me not making use of Spring Boot's auto-configuration which would of allowed me to remove a whole class from my code! Therefore, in an attempt to redeem myself for not taking advantage of auto-configuration I decided to write a post about what it does for you and how to use it in conjunction with Spring Data Cassandra.
 
 I will provide you with a warning before we begin, there are no code examples in this post because, well, Spring Boot does it all for us.
 
 So let's get on with it.
 
-As always if you do not have any current knowledge on Spring Data Cassandra I recommend you read my first post on the subject, [Getting started with Spring Data Cassandra](https://lankydanblog.com/2017/10/12/getting-started-with-spring-data-cassandra/).
+As always if you do not have any current knowledge on Spring Data Cassandra I recommend you read my first post on the subject, [Getting started with Spring Data Cassandra](https://lankydan.dev/2017/10/12/getting-started-with-spring-data-cassandra/).
 
 Auto-configuration allows Spring to detect any beans and annotations that have not been included in our code and automatically add them for us. For it to kick in we must have one of the classes defined in `@ConditionalOnClass` in the classpath or a property specified in the `@ConditionalOnProperty` annotation. Because of this, all the beans we need to connect to Cassandra are automatically created just by including the `spring-boot-starter-data-cassandra` or `spring-boot-starter-data-cassandra-reactive` dependency and enabling auto-configuration. That's it. But if we find any reason to define some of the beans that are normally created by auto-configuration then there is no reason to worry. Thanks to the `@ConditionalOnMissingBean` annotation added to each auto-configured bean preventing another being created if one already exists in the `BeanFactory`.
 

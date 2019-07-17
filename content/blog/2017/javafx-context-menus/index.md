@@ -10,7 +10,7 @@ include_date_in_url: true
 
 This is a post that I wanted to write as it was a problem I ran into at my previous job probably around this time last year. I was doing some general testing around a JavaFX table application I had written and I ran into this really annoying problem (I find it frustrating anyway). Upon loading up the `TableView`'s context menu at the top right corner which is used to show/hide columns if you click on one of the menu items the menu will close itself down. Now this doesn't seem like much of a problem at this point but I still had some columns I wanted to hide so I opened up the menu again and chose an item and the menu closed, so I did it again... and again... now do you see what I mean! That menu should stay open so I can show/hide multiple columns without reopening it. As us humans are a lazy bunch so reducing how many mouse clicks we need to make will make us much happier.
 
-I'm going to be using some of the code I wrote in a previous post so if you need to know where some of it is coding from, have a look at [Editable Tables in JavaFX](https://lankydanblog.wordpress.com/2017/02/11/editable-table-in-javafx/). The rest of the code can be found at the bottom of this post.
+I'm going to be using some of the code I wrote in a previous post so if you need to know where some of it is coding from, have a look at [Editable Tables in JavaFX](https://lankydan.dev/2017/02/11/editable-table-in-javafx/). The rest of the code can be found at the bottom of this post.
 
 There's not to much to cover for this topic so lets dive write into the code.
 
@@ -258,7 +258,7 @@ private TableHeaderRow getTableHeaderRow() {
 }
 ```
 
-These two methods retrieve the table header row and thus the table's menu button. There's not much to say about these methods apart from that they use Stream's to find the table header row/menu button. Have a quick look at [Java 8 Streams](https://lankydanblog.wordpress.com/2017/01/22/java-8-streams/) if you are unsure with how they work.
+These two methods retrieve the table header row and thus the table's menu button. There's not much to say about these methods apart from that they use Stream's to find the table header row/menu button. Have a quick look at [Java 8 Streams](https://lankydan.dev/2017/01/22/java-8-streams/) if you are unsure with how they work.
 
 ```java
 protected void showContextMenu() {

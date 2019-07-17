@@ -12,7 +12,7 @@ After hearing my colleague constantly talking about the editable grids that the 
 
 ![](tableexample1.png)
 
-Check out [Getting started with JavaFX](https://lankydanblog.wordpress.com/2017/01/08/getting-started-with-javafx/) if your need some background knowledge in what will be explained in this post.
+Check out [Getting started with JavaFX](https://lankydan.dev/2017/01/08/getting-started-with-javafx/) if your need some background knowledge in what will be explained in this post.
 
 Lets start with the `fxml` for setting up the table, the rest of the `fxml` code can be found on my [Github](https://github.com/lankydan/JavaFX-Table-Tutorial/blob/master/JavaFXTableTutorial/resources/lankydan/tutorials/fxml/TableApp.fxml).
 

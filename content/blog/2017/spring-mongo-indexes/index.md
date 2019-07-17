@@ -22,7 +22,7 @@ This post will focus on the `@Indexed` and `@CompoundIndex` annotations.
 
 A very important thing to mention before we go any further is that to use the index annotations within a document class the `@Document` annotation needs to be applied. Without this annotation the documents will be created and used correctly but no indexes will be created.
 
-In this post I used Spring Boot to run and test the code although none of this code will be shown here, the required setup and foundation information needed for this post can be found in [Getting started with Spring Data and MongoDB](https://lankydanblog.com/2017/05/20/getting-started-with-spring-data-and-mongodb/).
+In this post I used Spring Boot to run and test the code although none of this code will be shown here, the required setup and foundation information needed for this post can be found in [Getting started with Spring Data and MongoDB](https://lankydan.dev/2017/05/20/getting-started-with-spring-data-and-mongodb/).
 
 ## @Indexed
 

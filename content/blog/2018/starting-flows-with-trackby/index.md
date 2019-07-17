@@ -10,7 +10,7 @@ github_url: https://github.com/lankydan/corda-service-trackby-flows
 
 Still continuing my trend of looking at Corda Services, I have some more tips to help your CorDapp work smoothly. This time around, we will focus on using `trackBy` to initiate Flows from inside a Service and the discrete problem that can arise if you are not careful.
 
-This should be a relatively short post as I can lean upon the work in my previous posts: [Corda Services 101](https://lankydanblog.com/2018/08/19/corda-services-101/) and [Asynchronous Flow invocations with Corda Services](https://lankydanblog.com/2018/09/22/asynchronous-flow-invocations-with-corda-services/). The content found in [Asynchronous Flow invocations with Corda Services](https://lankydanblog.com/2018/09/22/asynchronous-flow-invocations-with-corda-services/) is very relevant to this post and will contain extra information not included within this post.
+This should be a relatively short post as I can lean upon the work in my previous posts: [Corda Services 101](https://lankydan.dev/2018/08/19/corda-services-101/) and [Asynchronous Flow invocations with Corda Services](https://lankydan.dev/2018/09/22/asynchronous-flow-invocations-with-corda-services/). The content found in [Asynchronous Flow invocations with Corda Services](https://lankydan.dev/2018/09/22/asynchronous-flow-invocations-with-corda-services/) is very relevant to this post and will contain extra information not included within this post.
 
 This post is applicable to both Corda Open Source and Enterprise. The versions at the time of writing are Open Source `3.2` and Enterprise `3.1`.
 
@@ -26,7 +26,7 @@ The problems presented in this post are only present in the CorDapp version, `tr
 
 ## What is this discrete problem?
 
-Deadlock. When I word it that way, it isn't very discrete. But, the way it happens is rather subtle and requires a good understanding of what is going on to figure it out. As mentioned before, this issue is very similar to the one detailed in [Asynchronous Flow invocations with Corda Services](https://lankydanblog.com/2018/09/22/asynchronous-flow-invocations-with-corda-services/). Furthermore, another shoutout to R3 for diagnosing this problem when I faced it in a project and I am sure they are going to iron this out. Until then, this post should save you some head scratching in case you run into the same problem.
+Deadlock. When I word it that way, it isn't very discrete. But, the way it happens is rather subtle and requires a good understanding of what is going on to figure it out. As mentioned before, this issue is very similar to the one detailed in [Asynchronous Flow invocations with Corda Services](https://lankydan.dev/2018/09/22/asynchronous-flow-invocations-with-corda-services/). Furthermore, another shoutout to R3 for diagnosing this problem when I faced it in a project and I am sure they are going to iron this out. Until then, this post should save you some head scratching in case you run into the same problem.
 
 I will quote what I wrote in my previous post as its explanation is only missing one point in regards to this post.
 
@@ -40,7 +40,7 @@ I will quote what I wrote in my previous post as its explanation is only missing
 
 ![Corda Flow Queue deadlock](./corda-flow-queue-deadlock.png)
 
-That marks the end of my copypasta. I am going to keep saying this though, really, I suggest you read through [Asynchronous Flow invocations with Corda Services](https://lankydanblog.com/2018/09/22/asynchronous-flow-invocations-with-corda-services/) for a thorough explanation into this subject.
+That marks the end of my copypasta. I am going to keep saying this though, really, I suggest you read through [Asynchronous Flow invocations with Corda Services](https://lankydan.dev/2018/09/22/asynchronous-flow-invocations-with-corda-services/) for a thorough explanation into this subject.
 
 What has this got to do with `trackBy`? Calling `trackBy` from a Service will run each observable event on a Flow Worker thread. In other words, each event takes up a spot on the queue. Starting a Flow from here will add another item to the queue and suspend the current thread until the Flow finishes. It will stay in the queue until that time. If you end up in a situation where all the spots on the queue are held by the observable events, rather than actual Flows, I got one word for you. Deadlock. It is the exact same situation I've detailed before but starting from a different epicenter.
 

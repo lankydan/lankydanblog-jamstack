@@ -11,7 +11,7 @@ When I was doing my 3rd year project in university I needed a good looking chart
 
 ![AreaChart](./areachart.png)
 
-Before you go any further I recommend that you read up on the basics of using JavaFX, my other post [Getting started with JavaFX](https://lankydanblog.wordpress.com/2017/01/08/getting-started-with-javafx/) covers this.
+Before you go any further I recommend that you read up on the basics of using JavaFX, my other post [Getting started with JavaFX](https://lankydan.dev/2017/01/08/getting-started-with-javafx/) covers this.
 
 In this post I will cover the basic use of a `LineChart` and `AreaChart`. The code is pretty simple and only requires a little bit of set up in the `Controller` and `fxml`. All you need to do is add the chart to the `fxml` code, give it a `fx:id`, set up it's properties to your liking and your done.
 
@@ -202,7 +202,7 @@ public class MainAppController implements Initializable {
 }
 ```
 
-`MainAppController` is the center piece of this code which controls the chart by handling the `ActionEvents` fired by button presses, which in this example leads to the lines being drawn onto the chart. I have also used some [lambda expressions](https://lankydanblog.wordpress.com/2017/01/14/a-little-lambda-tutorial/) in this example to make the code shorter and a little bit fancier.
+`MainAppController` is the center piece of this code which controls the chart by handling the `ActionEvents` fired by button presses, which in this example leads to the lines being drawn onto the chart. I have also used some [lambda expressions](https://lankydan.dev/2017/01/14/a-little-lambda-tutorial/) in this example to make the code shorter and a little bit fancier.
 
 ```java
 public class MyGraph {

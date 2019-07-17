@@ -37,7 +37,7 @@ A little bit more configuration is required if you haven't used MongoDB before a
 
 Now that all the configuration is complete we can actually begin implementing a very basic Spring application so we can focus on how to use Spring Data with MongoDB.
 
-The first thing we will need is a object that will represent some data that we want to keep inside a database. This required very little code and I was very surprised how few annotations were actually required to get this working. Also I used Lombok in this class to save me writing some extra code, see my previous post [Being lazy with Lombok](https://lankydanblog.com/2017/04/29/being-lazy-with-lombok/) for more information.
+The first thing we will need is a object that will represent some data that we want to keep inside a database. This required very little code and I was very surprised how few annotations were actually required to get this working. Also I used Lombok in this class to save me writing some extra code, see my previous post [Being lazy with Lombok](https://lankydan.dev/2017/04/29/being-lazy-with-lombok/) for more information.
 
 ```java
 @Getter

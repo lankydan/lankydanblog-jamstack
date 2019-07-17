@@ -9,7 +9,7 @@ include_date_in_url: true
 
 Everyone is a bit lazy, so why not our code? Lambda expressions in Java 8 allow us to make our code that bit more lazy. In this short post I will cover how using Lambda expressions can make code more lazy.
 
-If you have not used Lambda expressions before have a look at my some of my previous posts [A Little Lambda Tutorial](http://lankydanblog.com/2017/01/14/a-little-lambda-tutorial/) and [Java 8 Streams](http://lankydanblog.com/2017/01/22/java-8-streams/) for some background information not in this post.
+If you have not used Lambda expressions before have a look at my some of my previous posts [A Little Lambda Tutorial](https://lankydan.dev/2017/01/14/a-little-lambda-tutorial/) and [Java 8 Streams](https://lankydan.dev/2017/01/22/java-8-streams/) for some background information not in this post.
 
 So first things first, what does being lazy mean? We'll I'm sure you know the answer as you have probably left things to the last minute and then quickly rushed to complete it at the end or even not do it at all. That is basically the definition of Lazy Evaluation, which defers the evaluation of a method until another expression requires it. If an expression never calls the lazy method then it will just lie around and do nothing. Java on the other hand uses Eager Evaluation by default and will execute a method as soon as it is called.
 

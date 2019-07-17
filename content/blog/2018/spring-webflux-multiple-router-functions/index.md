@@ -9,7 +9,7 @@ include_date_in_url: true
 
 In this post we will be looking at defining multiple router functions to different logical domains in Spring WebFlux. This might not be a problem if you are creating "Microservices" as you will most likely only be working within a single domain for each service, but if you are not, then you will likely have the need to include multiple domains within your application that users or your own services can interact with. The code to do this is as simple as I hoped it would be and could be explained in a few sentences. To make this post a little more interesting we will look at some of the Spring code that makes this all possible.
 
-If you are new to WebFlux I recommend having a look at my previous post, [Doing stuff with Spring WebFlux](https://lankydanblog.com/2018/03/15/doing-stuff-with-spring-webflux/), where I wrote some thorough examples and explanations on the subject.
+If you are new to WebFlux I recommend having a look at my previous post, [Doing stuff with Spring WebFlux](https://lankydan.dev/2018/03/15/doing-stuff-with-spring-webflux/), where I wrote some thorough examples and explanations on the subject.
 
 So lets set the scene first. You have two different domains within your application, say people and locations. You might want to keep them separated from each other not only logically but also within your code. To do so you need a way to define your routes in isolation from each others domain. That is what we will look at in this post.
 
@@ -167,6 +167,6 @@ The path to retrieving all the routes starts in `afterPropertiesSet` that is inv
 
 That's all there is to it. In conclusion defining multiple `RouterFunction`s for different business domains is very simple as you just create them in whatever area they most make sense and Spring will go off and fetch them all. To demystify some of the magic we looked into `RouterFunctionMapping` to see how the `RouterFunction`s we create are collected and combined so that they can be used to route requests to handlers. As a closing note, I do understand that this post in some respects is quite trivial but sometimes the seemingly obvious information can be pretty helpful.
 
-If you have not done so already, I recommend looking at my previous post [Doing stuff with Spring WebFlux](https://lankydanblog.com/2018/03/15/doing-stuff-with-spring-webflux/).
+If you have not done so already, I recommend looking at my previous post [Doing stuff with Spring WebFlux](https://lankydan.dev/2018/03/15/doing-stuff-with-spring-webflux/).
 
 Finally, if you found this post helpful and would like to keep up with my new posts as I write them, then you can follow me on Twitter at [@LankyDanDev](https://twitter.com/LankyDanDev).

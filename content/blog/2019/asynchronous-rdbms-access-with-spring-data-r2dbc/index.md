@@ -23,9 +23,9 @@ Not too long ago, a reactive variant of the JDBC driver was released. Known as R
 
 For the content of this post, I am making use of a Postgres database. At the time of writing only Postgres, H2 and Microsoft SQL Server have their own implementations of R2DBC drivers.
 
-I have previously written two posts about reactive Spring Data libraries, one on [Mongo](https://lankydanblog.com/2017/07/16/a-quick-look-into-reactive-streams-with-spring-data-and-mongodb/) and another about [Cassandra](https://lankydanblog.com/2017/12/11/reactive-streams-with-spring-data-cassandra/). You might have noticed that neither of these databases are RDBMS databases. Now there are other reactive drivers available for a long time (I wrote the Mongo post nearly 2 years ago) but at the time of writing a reactive driver for a RDBMS database is still a pretty new thing. This post will follow a similar format to those.
+I have previously written two posts about reactive Spring Data libraries, one on [Mongo](https://lankydan.dev/2017/07/16/a-quick-look-into-reactive-streams-with-spring-data-and-mongodb/) and another about [Cassandra](https://lankydan.dev/2017/12/11/reactive-streams-with-spring-data-cassandra/). You might have noticed that neither of these databases are RDBMS databases. Now there are other reactive drivers available for a long time (I wrote the Mongo post nearly 2 years ago) but at the time of writing a reactive driver for a RDBMS database is still a pretty new thing. This post will follow a similar format to those.
 
-Furthermore, I have also written a post about using [Spring WebFlux](https://lankydanblog.com/2018/03/15/doing-stuff-with-spring-webflux/) which I mentioned in the introduction. Feel free to have a look at that if you are interested in producing a fully reactive web application.
+Furthermore, I have also written a post about using [Spring WebFlux](https://lankydan.dev/2018/03/15/doing-stuff-with-spring-webflux/) which I mentioned in the introduction. Feel free to have a look at that if you are interested in producing a fully reactive web application.
 
 ### Dependencies
 

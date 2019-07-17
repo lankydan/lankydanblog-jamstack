@@ -66,11 +66,11 @@ Another area that will improve the network’s overall performance is the use of
 
 Every time I say “multiple Notaries”, I just feel like I need to clarify that I am not talking about a Notary Cluster.
 
-I have already written a post, [Increasing network throughput with multiple Notaries](https://lankydanblog.com/2018/11/18/increasing-network-throughput-with-multiple-notaries/), covering this topic and rather than repeating myself, I will direct you there instead.
+I have already written a post, [Increasing network throughput with multiple Notaries](https://lankydan.dev/2018/11/18/increasing-network-throughput-with-multiple-notaries/), covering this topic and rather than repeating myself, I will direct you there instead.
 
 <div style="background-color:#f7f7f7;">
-  <a href="https://lankydanblog.com/2018/11/18/increasing-network-throughput-with-multiple-notaries/"><p><strong>Increasing network throughput with multiple Notaries</strong></p>
-  <p>Do you need a very high throughput Corda network? Has the network's throughput levelled out? Have you already squeezed…lankydanblog.com</p>
+  <a href="https://lankydan.dev/2018/11/18/increasing-network-throughput-with-multiple-notaries/"><p><strong>Increasing network throughput with multiple Notaries</strong></p>
+  <p>Do you need a very high throughput Corda network? Has the network's throughput levelled out? Have you already squeezed…</p>
   </a>
 </div>
 
@@ -99,11 +99,11 @@ Taking this information into account, make sure you think about whether you real
 
 Yes, yes, yes. Although, we didn’t measure the impact including multi-threading made I am sure it made a good improvement. But, be careful. If you don’t do it correctly then you might get bit in the arse. At of the time of writing, Corda does not support multi-threading within Flows. You will get some weird errors if you do. That being said, it is possible. You can do so from within a Corda Service which runs slightly outside of the territory of a Flow. By delegating some processing to a service, we were able to make use of threads to start new Flows which each run asynchronously, processing similar but separated tasks.
 
-I have written about this in my earlier post [Asynchronous Flow invocations with Corda Services](https://lankydanblog.com/2018/09/22/asynchronous-flow-invocations-with-corda-services/) which dives into this topic and to why you might end up falling over when trying this.
+I have written about this in my earlier post [Asynchronous Flow invocations with Corda Services](https://lankydan.dev/2018/09/22/asynchronous-flow-invocations-with-corda-services/) which dives into this topic and to why you might end up falling over when trying this.
 
 <div style="background-color:#f7f7f7;">
-  <a href="https://lankydanblog.com/2018/09/22/asynchronous-flow-invocations-with-corda-services/"><p><strong>Asynchronous Flow invocations with Corda Services</strong></p>
-  <p>How can I make my Flows faster? There's a good chance you have thought about this before if you have been working with…lankydanblog.com</p>
+  <a href="https://lankydan.dev/2018/09/22/asynchronous-flow-invocations-with-corda-services/"><p><strong>Asynchronous Flow invocations with Corda Services</strong></p>
+  <p>How can I make my Flows faster? There's a good chance you have thought about this before if you have been working with…</p>
   </a>
 </div>
 
