@@ -6,7 +6,7 @@ tags: [kotlin, ktor]
 cover_image: ./title-card.png
 ---
 
-[Ktor](https://ktor.io/) is a asynchronous web framework written in and designed for Kotlin. Allowing the more interesting features of Kotlin, such as coroutines, to not only be used but supported as a first class citizen. Normally, Spring is my go to general framework and generally what I use when I need to put a REST API together. Spring does have support for Kotlin features, including coroutines, and is always adding better and better Kotlin support. That being said, I wanted to try out Ktor after attending a recent London Kotlin meetup. So this post is a learning experience for both you and me. The content of this post will lack experienced advice but will instead document my journey as I play around with Ktor for the first time.
+[Ktor](https://ktor.io/) is an asynchronous web framework written in and designed for Kotlin. Allowing the more impressive features of Kotlin, such as coroutines, to not only be used but supported as a first-class citizen. Typically, Spring is my go-to general framework and generally what I use when I need to put a REST API together. But, after recently attending a London Kotlin meetup where there was a presentation on Ktor, I decided I'd try something new for once. That is how I ended up here, writing a blog post about Ktor. So, this post is a learning experience for both you and me. The content of this post will lack experienced advice but will instead document my journey as I play around with Ktor for the first time.
 
 Here is a bit more background information on Ktor. It is backed by [Jetbrains](https://www.jetbrains.com/) who are also the creators of Kotlin itself. Who better to make a Kotlin web framework than the men and women that work on the language.
 
@@ -62,7 +62,7 @@ dependencies {
 }
 ```
 
-There are a few things going on here.
+A few things are going on here.
 
 Firstly, Ktor requires a minimum version of Kotlin `1.3`, so that coroutines can be leveraged. 
 
@@ -70,7 +70,7 @@ Dependencies on `ktor-server-netty` and `ktor-jackson` are brought it. As the na
 
 [Logback](https://logback.qos.ch/) is brought in to handle logging. This is not included in the Ktor dependencies and is needed if you plan on doing any sort of logging.
 
-[Kodein](https://kodein.org/Kodein-DI/) is a dependency injection framework written in Kotlin. I have loosely used it in this post and due to the size of the code examples, I could probably remove it completely. The main reason it is there is to provide me with another chance to use something other than Spring. Remember this is also one of the reasons that I am trying out Ktor.
+[Kodein](https://kodein.org/Kodein-DI/) is a dependency injection framework written in Kotlin. I have loosely used it in this post, and due to the size of the code examples, I could probably remove it altogether. The main reason it is there is to provide me with another chance to use something other than Spring. Remember this is also one of the reasons that I am trying out Ktor.
 
 ### Starting the web server
 
@@ -86,9 +86,9 @@ fun Application.module() {
 }
 ```
 
-Bam. There you have it. A simple web server running with Ktor and Netty. Ok, yes, it doesn't really do anything but we'll expand on this in the following sections. The code is pretty self explanatory. The only piece worth highlighting is the `Application.module` function. The `module` parameter of `embeddedServer` requires an extension function for `Application`. This is going to be the _main_ function that makes the server do stuff.
+Bam. There you have it. A simple web server running with Ktor and Netty. Ok, yes, it doesn't really do anything, but we'll expand on this in the following sections. The code is pretty self-explanatory. The only piece worth highlighting is the `Application.module` function. The `module` parameter of `embeddedServer` requires an extension function for `Application`. This is going to be the _main_ function that makes the server do stuff.
 
-In the following sections, we will expand the contents of `Application.module` so that your web server actually does something worth while.
+In the following sections, we will expand the contents of `Application.module` so that your web server actually does something worthwhile.
 
 ### Routing
 
@@ -119,7 +119,7 @@ routing {
 
 `routing` is a little convenience function to make the code flow a little smoother. The context (a.k.a `this`) inside of `routing` is of type `Routing`. Furthermore, the functions `route`, `get` and `post` are all extension functions of `Routing`.
 
-`route` sets a base path to all its following endpoints. In this scenario, `/people`. `get` and `post` do not specify a path themselves, since the provide base path is suffice for their needs. If desired, a path could be added to each one, for example:
+`route` sets a base path to all its following endpoints. In this scenario, `/people`. `get` and `post` do not specify a path themselves since the base path is suffice for their needs. If desired, a path could be added to each one, for example:
 
 ```kotlin
 routing {
@@ -168,15 +168,15 @@ fun Routing.people(personRepository: PersonRepository) {
 }
 ```
 
-I extracted the code to a separate function to decrease the contents of `Application.module`. This is going to be a good idea when you are trying to write a slightly larger application. Whether how I went about it is the _Ktor_ way or not, is another question. From having a quick look at the Ktor docs, it looks like this is decent solution. I believe I saw another way to do this, but I would need to spend more time with it.
+I extracted the code to a separate function to decrease the contents of `Application.module`. This is going to be a good idea when you are trying to write a more significant application. Whether how I went about it is the _Ktor_ way or not, is another question. From having a quick look at the Ktor docs, it looks like this is a decent solution. I believe I saw another way to do this, but I would need to spend more time with it.
 
 ### Contents of a request handler
 
 The code that executes when a request is routed to a request handler is obviously pretty important. The function needs to do something after all...
 
-Each handler function executes within the context of a coroutine. I did not really make any use of this fact, since each of the functions I have shown are fully synchronous. For a bit more information on this, the [Ktor docs](https://ktor.io/samples/feature/async.html) have an async example.
+Each handler function executes within the context of a coroutine. I did not really make any use of this fact since each of the functions I have shown are fully synchronous. For a bit more information on this, the [Ktor docs](https://ktor.io/samples/feature/async.html) have an async example.
 
-For the remainder of this post, I am going to try and not mention coroutines to much since they are not particularly important for this simple REST api.
+For the remainder of this post, I am going to try and not mention coroutines to much since they are not particularly important for this simple REST API.
 
 In this section, the `get` function will be examined a little closer:
 
@@ -189,7 +189,7 @@ get("/{id}") {
 }
 ```
 
-`{id}` indicates that a path variable is expected in the request and its value will be stored as `id`. Multiple path variables can be included, but only one is needed for this example 👍. The value of `id` is retrieved from `call.parameters` which takes in the name of the variable you want to retrieve.
+`{id}` indicates that a path variable is expected in the request and its value will be stored as `id`. Multiple path variables can be included, but only one is needed for this example 👍. The value of `id` is retrieved from `call.parameters` which takes in the name of the variable you want to access.
 
 - `call` represents the current context of the current request.
 - `parameters` is a list of the request's parameters.
@@ -201,7 +201,7 @@ call.response.status(HttpStatusCode.OK)
 call.response.pipeline.execute(call, it)
 ```
 
-You could do that, but there isn't any need to since that is actually just the implementation of `repsonse`. `respondText` has some extra logic but delegates down to `response` to finalise everything. The final call to `execute` in this function represents the _return_ value of the function.
+You could do that, but there isn't any need to since that is actually just the implementation of `respond`. `respondText` has some extra logic but delegates down to `response` to finalise everything. The final call to `execute` in this function represents the _return_ value of the function.
 
 ### Installing extra features
 
@@ -217,8 +217,8 @@ fun Application.module() {
 }
 ```
 
-- `DefaultHeaders` adds a header to every response including the name of the server.
-- `CallLogging` logs information about outgoing responses and specifies what level to log them at. A logging library is needs to be included for this to work. The output will look something like:
+- `DefaultHeaders` adds a header to every response with the name of the server.
+- `CallLogging` logs information about outgoing responses and specifies what level to log them at. A logging library needs to be included for this to work. The output will look something like:
   
   ```java
   INFO  ktor.application.log - 200 OK: GET - /people/302a1a73-173b-491c-b306-4d95387a8e36
@@ -254,7 +254,7 @@ val kodein = Kodein {
 val personRepository by kodein.instance<PersonRepository>()
 ```
 
-Inside of the `Kodein` block, instances of the applications classes are created. In this scenario, only one instance of each class is needed. Calling `singeton` denotes this. `instance` is a placeholder provided by Kodein to pass into a constructor instead of the actual object.
+Inside of the `Kodein` block, instances of the application's classes are created. In this scenario, only one instance of each class is needed. Calling `singleton` denotes this. `instance` is a placeholder provided by Kodein to pass into a constructor instead of the actual object.
 
 Outside of the `Kodein` block, an instance of `PersonRespository` is retrieved.
 
@@ -264,12 +264,10 @@ Yeah, I know, there isn't really much point to the use of Kodein here since I co
 val personRepository = PersonRepository(cassandraSession())
 ```
 
-Instead, let's think about it as a very nice and small example to understand 👍.
+Instead, let's think about it as a very concise example to understand 👍.
 
-## My first impression on Ktor
+## Closing thoughts
 
-As I mentioned in the introduction, I normally turn to Spring for pretty much everything I do. So, this might be _my first impression of Ktor_, but really, it is _a spring user's first impression of Ktor_. I just wanted to through that out there before anyone starts telling me I am biased of something like that. Because, well, I am biased 🤷‍♀️.
+As someone that is very biased towards Spring, I found working with Ktor very different from what I am used to. It took me a bit longer than usual to work towards some sample code that I was happy. That being said, I think the outcome looks ok, and I will need to spend some more time with Ktor to better understand precisely how to get the best out of it. At the moment I am confident there is a lot more to squeeze out of Ktor. For more information on Ktor, I'll have to refer you again to their [documentation](https://ktor.io/) where they have plenty of samples and tutorials.
 
-First things first, since it is one criticism that a number of developers have about Spring. Annotations. Currently, at least in this simple application, there are no annotations. The routing replaces the need for the annotations (such as `GetMapping`) that Spring uses to denote endpoints. On the other hand, I miss annotations like `@PathVariable` or `@RequestParameter`. Which let me specify the type of the variable in the parameters and removes the need for me to convert from the `String` returned from `call.parameters` into the correct type.
-
-I find it a bit weird that there isn't a value explicitly returned from each endpoint. In Spring, you call `return` to indicate the response of the request. Whereas in Ktor it is implied by `call.respond`. This can lead to some runtime errors but they can be quickly ironed out. It could also make it a bit harder for someone who has not used Ktor before to spot where the response is returned from
+If you found this post helpful, you can follow me on Twitter at [@LankyDanDev](https://twitter.com/LankyDanDev) to keep up with my new posts.
