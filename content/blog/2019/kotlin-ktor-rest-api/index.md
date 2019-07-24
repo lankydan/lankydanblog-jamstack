@@ -1,9 +1,11 @@
 ---
-title: Ktor a Kotlin web framework
-date: "2019-07-15"
+title: Ktor - a Kotlin web framework
+slug: ktor-a-kotlin-web-framework
+date: "2019-07-24"
 published: true
 tags: [kotlin, ktor]
 cover_image: ./title-card.png
+github_url: https://github.com/lankydan/ktor-with-kodein-di
 ---
 
 [Ktor](https://ktor.io/) is an asynchronous web framework written in and designed for Kotlin. Allowing the more impressive features of Kotlin, such as coroutines, to not only be used but supported as a first-class citizen. Typically, Spring is my go-to general framework and usually what I use when I need to put a REST API together. But, after recently attending a London Kotlin meetup where there was a presentation on Ktor, I decided I'd try something new for once. That is how I ended up here, writing a blog post about Ktor. So, this post is a learning experience for both you and me. The content of this post will lack experienced advice but will instead document my journey as I play around with Ktor for the first time.
@@ -64,13 +66,13 @@ dependencies {
 
 A few things are going on here.
 
-Firstly, Ktor requires a minimum version of Kotlin `1.3`, so that coroutines can be leveraged. 
+- Ktor requires a minimum version of Kotlin `1.3`, so that coroutines can be leveraged. 
 
-Dependencies on `ktor-server-netty` and `ktor-jackson` are brought in. As the name suggests, this means [Netty](https://netty.io/) will be used for this post. Different underlying web servers can be used depending on which you choose to import. Currently, the remaining options are [Jetty](https://www.eclipse.org/jetty/) and [Tomcat](http://tomcat.apache.org/).
+- Dependencies on `ktor-server-netty` and `ktor-jackson` are brought in. As the name suggests, this means [Netty](https://netty.io/) will be used for this post. Different underlying web servers can be used depending on which you choose to import. Currently, the remaining options are [Jetty](https://www.eclipse.org/jetty/) and [Tomcat](http://tomcat.apache.org/).
 
-[Logback](https://logback.qos.ch/) is brought in to handle logging. This is not included in the Ktor dependencies and is needed if you plan on doing any sort of logging.
+- [Logback](https://logback.qos.ch/) is brought in to handle logging. This is not included in the Ktor dependencies and is needed if you plan on doing any sort of logging.
 
-[Kodein](https://kodein.org/Kodein-DI/) is a dependency injection framework written in Kotlin. I have used it loosely in this post, and due to the size of the code examples, I could probably remove it altogether. The main reason it is there is to provide me with another chance to use something other than Spring. Remember this is also one of the reasons that I am trying out Ktor.
+- [Kodein](https://kodein.org/Kodein-DI/) is a dependency injection framework written in Kotlin. I have used it loosely in this post, and due to the size of the code examples, I could probably remove it altogether. The main reason it is there is to provide me with another chance to use something other than Spring. Remember this is also one of the reasons that I am trying out Ktor.
 
 ### Starting the web server
 
