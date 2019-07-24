@@ -178,7 +178,7 @@ The code that executes when a request is routed to a request handler is obviousl
 
 Each handler function executes within the context of a coroutine. I did not really make any use of this fact since each of the functions I have shown are fully synchronous. For a bit more information on this, the [Ktor docs](https://ktor.io/samples/feature/async.html) have an async example.
 
-For the remainder of this post, I am going to try and not mention coroutines to much since they are not particularly important for this simple REST API.
+For the remainder of this post, I am going to try and not mention coroutines too much since they are not particularly important for this simple REST API.
 
 In this section, the `get` function will be examined a little closer:
 
