@@ -42,6 +42,7 @@ class BlogPostTemplate extends React.Component {
           date={post.frontmatter.date}
           timeToRead={post.timeToRead}
           keywords={post.frontmatter.tags}
+          slug={this.props.pageContext.slug}
         />
         {post.frontmatter.cover_image !== null && (
           <Img

@@ -21,6 +21,7 @@ function SEO({
   image,
   date,
   timeToRead,
+  slug
 }) {
   const { site } = useStaticQuery(
     graphql`
@@ -105,6 +106,10 @@ function SEO({
           content: `${timeToRead} min read`,
         },
         {
+          name: `twitter:image`,
+          content: `${siteUrl}${slug}/twitter-card.jpg`
+        },
+        {
           name: `article:published_time`,
           content: date,
         },
@@ -128,11 +133,7 @@ function SEO({
                 {
                   name: `og:image`,
                   content: imageUrl,
-                },
-                {
-                  name: `twitter:image`,
-                  content: imageUrl,
-                },
+                }
               ]
             : []
         )}
