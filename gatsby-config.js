@@ -58,7 +58,8 @@ module.exports = {
           },
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
-          `gatsby-remark-social-cards`
+          // `gatsby-remark-social-cards`
+          `gatsby-remark-twitter-card-generator`
         ],
       },
     },
