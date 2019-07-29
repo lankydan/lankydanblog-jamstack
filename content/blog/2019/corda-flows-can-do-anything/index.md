@@ -1,6 +1,6 @@
 ---
 title: Flows can do anything
-date: "2019-07-26"
+date: "2019-07-29"
 published: true
 tags: [corda, kotlin, dlt, distributed ledger technology, blockchain]
 cover_image: ./title-card.png
