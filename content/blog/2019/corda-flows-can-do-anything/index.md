@@ -26,7 +26,7 @@ class StupidSimpleQueryFlow(private val externalId: String) : FlowLogic<MessageS
 }
 ```
 
-If you know your stuff, then you will realise that you can do this via RPC. I chose this example this to start you off with something familiar. You have probably done similar queries in your own flows. Although there is a good chance that they were part of a more extensive process.
+If you know your stuff, then you will realise that you can do this via RPC. I chose this example to start you off with something familiar. You have probably done similar queries in your own flows. Although there is a good chance they were part of a more extensive process.
 
 There are a few things to note here that differ compared to most flows you have written:
 
@@ -34,13 +34,13 @@ There are a few things to note here that differ compared to most flows you have 
 - No `@Suspendable` annotation
 - No matching responder flow
 
-Why are they missing? Well, they are not needed. Think about it. Each point is related to communication with another node, which is not happening. The flow starts, does a query and returns the retrieved data. I'll expand on this a bit:
+Why are they missing? Well, they are not needed. Think about it. Each point is related to communication with another node, which is not happening. The flow starts, does a query and returns the retrieved data. Let me expand on this:
 
 - `@InitiatingFlow` allows a flow to create new sessions to communicate with other nodes. Since no interactions are required, no sessions need to be created, and therefore the annotation can be removed.
 - `@Suspendable` is required on functions that suspend. Allowing a flow to create _checkpoints_ that are loaded when the flow needs to wake up again. The most common place for a flow to suspend is during communication with another node. In this scenario, the annotation can be removed since the flow never needs to suspend.
 - __Responder flows__ run on counterparty nodes and interact with your flows when you `send` data to them. Again, there is no communication, so there is no need for other nodes to have a flow installed that pairs with the flow above.
 
-Most flows that you write that do not interact with other nodes will follow this sort of structure (some flows can still suspend depending on what you are doing).
+Most flows that do not interact with other nodes will follow this sort of structure (some flows can still suspend depending on what you are doing).
 
 ## Examples
 
@@ -89,7 +89,8 @@ class MessageRepository(private val serviceHub: AppServiceHub) : SingletonSerial
   fun findAllMessagesByRecipient(recipient: Party): List<MessageState> {
     return serviceHub.vaultService.queryBy<MessageState>(
       QueryCriteria.VaultCustomQueryCriteria(
-        builder { MessageSchema.PersistentMessage::recipient.equal(recipient.name.toString()) })
+        builder { MessageSchema.PersistentMessage::recipient.equal(recipient.name.toString()) }
+      )
     ).states.map { it.state.data }
   }
 }
@@ -133,3 +134,5 @@ As mentioned earlier, there is a limit to what you can do via RPC. The code abov
 ## Conclusion
 
 Short conclusion for this post. Flows are the only entry points into a node that can run fully custom logic. Corda provides several APIs to interact with a node, but these provide limited functionality. To execute any sort of logic (that a node can run), you need to have a flow that is allowed to walk into the node and press the button for you.
+
+If you enjoyed this post or found it helpful (or both) then please feel free to follow me on Twitter at [@LankyDanDev](https://twitter.com/LankyDanDev) and remember to share with anyone else who might find this useful!
