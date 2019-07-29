@@ -6,11 +6,17 @@ tags: [corda, kotlin, dlt, distributed ledger technology, blockchain]
 cover_image: ./title-card.png
 ---
 
-Flows can do a lot more than proposing new transactions to record between organisations. Although, saying they can do _anything_ is probably a bit far-reaching (it's catchy though). What I really want to say, is that flows are the entry points into a node. Corda provides a series of functions to interact with a node via RPC. These cover the more straightforward use cases, such as querying the vault, but there is a limitation to what is provided. Flows cover any of the _non standard_ logic that needs to be triggered.
+In Corda, Flows can do a lot more than proposing new transactions to record between organisations. Although, saying they can do _anything_ is probably a bit far-reaching (it's catchy though). What I really want to say, is that flows are the entry points into a node. Corda provides a series of functions to interact with a node via RPC. These cover the more straightforward use cases, such as querying the vault, but there is a limitation to what is provided. Flows cover any of the _non standard_ logic that needs to be triggered. So, if you want to expose an API from a Corda node that a client can trigger or consume, then this post is for you.
+
+I will be exploring the use of flows as entry points to a node throughout this post. Flows that propose new transactions are shown in many other tutorials and have been excluded from this post. The limelight will be solely shone onto flows that can be leveraged to provide different functionality.
 
 ## The theory
 
-The easiest way to get this started is by showing you an example:
+As mentioned in the introduction, and I want to reiterate it, the only way to expose an endpoint or API from a Corda node is through a flow. The existing RPC endpoints will handle the _standard_ functionality.
+
+In my opinion, exposing the functionality of a node through flows is very similar to writing HTTP endpoints for a web server. You must define what is accessible. Clients cannot request access to any internal code inside the web server. If there is not an endpoint, an error is sent back. The same concept is true for Corda. It is then more straightforward to reason about what a client can or cannot do when interacting with a node.
+
+In regards to the implementation, the easiest way to get started is by showing you an example:
 
 ```kotlin
 @StartableByRPC
@@ -41,6 +47,12 @@ Why are they missing? Well, they are not needed. Think about it. Each point is r
 - __Responder flows__ run on counterparty nodes and interact with your flows when you `send` data to them. Again, there is no communication, so there is no need for other nodes to have a flow installed that pairs with the flow above.
 
 Most flows that do not interact with other nodes will follow this sort of structure (some flows can still suspend depending on what you are doing).
+
+The flow defined above can then be accessed from an external client:
+
+```kotlin
+proxy.startFlow(::StupidSimpleQueryFlow, "asdas").returnValue.get()
+```
 
 ## Examples
 
