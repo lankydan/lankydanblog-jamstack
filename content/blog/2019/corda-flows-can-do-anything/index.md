@@ -1,18 +1,18 @@
 ---
 title: Flows can do anything
-date: "2019-07-29"
+date: "2019-07-30"
 published: true
 tags: [corda, kotlin, dlt, distributed ledger technology, blockchain]
 cover_image: ./title-card.png
 ---
 
-In Corda, Flows can do a lot more than proposing new transactions to record between organisations. Although, saying they can do _anything_ is probably a bit far-reaching (it's catchy though). What I really want to say, is that flows are the entry points into a node. Corda provides a series of functions to interact with a node via RPC. These cover the more straightforward use cases, such as querying the vault, but there is a limitation to what is provided. Flows cover any of the _non standard_ logic that needs to be triggered. So, if you want to expose an API from a Corda node that a client can trigger or consume, then this post is for you.
+In Corda, Flows can do a lot more than proposing new transactions to record between organisations. Although, saying they can do _anything_ is probably a bit far-reaching (it's catchy though). What I really want to say, is that flows are the entry points into a node. Corda provides a series of functions to interact with a node via RPC. Currently, these cover the more straightforward use cases, such as querying the vault, but there is a limitation to what is provided. Flows cover any of the _non-standard_ logic that needs to be triggered. So, if you want to expose an API from a Corda node that a client can trigger or consume, then this post is for you.
 
-I will be exploring the use of flows as entry points to a node throughout this post. Flows that propose new transactions are shown in many other tutorials and have been excluded from this post. The limelight will be solely shone onto flows that can be leveraged to provide different functionality.
+I will be exploring the use of flows as entry points to a node throughout this post. Flows that propose new transactions are shown in many other tutorials and have been excluded from this post. The limelight will be solely shone onto flows that provide different functionality.
 
 ## The theory
 
-As mentioned in the introduction, and I want to reiterate it, the only way to expose an endpoint or API from a Corda node is through a flow. The existing RPC endpoints will handle the _standard_ functionality.
+As mentioned in the introduction, and I want to reiterate it, the only way to expose an endpoint or API from a Corda node is through a flow. The existing RPC endpoints will handle the _standard_ functionality. In the future this might change, adding support for custom RPC endpoints. But, as of now (Corda 4), flows are the only way to run non-standard logic within a node.
 
 In my opinion, exposing the functionality of a node through flows is very similar to writing HTTP endpoints for a web server. You must define what is accessible. Clients cannot request access to any internal code inside the web server. If there is not an endpoint, an error is sent back. The same concept is true for Corda. It is then more straightforward to reason about what a client can or cannot do when interacting with a node.
 
@@ -34,7 +34,7 @@ class StupidSimpleQueryFlow(private val externalId: String) : FlowLogic<MessageS
 
 If you know your stuff, then you will realise that you can do this via RPC. I chose this example to start you off with something familiar. You have probably done similar queries in your own flows. Although there is a good chance they were part of a more extensive process.
 
-There are a few things to note here that differ compared to most flows you have written:
+There are a few things to note here that differ compared to most flows:
 
 - No `@InitiatingFlow` annotation
 - No `@Suspendable` annotation
