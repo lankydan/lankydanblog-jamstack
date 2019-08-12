@@ -174,7 +174,7 @@ A shutdown hook is added to the server. As explained in [Graceful shutdown of Kt
 
 ## That's all there is
 
-Yes, really, that is all. Implementing a super basic web server does not require much code at all. There isn't really anything else to write. I have shown you that there is another web framework that can be used to connect to a Corda node. You don't have to default to Spring just because the Corda samples use them. If you prefer Ktor, use Ktor. If you don't, don't. If you did like the look of Ktor, if you haven't already, I recommend looking at [Ktor - a Kotlin web framework](https://lankydan.dev/ktor-a-kotlin-web-framework).
+Yes, really, that is all. Implementing a super basic web server does not require much code at all. There isn't really anything else to write. I have shown you that there is another web framework that can be used to connect to a Corda node. You don't have to default to Spring just because the Corda samples use them. If you prefer Ktor, use Ktor. If you don't, don't. If you did like the look of Ktor, and if you haven't already, I recommend looking at [Ktor - a Kotlin web framework](https://lankydan.dev/ktor-a-kotlin-web-framework).
 
 A lot of code was excluded from this post as I focused on the more important aspects of the implementation. If you are interested in the rest of the code, you can find it on my [GitHub](https://github.com/lankydan/corda-ktor-webserver).
 
