@@ -124,7 +124,9 @@ data class MyClass(val a: String, val b: Int) {
 
     if (a != other.a) return false
     if (b != other.b) return false
-    if (this::c.isInitialized && (other as MyClass)::c.isInitialized && c != other.c) return false
+    if ((this::c.isInitialized && (other as MyClass)::c.isInitialized && c != other.c)
+      || this::c.isInitialized != (other as MyClass)::c.isInitialized
+    ) return false
 
     return true
   }
