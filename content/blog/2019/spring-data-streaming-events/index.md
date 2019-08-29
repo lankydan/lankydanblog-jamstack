@@ -1,6 +1,6 @@
 ---
 title: Streaming live updates from a reactive Spring Data repository
-date: "2019-08-30"
+date: "2019-08-29"
 published: true
 tags: [spring, spring data, kotlin, java, r2dbc, spring data r2dbc, reactive, reactive streams]
 cover_image: ./title-card.png
