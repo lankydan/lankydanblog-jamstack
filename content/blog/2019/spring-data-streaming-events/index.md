@@ -104,6 +104,8 @@ Which outputs:
 
 A record is saved every second which matches up to the events coming out of the repository.
 
+Note, that the `doOnComplete` event is never triggered. The source never closes and therefore never emits a completion event to any of its subscribers.
+
 That's all there is to it, at least for this basic implementation. I am sure there is a lot more that could be done, but I would need to figure out how to do that first... To summarise, with a few additions, you can stream data inserted into your database to components that are interested in the records being added.
 
 If you enjoyed this post or found it helpful (or both) then please feel free to follow me on Twitter at [@LankyDanDev](https://twitter.com/LankyDanDev) and remember to share with anyone else who might find this useful!
