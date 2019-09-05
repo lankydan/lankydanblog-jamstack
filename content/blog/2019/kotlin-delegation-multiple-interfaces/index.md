@@ -1,6 +1,6 @@
 ---
 title: Implementing multiple interfaces through delegation
-date: "2019-09-04"
+date: "2019-09-05"
 published: true
 tags: [kotlin]
 cover_image: ./title-card.png
@@ -122,8 +122,6 @@ interface WeightLifter : Human {
 ```
 
 > Only the functions declared in the `WeightLifter` interface need to be added manually
-
-That's all there is to say on this subject.
 
 To summarise:
 
