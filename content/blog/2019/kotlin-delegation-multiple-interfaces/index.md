@@ -1,5 +1,6 @@
 ---
 title: Implementing multiple interfaces through delegation
+slug: kotlin-implementing-multiple-interfaces-through-delegation
 date: "2019-09-05"
 published: true
 tags: [kotlin]
