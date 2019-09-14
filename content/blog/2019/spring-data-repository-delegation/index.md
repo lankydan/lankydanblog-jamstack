@@ -6,7 +6,7 @@ tags: [spring, spring data, kotlin, java, r2dbc, spring data r2dbc, reactive, re
 cover_image: ./title-card.png
 ---
 
-I have recently written several posts about Kotlin's delegation. In doing so, I realised a useful way to apply it to Spring Data repositories. Which would allow Spring Data to continue sprinkling some magic while providing a route for customisation.
+I have recently written several posts about Kotlin's delegation. In doing so, I realised a useful way to apply it to Spring Data repositories. Which would allow Spring Data to continue sprinkling some magic while providing a route for customisation. The code shown in this post is in Kotlin, but is still relevant to Java.
 
 This post uses R2DBC, but the content is generic enough to be applicable to any Spring Data module.
 
