@@ -67,7 +67,7 @@ export default class BlogIndexPageList extends React.Component {
               <Bio />
               <BlogList
                 posts={this.props.posts}
-                cardWidth={rhythm(16.5)}
+                cardWidth={rhythm(18)}
                 cardHeight={rhythm(12.5)}
               />
               {postButtons}
