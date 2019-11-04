@@ -68,9 +68,9 @@ class BlogPostTemplate extends React.Component {
         {githubUrl !== null && githubUrl !== undefined && (
           <div
             style={{
-              backgroundColor: `#24292e`,
+              backgroundColor: `#333`,
               textAlign: `center`,
-              maxWidth: `200px`,
+              maxWidth: `180px`,
               margin: `10px 0 0`,
               borderRadius: `4px`,
             }}
@@ -84,9 +84,10 @@ class BlogPostTemplate extends React.Component {
                 color: `white`,
                 textDecoration: `none`,
                 boxShadow: `0 0`,
+                backgroundImage: `none`
               }}
             >
-              GITHUB REPO FOR POST
+              GitHub repository
             </a>
           </div>
         )}
