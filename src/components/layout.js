@@ -14,10 +14,11 @@ class Layout extends React.Component {
         <h1
           style={{
             fontFamily: `ubuntu, Montserrat`,
-            ...scale(1.5),
+             ...scale(1.5),
             marginBottom: rhythm(1.5),
             marginTop: 0,
-            textTransform: `uppercase`
+            textTransform: `uppercase`,
+            textDecoration: `none`
           }}
         >
           <Link
@@ -25,6 +26,7 @@ class Layout extends React.Component {
               boxShadow: `none`,
               textDecoration: `none`,
               color: `inherit`,
+              backgroundImage: `none`
             }}
             to={`/`}
           >
@@ -38,7 +40,8 @@ class Layout extends React.Component {
           style={{
             fontFamily: `ubuntu, Montserrat`,
             marginTop: 0,
-            textTransform: `uppercase`
+            textTransform: `uppercase`,
+            textDecoration: `none`
           }}
         >
           <Link
@@ -46,6 +49,7 @@ class Layout extends React.Component {
               boxShadow: `none`,
               textDecoration: `none`,
               color: `inherit`,
+              backgroundImage: `none`
             }}
             to={`/`}
           >
@@ -59,7 +63,7 @@ class Layout extends React.Component {
         style={{
           marginLeft: `auto`,
           marginRight: `auto`,
-          maxWidth: rhythm(35),
+          maxWidth: rhythm(38),
           padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
         }}
       >

@@ -34,6 +34,7 @@ class BlogList extends React.Component {
                 float: `none`,
                 position: `relative`,
                 margin: `0 auto`,
+                backgroundImage: `none`
               }}
               to={node.fields.slug}
             >
