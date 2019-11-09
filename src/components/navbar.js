@@ -9,6 +9,10 @@ import RssIcon from "../../content/assets/rss.svg"
 
 export default class Navbar extends React.Component {
   render() {
+    const socialIconSize = {
+      width: `22px`,
+      height: `22px`,
+    }
     return (
       <StaticQuery
         query={socialsQuery}
@@ -17,11 +21,6 @@ export default class Navbar extends React.Component {
           return (
             <nav
               style={{
-                position: `fixed`,
-                borderBottom: `1px solid #9b9b9b`,
-                top: `0`,
-                zIndex: 3,
-                backgroundColor: `white`,
                 width: rhythm(38),
               }}
             >
@@ -29,53 +28,21 @@ export default class Navbar extends React.Component {
                 <Link to={`/`}>Lanky Dan Blog</Link>
                 {/* <Link to={`/blog`}>About</Link> */}
               </span>
-              <span
-                class="social-links"
-                style={
-                  {
-                    // float: `right`,
-                  }
-                }
-              >
+              <span class="social-links">
                 <SocialLink link={`https://twitter.com/${socials.twitter}`}>
-                  <TwitterIcon
-                    style={{
-                      width: `22px`,
-                      height: `22px`,
-                    }}
-                  />
+                  <TwitterIcon style={socialIconSize} />
                 </SocialLink>
                 <SocialLink link={socials.dev}>
-                  <DevIcon
-                    style={{
-                      width: `22px`,
-                      height: `22px`,
-                    }}
-                  />
+                  <DevIcon style={socialIconSize} />
                 </SocialLink>
                 <SocialLink link={socials.github}>
-                  <GithubIcon
-                    style={{
-                      width: `22px`,
-                      height: `22px`,
-                    }}
-                  />
+                  <GithubIcon style={socialIconSize} />
                 </SocialLink>
                 <SocialLink link={socials.linkedin}>
-                  <LinkedInIcon
-                    style={{
-                      width: `22px`,
-                      height: `22px`,
-                    }}
-                  />
+                  <LinkedInIcon style={socialIconSize} />
                 </SocialLink>
                 <SocialLink link={`https://twitter.com/`}>
-                  <RssIcon
-                    style={{
-                      width: `22px`,
-                      height: `22px`,
-                    }}
-                  />
+                  <RssIcon style={socialIconSize} />
                 </SocialLink>
               </span>
             </nav>
