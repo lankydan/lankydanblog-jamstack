@@ -19,11 +19,7 @@ export default class Navbar extends React.Component {
         render={data => {
           const socials = data.site.siteMetadata.social
           return (
-            <nav
-              style={{
-                width: rhythm(38),
-              }}
-            >
+            <nav>
               <span class="navbar-links">
                 <Link to={`/`}>Lanky Dan Blog</Link>
                 {/* <Link to={`/blog`}>About</Link> */}

@@ -32,7 +32,7 @@ class Layout extends React.Component {
           marginLeft: `auto`,
           marginRight: `auto`,
           maxWidth: rhythm(38),
-          padding: `${rhythm(1.5)} 0`,
+          padding: `0 0 ${rhythm(1.5)} 0`,
         }}
       >
         <Navbar />

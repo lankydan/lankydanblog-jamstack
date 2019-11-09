@@ -1,36 +1,20 @@
 nav {
-  position: fixed;
+  position: sticky;
   border-bottom: 1px solid #9b9b9b;
   top: 0;
   z-index: 3;
   background-color: white;
-}
 
-@media screen and (max-width: 1030px) {
-  nav {
-    width: 95%;
-  }
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  flex: 0;
 }
-
-.social-links {
-  float: right;
-}
-
-@media screen and (max-width: 1030px) {
-  .social-links {
-    float: left;
-  }
-}
-
-/* @media screen and (max-width: 40rem) {
-  .social-links {
-    float: left;
-  }
-} */
 
 .navbar-links {
-  float: left;
-  /* padding-right: 12rem; */
+  display: inline-flex;
+  flex-direction: row;
+  flex-grow: 1;
 }
 
 nav a {
