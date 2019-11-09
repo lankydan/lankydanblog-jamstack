@@ -1,7 +1,6 @@
 import React from "react"
-import { Link } from "gatsby"
-
-import { rhythm, scale } from "../utils/typography"
+import { rhythm } from "../utils/typography"
+import Navbar from "./navbar"
 
 class Layout extends React.Component {
   render() {
@@ -13,49 +12,18 @@ class Layout extends React.Component {
       header = (
         <h1
           style={{
-            fontFamily: `ubuntu, Montserrat`,
-             ...scale(1.5),
+            font: `400 70px Oswald`,
+            letterSpacing: `6px`,
+            wordSpacing: `9px`,
             marginBottom: rhythm(1.5),
             marginTop: 0,
             textTransform: `uppercase`,
-            textDecoration: `none`
+            textDecoration: `none`,
+            textAlign: `center`,
           }}
         >
-          <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-              backgroundImage: `none`
-            }}
-            to={`/`}
-          >
-            {title}
-          </Link>
+          {title}
         </h1>
-      )
-    } else {
-      header = (
-        <h3
-          style={{
-            fontFamily: `ubuntu, Montserrat`,
-            marginTop: 0,
-            textTransform: `uppercase`,
-            textDecoration: `none`
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-              backgroundImage: `none`
-            }}
-            to={`/`}
-          >
-            {title}
-          </Link>
-        </h3>
       )
     }
     return (
@@ -64,11 +32,18 @@ class Layout extends React.Component {
           marginLeft: `auto`,
           marginRight: `auto`,
           maxWidth: rhythm(38),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+          padding: `${rhythm(1.5)} 0`,
         }}
       >
-        <header>{header}</header>
-        <main>{children}</main>
+        <Navbar />
+        <div
+          style={{
+            padding: `30px ${rhythm(3 / 4)}`,
+          }}
+        >
+          <header>{header}</header>
+          <main>{children}</main>
+        </div>
         <footer>
           © {new Date().getFullYear()}, Built with
           {` `}

@@ -1,0 +1,41 @@
+@media screen and (max-width: 1030px) {
+  nav {
+    width: 95%;
+  }
+}
+
+.social-links {
+  float: right;
+}
+
+@media screen and (max-width: 1030px) {
+  .social-links {
+    float: left;
+  }
+}
+
+/* @media screen and (max-width: 40rem) {
+  .social-links {
+    float: left;
+  }
+} */
+
+.navbar-links {
+  float: left;
+  /* padding-right: 12rem; */
+}
+
+nav a {
+  padding: 10px 10px 5px 10px;
+  display: inline-block;
+  color: #4a4a4a;
+  text-transform: uppercase;
+  /* font-size: 20px; */
+  background-image: none;
+  /* font-family: 'Fira Code'; */
+  font: 400 20px Oswald;
+}
+
+nav a svg {
+  fill: rgb(97, 51, 128);
+}
