@@ -11,21 +11,26 @@ nav {
   flex: 0;
 }
 
+nav a svg {
+  fill: rgb(97, 51, 128);
+}
+
+nav a {
+  background-image: none;
+  text-transform: uppercase;
+  font: 400 20px Oswald;
+  letter-spacing: 1px;
+  color: #4a4a4a;
+}
+
 .navbar-links {
   display: inline-flex;
   flex-direction: row;
   flex-grow: 1;
+  align-items: center;
 }
 
-nav a {
+.icon {
   padding: 10px 10px 5px 10px;
   display: inline-block;
-  color: #4a4a4a;
-  text-transform: uppercase;
-  background-image: none;
-  font: 400 20px Oswald;
-}
-
-nav a svg {
-  fill: rgb(97, 51, 128);
 }

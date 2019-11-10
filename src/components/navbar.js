@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, StaticQuery } from "gatsby"
+import Logo from "../../content/assets/logo.svg"
 import TwitterIcon from "../../content/assets/twitter.svg"
 import GithubIcon from "../../content/assets/github.svg"
 import DevIcon from "../../content/assets/dev.svg"
@@ -20,10 +21,17 @@ export default class Navbar extends React.Component {
           return (
             <nav>
               <span class="navbar-links">
+                <Link className="icon" to={`/`}>
+                  <Logo
+                    style={{
+                      width: `22px`,
+                      height: `22px`,
+                    }}
+                  />
+                </Link>
                 <Link to={`/`}>Lanky Dan Blog</Link>
-                {/* <Link to={`/blog`}>About</Link> */}
               </span>
-              <span class="social-links">
+              <span>
                 <SocialLink link={`https://twitter.com/${socials.twitter}`}>
                   <TwitterIcon style={socialIconSize} />
                 </SocialLink>
@@ -36,7 +44,7 @@ export default class Navbar extends React.Component {
                 <SocialLink link={socials.linkedin}>
                   <LinkedInIcon style={socialIconSize} />
                 </SocialLink>
-                <Link to={`/rss`}>
+                <Link className="icon" to={`/rss`}>
                   <RssIcon style={socialIconSize} />
                 </Link>
               </span>
@@ -52,7 +60,7 @@ class SocialLink extends React.Component {
   render() {
     const { link, children } = this.props
     return (
-      <a href={link} target="_blank" rel="noreferrer">
+      <a class="icon" href={link} target="_blank" rel="noreferrer">
         {children}
       </a>
     )
