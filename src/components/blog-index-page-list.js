@@ -64,7 +64,6 @@ export default class BlogIndexPageList extends React.Component {
                   `software development`,
                 ]}
               />
-              <Bio />
               <BlogList
                 posts={this.props.posts}
                 cardWidth={rhythm(18)}

@@ -12,7 +12,8 @@ module.exports = {
     social: {
       twitter: `LankyDanDev`,
       linkedin: `https://www.linkedin.com/in/danknewton/`,
-      github: `https://github.com/lankydan`
+      github: `https://github.com/lankydan`,
+      dev: `https://dev.to/lankydandev`
     },
   },
   plugins: [
@@ -65,8 +66,16 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sharp`,
       options: {
-        defaultQuality: 80
-      }
+        defaultQuality: 80,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-react-svg`,
+      options: {
+        rule: {
+          include: `${__dirname}/content/assets`,
+        },
+      },
     },
     {
       resolve: `gatsby-plugin-google-analytics`,
@@ -82,10 +91,10 @@ module.exports = {
         // feeds query manually
         feeds: [
           {
-            output: "/all.xml",
+            output: "/rss/all.xml",
             title: "All posts RSS Feed",
             serialize: ({ query: { site, allMarkdownRemark } }) => {
-              if(allMarkdownRemark === null) {
+              if (allMarkdownRemark === null) {
                 return []
               }
               return allMarkdownRemark.edges.map(edge => {
@@ -127,13 +136,13 @@ module.exports = {
                   }
                 }
               }
-            `
+            `,
           },
           {
-            output: "/jvm.xml",
+            output: "/rss/jvm.xml",
             title: "JVM posts RSS Feed",
             serialize: ({ query: { site, allMarkdownRemark } }) => {
-              if(allMarkdownRemark === null) {
+              if (allMarkdownRemark === null) {
                 return []
               }
               return allMarkdownRemark.edges.map(edge => {
@@ -177,13 +186,13 @@ module.exports = {
                   }
                 }
               }
-            `
+            `,
           },
           {
-            output: "/corda.xml",
+            output: "/rss/corda.xml",
             title: "Corda posts RSS Feed",
             serialize: ({ query: { site, allMarkdownRemark } }) => {
-              if(allMarkdownRemark === null) {
+              if (allMarkdownRemark === null) {
                 return []
               }
               console.log(allMarkdownRemark)
@@ -228,7 +237,7 @@ module.exports = {
                   }
                 }
               }
-            `
+            `,
           },
         ],
       },
@@ -253,6 +262,6 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
-    `gatsby-plugin-sitemap`
+    `gatsby-plugin-sitemap`,
   ],
 }

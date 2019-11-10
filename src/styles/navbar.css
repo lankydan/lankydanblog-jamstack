@@ -1,0 +1,31 @@
+nav {
+  position: sticky;
+  border-bottom: 1px solid #9b9b9b;
+  top: 0;
+  z-index: 3;
+  background-color: white;
+
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  flex: 0;
+}
+
+.navbar-links {
+  display: inline-flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+nav a {
+  padding: 10px 10px 5px 10px;
+  display: inline-block;
+  color: #4a4a4a;
+  text-transform: uppercase;
+  background-image: none;
+  font: 400 20px Oswald;
+}
+
+nav a svg {
+  fill: rgb(97, 51, 128);
+}
