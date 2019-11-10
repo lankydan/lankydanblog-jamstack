@@ -67,18 +67,18 @@ function Bio() {
                 >
                   <RssButton
                     text={`ALL RSS FEED`}
-                    link={`/all.xml`}
+                    link={`/rss/all.xml`}
                     colour={`rgba(97, 51, 128, 0.612)`}
                   />
                   <RssButton
                     text={`JVM RSS FEED`}
-                    link={`/jvm.xml`}
+                    link={`/rss/jvm.xml`}
                     colour={`#292D3E`}
                     fontColour={`#82AAFF`}
                   />
                   <RssButton
                     text={`CORDA RSS FEED`}
-                    link={`/corda.xml`}
+                    link={`/rss/corda.xml`}
                     colour={`#e11c1b`}
                   />
                 </div>

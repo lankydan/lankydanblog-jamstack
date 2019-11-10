@@ -91,7 +91,7 @@ module.exports = {
         // feeds query manually
         feeds: [
           {
-            output: "/all.xml",
+            output: "/rss/all.xml",
             title: "All posts RSS Feed",
             serialize: ({ query: { site, allMarkdownRemark } }) => {
               if (allMarkdownRemark === null) {
@@ -139,7 +139,7 @@ module.exports = {
             `,
           },
           {
-            output: "/jvm.xml",
+            output: "/rss/jvm.xml",
             title: "JVM posts RSS Feed",
             serialize: ({ query: { site, allMarkdownRemark } }) => {
               if (allMarkdownRemark === null) {
@@ -189,7 +189,7 @@ module.exports = {
             `,
           },
           {
-            output: "/corda.xml",
+            output: "/rss/corda.xml",
             title: "Corda posts RSS Feed",
             serialize: ({ query: { site, allMarkdownRemark } }) => {
               if (allMarkdownRemark === null) {

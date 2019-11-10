@@ -4,7 +4,7 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
+import { rhythm } from "../utils/typography"
 import Img from "gatsby-image"
 import Socials from "../components/socials"
 import BlogList from "../components/blog-list"
@@ -17,7 +17,6 @@ class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
     const posts = this.props.data.allMarkdownRemark.edges
-    const siteTitle = this.props.data.site.siteMetadata.title
     const githubUrl = post.frontmatter.github_url
     const { previous, next } = this.props.pageContext
     const postUrl = urljoin(
@@ -30,7 +29,7 @@ class BlogPostTemplate extends React.Component {
       title: post.frontmatter.title,
     }
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout location={this.props.location}>
         <SEO
           url={postUrl}
           title={post.frontmatter.title}
@@ -78,13 +77,14 @@ class BlogPostTemplate extends React.Component {
             <a
               href={post.frontmatter.github_url}
               target="_blank"
+              rel="noreferrer"
               style={{
                 maxWidth: `200px`,
                 margin: `5px 0px`,
                 color: `white`,
                 textDecoration: `none`,
                 boxShadow: `0 0`,
-                backgroundImage: `none`
+                backgroundImage: `none`,
               }}
             >
               GitHub repository

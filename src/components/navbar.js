@@ -1,5 +1,4 @@
 import React from "react"
-import { rhythm } from "../utils/typography"
 import { Link, StaticQuery } from "gatsby"
 import TwitterIcon from "../../content/assets/twitter.svg"
 import GithubIcon from "../../content/assets/github.svg"
@@ -37,9 +36,9 @@ export default class Navbar extends React.Component {
                 <SocialLink link={socials.linkedin}>
                   <LinkedInIcon style={socialIconSize} />
                 </SocialLink>
-                <SocialLink link={`https://twitter.com/`}>
+                <Link to={`/rss`}>
                   <RssIcon style={socialIconSize} />
-                </SocialLink>
+                </Link>
               </span>
             </nav>
           )
