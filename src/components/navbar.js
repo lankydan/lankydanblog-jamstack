@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, StaticQuery } from "gatsby"
+import Logo from "../../content/assets/logo.svg"
 import TwitterIcon from "../../content/assets/twitter.svg"
 import GithubIcon from "../../content/assets/github.svg"
 import DevIcon from "../../content/assets/dev.svg"
@@ -8,10 +9,6 @@ import RssIcon from "../../content/assets/rss.svg"
 
 export default class Navbar extends React.Component {
   render() {
-    const socialIconSize = {
-      width: `22px`,
-      height: `22px`,
-    }
     return (
       <StaticQuery
         query={socialsQuery}
@@ -19,25 +16,27 @@ export default class Navbar extends React.Component {
           const socials = data.site.siteMetadata.social
           return (
             <nav>
-              <span class="navbar-links">
+              <span className="navbar-links">
+                <Link className="icon-link" to={`/`}>
+                  <Logo className="icon" />
+                </Link>
                 <Link to={`/`}>Lanky Dan Blog</Link>
-                {/* <Link to={`/blog`}>About</Link> */}
               </span>
-              <span class="social-links">
+              <span>
                 <SocialLink link={`https://twitter.com/${socials.twitter}`}>
-                  <TwitterIcon style={socialIconSize} />
+                  <TwitterIcon className="icon" />
                 </SocialLink>
                 <SocialLink link={socials.dev}>
-                  <DevIcon style={socialIconSize} />
+                  <DevIcon className="icon" />
                 </SocialLink>
                 <SocialLink link={socials.github}>
-                  <GithubIcon style={socialIconSize} />
+                  <GithubIcon className="icon" />
                 </SocialLink>
                 <SocialLink link={socials.linkedin}>
-                  <LinkedInIcon style={socialIconSize} />
+                  <LinkedInIcon className="icon" />
                 </SocialLink>
-                <Link to={`/rss`}>
-                  <RssIcon style={socialIconSize} />
+                <Link className="icon-link" to={`/rss`}>
+                  <RssIcon className="icon" />
                 </Link>
               </span>
             </nav>
@@ -52,7 +51,7 @@ class SocialLink extends React.Component {
   render() {
     const { link, children } = this.props
     return (
-      <a href={link} target="_blank" rel="noreferrer">
+      <a className="icon-link" href={link} target="_blank" rel="noreferrer">
         {children}
       </a>
     )
