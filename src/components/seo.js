@@ -61,7 +61,7 @@ function SEO({
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
         {
-          name: `og:url`,
+          property: `og:url`,
           content: url,
         },
         {
@@ -126,7 +126,7 @@ function SEO({
           imageUrl !== null
             ? [
                 {
-                  name: `og:image`,
+                  property: `og:image`,
                   content: imageUrl,
                 },
                 {
