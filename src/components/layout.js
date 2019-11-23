@@ -9,22 +9,7 @@ class Layout extends React.Component {
     let header
 
     if (title !== undefined) {
-      header = (
-        <h1
-          style={{
-            font: `400 70px Oswald`,
-            letterSpacing: `6px`,
-            wordSpacing: `9px`,
-            marginBottom: rhythm(1.5),
-            marginTop: 0,
-            textTransform: `uppercase`,
-            textDecoration: `none`,
-            textAlign: `center`,
-          }}
-        >
-          {title}
-        </h1>
-      )
+      header = <h1 className="blog-header">{title}</h1>
     }
     return (
       <div
