@@ -7,6 +7,40 @@ h6 {
   font-family: "PT Sans";
 }
 
+.blog-header {
+  font: 400 70px Oswald;
+  letter-spacing: 6px;
+  word-spacing: 9px;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  margin-top: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .blog-header {
+    font: 400 50px Oswald;
+    letter-spacing: 4px;
+    word-spacing: 6px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .blog-header {
+    font: 400 40px Oswald;
+    letter-spacing: 4px;
+    word-spacing: 6px;
+  }
+}
+
+@media screen and (max-width: 365px) {
+  .blog-header {
+    font: 400 30px Oswald;
+    letter-spacing: 3px;
+    word-spacing: 4px;
+  }
+}
+
 p {
   margin-top: 1.2em;
   margin-bottom: 1.2em;
