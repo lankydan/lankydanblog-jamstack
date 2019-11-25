@@ -67,7 +67,7 @@ Obviously, most of the things being checked here are pretty random, but it does 
   check(message.recipient == ourIdentity) { "I think you got the wrong person" }
   ```
 
-This is an essential step to ensure that transactions you receive are intended for you and the role you play in the current flow, or in general, within the network. Not doing this, will allow your node to accept anything it is asked to sign and record. Even if it has absolutely nothing to do with you.
+  This is an essential step to ensure that transactions you receive are intended for you and the role you play in the current flow, or in general, within the network. Not doing this, will allow your node to accept anything it is asked to sign and record. Even if it has absolutely nothing to do with you.
 
 - A series of other rules are also included. Each additional criteria is contractually valid but is not a desired property of the state in the context of this flow.
 
