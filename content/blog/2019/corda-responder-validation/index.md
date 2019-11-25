@@ -10,19 +10,19 @@ Do you want to prevent your node from accepting transactions that are not import
 
 Do you want to prevent your node from accepting transactions that are invalid from your business's perspective?
 
-If you answered yes to either of these questions. Then you might want to consider adding some validation to your responder flows.
+If you answered yes to either of these questions, then you might want to consider adding some validation to your responder flows.
 
-For context, a responder flow is executed by a counterparty node when communicating with an initiating flow. Part of a responder flow's duty typically includes signing and recording a transaction sent to it. Meaning an organisation can end up in a situation where they did not have a large involvement in putting the contents of the transaction together, yet are expected to sign and potentially record it.
+For context, a responder flow is executed by a counterparty node when communicating with an initiating flow. Responder flows typically sign and record transactions sent to them. This means an organisation can end up in a situation where they did not have a large involvement in putting the contents of the transaction together, yet are expected to sign and potentially record it.
 
-Surely, there should be some rules to prevent an organisation from being sent any old rubbish? And, yes, there are. The very bare minimum that needs to pass is contract validation. This ensures that a transaction is logically valid at a general level. What it does not do. Is enforce local identity/roles or business level requirements upon a transaction.
+Surely, there should be some rules to prevent an organisation from being sent any old rubbish? And, yes, there are. The very bare minimum that needs to pass is contract validation. This ensures that a transaction is logically valid at a general level. What it does not do, is enforce local identity/roles or business level requirements.
 
-To an extent, this is fine. A __contract should__ only be ensuring that a transaction is __logically valid__.
+To an extent, this is fine. A __contract__ should only be ensuring that a transaction is __logically valid__.
 
-__Flows__ on the other hand, need to take charge in __enforcing business level requirements__ on transactions.
+__Flows__ on the other hand, need to take charge of __enforcing business level requirements__ on transactions.
 
 ## Including validation
 
-To include your own validation, you need to make use of `SignTransactionFlow.checkTransaction` when calling the `SignTransactionFlow` subflow. I guarantee that you have seen `checkTransaction` before (if you have worked with Corda already). If you have not, then please tell me how you managed to do so.
+To include your own validation, you need to make use of `SignTransactionFlow.checkTransaction` when calling the `SignTransactionFlow` subflow. I guarantee that you have seen `checkTransaction` before (if you have worked with Corda already). If you have not, then please tell me how.
 
 Assuming you have seen it, I bet there is a good chance that you also left it blank like this:
 
@@ -81,7 +81,7 @@ This is an essential step to ensure that transactions you receive are intended f
 
 ## How to validate
 
-I have just shown you what sort of validation to include. What I did not do is explain how the code shown before leads to a transaction being rejected. You might have sussed it out, but let me be thorough and go through it properly.
+I have just shown you what sort of validation to include. What I didn't do is explain how the code shown before leads to a transaction being rejected. You might have sussed it out, but let me be thorough and go through it properly.
 
 To reject a transaction from within `checkTransaction` you need to throw an exception. Different exceptions will lead to different outcomes. This is due to the code below in `SignTransactionFlow`:
 
@@ -126,7 +126,7 @@ Which one you throw depends on the context (and possibly personal preference). I
 
 Both of these also have alternatives for null checking, `requireNotNull` and `checkNotNull`.
 
-Corda also provides a built-in way to do similar validation using the `reqiureThat` DSL (Domain Specific Language):
+Corda also provides a built-in way to do similar validation using the `requireThat` DSL (Domain Specific Language):
 
 ```kotlin
 requireThat {
@@ -140,7 +140,7 @@ requireThat {
 }
 ```
 
-`requireThat` was built for use inside of contracts but can be used anywhere. As the name suggests, it follows the same semantics as `require`. The difference is that it is a DSL, which makes use of `using` to define a message and criteria. Note, that you can add general code into the `requireThat` block. Only the `using` lines are going to (potentially) throw exceptions.
+`requireThat` was built for use inside contracts but can be used anywhere. As the name suggests, it follows the same semantics as `require`. The difference is that it is a DSL, which makes use of `using` to define a message and criteria. Note, that you can add general code into the `requireThat` block. Only the `using` lines are going to (potentially) throw exceptions.
 
 `requireThat` can also be used from Java (but looks a tad worse):
 
