@@ -1,5 +1,6 @@
 ---
-title: Responder flow validation reloaded (part 2)
+title: Responder flow validation (part 2 - extension)
+slug: responder-flow-validation-extension
 date: "2019-12-02"
 published: true
 tags: [corda, kotlin, dlt, distributed ledger technology, blockchain]
@@ -16,7 +17,7 @@ In [Responder flow validation](www.lankydan.dev/responder-flow-validation) I clo
 
 I'm not one to leave you hanging for too long. So, here I am to stay true to my word and show you how to enforce your own validation onto a shared CorDapp.
 
-Now, before I continue, I have a little disclaimer. What I will cover in this post requires cooperation from the developers of the CorDapp. Why? They are in control of what the CorDapp does. If they do not follow the required steps then extending their CorDapp becomes much more difficult. It is still possible, but the chance of errors goes through the roof.
+Now, before I continue, I have a little disclaimer. What I will cover in this post requires cooperation from the developers of the CorDapp. Why? They are in control of what the CorDapp does. If they do not follow the necessary steps, then extending their CorDapp becomes much more difficult. It is still possible, but the chance of errors goes through the roof.
 
 Obviously, this problem goes away if you are the one developing the CorDapp.
 
@@ -26,13 +27,13 @@ I will be skimming through some of the content in this post. For extra backgroun
 
 ## Why extendable flows make sense for injecting validation
 
-In Corda, organisations interact with each other through the use of shared code. Meaning that each and every organisation executes the exact same code. The false assumption that this model makes, is that the processes all these different businesses are identical. Large majorities might be the same (there is a lot of duplication in this world), but the chance of them being exact copies is extremely small. To be honest, I would go as far as saying it's impossible. Somewhere in the process there will be a difference.
+In Corda, organisations interact with each other through the use of shared code. Meaning that each and every organisation executes the exact same code. The false assumption that this model makes is that the processes all these different businesses are identical. Large majorities might be the same (there is a lot of duplication in this world), but the chance of them being exact copies is minuscule. To be honest, I would go as far as saying it's impossible. Somewhere in the process, there will be a difference.
 
-CorDapps need to be able to reflect this. Corda does its best to amalgamate processes amongst organisations. But, there is an appreciation that local customisation is needed before companies can truly make the switch to distributed applications.
+CorDapps need to be able to reflect this. Corda does its best to amalgamate processes amongst organisations. But, there is an appreciation that local customisation is necessary before companies can truly make the switch to distributed applications.
 
-A vital example for the need of customisation is applying business rules to a shared application. Contracts and flows can provide a base level of validation. However, unique business rules still need to be applied before each individual organisation's requirements are met.
+A vital example of the need for customisation is applying business rules to a shared application. Contracts and flows can provide a base level of validation. However, unique business rules still need to be applied before each individual organisation's requirements are met.
 
-As described in [Extending and Overriding Flows from external CorDapps](https://lankydan.dev/2019/03/02/extending-and-overriding-flows-from-external-cordapps), a flow can be extended to apply additional logic defined inside of another CorDapp. Through the use of flow extension, you have the ability to design an extensible flow that applications can leverage to inject customised validation.
+As described in [Extending and Overriding Flows from external CorDapps](https://lankydan.dev/2019/03/02/extending-and-overriding-flows-from-external-cordapps), a flow can be extended to apply additional logic defined inside of another CorDapp. Through the use of flow extension, you can design an extensible flow that applications can leverage to inject customised validation.
 
 ## What a CorDapp developer must do
 
@@ -45,6 +46,8 @@ There are only a hand full of steps required to create an extensible flow:
 The following responder flow does incorporates all the points above:
 
 ```kotlin
+@InitiatedBy(SendMessageFlow::class)
+// The flow is open
 @InitiatedBy(SendMessageFlow::class)
 // The flow is open
 open class SendMessageResponder(private val session: FlowSession) : FlowLogic<SignedTransaction>() {
@@ -73,7 +76,7 @@ I want to expand on the final step I mentioned above:
 
 > The overridable function(s) must be called in relevant places
 
-I believe that `SignTransactionFlow.checkTransaction` is the best place to call an overridable function that contains custom validation. `checkTransaction` is triggered before signing a transaction and therefore it makes sense to add extra rules here. You could place it somewhere else but the code becomes less efficient and harder to follow. I also discussed adding validation to `checkTransaction` in [Responder flow validation](www.lankydan.dev/responder-flow-validation).
+I believe that `SignTransactionFlow.checkTransaction` is the best place to call an overridable function that contains custom validation. `checkTransaction` is triggered before signing a transaction. Therefore it makes sense to add additional rules here. You could place it somewhere else, but the code becomes less efficient and harder to follow. I also discussed adding validation to `checkTransaction` in [Responder flow validation](www.lankydan.dev/responder-flow-validation).
 
 An external developer now has two ways to use this flow:
 
@@ -91,12 +94,12 @@ This _might_ not be important. But, I personally think it is. By preventing exte
 
 ## What an external developer must do
 
-To extend and leverage an extensible flow you must do the following:
+To extend and leverage an extensible flow, you must do the following:
 
 - Extend the flow
 - Implement/override provided functions
 
-In other words, exactly what you would do to extend any normal class in Kotlin or Java.
+In other words, exactly what you would do to extend any average class in Kotlin or Java.
 
 Below is what this could look like:
 
@@ -118,7 +121,7 @@ class ValidatingSendMessageResponder(session: FlowSession) : SendMessageResponde
 
 Any sessions that are initiated with the base `SendMessageResponder` will now be routed to `ValidatingSendMessageResponder`. You do not need to do anything else. Corda will handle it from here.
 
-That's really all there is. If the CorDapp developer has done the work in their flow to make it extendable, then external developers that leverage the flow should normally have a straight forward task when it comes to implementing their code.
+That's really all there is. If the CorDapp developer has done the work in their flow to make it extendable, then external developers that leverage the flow should generally have a straight forward task when it comes to implementing their code.
 
 ## Wrapping up
 
