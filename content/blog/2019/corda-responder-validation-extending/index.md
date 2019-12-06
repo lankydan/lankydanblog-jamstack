@@ -1,7 +1,7 @@
 ---
 title: Responder flow validation (part 2 - extension)
 slug: responder-flow-validation-extension
-date: "2019-12-02"
+date: "2019-12-06"
 published: true
 tags: [corda, kotlin, dlt, distributed ledger technology, blockchain]
 cover_image: ./title-card.png
@@ -27,7 +27,7 @@ I will be skimming through some of the content in this post. For extra backgroun
 
 ## Why extendable flows make sense for injecting validation
 
-In Corda, organisations interact with each other through the use of shared code. Meaning that each and every organisation executes the exact same code. The false assumption that this model makes is that the processes all these different businesses are identical. Large majorities might be the same (there is a lot of duplication in this world), but the chance of them being exact copies is minuscule. To be honest, I would go as far as saying it's impossible. Somewhere in the process, there will be a difference.
+In Corda, organisations interact with each other through the use of shared code. Meaning that each and every organisation executes the exact same code. The false assumption this model makes, is that all businesses have identical processes. Large majorities might be the same (there is a lot of duplication in this world), but the chance of them being exact copies is minuscule. To be honest, I would go as far as saying it's impossible. Somewhere in the process, there will be a difference.
 
 CorDapps need to be able to reflect this. Corda does its best to amalgamate processes amongst organisations. But, there is an appreciation that local customisation is necessary before companies can truly make the switch to distributed applications.
 
@@ -46,8 +46,6 @@ There are only a hand full of steps required to create an extensible flow:
 The following responder flow does incorporates all the points above:
 
 ```kotlin
-@InitiatedBy(SendMessageFlow::class)
-// The flow is open
 @InitiatedBy(SendMessageFlow::class)
 // The flow is open
 open class SendMessageResponder(private val session: FlowSession) : FlowLogic<SignedTransaction>() {
@@ -97,6 +95,7 @@ This _might_ not be important. But, I personally think it is. By preventing exte
 To extend and leverage an extensible flow, you must do the following:
 
 - Extend the flow
+- Include `@InitiatedBy` referencing the initiating flow
 - Implement/override provided functions
 
 In other words, exactly what you would do to extend any average class in Kotlin or Java.
