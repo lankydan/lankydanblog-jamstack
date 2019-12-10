@@ -1,7 +1,7 @@
 ---
 title: Responder flow validation (part 2 - extension)
 slug: responder-flow-validation-extension
-date: "2019-12-06"
+date: "2019-12-10"
 published: true
 tags: [corda, kotlin, dlt, distributed ledger technology, blockchain]
 cover_image: ./title-card.png
