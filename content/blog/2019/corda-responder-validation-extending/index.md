@@ -43,7 +43,7 @@ There are only a hand full of steps required to create an extensible flow:
 - Provide a function(s) that can be overridden
 - The overridable function(s) must be called in relevant places
 
-The following responder flow does incorporates all the points above:
+The following responder flow incorporates all the points above:
 
 ```kotlin
 @InitiatedBy(SendMessageFlow::class)
