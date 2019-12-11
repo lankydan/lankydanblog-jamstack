@@ -15,7 +15,7 @@ In [Responder flow validation](/responder-flow-validation) I closed the post wit
 >
 > You can wait until then.
 
-I'm not one to leave you hanging for too long. So, here I am to stay true to my word and show you how to enforce your own validation onto a shared CorDapp.
+I'm not one to leave you hanging for too long. So, here I am, true to my word to show you how to enforce your own validation on a shared CorDapp.
 
 Now, before I continue, I have a little disclaimer. What I will cover in this post requires cooperation from the developers of the CorDapp. Why? They are in control of what the CorDapp does. If they do not follow the necessary steps, then extending their CorDapp becomes much more difficult. It is still possible, but the chance of errors goes through the roof.
 
@@ -27,7 +27,7 @@ I will be skimming through some of the content in this post. For extra backgroun
 
 ## Why extendable flows make sense for injecting validation
 
-In Corda, organisations interact with each other through the use of shared code. Meaning that each and every organisation executes the exact same code. The false assumption this model makes, is that all businesses have identical processes. Large majorities might be the same (there is a lot of duplication in this world), but the chance of them being exact copies is minuscule. To be honest, I would go as far as saying it's impossible. Somewhere in the process, there will be a difference.
+In Corda, organisations interact with each other through shared code, this means that each and every organisation executes the exact same code. The false assumption this model makes is that all businesses have identical processes. Many might be the same (there is a lot of duplication in this world), but the chance of them being exact copies is minuscule. To be honest, I would go as far as saying it's impossible. Somewhere in the process, there will be a difference.
 
 CorDapps need to be able to reflect this. Corda does its best to amalgamate processes amongst organisations. But, there is an appreciation that local customisation is necessary before companies can truly make the switch to distributed applications.
 
@@ -74,7 +74,7 @@ I want to expand on the final step I mentioned above:
 
 > The overridable function(s) must be called in relevant places
 
-I believe that `SignTransactionFlow.checkTransaction` is the best place to call an overridable function that contains custom validation. `checkTransaction` is triggered before signing a transaction. Therefore it makes sense to add additional rules here. You could place it somewhere else, but the code becomes less efficient and harder to follow. I also discussed adding validation to `checkTransaction` in [Responder flow validation](/responder-flow-validation).
+I believe that `SignTransactionFlow.checkTransaction` is the best place to call an overridable function that contains custom validation. `checkTransaction` is triggered before signing a transaction, therefore it makes sense to add additional rules here. You could place it somewhere else, but the code becomes less efficient and harder to follow. I also discussed adding validation to `checkTransaction` in [Responder flow validation](/responder-flow-validation).
 
 An external developer now has two ways to use this flow:
 
