@@ -2,7 +2,7 @@
 title: Serializable Java Lambdas
 date: "2020-01-24"
 published: true
-tags: [java, kryo, lambdas, functions, java streams]
+tags: [java, kryo, lambdas, functions]
 cover_image: ./title-card.png
 ---
 
