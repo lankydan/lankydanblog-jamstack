@@ -39,10 +39,9 @@ class BlogList extends React.Component {
               to={node.fields.slug}
             >
               <div
+                className="blog-card"
                 style={{
-                  border: `2px solid #d6d6d6`,
                   margin: `0.5em 0px 0px`,
-                  boxShadow: `3px 3px 0px rgba(97, 51, 128, 0.612)`,
                   maxWidth: `100%`,
                   minHeight: cardHeight,
                 }}
@@ -66,20 +65,21 @@ class BlogList extends React.Component {
                   }}
                 >
                   <h3
+                    className="blog-card-title"
                     style={{
                       marginBottom: rhythm(1 / 4),
                       marginTop: rhythm(1 / 4),
-                      color: `black`,
+                      // color: `black`,
                     }}
                   >
                     {title}
                   </h3>
-                  <small style={{ color: `grey` }}>
+                  <small>
                     {node.frontmatter.date}
                   </small>
                  <BlogTags post={node}/>
                   <p
-                    style={{ color: `black` }}
+                    // style={{ color: `black` }}
                     dangerouslySetInnerHTML={{
                       __html: node.frontmatter.description || node.excerpt,
                     }}

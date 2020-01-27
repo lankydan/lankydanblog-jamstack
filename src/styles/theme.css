@@ -1,0 +1,92 @@
+:root {
+  --dark-theme-purple: #b062c0;
+  --dark-theme-light-purple: #e392f3;
+  --dark-theme-dark-purple: #7f348f;
+  --dark-theme-lighter-grey: #ccd2dd;
+  --dark-theme-medium-grey: #aeb3bd;
+  --dark-theme-grey: #cccccc;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #282c34;
+    /* color: rgb(189, 188, 178) */
+    color: var(--dark-theme-grey);
+  }
+
+  div .blog-card {
+    /* background-color: var(--dark-theme-lighter-grey); */
+    background-color: #50555e;
+    /* Dark theme */
+    border: 2px solid #494d55;
+    /* box-shadow: 3px 3px 0px var(--dark-theme-purple); */
+    box-shadow: 3px 3px 0px var(--dark-theme-dark-purple);
+    /* Light theme */
+    /* border: `2px solid #d6d6d6`
+  boxShadow: `3px 3px 0px rgba(97, 51, 128, 0.612)` */
+  }
+
+  div .blog-card-title {
+    color: var(--dark-theme-lighter-grey);
+  }
+
+  div small {
+    /* Dark theme */
+    /* color: #4a4a4b; */
+    color: var(--dark-theme-medium-grey);
+    /* Light theme */
+    /* color: grey */
+  }
+
+  div p {
+    color: var(--dark-theme-lighter-grey);
+  }
+
+  h1 {
+    color: var(--dark-theme-lighter-grey);
+  }
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--dark-theme-purple);
+    /* color: #ABB2BF */
+  }
+
+  nav {
+    background-color: #282c34;
+  }
+
+  nav a {
+    color: var(--dark-theme-lighter-grey);
+  }
+
+  nav a svg {
+    fill: var(--dark-theme-purple);
+  }
+
+  nav a svg .logo-letter {
+    fill: rgb(223, 229, 241);
+  }
+
+  nav a svg .logo-background {
+    fill: var(--dark-theme-purple);
+  }
+
+  a {
+    color: var(--dark-theme-light-purple);
+    background-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0) 1px,
+      var(--dark-theme-light-purple) 1px,
+      var(--dark-theme-light-purple) 2px,
+      rgba(0, 0, 0, 0) 2px
+    );
+  }
+
+  blockquote {
+    border-left: 5px solid var(--dark-theme-purple);
+  }
+}
