@@ -5,25 +5,27 @@
   --dark-theme-lighter-grey: #ccd2dd;
   --dark-theme-medium-grey: #aeb3bd;
   --dark-theme-grey: #cccccc;
+  --light-theme-dark-purple: #613380;
 }
 
 @media (prefers-color-scheme: dark) {
   body {
     background-color: #282c34;
-    /* color: rgb(189, 188, 178) */
     color: var(--dark-theme-grey);
   }
 
+  /* Blog cards */
+
   div .blog-card {
-    /* background-color: var(--dark-theme-lighter-grey); */
     background-color: #50555e;
-    /* Dark theme */
-    border: 2px solid #494d55;
-    /* box-shadow: 3px 3px 0px var(--dark-theme-purple); */
-    box-shadow: 3px 3px 0px var(--dark-theme-dark-purple);
-    /* Light theme */
-    /* border: `2px solid #d6d6d6`
-  boxShadow: `3px 3px 0px rgba(97, 51, 128, 0.612)` */
+  }
+  
+  div .blog-card-text {
+    border-color: #50555e;
+  }
+
+  div .blog-card img {
+    border-radius: 10px 10px 0px 0px;
   }
 
   div .blog-card-title {
@@ -31,28 +33,14 @@
   }
 
   div small {
-    /* Dark theme */
-    /* color: #4a4a4b; */
     color: var(--dark-theme-medium-grey);
-    /* Light theme */
-    /* color: grey */
   }
 
   div p {
     color: var(--dark-theme-lighter-grey);
   }
 
-  h1 {
-    color: var(--dark-theme-lighter-grey);
-  }
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    color: var(--dark-theme-purple);
-    /* color: #ABB2BF */
-  }
+  /* Navbar */
 
   nav {
     background-color: #282c34;
@@ -72,6 +60,31 @@
 
   nav a svg .logo-background {
     fill: var(--dark-theme-purple);
+  }
+
+  /* Code */
+
+  :not(pre) > code[class*="language-"] {
+    color: rgb(176, 98, 192, 1);
+    background: rgba(56, 31, 61, 0.514);
+  }
+
+  :not(pre) > code[class*="language-"],
+  pre[class*="language-"] {
+    background: rgb(35, 38, 44);
+  }
+
+  /* Text and headers */
+
+  h1 {
+    color: var(--dark-theme-lighter-grey);
+  }
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--dark-theme-purple);
   }
 
   a {
