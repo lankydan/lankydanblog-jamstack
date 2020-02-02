@@ -1,105 +1,149 @@
 :root {
-  --dark-theme-purple: #b062c0;
-  --dark-theme-light-purple: #e392f3;
-  --dark-theme-dark-purple: #7f348f;
-  --dark-theme-lighter-grey: #ccd2dd;
-  --dark-theme-medium-grey: #aeb3bd;
-  --dark-theme-grey: #cccccc;
-  --light-theme-dark-purple: #613380;
+  --primary-color: #613380;
+  --primary-color-light: #613380;
+  --primary-color-dark: #613380;
+  --secondary-color: #ffffff;
+  --secondary-color-light: #4a4a4a;
+  --secondary-color-medium: grey;
+  --font-color: #000000cc;
+  --bg-color: #ffffff;
+  --code-bg-color: #272c34;
+  --code-inline-bg-color: #f3e6f1;
+  --logo-color: #ffffff;
+  --primary-header-color: #000000;
+  --secondary-header-color: var(--primary-header-color);
+  --blog-card-border-color: #d6d6d6;
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #282c34;
-    color: var(--dark-theme-grey);
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #b062c0;
+    --primary-color-light: #e392f3;
+    --primary-color-dark: #7f348f;
+    --secondary-color: #50555e;
+    --secondary-color-light: #ccd2dd;
+    --secondary-color-medium: #aeb3bd;
+    --font-color: #ccd2dd;
+    --bg-color: #282c34;
+    --code-bg-color: #23262c;
+    --code-inline-bg-color: #381f3d83;
+    --logo-color: #dfe5f1;
+    --primary-header-color: var(--secondary-color-light);
+    --secondary-header-color: var(--primary-color);
+    --blog-card-border-color: var(--secondary-color);
   }
+} */
 
-  /* Blog cards */
-
-  div .blog-card {
-    background-color: #50555e;
-  }
-  
-  div .blog-card-text {
-    border-color: #50555e;
-  }
-
-  div .blog-card img {
-    border-radius: 10px 10px 0px 0px;
-  }
-
-  div .blog-card-title {
-    color: var(--dark-theme-lighter-grey);
-  }
-
-  div small {
-    color: var(--dark-theme-medium-grey);
-  }
-
-  div p {
-    color: var(--dark-theme-lighter-grey);
-  }
-
-  /* Navbar */
-
-  nav {
-    background-color: #282c34;
-  }
-
-  nav a {
-    color: var(--dark-theme-lighter-grey);
-  }
-
-  nav a svg {
-    fill: var(--dark-theme-purple);
-  }
-
-  nav a svg .logo-letter {
-    fill: rgb(223, 229, 241);
-  }
-
-  nav a svg .logo-background {
-    fill: var(--dark-theme-purple);
-  }
-
-  /* Code */
-
-  :not(pre) > code[class*="language-"] {
-    color: rgb(176, 98, 192, 1);
-    background: rgba(56, 31, 61, 0.514);
-  }
-
-  :not(pre) > code[class*="language-"],
-  pre[class*="language-"] {
-    background: rgb(35, 38, 44);
-  }
-
-  /* Text and headers */
-
-  h1 {
-    color: var(--dark-theme-lighter-grey);
-  }
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    color: var(--dark-theme-purple);
-  }
-
-  a {
-    color: var(--dark-theme-light-purple);
-    background-image: linear-gradient(
-      to top,
-      rgba(0, 0, 0, 0),
-      rgba(0, 0, 0, 0) 1px,
-      var(--dark-theme-light-purple) 1px,
-      var(--dark-theme-light-purple) 2px,
-      rgba(0, 0, 0, 0) 2px
-    );
-  }
-
-  blockquote {
-    border-left: 5px solid var(--dark-theme-purple);
-  }
+[data-theme="dark"] {
+  --primary-color: #b062c0;
+  --primary-color-light: #e392f3;
+  --primary-color-dark: #7f348f;
+  --secondary-color: #50555e;
+  --secondary-color-light: #ccd2dd;
+  --secondary-color-medium: #aeb3bd;
+  --font-color: #ccd2dd;
+  --bg-color: #282c34;
+  --code-bg-color: #23262c;
+  --code-inline-bg-color: #381f3d83;
+  --logo-color: #dfe5f1;
+  --primary-header-color: var(--secondary-color-light);
+  --secondary-header-color: var(--primary-color);
+  --blog-card-border-color: var(--secondary-color);
 }
+
+/* @media (prefers-color-scheme: dark) { */
+body {
+  background-color: var(--bg-color);
+  color: var(--font-color);
+}
+
+/* Blog cards */
+
+div .blog-card {
+  background-color: var(--secondary-color);
+}
+
+div .blog-card-text {
+  border-color: var(--blog-card-border-color);
+}
+
+div .blog-card img {
+  border-radius: 10px 10px 0px 0px;
+}
+
+div .blog-card-title {
+  color: var(--secondary-color-light);
+}
+
+div small {
+  color: var(--secondary-color-medium);
+}
+
+div p {
+  color: var(--font-color);
+}
+
+/* Navbar */
+
+nav {
+  background-color: var(--bg-color);
+}
+
+nav a {
+  color: var(--secondary-color-light);
+}
+
+/* nav a svg {
+    fill: var(--primary-color);
+  } */
+
+nav a svg .logo-letter {
+  fill: var(--logo-color);
+}
+
+/* nav a svg .logo-background {
+    fill: var(--primary-color);
+  } */
+
+/* Code */
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: var(--code-bg-color);
+}
+
+:not(pre) > code[class*="language-"] {
+  color: var(--primary-color);
+  background: var(--code-inline-bg-color);
+}
+
+/* Text and headers */
+
+h1 {
+  color: var(--primary-header-color);
+}
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--secondary-header-color);
+}
+
+a {
+  color: var(--primary-color-light);
+  background-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0) 1px,
+    var(--primary-color-light) 1px,
+    var(--primary-color-light) 2px,
+    rgba(0, 0, 0, 0) 2px
+  );
+}
+
+blockquote {
+  border-left: 5px solid var(--primary-color);
+}
+/* } */
+/* } */

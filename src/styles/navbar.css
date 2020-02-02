@@ -12,11 +12,11 @@ nav {
 }
 
 nav a svg {
-  fill: var(--light-theme-dark-purple)
+  fill: var(--primary-color)
 }
 
 nav a svg .logo-background {
-  fill: var(--light-theme-dark-purple);
+  fill: var(--primary-color);
 }
 
 nav a {
