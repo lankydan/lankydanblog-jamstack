@@ -12,7 +12,7 @@ class Layout extends React.Component {
       header = <h1 className="blog-header">{title}</h1>
     }
     return (
-      <div
+      <div className="main"
         style={{
           marginLeft: `auto`,
           marginRight: `auto`,

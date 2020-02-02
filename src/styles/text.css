@@ -51,5 +51,5 @@ a {
 }
 
 blockquote {
-  border-left: 5px solid rgba(97, 51, 128, 0.612);
+  border-left: 5px solid var(--light-theme-dark-purple);
 }

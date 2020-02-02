@@ -1,0 +1,105 @@
+:root {
+  --dark-theme-purple: #b062c0;
+  --dark-theme-light-purple: #e392f3;
+  --dark-theme-dark-purple: #7f348f;
+  --dark-theme-lighter-grey: #ccd2dd;
+  --dark-theme-medium-grey: #aeb3bd;
+  --dark-theme-grey: #cccccc;
+  --light-theme-dark-purple: #613380;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #282c34;
+    color: var(--dark-theme-grey);
+  }
+
+  /* Blog cards */
+
+  div .blog-card {
+    background-color: #50555e;
+  }
+  
+  div .blog-card-text {
+    border-color: #50555e;
+  }
+
+  div .blog-card img {
+    border-radius: 10px 10px 0px 0px;
+  }
+
+  div .blog-card-title {
+    color: var(--dark-theme-lighter-grey);
+  }
+
+  div small {
+    color: var(--dark-theme-medium-grey);
+  }
+
+  div p {
+    color: var(--dark-theme-lighter-grey);
+  }
+
+  /* Navbar */
+
+  nav {
+    background-color: #282c34;
+  }
+
+  nav a {
+    color: var(--dark-theme-lighter-grey);
+  }
+
+  nav a svg {
+    fill: var(--dark-theme-purple);
+  }
+
+  nav a svg .logo-letter {
+    fill: rgb(223, 229, 241);
+  }
+
+  nav a svg .logo-background {
+    fill: var(--dark-theme-purple);
+  }
+
+  /* Code */
+
+  :not(pre) > code[class*="language-"] {
+    color: rgb(176, 98, 192, 1);
+    background: rgba(56, 31, 61, 0.514);
+  }
+
+  :not(pre) > code[class*="language-"],
+  pre[class*="language-"] {
+    background: rgb(35, 38, 44);
+  }
+
+  /* Text and headers */
+
+  h1 {
+    color: var(--dark-theme-lighter-grey);
+  }
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--dark-theme-purple);
+  }
+
+  a {
+    color: var(--dark-theme-light-purple);
+    background-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0) 1px,
+      var(--dark-theme-light-purple) 1px,
+      var(--dark-theme-light-purple) 2px,
+      rgba(0, 0, 0, 0) 2px
+    );
+  }
+
+  blockquote {
+    border-left: 5px solid var(--dark-theme-purple);
+  }
+}

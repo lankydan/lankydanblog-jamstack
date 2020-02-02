@@ -1,0 +1,48 @@
+div .blog-card-list {
+  max-width: 100%;
+  margin: 0 auto;
+  float: none;
+  text-align: center;
+  display: block;
+}
+
+a.blog-card-link {
+  box-shadow: none;
+  display: inline-block;
+  max-width: 100%;
+  padding: 10px;
+  vertical-align: top;
+  text-align: left;
+  float: none;
+  position: relative;
+  margin: 0 auto;
+  background-image: none;
+}
+
+div .blog-card {
+  box-shadow: 6px 9px 4px 0px #00000099;
+  margin: 0.5em 0px 0px;
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+div .blog-card-text {
+  border-width: 0px 1px 1px 1px;
+  border-color: #d6d6d6;
+  border-style: solid;
+  border-radius: 0px 0px 10px 10px;
+}
+
+div .blog-card img {
+  position: relative;
+  width: 100%;
+  margin: auto;
+  background: transparent no-repeat center center;
+  background-size: cover;
+  z-index: 2;
+  border-radius: 10px 10px 0px 0px;
+}
+
+div small {
+  color: grey;
+}
