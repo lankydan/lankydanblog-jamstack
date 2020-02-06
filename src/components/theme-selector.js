@@ -22,24 +22,18 @@ class ThemeSelector extends React.Component {
       if (theme == "dark") {
         document.documentElement.setAttribute("data-theme", "dark")
       }
+
+      return theme
     }
 
+    var currentTheme = "light"
     if (typeof window !== "undefined") {
-      detectColorScheme()
+      currentTheme = detectColorScheme()
     }
-
-    const currentTheme =
-      typeof window !== "undefined" && localStorage.getItem("theme")
-        ? localStorage.getItem("theme")
-        : null
 
     let isChecked = false
-    if (currentTheme) {
-      document.documentElement.setAttribute("data-theme", currentTheme)
-
-      if (currentTheme === "dark") {
-        isChecked = true
-      }
+    if (currentTheme === "dark") {
+      isChecked = true
     }
 
     function switchTheme(e) {
