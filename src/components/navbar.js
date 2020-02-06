@@ -6,6 +6,7 @@ import GithubIcon from "../../content/assets/github.svg"
 import DevIcon from "../../content/assets/dev.svg"
 import LinkedInIcon from "../../content/assets/linkedin.svg"
 import RssIcon from "../../content/assets/rss.svg"
+import ThemeSelector from "./theme-selector"
 
 export default class Navbar extends React.Component {
   render() {
@@ -38,6 +39,7 @@ export default class Navbar extends React.Component {
                 <Link className="icon-link" to={`/rss`}>
                   <RssIcon className="icon" />
                 </Link>
+                <ThemeSelector/>
               </span>
             </nav>
           )
