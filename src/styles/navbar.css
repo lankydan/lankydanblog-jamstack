@@ -3,16 +3,15 @@ nav {
   border-bottom: 1px solid #9b9b9b;
   top: 0;
   z-index: 3;
-  background-color: white;
-
   display: flex;
   flex-direction: row;
   flex-grow: 1;
   flex: 0;
+  background-color: var(--bg-color);
 }
 
 nav a svg {
-  fill: var(--primary-color)
+  fill: var(--primary-color);
 }
 
 nav a svg .logo-background {
@@ -24,7 +23,11 @@ nav a {
   text-transform: uppercase;
   font: 400 20px Oswald;
   letter-spacing: 1px;
-  color: #4a4a4a;
+  color: var(--secondary-color-light);
+}
+
+nav a svg .logo-letter {
+  fill: var(--logo-color);
 }
 
 .navbar-links {
@@ -53,6 +56,5 @@ nav a {
   nav a {
     font: 400 12px Oswald;
     letter-spacing: 1px;
-    color: #4a4a4a;
   }
 }
