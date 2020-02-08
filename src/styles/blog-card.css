@@ -50,9 +50,14 @@ div .blog-card-title {
 }
 
 div small {
-  color: var(--secondary-color-medium);
+  color: var(--font-color);
 }
 
 div p {
   color: var(--font-color);
+}
+
+small.blog-tag {
+  color: white;
+  background-color: var(--primary-color)
 }

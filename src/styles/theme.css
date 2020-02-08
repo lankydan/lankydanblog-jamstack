@@ -4,7 +4,6 @@
   --primary-color-dark: #613380;
   --secondary-color: #ffffff;
   --secondary-color-light: #4a4a4a;
-  --secondary-color-medium: grey;
   --font-color: #000000cc;
   --bg-color: #ffffff;
   --code-bg-color: #272c34;
@@ -21,7 +20,6 @@
   --primary-color-dark: #7f348f;
   --secondary-color: #50555e;
   --secondary-color-light: #ccd2dd;
-  --secondary-color-medium: #aeb3bd;
   --font-color: #ccd2dd;
   --bg-color: #282c34;
   --code-bg-color: #23262c;
@@ -35,4 +33,8 @@
 body {
   background-color: var(--bg-color);
   color: var(--font-color);
+}
+
+:focus {
+  outline-color: var(--primary-color)
 }
