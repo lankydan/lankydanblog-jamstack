@@ -8,6 +8,7 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "dependencies": {
+    "@types/react": "^16.9.19",
     "disqus-react": "^1.0.7",
     "gatsby": "^2.19.12",
     "gatsby-image": "^2.2.40",
@@ -39,6 +40,7 @@
     "typeface-montserrat": "0.0.54",
     "typeface-oswald": "0.0.75",
     "typeface-ubuntu": "0.0.65",
+    "typescript": "^3.7.5",
     "typography": "^0.16.19",
     "typography-theme-elk-glen": "^0.16.19",
     "url-join": "^4.0.1"
