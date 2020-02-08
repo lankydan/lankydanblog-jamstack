@@ -24,6 +24,7 @@ div .blog-card {
   margin: 0.5em 0px 0px;
   max-width: 100%;
   border-radius: 10px;
+  background-color: var(--secondary-color);
 }
 
 div .blog-card-text {
@@ -31,6 +32,7 @@ div .blog-card-text {
   border-color: #d6d6d6;
   border-style: solid;
   border-radius: 0px 0px 10px 10px;
+  border-color: var(--blog-card-border-color);
 }
 
 div .blog-card img {
@@ -43,6 +45,14 @@ div .blog-card img {
   border-radius: 10px 10px 0px 0px;
 }
 
+div .blog-card-title {
+  color: var(--secondary-color-light);
+}
+
 div small {
-  color: grey;
+  color: var(--secondary-color-medium);
+}
+
+div p {
+  color: var(--font-color);
 }

@@ -7,6 +7,17 @@ h6 {
   font-family: "PT Sans";
 }
 
+h1 {
+  color: var(--primary-header-color);
+}
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--secondary-header-color);
+}
+
 .blog-header {
   font: 400 70px Oswald;
   letter-spacing: 6px;
@@ -48,8 +59,17 @@ p {
 
 a {
   text-shadow: none;
+  color: var(--primary-color-light);
+  background-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0) 1px,
+    var(--primary-color-light) 1px,
+    var(--primary-color-light) 2px,
+    rgba(0, 0, 0, 0) 2px
+  );
 }
 
 blockquote {
-  border-left: 5px solid var(--light-theme-dark-purple);
+  border-left: 5px solid var(--primary-color);
 }

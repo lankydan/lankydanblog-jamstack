@@ -30,7 +30,7 @@ pre[class*="language-"] {
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-  background: #272C34;
+  background: var(--code-bg-color);
 }
 
 /* Inline code */
@@ -38,8 +38,8 @@ pre[class*="language-"] {
   padding: 0.1em;
   border-radius: 0.3em;
   white-space: normal;
-  color: rgb(97, 51, 128);
-  background: rgb(243, 230, 241);
+  color: var(--primary-color);
+  background: var(--code-inline-bg-color);
   font-weight: 500;
 }
 

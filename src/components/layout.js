@@ -4,15 +4,15 @@ import Navbar from "./navbar"
 
 class Layout extends React.Component {
   render() {
-    const { location, title, children } = this.props
-    const rootPath = `${__PATH_PREFIX__}/`
+      const { title, children } = this.props
     let header
 
     if (title !== undefined) {
       header = <h1 className="blog-header">{title}</h1>
     }
     return (
-      <div className="main"
+      <div
+        className="main"
         style={{
           marginLeft: `auto`,
           marginRight: `auto`,
