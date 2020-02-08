@@ -4,16 +4,20 @@ export default class BlogTag extends React.Component {
   render() {
     const { name } = this.props
     const { backgroundColor, color } = this.getTagColorScheme(name)
+    const style = {
+      display: `inline-block`,
+      marginRight: `2px`,
+      padding: `0px 8px`,
+      borderRadius: `4px`,
+    }
+    if(backgroundColor != null && color != null) {
+      style.backgroundColor = backgroundColor
+      style.color = color
+    }
     return (
       <small
-        style={{
-          backgroundColor: backgroundColor,
-          color: color,
-          display: `inline-block`,
-          marginRight: `2px`,
-          padding: `0px 8px`,
-          borderRadius: `4px`,
-        }}
+        className="blog-tag"
+        style={style}
       >
         {name}
       </small>
@@ -21,13 +25,13 @@ export default class BlogTag extends React.Component {
   }
 
   getTagColorScheme(name) {
-    if(name.includes(`spring`)) {
+    if (name.includes(`spring`)) {
       return {
-        backgroundColor: `#6db33f`,
+        backgroundColor: `#2E7D32`,
         color: `white`,
       }
     }
-    if(name.includes(`corda`)) {
+    if (name.includes(`corda`)) {
       return {
         backgroundColor: `#e11c1b`,
         color: `white`,
@@ -37,28 +41,28 @@ export default class BlogTag extends React.Component {
       case `java`:
         return {
           backgroundColor: `#292D3E`,
-          color: `#82AAFF`,
+          color: `white`,
         }
       case `kotlin`:
         return {
-          backgroundColor: `#5f77df`,
-          color: `#ffa032`,
+          backgroundColor: `#4258b8`,
+          color: `white`,
         }
       case `cassandra`:
         return {
-          backgroundColor: `#36f7ba`,
-          color: `#5824db`,
+          backgroundColor: `#880E4F`,
+          color: `white`,
         }
       case `dlt`:
       case `distributed ledger technology`:
         return {
-          backgroundColor: `#ff6f16`,
-          color: `#2439de`,
+          backgroundColor: `#4A148C`,
+          color: `white`,
         }
       case `blockchain`:
         return {
-          backgroundColor: `#55d5f5`,
-          color: `#ba40db`,
+          backgroundColor: `#C2185B`,
+          color: `white`,
         }
       case `docker`:
         return {
@@ -72,8 +76,8 @@ export default class BlogTag extends React.Component {
         }
       default:
         return {
-          backgroundColor: `rgba(97, 51, 128, 0.612)`,
-          color: `white`,
+          backgroundColor: null,
+          color: null,
         }
     }
   }

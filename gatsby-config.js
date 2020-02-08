@@ -262,7 +262,7 @@ module.exports = {
         short_name: `lankydan.dev`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#663399`,
+        theme_color: `#613380`,
         display: `minimal-ui`,
         icon: `content/assets/logo.svg`,
       },
