@@ -50,7 +50,7 @@ public static <A> A doStuff(MyJavaInterfaceWithGenerics<A> myJavaInterface) {
 }
 ```
 
-The the `doStuff` function can be called with the following Kotlin code:
+The `doStuff` function can be called with the following Kotlin code:
 
 ```kotlin
 // Least simplified
