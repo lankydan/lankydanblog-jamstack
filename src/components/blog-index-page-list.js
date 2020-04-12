@@ -63,6 +63,7 @@ export default class BlogIndexPageList extends React.Component {
                   `corda`,
                   `software development`,
                 ]}
+                image={data.homePageImage.childImageSharp.resize.src}
               />
               <BlogList
                 posts={this.props.posts}
@@ -80,6 +81,13 @@ export default class BlogIndexPageList extends React.Component {
 
 export const blogListQuery = graphql`
   query {
+    homePageImage: file(absolutePath: { regex: "/home-page-image.png/" }) {
+      childImageSharp {
+        resize(width: 1378, height: 1086) {
+          src
+        }
+      }
+    }
     site {
       siteMetadata {
         title
