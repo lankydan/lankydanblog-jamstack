@@ -8,7 +8,7 @@ cover_image: ./title-card.png
 
 Coroutines are essentially lightweight threads that allow your applications to squeeze more juice out of the machines they are running on, without needing to manually manage the threads executing them. Coroutines add a new abstraction, further removing you (the developer) away from the lifecycle of threads. This abstraction allows a single thread to context switch between various tasks and therefore making better use of the thread's time. It spends less time sitting around awaiting a result (from a potentially slow I/O task) and can instead continue to be useful by working on a task issued by another coroutine.
 
-Let's try thinking of a real-life example. Think of your day as a developer. You build your code, and it takes, let's say, 3 mins to do so. During that time, what do you do? Well, yes, of course, some times you might just sit there and literally do nothing. But most of the time, you'll check your emails, Slack, Twitter or go for a stretch. It doesn't really matter what you're doing, it's the fact that you _are_ doing something else. You didn't just sit there and wait for the build to finish. You saturated your own processing and did something else while you waited. That is the concept that coroutines are providing.
+Let's try thinking of a real-life example. Think of your day as a developer. You build your code, and it takes, let's say, 3 mins to do so. During that time, what do you do? Well, yes, of course, some times you might just sit there and literally do nothing. But most of the time, you'll check your emails, Slack, Twitter or go for a stretch. It doesn't really matter what you're doing, it's the fact that you _are_ doing something else. You didn't just sit there and wait for the build to finish. You saturated your own processing and did something else while you waited. That is the concept that coroutines provide.
 
 Yes, I did just compare you to a thread. You spawn, you live, and you die. Some of you are even killed... Ok, that metaphor got a bit dark.
 
@@ -97,7 +97,7 @@ The function is short enough that I've included all of its contents, but don't w
 
 So, why do we need it in the first place?
 
-All functions that suspend at some point during their execution must be annotated with `suspend`. I mean duh, right? If actually try to go deeper to fully understand when a function suspends can quickly become confusing. Quite frankly, I haven't use coroutines enough yet to give you a more in-depth explanation.
+All functions that suspend at some point during their execution must be annotated with `suspend`. I mean duh, right? Trying to go deeper than this to fully understand when a function suspends can quickly become confusing. Quite frankly, I haven't use coroutines enough yet to give you a more in-depth explanation.
 
 So for now, remember this is a _getting started_ post of sorts and follow this rule of thumb. If you call a function prefaced with `suspend`, and the calling point is not inside a coroutine, then your function should also be marked with `suspend`.
 
@@ -126,7 +126,7 @@ For example:
 
 Both of these are a slight _refactoring_ of the original example.
 
-The compiler will help you in a lot of situations (a benefit coming from being a keyword). For example, trying to compile:
+The compiler will help you in a lot of situations (a benefit of being a keyword). For example, trying to compile:
 
 ```kotlin
 fun printAfterDelay() {
@@ -151,7 +151,7 @@ I believe that should be enough of an explanation to get you started.
 
 Kotlin's coroutines are lightweight threads that share and release their underlying resources whenever a single coroutine reaches a suspension point. This allows better utilisation of an application's resources, as threads are not necessarily blocked when performing long-running tasks. We looked at a rudimentary example consisting of a single coroutine and a suspending function. Finally, we took a _modest_ look at the `suspend` keyword and how you add it to functions that _suspend_. 
 
-The real benefits of coroutines have not been touched on through the examples in this post. Instead, it has focused on laying the groundwork as you begin building your coroutine knowledge. Moving forward, I aim to publish more content on Kotlin coroutines. So look out, assuming I keep my word...
+The real benefits of coroutines have not been touched on through the examples in this post. Instead, it has focused on laying the groundwork as you begin building your coroutine knowledge. Moving forward, I aim to publish more content on Kotlin coroutines. So look out for those, assuming I keep my word...
 
 ----
 
