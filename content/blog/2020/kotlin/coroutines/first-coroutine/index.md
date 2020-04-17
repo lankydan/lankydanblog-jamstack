@@ -1,6 +1,6 @@
 ---
 title: Launching your coroutine knowledge
-date: "2020-04-18"
+date: "2020-04-17"
 published: true
 tags: [kotlin]
 cover_image: ./title-card.png
