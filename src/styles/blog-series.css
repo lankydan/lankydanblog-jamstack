@@ -10,3 +10,8 @@ div.blog-series h3 {
 div.blog-series hr {
   margin-bottom: 1rem;
 }
+
+div.blog-series ul {
+  list-style-type: none;
+  margin: 0;
+}

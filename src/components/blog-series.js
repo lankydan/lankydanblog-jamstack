@@ -10,13 +10,15 @@ export default class BlogSeries extends React.Component {
         <div className="blog-series">
           <hr />
           <h3>Series - {name}</h3>
-          {posts.map(({ node }) => {
-            return (
-              <p>
-                <Link to={`node.fields.slug`}>{node.frontmatter.title}</Link>
-              </p>
-            )
-          })}
+          <ul>
+            {posts.map(({ node }) => {
+              return (
+                <Link to={node.fields.slug}>
+                  <li>{node.frontmatter.title}</li>
+                </Link>
+              )
+            })}
+          </ul>
           <hr />
         </div>
       )
