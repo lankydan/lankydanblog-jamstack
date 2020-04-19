@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 
 export default class BlogSeries extends React.Component {
   render() {
-    const { name, posts } = this.props
+    const { name, currentPostSlug, posts } = this.props
     return (
       name !== null &&
       name !== undefined && (
@@ -12,9 +12,12 @@ export default class BlogSeries extends React.Component {
           <h3>Series - {name}</h3>
           <ul>
             {posts.map(({ node }) => {
+              const isCurrent = node.fields.slug === currentPostSlug
               return (
-                <Link to={node.fields.slug}>
-                  <li>{node.frontmatter.title}</li>
+                <Link key={`series-` + node.fields.slug} to={node.fields.slug}>
+                  <li className={isCurrent ? `current` : ``}>
+                    {node.frontmatter.title}
+                  </li>
                 </Link>
               )
             })}

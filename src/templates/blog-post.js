@@ -93,7 +93,11 @@ class BlogPostTemplate extends React.Component {
             </a>
           </div>
         )}
-        <BlogSeries name={post.frontmatter.series} posts={series} />
+        <BlogSeries
+          name={post.frontmatter.series}
+          currentPostSlug={this.props.pageContext.slug}
+          posts={series}
+        />
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <Socials
           siteUrl={this.props.data.site.siteMetadata.siteUrl}

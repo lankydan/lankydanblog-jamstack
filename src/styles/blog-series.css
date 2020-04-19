@@ -15,3 +15,11 @@ div.blog-series ul {
   list-style-type: none;
   margin: 0;
 }
+
+div.blog-series li {
+  padding-left: 0.5rem;
+}
+
+div.blog-series li.current {
+  background-color: var(--faded-highlight);
+}
