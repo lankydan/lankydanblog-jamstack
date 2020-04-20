@@ -21,6 +21,7 @@ exports.createPages = ({ graphql, actions }) => {
               frontmatter {
                 title
                 published
+                series
               }
             }
           }
@@ -43,8 +44,9 @@ exports.createPages = ({ graphql, actions }) => {
         component: blogPost,
         context: {
           slug: post.node.fields.slug,
-          previous,
-          next,
+          series: post.node.frontmatter.series,
+          previous: previous,
+          next: next,
         },
       })
     })

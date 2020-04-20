@@ -1,0 +1,25 @@
+div.blog-series {
+  margin-top: 1rem;
+}
+
+div.blog-series h3 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+div.blog-series hr {
+  margin-bottom: 1rem;
+}
+
+div.blog-series ul {
+  list-style-type: none;
+  margin: 0;
+}
+
+div.blog-series li {
+  padding-left: 0.5rem;
+}
+
+div.blog-series li.current {
+  background-color: var(--faded-highlight);
+}

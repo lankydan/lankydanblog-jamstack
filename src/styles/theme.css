@@ -12,6 +12,8 @@
   --primary-header-color: #000000;
   --secondary-header-color: var(--primary-header-color);
   --blog-card-border-color: #d6d6d6;
+  --divider-color: hsla(0, 0%, 0%, 0.2);
+  --faded-highlight: #f3e6f1;
 }
 
 [data-theme="dark"] {
@@ -28,6 +30,8 @@
   --primary-header-color: var(--secondary-color-light);
   --secondary-header-color: var(--primary-color);
   --blog-card-border-color: var(--secondary-color);
+  --divider-color: hsla(0, 0%, 100%, 0.2);
+  --faded-highlight: #e28cd531;
 }
 
 body {
@@ -35,6 +39,10 @@ body {
   color: var(--font-color);
 }
 
+hr {
+  background: var(--divider-color);
+}
+
 :focus {
-  outline-color: var(--primary-color)
+  outline-color: var(--primary-color);
 }

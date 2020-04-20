@@ -5,6 +5,7 @@ date: "2020-01-06"
 published: true
 tags: [corda, kotlin, dlt, distributed ledger technology, blockchain]
 cover_image: ./title-card.png
+series: Responder flow validation
 ---
 
 To finish off my trilogy of blog posts on including validation inside your responder flows, I present to you the final topic. How to override a responder flow with your own custom implementation. You will need to go down this route if you are leveraging an external CorDapp that does not allow you to extend their flows. It is not ideal, as you will not be able to make use of any of the responder code that was written. But, at least it will provide you with a way to implement your requirements while still allowing your version to communicate to the paired initiating flow. To cement what I am saying, I will say it one more time, you should only override if you cannot extend.

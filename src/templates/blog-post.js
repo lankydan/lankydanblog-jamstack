@@ -9,6 +9,7 @@ import Img from "gatsby-image"
 import Socials from "../components/socials"
 import BlogList from "../components/blog-list"
 import BlogTags from "../components/blog-tags"
+import BlogSeries from "../components/blog-series"
 import BlogPostDate from "../components/blog-post-date"
 import Disqus from "disqus-react"
 import urljoin from "url-join"
@@ -16,7 +17,8 @@ import urljoin from "url-join"
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
-    const posts = this.props.data.allMarkdownRemark.edges
+    const posts = this.props.data.lastFivePosts.edges
+    const series = this.props.data.series.edges
     const githubUrl = post.frontmatter.github_url
     const { previous, next } = this.props.pageContext
     const postUrl = urljoin(
@@ -91,6 +93,11 @@ class BlogPostTemplate extends React.Component {
             </a>
           </div>
         )}
+        <BlogSeries
+          name={post.frontmatter.series}
+          currentPostSlug={this.props.pageContext.slug}
+          posts={series}
+        />
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <Socials
           siteUrl={this.props.data.site.siteMetadata.siteUrl}
@@ -151,7 +158,7 @@ class BlogPostTemplate extends React.Component {
 export default BlogPostTemplate
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
+  query BlogPostBySlug($slug: String!, $series: String) {
     site {
       siteMetadata {
         title
@@ -171,6 +178,7 @@ export const pageQuery = graphql`
         description
         tags
         github_url
+        series
         cover_image {
           childImageSharp {
             resize(width: 1500, cropFocus: CENTER) {
@@ -184,7 +192,27 @@ export const pageQuery = graphql`
       }
       timeToRead
     }
-    allMarkdownRemark(
+    series: allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: ASC }
+      filter: {
+        frontmatter: {
+          published: { eq: true }
+          series: { ne: null, eq: $series }
+        }
+      }
+    ) {
+      edges {
+        node {
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+          }
+        }
+      }
+    }
+    lastFivePosts: allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: {
         fields: { slug: { ne: $slug } }
