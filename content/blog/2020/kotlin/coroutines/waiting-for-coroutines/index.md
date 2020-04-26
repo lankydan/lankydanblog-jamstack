@@ -9,7 +9,7 @@ series: Kotlin coroutines
 
 Coroutines allow you to execute tasks asynchronously without blocking the calling thread, such as the main thread. Great, but sometimes you will need to wait for all of these tasks to finish. In this post, we will look at how to wait for a coroutine to finish using `join`.
 
-Note, `async`/`await` will not be covered here as I will cover that in a later post. For now, read the [Kotlin docs - concurrent using async](https://kotlinlang.org/docs/reference/coroutines/composing-suspending-functions.html#concurrent-using-async) if that is what you are interested in.
+Note, `async`/`await` will not be covered here as I will cover that in a later post. For now, read the [Kotlin docs - Concurrent using async](https://kotlinlang.org/docs/reference/coroutines/composing-suspending-functions.html#concurrent-using-async) if that is what you are interested in.
 
 ## How to get a job
 
@@ -177,7 +177,7 @@ Which outputs something like this:
 
 Each _parent_ coroutine had to wait until their _children_ finished. This was enabled by using `coroutineScope`, ensuring each coroutine launched inside it had completed before moving on.
 
-I only touched on this subject to show that joining is not the only way to wait for jobs to finish. For some more information, have a look at the [Kotlin coroutine documentation](https://kotlinlang.org/docs/reference/coroutines/basics.html#scope-builder).
+I only touched on this subject to show that joining is not the only way to wait for jobs to finish. For some more information, have a look at the [Kotlin docs - Scope builder](https://kotlinlang.org/docs/reference/coroutines/basics.html#scope-builder).
 
 ## Summary
 
