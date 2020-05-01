@@ -11,7 +11,6 @@ import BlogList from "../components/blog-list"
 import BlogTags from "../components/blog-tags"
 import BlogSeries from "../components/blog-series"
 import BlogPostDate from "../components/blog-post-date"
-import Disqus from "disqus-react"
 import urljoin from "url-join"
 
 class BlogPostTemplate extends React.Component {
@@ -25,11 +24,6 @@ class BlogPostTemplate extends React.Component {
       this.props.data.site.siteMetadata.siteUrl,
       this.props.pageContext.slug
     )
-    const disqusConfig = {
-      url: postUrl,
-      identifier: this.props.pageContext.slug,
-      title: post.frontmatter.title,
-    }
     return (
       <Layout location={this.props.location}>
         <SEO
@@ -115,10 +109,6 @@ class BlogPostTemplate extends React.Component {
             marginBottom: rhythm(1),
           }}
         />
-        <Disqus.DiscussionEmbed
-          shortname={this.props.data.site.siteMetadata.disqusShortName}
-          config={disqusConfig}
-        />
         <BlogList
           posts={posts}
           cardWidth={rhythm(15)}
@@ -164,7 +154,6 @@ export const pageQuery = graphql`
         title
         author
         siteUrl
-        disqusShortName
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
