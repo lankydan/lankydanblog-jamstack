@@ -6,9 +6,10 @@ import BlogTags from "./blog-tags"
 
 class BlogList extends React.Component {
   render() {
-    const { posts, cardWidth, cardHeight } = this.props
+    const { posts, cardWidth, cardHeight, isFooter } = this.props
+    const className = isFooter ? "blog-card-list footer-blog-list" : "blog-card-list"
     return (
-      <div className="blog-card-list">
+      <div className={className}>
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (

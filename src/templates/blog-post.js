@@ -7,7 +7,7 @@ import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
 import Img from "gatsby-image"
 import Socials from "../components/socials"
-import BlogList from "../components/blog-list"
+import FooterBlogList from "../components/footer-blog-list"
 import BlogTags from "../components/blog-tags"
 import BlogSeries from "../components/blog-series"
 import BlogPostDate from "../components/blog-post-date"
@@ -16,7 +16,7 @@ import urljoin from "url-join"
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
-    const posts = this.props.data.lastFivePosts.edges
+    const posts = this.props.data.lastFourPosts.edges
     const series = this.props.data.series.edges
     const githubUrl = post.frontmatter.github_url
     const { previous, next } = this.props.pageContext
@@ -109,11 +109,7 @@ class BlogPostTemplate extends React.Component {
             marginBottom: rhythm(1),
           }}
         />
-        <BlogList
-          posts={posts}
-          cardWidth={rhythm(15)}
-          cardHeight={rhythm(12.5)}
-        />
+        <FooterBlogList posts={posts}/>
         <div>
           <ul
             style={{
@@ -201,13 +197,13 @@ export const pageQuery = graphql`
         }
       }
     }
-    lastFivePosts: allMarkdownRemark(
+    lastFourPosts: allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: {
         fields: { slug: { ne: $slug } }
         frontmatter: { published: { eq: true } }
       }
-      limit: 5
+      limit: 4
     ) {
       edges {
         node {
