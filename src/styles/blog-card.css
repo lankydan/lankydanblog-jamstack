@@ -31,18 +31,45 @@ a.blog-card-link {
   background-image: none;
 }
 
+/* CSS for box shadow effect on blog cards taken from https://css-tricks.com/almanac/properties/b/box-shadow/#article-header-id-3 */
 div .blog-card {
-  box-shadow: 6px 9px 4px 0px #00000099;
-  border-radius: 10px;
   background-color: var(--secondary-color);
+  position: relative;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.1) inset;
+}
+
+div .blog-card:before,
+div .blog-card:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+  -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+  top: 15px;
+  bottom: 15px;
+  left: 0;
+  right: 0;
+  -moz-border-radius: 100px / 10px;
+  border-radius: 100px / 10px;
+}
+
+div .blog-card:after {
+  right: 10px;
+  left: auto;
+  -webkit-transform: skew(8deg) rotate(3deg);
+  -moz-transform: skew(8deg) rotate(3deg);
+  -ms-transform: skew(8deg) rotate(3deg);
+  -o-transform: skew(8deg) rotate(3deg);
+  transform: skew(8deg) rotate(3deg);
 }
 
 div .blog-card-text {
-  border-width: 0px 1px 1px 1px;
-  border-color: #d6d6d6;
-  border-style: solid;
-  border-radius: 0px 0px 10px 10px;
-  border-color: var(--blog-card-border-color);
   min-height: 15rem;
 }
 
@@ -69,5 +96,5 @@ div p {
 
 small.blog-tag {
   color: white;
-  background-color: var(--primary-color)
+  background-color: var(--primary-color);
 }
