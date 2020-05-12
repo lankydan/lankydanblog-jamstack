@@ -45,7 +45,6 @@ Outputting:
 7..
 8..
 Cancelling
-Caught cancellation exception
 Cancelled and done
 ```
 
