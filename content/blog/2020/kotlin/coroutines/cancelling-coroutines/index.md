@@ -114,7 +114,7 @@ You might have also noticed that the `CancellationException` thrown by `delay` i
 
 ## Checking isActive
 
-Cancelling a coroutine will change a job's `isActive` flag to `true`. This flag can then be used to check if a job is still running, has been cancelled or one of the other non-running states.
+Cancelling a coroutine will change a job's `isActive` flag to `false`. This flag can then be used to check if a job is still running, has been cancelled or one of the other non-running states.
 
 As discussed in the previous section, the built-in coroutines will handle cancellation for you. Therefore you're going to need to check the `isActive` flag for the following reasons:
 
