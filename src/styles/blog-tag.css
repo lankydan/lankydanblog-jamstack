@@ -1,0 +1,18 @@
+.blog-tag {
+  display: inline-block;
+  margin: 2px;
+  padding: 0px 8px;
+  border-radius: 4px;
+  color: white;
+  background-color: var(--primary-color);
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 400px) {
+  .blog-tag {
+    font-size: 0.75rem;
+    padding: 0px 6px;
+    border-radius: 3px;
+    margin: 1.5px;
+  }
+}

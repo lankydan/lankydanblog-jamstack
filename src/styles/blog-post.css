@@ -1,0 +1,52 @@
+.post-header {
+  /* https://css-tricks.com/fun-viewport-units/ */
+  height: 70vh;
+  background-color: #7c497967;
+  display: grid;
+  text-align: center;
+}
+
+.post-header-grid {
+  /* Need to make the title not too wide */
+  margin: auto 10%;
+}
+
+/* will need to sort out different screen sizes */
+.post-header-title {
+  font-size: 5rem;
+  /* letter-spacing: -.06em; */
+}
+
+.post-date {
+  font-size: 2rem;
+}
+
+@media screen and (max-width: 1000px) {
+  .post-header-title {
+    font-size: 4rem;
+  }
+
+  .post-date {
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .post-header-title {
+    font-size: 3rem;
+  }
+
+  .post-date {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .post-header-title {
+    font-size: 2rem;
+  }
+
+  .post-date {
+    font-size: 0.8rem;
+  }
+}

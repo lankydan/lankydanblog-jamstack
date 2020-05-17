@@ -24,8 +24,24 @@ class BlogPostTemplate extends React.Component {
       this.props.data.site.siteMetadata.siteUrl,
       this.props.pageContext.slug
     )
+    const header = (
+      <div className="post-header">
+        <div className="post-header-grid">
+          <h1
+            className="post-header-title"
+            style={{
+              marginTop: `2rem`,
+            }}
+          >
+            {post.frontmatter.title}
+          </h1>
+          <BlogPostDate post={post} />
+          <BlogTags post={post} />
+        </div>
+      </div>
+    )
     return (
-      <Layout location={this.props.location}>
+      <Layout header={header} location={this.props.location}>
         <SEO
           url={postUrl}
           title={post.frontmatter.title}
@@ -38,28 +54,6 @@ class BlogPostTemplate extends React.Component {
           timeToRead={post.timeToRead}
           keywords={post.frontmatter.tags}
         />
-        {post.frontmatter.cover_image !== null && (
-          <Img
-            fluid={post.frontmatter.cover_image.childImageSharp.fluid}
-            style={{
-              position: `relative`,
-              width: `100%`,
-              margin: `auto`,
-              background: `transparent no-repeat center center`,
-              backgroundSize: `cover`,
-              zIndex: 2,
-            }}
-          />
-        )}
-        <h1
-          style={{
-            marginTop: `2rem`,
-          }}
-        >
-          {post.frontmatter.title}
-        </h1>
-        <BlogPostDate post={post} />
-        <BlogTags post={post} />
         {githubUrl !== null && githubUrl !== undefined && (
           <div
             style={{
@@ -109,7 +103,7 @@ class BlogPostTemplate extends React.Component {
             marginBottom: rhythm(1),
           }}
         />
-        <FooterBlogList posts={posts}/>
+        <FooterBlogList posts={posts} />
         <div>
           <ul
             style={{

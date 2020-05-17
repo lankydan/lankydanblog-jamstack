@@ -7,6 +7,8 @@ import "./src/styles/code.css"
 // require("prismjs/themes/prism-tomorrow.css")
 require("./src/styles/code.css")
 require("./src/styles/text.css")
+require("./src/styles/blog-post.css")
+require("./src/styles/blog-tag.css")
 require("./src/styles/blog-card.css")
 require("./src/styles/blog-series.css")
 require("./src/styles/images.css")
