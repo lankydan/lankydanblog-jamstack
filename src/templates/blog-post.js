@@ -5,7 +5,6 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
-import Img from "gatsby-image"
 import Socials from "../components/socials"
 import FooterBlogList from "../components/footer-blog-list"
 import BlogTags from "../components/blog-tags"
@@ -46,10 +45,7 @@ class BlogPostTemplate extends React.Component {
           url={postUrl}
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
-          image={
-            post.frontmatter.cover_image &&
-            post.frontmatter.cover_image.childImageSharp.resize.src
-          }
+          image={urljoin(postUrl, `twitter-card.jpg`)}
           date={post.frontmatter.date}
           timeToRead={post.timeToRead}
           keywords={post.frontmatter.tags}
@@ -158,16 +154,6 @@ export const pageQuery = graphql`
         tags
         github_url
         series
-        cover_image {
-          childImageSharp {
-            resize(width: 1500, cropFocus: CENTER) {
-              src
-            }
-            fluid(maxWidth: 780, maxHeight: 300, cropFocus: CENTER) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
       }
       timeToRead
     }
@@ -210,16 +196,6 @@ export const pageQuery = graphql`
             title
             description
             tags
-            cover_image {
-              childImageSharp {
-                resize(width: 1500, height: 1500) {
-                  src
-                }
-                fluid(maxWidth: 780, maxHeight: 300, cropFocus: CENTER) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
           }
         }
       }

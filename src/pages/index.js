@@ -35,16 +35,6 @@ export const pageQuery = graphql`
             title
             description
             tags
-            cover_image {
-              childImageSharp {
-                resize(width: 1500, height: 1500) {
-                  src
-                }
-                fluid(maxWidth: 780, maxHeight: 300, cropFocus: CENTER) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
           }
         }
       }
