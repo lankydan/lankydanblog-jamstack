@@ -3,7 +3,6 @@ title: Containerising a Spring Data Cassandra application
 date: "2018-09-08"
 published: true
 tags: [java, spring, spring data, spring boot, cassandra, spring data cassandra, docker, containers]
-cover_image: ./docker-hong-kong-2.png
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-data-cassandra-docker
 ---

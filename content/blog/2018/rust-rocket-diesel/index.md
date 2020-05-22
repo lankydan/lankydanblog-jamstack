@@ -3,7 +3,6 @@ title: Creating a Rusty Rocket fuelled with Diesel
 date: "2018-05-20"
 published: true
 tags: [rust, diesel, rocket]
-cover_image: ./rust-rocket-diesel.jpeg
 include_date_in_url: true
 github_url: https://github.com/lankydan/rust-web-with-rocket
 ---

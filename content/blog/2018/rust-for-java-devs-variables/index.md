@@ -4,7 +4,6 @@ slug: rust-for-java-devs-creating-variables-first-rust-post
 date: "2018-01-13"
 published: true
 tags: [rust, java]
-cover_image: ./rust-icon-with-background.png
 include_date_in_url: true
 ---
 

@@ -4,7 +4,6 @@ slug: throughput-a-corda-story
 date: "2018-12-14"
 published: true
 tags: [corda, dlt, distributed ledger technology, blockchain, performance]
-cover_image: ./corda-stars.png
 include_date_in_url: true
 ---
 

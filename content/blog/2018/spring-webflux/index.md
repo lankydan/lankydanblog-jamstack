@@ -3,7 +3,6 @@ title: Doing stuff with Spring WebFlux
 date: "2018-03-15"
 published: true
 tags: [java, spring, spring boot, spring webflux, reactive streams, reactor, java 8, spring data cassandra]
-cover_image: ./spring-webflux.jpeg
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-boot-webflux
 ---

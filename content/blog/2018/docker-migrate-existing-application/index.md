@@ -3,7 +3,6 @@ title: Using Docker to shove an existing application into some containers
 date: "2018-09-02"
 published: true
 tags: [java, spring, spring boot, mongodb, activemq, docker, containers, jms, docker-compose]
-cover_image: ./docker-hong-kong.png
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-boot-jms-docker
 ---
