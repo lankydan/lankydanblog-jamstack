@@ -3,7 +3,6 @@ title: Waiting for coroutines
 date: "2020-04-26"
 published: true
 tags: [kotlin, coroutines]
-cover_image: ./title-card.png
 series: Kotlin coroutines
 ---
 

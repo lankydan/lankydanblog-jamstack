@@ -3,7 +3,6 @@ title: Launching your coroutine knowledge
 date: "2020-04-17"
 published: true
 tags: [kotlin, coroutines]
-cover_image: ./title-card.png
 series: Kotlin coroutines
 ---
 

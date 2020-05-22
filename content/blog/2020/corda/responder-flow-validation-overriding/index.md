@@ -4,7 +4,6 @@ slug: responder-flow-validation-overriding
 date: "2020-01-06"
 published: true
 tags: [corda, kotlin, dlt, distributed ledger technology, blockchain]
-cover_image: ./title-card.png
 series: Responder flow validation
 ---
 
