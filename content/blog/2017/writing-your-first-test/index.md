@@ -4,7 +4,6 @@ slug: writing-your-f-i-r-s-t-unit-tests
 date: "2017-03-04"
 published: true
 tags: [testing, basics, beginner]
-cover_image: ./title-card.png
 include_date_in_url: true
 ---
 

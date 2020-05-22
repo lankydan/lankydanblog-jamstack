@@ -3,7 +3,6 @@ title: Is this the correct object?
 date: "2017-03-02"
 published: true
 tags: [java]
-cover_image: ./title-card.png
 include_date_in_url: true
 ---
 

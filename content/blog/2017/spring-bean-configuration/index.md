@@ -3,7 +3,6 @@ title: Playing around with Spring Bean Configuration
 date: "2017-07-30"
 published: true
 tags: [spring, java, beginners]
-cover_image: ./spring-beans.jpeg
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-bean-config
 ---

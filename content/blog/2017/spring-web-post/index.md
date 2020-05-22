@@ -4,7 +4,6 @@ slug: simple-spring-boot-post
 date: "2017-04-02"
 published: true
 tags: [java, spring, spring boot, spring web]
-cover_image: ./title-card.png
 github_url: https://github.com/lankydan/spring-boot-post-tutorial
 include_date_in_url: true
 ---

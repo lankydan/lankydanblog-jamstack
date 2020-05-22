@@ -3,7 +3,6 @@ title: Out of the box ActiveMQ
 date: "2017-07-02"
 published: true
 tags: [activemq, spring, spring boot, spring boot jms]
-cover_image: ./activemq-queue.jpeg
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-boot-activemq-default-tutorial
 ---

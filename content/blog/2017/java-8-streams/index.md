@@ -3,7 +3,6 @@ title: Java 8 Streams
 date: "2017-01-22"
 published: true
 tags: [java, java 8, java streams]
-cover_image: ./title-card.png
 include_date_in_url: true
 ---
 

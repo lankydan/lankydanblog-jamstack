@@ -3,7 +3,6 @@ title: MongoDB Indexes with Spring Data
 date: "2017-06-07"
 published: true
 tags: [spring, java, spring boot, spring data, mongo, mongodb, spring data mongodb]
-cover_image: ./spring-forest.jpeg
 include_date_in_url: true
 ---
 

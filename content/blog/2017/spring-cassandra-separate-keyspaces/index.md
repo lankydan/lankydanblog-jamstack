@@ -3,7 +3,6 @@ title: Separate keyspaces with Spring Data Cassandra
 date: "2017-10-22"
 published: true
 tags: [spring, spring data, spring data cassandra, cassandra, spring boot, java]
-cover_image: ./street.jpg
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-data-cassandra/tree/multiple_key_spaces
 ---

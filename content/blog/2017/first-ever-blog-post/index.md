@@ -4,7 +4,6 @@ slug: first-blog-post
 date: "2017-01-06"
 published: true
 tags: [personal]
-cover_image: ./title-card.png
 include_date_in_url: true
 ---
 

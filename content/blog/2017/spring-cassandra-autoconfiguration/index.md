@@ -4,7 +4,6 @@ slug: plumbing-included-with-auto-configuration-in-spring-data-cassandra
 date: "2017-12-16"
 published: true
 tags: [spring, spring data, spring data cassandra, cassandra, autoconfiguration, spring boot, java]
-cover_image: ./pipe.jpg
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-data-cassandra/tree/spring-data-cassandra-autoconfiguration
 ---

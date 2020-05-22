@@ -4,7 +4,6 @@ date: "2017-02-18"
 published: true
 tags: [java, javafx]
 github_url: https://github.com/lankydan/Stopping-JavaFX-Context-Menus-from-auto-hiding
-cover_image: ./title-card.png
 include_date_in_url: true
 ---
 

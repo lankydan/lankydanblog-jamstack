@@ -3,7 +3,6 @@ title: Should you write comments?
 date: "2017-01-07"
 published: true
 tags: [general]
-cover_image: ./book.jpg
 include_date_in_url: true
 ---
 

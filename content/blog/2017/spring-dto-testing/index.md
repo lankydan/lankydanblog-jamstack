@@ -3,7 +3,6 @@ title: Testing Data Transfer Objects and Rest Controllers in Spring Boot
 date: "2017-03-26"
 published: true
 tags: [java, spring, spring boot, spring web]
-cover_image: ./title-card.png
 github_url: https://github.com/lankydan/spring-boot-dto-test-tutorial
 include_date_in_url: true
 ---

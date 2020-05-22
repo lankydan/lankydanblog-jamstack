@@ -3,7 +3,6 @@ title: Editable Tables in JavaFX
 date: "2017-02-11"
 published: true
 tags: [java, javafx]
-cover_image: ./title-card.png
 github_url: https://github.com/lankydan/JavaFX-Table-Tutorial
 include_date_in_url: true
 ---
