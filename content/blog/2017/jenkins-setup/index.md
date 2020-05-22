@@ -3,7 +3,6 @@ title: Setting up Jenkins to deploy to Heroku
 date: "2017-06-11"
 published: true
 tags: [jenkins, heroku, maven]
-cover_image: ./jenkins-bar.jpeg
 include_date_in_url: true
 ---
 

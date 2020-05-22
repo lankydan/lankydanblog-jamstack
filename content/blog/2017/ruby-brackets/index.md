@@ -3,7 +3,6 @@ title: When do you use parentheses in Ruby?
 date: "2017-05-13"
 published: true
 tags: [ruby, beginners]
-cover_image: ./ruby-boardgame.jpeg
 include_date_in_url: true
 ---
 

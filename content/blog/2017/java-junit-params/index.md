@@ -3,7 +3,6 @@ title: Getting started with JUnitParams
 date: "2017-03-04"
 published: true
 tags: [java, junit, testing]
-cover_image: ./title-card.png
 github_url: https://github.com/lankydan/JUnitParamsTutorial
 include_date_in_url: true
 ---

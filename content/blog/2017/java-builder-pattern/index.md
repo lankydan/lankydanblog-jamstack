@@ -3,7 +3,6 @@ title: Building with the Builder Pattern
 date: "2017-04-01"
 published: true
 tags: [java, patterns]
-cover_image: ./title-card.png
 include_date_in_url: true
 ---
 

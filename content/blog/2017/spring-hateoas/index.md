@@ -3,7 +3,6 @@ title: Applying HATEOAS to a REST API with Spring Boot
 date: "2017-09-10"
 published: true
 tags: [spring, spring boot, java, spring web, controlleradvice, exception handling, spring hateoas, hateoas]
-cover_image: ./spring-hateoas.png
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-boot-hateoas
 ---

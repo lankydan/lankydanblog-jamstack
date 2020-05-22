@@ -3,7 +3,6 @@ title: Passing Data Transfer Objects with GET in Spring Boot
 date: "2017-03-11"
 published: true
 tags: [java, spring, spring boot, spring web]
-cover_image: ./title-card.png
 github_url: https://github.com/lankydan/spring-boot-dto-tutorial-1
 include_date_in_url: true
 ---

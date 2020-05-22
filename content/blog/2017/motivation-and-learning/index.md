@@ -3,7 +3,6 @@ title: Motivation and learning
 date: "2017-02-27"
 published: true
 tags: [personal]
-cover_image: ./title-card.png
 include_date_in_url: true
 ---
 

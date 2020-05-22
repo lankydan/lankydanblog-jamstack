@@ -3,7 +3,6 @@ title: Being lazy with Lombok
 date: "2017-04-29"
 published: true
 tags: [lombok, java]
-cover_image: ./cat.jpeg
 include_date_in_url: true
 ---
 

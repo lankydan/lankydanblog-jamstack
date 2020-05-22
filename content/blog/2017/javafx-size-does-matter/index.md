@@ -3,7 +3,6 @@ title: Size does matter in JavaFX
 date: "2017-02-04"
 published: true
 tags: [java, javafx]
-cover_image: ./title-card.png
 github_url: https://github.com/lankydan/JavaFX-Size-Example
 include_date_in_url: true
 ---

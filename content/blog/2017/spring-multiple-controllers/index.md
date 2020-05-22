@@ -3,7 +3,6 @@ title: Request Mapping with multiple Rest Controllers
 date: "2017-04-08"
 published: true
 tags: [java, spring, spring boot, spring web]
-cover_image: ./title-card.png
 github_url: https://github.com/lankydan/spring-boot-rest-controllers-tutorial
 include_date_in_url: true
 ---

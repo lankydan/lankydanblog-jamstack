@@ -3,7 +3,6 @@ title: Debugging a Rails server in Visual Studio Code
 date: "2017-05-12"
 published: true
 tags: [ruby, beginners, vscode, visual studio code, rails]
-cover_image: ./ruby-extension.jpeg
 include_date_in_url: true
 ---
 

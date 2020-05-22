@@ -3,7 +3,6 @@ title: Setting up Bootstrap-4-alpha6 in Rails 5
 date: "2017-04-18"
 published: true
 tags: [ruby on rails, bootstrap]
-cover_image: ./title-card.png
 include_date_in_url: true
 ---
 

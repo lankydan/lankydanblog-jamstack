@@ -3,7 +3,6 @@ title: Default and private methods in Interfaces
 date: "2017-08-13"
 published: true
 tags: [java, java 8, java 9]
-cover_image: ./coffee.jpg
 include_date_in_url: true
 ---
 

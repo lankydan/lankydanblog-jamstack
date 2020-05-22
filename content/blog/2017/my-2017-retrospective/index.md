@@ -3,7 +3,6 @@ title: My 2017 Retrospective
 date: "2017-12-29"
 published: true
 tags: [personal]
-cover_image: ./celebration.jpeg
 include_date_in_url: true
 ---
 
