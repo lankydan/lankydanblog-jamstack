@@ -3,7 +3,6 @@ title: What is Corda?
 date: "2018-06-05"
 published: true
 tags: [corda, kotlin, dlt, blockchain, distributed ledger technology]
-cover_image: ./corda-london.png
 include_date_in_url: true
 ---
 

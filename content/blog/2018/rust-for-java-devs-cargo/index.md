@@ -4,7 +4,6 @@ slug: rust-for-java-devs-compiling-code-and-using-cargo
 date: "2018-01-21"
 published: true
 tags: [rust, java]
-cover_image: ./rust-icon-with-background.png
 include_date_in_url: true
 ---
 

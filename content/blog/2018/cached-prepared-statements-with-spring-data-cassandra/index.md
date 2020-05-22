@@ -3,7 +3,6 @@ title: Cached Prepared Statements with Spring Data Cassandra
 date: "2018-10-23"
 published: true
 tags: [spring, spring data, spring boot, spring data cassandra, cassandra, java]
-cover_image: ./spring-data-city.png
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-data-cassandra-prepared-statements
 ---

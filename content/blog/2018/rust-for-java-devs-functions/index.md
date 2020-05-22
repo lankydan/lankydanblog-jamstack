@@ -4,7 +4,6 @@ slug: rust-for-java-devs-creating-functions
 date: "2018-02-18"
 published: true
 tags: [rust, java]
-cover_image: ./rust-icon-with-background.png
 include_date_in_url: true
 ---
 
