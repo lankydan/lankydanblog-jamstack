@@ -4,7 +4,6 @@ slug: responder-flow-validation-extension
 date: "2019-12-10"
 published: true
 tags: [corda, kotlin, dlt, distributed ledger technology, blockchain]
-cover_image: ./title-card.png
 series: Responder flow validation
 ---
 

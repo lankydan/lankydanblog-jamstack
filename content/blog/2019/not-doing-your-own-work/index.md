@@ -3,7 +3,6 @@ title: Sometimes, it's better to not do your work
 date: "2019-11-20"
 published: true
 tags: [work, culture, helping, teamwork]
-cover_image: ./title-card.png
 ---
 
 > It's 11 o'clock and I am finally doing my own work...

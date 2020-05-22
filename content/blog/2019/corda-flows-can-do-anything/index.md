@@ -3,7 +3,6 @@ title: Flows can do anything
 date: "2019-07-30"
 published: true
 tags: [corda, kotlin, dlt, distributed ledger technology, blockchain]
-cover_image: ./title-card.png
 ---
 
 In Corda, Flows can do a lot more than proposing new transactions to record between organisations. Although, saying they can do _anything_ is probably a bit far-reaching (it's catchy though). What I really want to say, is that flows are the entry points into a node. Corda provides a series of functions to interact with a node via RPC. Currently, these cover the more straightforward use cases, such as querying the vault, but there is a limitation to what is provided. Flows cover any of the _non-standard_ logic that needs to be triggered. So, if you want to expose an API from a Corda node that a client can trigger or consume, then this post is for you.

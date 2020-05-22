@@ -3,7 +3,6 @@ title: Running a Kotlin class as a subprocess
 date: "2019-05-25"
 published: true
 tags: [kotlin]
-cover_image: ./kotlin-clouds.jpg
 ---
 
 Last week I wrote a post on [running a Java class as a subprocess](https://lankydan.dev/running-a-java-class-as-a-subprocess). That post was triggered by my need to run a class from within a test without prebuilding a Jar. The only difference between what I wrote in that post and what actually happened was the language. I used Kotlin to write that test. Not Java. Therefore, I have decided to write this follow up post that builds upon what I previously wrote and focuses on starting a Kotlin subprocess instead of a Java subprocess.

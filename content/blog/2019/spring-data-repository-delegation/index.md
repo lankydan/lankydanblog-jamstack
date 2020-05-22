@@ -3,7 +3,6 @@ title: Augmenting a Spring Data repository through delegation
 date: "2019-09-14"
 published: true
 tags: [spring, spring data, kotlin, java, r2dbc, spring data r2dbc, reactive, reactive streams, spring boot]
-cover_image: ./title-card.png
 ---
 
 I have recently written several posts about Kotlin's delegation. In doing so, I realised a useful way to apply it to Spring Data repositories. Which would allow Spring Data to continue sprinkling some magic while providing a route for customisation. The code shown in this post is in Kotlin, but is still relevant to Java.

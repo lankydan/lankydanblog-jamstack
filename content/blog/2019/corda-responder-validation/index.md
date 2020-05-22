@@ -3,7 +3,6 @@ title: Responder flow validation
 date: "2019-11-25"
 published: true
 tags: [corda, kotlin, dlt, distributed ledger technology, blockchain]
-cover_image: ./title-card.png
 series: Responder flow validation
 ---
 

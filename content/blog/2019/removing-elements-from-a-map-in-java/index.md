@@ -3,7 +3,6 @@ title: Removing elements from a Map in Java
 date: "2019-03-03"
 published: true
 tags: [java, java 8, basics, beginners]
-cover_image: ./picking_records.png
 include_date_in_url: true
 description: Very short and simple post on removing elements from a `Map` in Java.
 ---

@@ -3,7 +3,6 @@ title: Uploading and downloading attachments in Corda
 date: "2019-04-25"
 published: true
 tags: [corda, corda 4, spring, spring boot, spring web, kotlin, dlt, distributed ledger technology, blockchain]
-cover_image: ./corda-hong-kong.png
 ---
 
 This post is dedicated to the number of people I have seen in the Corda Slack channel asking how to upload and subsequently download attachments to and from a node. Although both of these can already be achieved via the Corda Shell. In this post, I will be focusing on writing a client application that interacts with a node to control the attachments.

@@ -3,7 +3,6 @@ title: Asking the right question, in the right way and in the right place
 date: "2019-04-14"
 published: true
 tags: [beginners, questions, advice]
-cover_image: ./high-five.jpg
 ---
 
 Is this the right place to post this? That probably isn't the right question to be asking when I am writing this on my personal blog. Although this is not the sort of question lead me to write this post, I was hoping it would start the post in the right mood and perhaps even muster a chuckle from you. It did right? Another silly question. Of course it did, it was a great joke 😎.
