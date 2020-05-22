@@ -3,7 +3,6 @@ title: Cancelling coroutines
 date: "2020-05-11"
 published: true
 tags: [kotlin, coroutines]
-cover_image: ./title-card.png
 series: Kotlin coroutines
 ---
 

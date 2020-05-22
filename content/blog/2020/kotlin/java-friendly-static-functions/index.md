@@ -4,7 +4,6 @@ slug: java-friendly-kotlin-static-functions
 date: "2020-03-18"
 published: true
 tags: [kotlin, java]
-cover_image: ./title-card.png
 ---
 
 In this post, we will look at writing static functions in Kotlin that treat Java callers as first-class citizens.
