@@ -3,7 +3,6 @@ title: Broadcasting a transaction to external organisations
 date: "2019-05-31"
 published: true
 tags: [corda, kotlin, dlt, distributed ledger technology, blockchain]
-cover_image: ./corda-concert.png
 github_url: https://github.com/lankydan/corda-broadcast-transaction
 ---
 

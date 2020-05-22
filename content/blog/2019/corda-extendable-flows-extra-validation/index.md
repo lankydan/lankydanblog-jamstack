@@ -3,7 +3,6 @@ title: Extending Flows to customise transaction validation
 date: "2019-05-18"
 published: true
 tags: [corda, corda 4, kotlin, dlt, distributed ledger technology, blockchain]
-cover_image: ./corda-cherry-blossom.png
 github_url: https://github.com/lankydan/corda-extendable-flows/tree/extra-validation-logic-in-responder-flow
 ---
 

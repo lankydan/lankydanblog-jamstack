@@ -3,7 +3,6 @@ title: Kotlin primitive and object arrays
 date: "2019-06-21"
 published: true
 tags: [kotlin, java, beginner]
-cover_image: ./title-card.png
 ---
 
 I initially set out to write this post because I was playing around with some reflection code and thought I found something interesting. Alas, that was definitely not the case. Instead, it was just a basic feature of Kotlin that I haven't needed to use or focus on yet. Although this post didn't turn out the way I wanted it to be, I still think it is a nice little post to bring some clarity to this subject.

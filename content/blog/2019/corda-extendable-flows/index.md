@@ -3,7 +3,6 @@ title: Extending and Overriding Flows from external CorDapps
 date: "2019-03-02"
 published: true
 tags: [corda, corda 4, kotlin, dlt, distributed ledger technology, blockchain]
-cover_image: ./corda-tree.png
 include_date_in_url: true
 github_url: https://github.com/lankydan/corda-extendable-flows
 ---

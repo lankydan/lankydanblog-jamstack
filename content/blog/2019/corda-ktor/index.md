@@ -3,7 +3,6 @@ title: Connecting a Ktor web server to a Corda node
 date: "2019-08-12"
 published: true
 tags: [corda, kotlin, dlt, distributed ledger technology, blockchain]
-cover_image: ./title-card.png
 github_url: https://github.com/lankydan/corda-ktor-webserver
 ---
 

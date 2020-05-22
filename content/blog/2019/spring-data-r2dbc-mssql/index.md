@@ -3,7 +3,6 @@ title: Spring Data R2DBC for Microsoft SQL Server
 date: "2019-05-07"
 published: true
 tags: [spring, r2dbc, spring data, spring boot, java, kotlin, spring data r2dbc, mssql, sql server, reactive, reactive streams]
-cover_image: ./spring-data-r2dbc-road.png
 github_url: https://github.com/lankydan/spring-data-r2dbc/tree/mssql_r2dbc
 ---
 

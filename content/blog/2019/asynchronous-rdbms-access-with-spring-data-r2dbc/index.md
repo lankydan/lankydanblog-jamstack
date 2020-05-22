@@ -14,7 +14,6 @@ tags:
     reactive,
     reactive streams,
   ]
-cover_image: ./spring-data-lake.png
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-data-r2dbc
 ---

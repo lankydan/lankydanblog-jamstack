@@ -3,7 +3,6 @@ title: Verifying a Contract with CSV data
 date: "2019-05-05"
 published: true
 tags: [corda, corda 4, kotlin, dlt, distributed ledger technology, blockchain]
-cover_image: ./corda-new-york.png
 github_url: https://github.com/lankydan/corda-csv-contract-validation
 ---
 

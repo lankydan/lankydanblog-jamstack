@@ -3,7 +3,6 @@ title: The potential traps in Kotlin's Data Classes
 date: "2019-08-17"
 published: true
 tags: [kotlin]
-cover_image: ./title-card.png
 ---
 
 The aim of this post is not to point out some massive flaws in Kotlin's design of data classes and show you how to get passed them. Actually, it is quite the opposite. The contents of this post are clearly documented in the [Kotlin docs](https://kotlinlang.org/docs/reference/data-classes.html#properties-declared-in-the-class-body). I am merely here to highlight this information to anyone who has not noticed precisely how their data classes are working.

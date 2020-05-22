@@ -3,7 +3,6 @@ title: Preventing invalid spending of broadcasted states
 date: "2019-06-12"
 published: true
 tags: [corda, kotlin, dlt, distributed ledger technology, blockchain]
-cover_image: ./corda-crowd.png
 github_url: https://github.com/lankydan/corda-broadcast-transaction
 ---
 

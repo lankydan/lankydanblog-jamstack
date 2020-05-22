@@ -3,7 +3,6 @@ title: Testing exceptions in Kotlin with `assertFailsWith`
 date: "2019-01-26"
 published: true
 tags: [kotlin, testing]
-cover_image: ./kotlin-lake.png
 include_date_in_url: true
 ---
 

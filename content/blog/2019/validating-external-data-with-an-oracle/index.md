@@ -3,7 +3,6 @@ title: Validating external data with an Oracle
 date: "2019-01-01"
 published: true
 tags: [corda, dlt, distributed ledger technology, kotlin, blockchain]
-cover_image: ./corda-sydney.jpg
 include_date_in_url: true
 github_url: https://github.com/lankydan/corda-oracle
 ---

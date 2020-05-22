@@ -4,7 +4,6 @@ slug: ktor-a-kotlin-web-framework
 date: "2019-07-24"
 published: true
 tags: [kotlin, ktor]
-cover_image: ./title-card.png
 github_url: https://github.com/lankydan/ktor-with-kodein-di
 ---
 
