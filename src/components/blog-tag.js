@@ -4,21 +4,13 @@ export default class BlogTag extends React.Component {
   render() {
     const { name } = this.props
     const { backgroundColor, color } = this.getTagColorScheme(name)
-    const style = {
-      display: `inline-block`,
-      marginRight: `2px`,
-      padding: `0px 8px`,
-      borderRadius: `4px`,
-    }
-    if(backgroundColor != null && color != null) {
+    const style = {}
+    if (backgroundColor != null && color != null) {
       style.backgroundColor = backgroundColor
       style.color = color
     }
     return (
-      <small
-        className="blog-tag"
-        style={style}
-      >
+      <small className="blog-tag" style={style}>
         {name}
       </small>
     )

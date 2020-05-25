@@ -8,7 +8,6 @@ import { rhythm } from "../utils/typography"
 
 export default class BlogIndexPageList extends React.Component {
   render() {
-    // const location = this.props.location
     const { location, previous, next } = this.props
     const rootPath = `${__PATH_PREFIX__}/`
     var postButtons
@@ -52,8 +51,11 @@ export default class BlogIndexPageList extends React.Component {
       <StaticQuery
         query={blogListQuery}
         render={data => {
+          const header = (
+            <h1 className="blog-header">{data.site.siteMetadata.title}</h1>
+          )
           return (
-            <Layout location={location} title={data.site.siteMetadata.title}>
+            <Layout location={location} header={header}>
               <SEO
                 title="All posts"
                 keywords={[
@@ -65,11 +67,7 @@ export default class BlogIndexPageList extends React.Component {
                 ]}
                 image={data.homePageImage.childImageSharp.resize.src}
               />
-              <BlogList
-                posts={this.props.posts}
-                cardWidth={rhythm(18)}
-                cardHeight={rhythm(12.5)}
-              />
+              <BlogList posts={this.props.posts} />
               {postButtons}
             </Layout>
           )

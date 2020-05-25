@@ -1,49 +1,43 @@
 .blog-card-list {
   display: grid;
-  grid-template-columns: repeat(2, minmax(40%, 1fr));
-  grid-template-rows: repeat(5, minmax(10%, 1fr));
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(10, 1fr);
   grid-gap: 1.5rem;
 }
 
 .footer-blog-list {
-  grid-template-rows: repeat(2, minmax(10%, 1fr));
+  grid-template-rows: repeat(4, 1fr);
   margin: 0 10% 0 10%;
   padding-bottom: 2rem;
 }
 
-@media screen and (max-width: 1000px) {
-  .blog-card-list {
-    grid-template-columns: repeat(1, minmax(90%, 1fr));
-    grid-template-rows: repeat(10, minmax(5%, 1fr));
-    grid-gap: 1rem;
-  }
-
-  .footer-blog-list {
-    grid-template-rows: repeat(4, minmax(10%, 1fr));
-    margin: 0 5% 0 5%;
-  }
-}
-
 a.blog-card-link {
   box-shadow: none;
-  max-width: 100%;
+  min-width: 100%;
   margin: 0 auto;
   background-image: none;
+  border-radius: 4px;
+  border-width: 3px;
+  border-color: var(--primary-color);
+  border-style: solid;
+  text-align: center;
+  display: grid;
 }
 
 div .blog-card {
-  box-shadow: 6px 9px 4px 0px #00000099;
-  border-radius: 10px;
-  background-color: var(--secondary-color);
+  margin: auto;
+}
+
+div .blog-card h2 {
+  font-size: 2.5rem;
+}
+
+div .blog-card small {
+  font-size: 1rem;
 }
 
 div .blog-card-text {
-  border-width: 0px 1px 1px 1px;
-  border-color: #d6d6d6;
-  border-style: solid;
-  border-radius: 0px 0px 10px 10px;
-  border-color: var(--blog-card-border-color);
-  min-height: 15rem;
+  padding: 1rem 2rem;
 }
 
 div .blog-card-text p {
@@ -57,6 +51,8 @@ div .blog-card img {
 
 div .blog-card-title {
   color: var(--secondary-color-light);
+  margin: 0 0 1rem 0;
+
 }
 
 div small {
@@ -67,7 +63,21 @@ div p {
   color: var(--font-color);
 }
 
-small.blog-tag {
-  color: white;
-  background-color: var(--primary-color)
+@media screen and (max-width: 1000px) {
+  .blog-card-list {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(10, 1fr);
+    grid-gap: 1rem;
+  }
+
+  .footer-blog-list {
+    grid-template-rows: repeat(4, 1fr);
+    margin: 0 5% 0 5%;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  div .blog-card h2 {
+    font-size: 1.5rem;
+  }
 }

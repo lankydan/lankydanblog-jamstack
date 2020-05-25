@@ -4,36 +4,34 @@ import Navbar from "./navbar"
 
 class Layout extends React.Component {
   render() {
-      const { title, children } = this.props
-    let header
-
-    if (title !== undefined) {
-      header = <h1 className="blog-header">{title}</h1>
-    }
+    const { header, children } = this.props
     return (
-      <div
-        className="main"
-        style={{
-          marginLeft: `auto`,
-          marginRight: `auto`,
-          maxWidth: rhythm(38),
-          padding: `0 0 ${rhythm(1.5)} 0`,
-        }}
-      >
+      <div>
         <Navbar />
+        <header>{header}</header>
         <div
+          className="main"
           style={{
-            padding: `30px ${rhythm(3 / 4)}`,
+            marginLeft: `auto`,
+            marginRight: `auto`,
+            maxWidth: rhythm(38),
+            padding: `0 0 ${rhythm(1.5)} 0`,
           }}
         >
-          <header>{header}</header>
-          <main>{children}</main>
+          <div
+            style={{
+              padding: `30px ${rhythm(3 / 4)}`,
+            }}
+          >
+            <main>{children}</main>
+          </div>
+
+          <footer>
+            © {new Date().getFullYear()}, Built with
+            {` `}
+            <a href="https://www.gatsbyjs.org">Gatsby</a>
+          </footer>
         </div>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
       </div>
     )
   }
