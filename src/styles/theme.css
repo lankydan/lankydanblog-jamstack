@@ -16,21 +16,14 @@
   --faded-highlight: #f3e6f1;
   --gradient-color: linear-gradient(
     45deg,
-    #8a3d97 16.666%,
-    #344397 16.666%,
-    #344397 33.333%,
-    #114e66 33.333%,
-    #114e66 50%,
-    #359b20 50%,
-    #359b20 66.666%,
-    #e0932f 66.666%,
-    #e0932f 83.333%,
-    #a0373f 83.333%
+    rgba(17, 84, 122, 1) 0%,
+    rgba(142, 85, 153, 1) 52%,
+    rgb(31, 48, 122) 100%
   );
 }
 
 [data-theme="dark"] {
-  --primary-color: #b062c0;
+  --primary-color: #cc80db;
   --primary-color-light: #e392f3;
   --primary-color-dark: #7f348f;
   --secondary-color: #50555e;
@@ -47,16 +40,9 @@
   --faded-highlight: #e28cd531;
   --gradient-color: linear-gradient(
     45deg,
-    #d271e3 16.666%,
-    #82aaff 16.666%,
-    #82aaff 33.333%,
-    #23999d 33.333%,
-    #23999d 50%,
-    #96df66 50%,
-    #96df66 66.666%,
-    #ebc071 66.666%,
-    #ebc071 83.333%,
-    #eb6873 83.333%
+    rgba(22, 116, 171, 1) 0%,
+    rgba(227, 146, 243, 1) 52%,
+    rgb(97, 120, 197) 100%
   );
 }
 

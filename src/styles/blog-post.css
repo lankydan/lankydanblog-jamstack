@@ -14,6 +14,7 @@
 /* will need to sort out different screen sizes */
 .post-header-title {
   /* Gradient code taken from https://fossheim.io/writing/posts/css-text-gradient/ */
+  /* Gradient color provided by https://cssgradient.io/ */
   background-image: var(--gradient-color);
   background-clip: text;
   background-repeat: repeat;
