@@ -7,7 +7,7 @@ tags: [kotlin, java]
 series: Java friendly Kotlin
 ---
 
-Kotlin functions and constructors can define default arguments, allowing calls to them to skip any argument that is has a default value.
+Kotlin functions and constructors can define default arguments, allowing calls to them to skip any argument that has a default value.
 
 This allows the following function to be called in a number of ways:
 
@@ -165,7 +165,7 @@ This is the reason that `@JvmOverloads` only generates overloads starting from t
 
 You can work around the limitations of `@JmvOverloads`. Doing so requires you to think about how your functions will be used and what combinations of parameters will be frequently used.
 
-I have listed points for you to consider when writing a function annotated with `@JvmOverloads`:
+Below are some points for you to consider when writing a function annotated with `@JvmOverloads`:
 
 1. Order the arguments in order of importance, the first as the most important and decreasing as they go on.
 
