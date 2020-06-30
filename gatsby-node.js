@@ -22,6 +22,8 @@ exports.createPages = ({ graphql, actions }) => {
                 title
                 published
                 series
+                date
+                updated_date
               }
             }
           }
@@ -39,12 +41,14 @@ exports.createPages = ({ graphql, actions }) => {
     posts.forEach((post, index) => {
       const previous = index === posts.length - 1 ? null : posts[index + 1].node
       const next = index === 0 ? null : posts[index - 1].node
+      const lastModifiedDate = post.node.frontmatter.updated_date !== null ? post.node.frontmatter.updated_date : post.node.frontmatter.date
       createPage({
         path: post.node.fields.slug,
         component: blogPost,
         context: {
           slug: post.node.fields.slug,
           series: post.node.frontmatter.series,
+          lastMod: lastModifiedDate,
           previous: previous,
           next: next,
         },
