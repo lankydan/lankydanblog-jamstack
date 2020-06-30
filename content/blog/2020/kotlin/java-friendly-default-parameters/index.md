@@ -2,6 +2,7 @@
 title: Java friendly Kotlin - default arguments
 slug: java-friendly-kotlin-default-arguments
 date: "2020-06-25"
+updated_date: "2020-06-30"
 published: true
 tags: [kotlin, java]
 series: Java friendly Kotlin
