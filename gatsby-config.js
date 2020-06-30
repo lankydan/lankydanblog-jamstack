@@ -299,6 +299,42 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
-    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        query: `
+        {
+          site {
+            siteMetadata {
+              siteUrl
+            }
+          }
+          allSitePage {
+            edges {
+              node {
+                path
+                context {
+                  lastMod
+                }
+              }
+            }
+          }
+        }
+      `,
+      // https://joshwcomeau.com/gatsby/seo-friendly-sitemap/
+      // Used information from this blog post to add `lastmod` to the sitemap
+        serialize: ({ site, allSitePage }) => {
+          return allSitePage.edges.map(({ node }) => {
+            console.log("lastMod = " + node.context.lastMod)
+            return {
+              url: site.siteMetadata.siteUrl + node.path,
+              lastmod: node.context.lastMod,
+              changefreq: "daily",
+              priority: 0.7,
+            }
+          })
+        },
+      },
+    },
   ],
 }
