@@ -81,11 +81,11 @@ module.exports = {
               background: require.resolve(
                 "./content/assets/blog-card-template.png"
               ),
-              fontColor: "#313131",
+              fontColor: "#ffffff",
               titleFontSize: 96,
               subtitleFontSize: 60,
               fontFile: require.resolve(
-                "./content/assets/fonts/JetBrainsMono-Medium.ttf"
+                "./content/assets/fonts/PTSans-Regular.ttf"
               ),
             },
           },
