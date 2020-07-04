@@ -2,7 +2,7 @@
 title: Configuring Logback with Spring Boot
 slug: 2019/01/09/configuring-logback-with-spring-boot
 date: "2017-08-31"
-updated_date: "2019-01-09"
+updated_date: "2020-07-04"
 published: true
 tags: [spring, spring boot, java, logback, logging]
 github_url: https://github.com/lankydan/logback-with-springboot-config
@@ -14,6 +14,7 @@ In this post I have used the dependency `spring-boot-starter` to pull in `spring
 
 ```xml
 <dependency>
+  <!-- Tested against spring boot versions 2.0.0 - 2.3.1 -->
   <groupId>org.springframework.boot</groupId>
   <artifactId>spring-boot-starter</artifactId>
 </dependency>
@@ -32,19 +33,19 @@ This will make use of `spring-boot-starter-logging` which in turn has dependenci
   <dependency>
     <groupId>org.apache.logging.log4j</groupId>
     <artifactId>log4j-to-slf4j</artifactId>
-    <version>2.11.1</version>
+    <version>2.13.3</version>
     <scope>compile</scope>
   </dependency>
   <dependency>
     <groupId>org.slf4j</groupId>
     <artifactId>jul-to-slf4j</artifactId>
-    <version>1.7.25</version>
+    <version>1.7.30</version>
     <scope>compile</scope>
   </dependency>
 </dependencies>
 ```
 
-`logback-classic` contains the `logback-core` dependency and between them they contain everything we need to get started. The versions of the libraries shown above are for version `2.1.1.RELEASE` of Spring Boot. These dependencies stay the same between Spring Boot versions, but their own versions might differ slightly.
+`logback-classic` contains the `logback-core` dependency and between them they contain everything we need to get started. The versions of the libraries shown above are for version `2.3.1.RELEASE` of Spring Boot. These dependencies stay the same between Spring Boot versions, but their own versions might differ slightly. No changes have been required to any of the examples since originally writing this post against version `2.0.0`.
 
 Before we start looking at configuring Logback its worth having a quick look through how to send a message to the log from within a class.
 
