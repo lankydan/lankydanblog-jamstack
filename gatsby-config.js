@@ -85,7 +85,7 @@ module.exports = {
               titleFontSize: 96,
               subtitleFontSize: 60,
               fontFile: require.resolve(
-                "./content/assets/fonts/PTSans-Regular.ttf"
+                "./content/assets/fonts/Roboto-Regular.ttf"
               ),
             },
           },
