@@ -1,6 +1,7 @@
 ---
 title: Using JMS in Spring Boot
 date: "2017-06-18"
+updated_date: "2020-07-11"
 published: true
 tags: [activemq, spring, spring boot, spring boot jms]
 include_date_in_url: true
@@ -20,6 +21,14 @@ Now lets get on to actually implementing it. As mentioned earlier we will be usi
 The Maven dependencies required for setting up JMS are shown below (some extra dependencies not related to JMS were used and are not shown in the code snippet)
 
 ```xml
+<parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <!-- Originally written using [1.5.2.RELEASE] -->
+    <!-- nothing has needed to change code wise between these versions -->
+    <version>2.3.1.RELEASE</version>
+</parent>
+
 <dependencies>
   <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -48,7 +57,7 @@ public class OrderTransactionReceiver {
 
   @JmsListener(destination = "OrderTransactionQueue", containerFactory = "myFactory")
   public void receiveMessage(OrderTransaction transaction) {
-    System.out.println("Received <" + transaction + ">");
+    log.info("<" + count + "> Received <" + transaction + ">");
     transactionRepository.save(transaction);
   }
 }
@@ -67,7 +76,7 @@ public class OrderTransactionController {
 
   @PostMapping("/send")
   public void send(@RequestBody OrderTransaction transaction) {
-    System.out.println("Sending a transaction.");
+    log.info("Sending a transaction.");
     // Post message to the message queue named "OrderTransactionQueue"
     jmsTemplate.convertAndSend("OrderTransactionQueue", transaction);
   }
@@ -114,7 +123,7 @@ Lets start with the `@EnableJms` annotation which gives a clear indication what 
 
 Going past the annotations on the class, remember the `myFactory` that was specified in the `@JmsListener` here is the code that defines it. This implementation matches what the default `DefaultJmsListenerContainerFactory` would be if we decided not to specify a factory inside the `@JmsListener`. A `MessageConverter` has to be defined as the default implementation can only convert basic types, which the `OrderTransaction` object is not. This implementation uses JSON to pass the messages to and from the queue. Spring Boot is kind enough to detect the `MessageConverter` and make use of it in the `JmsTemplate` and `JmsListenerContainerFactory`.
 
-Now we have everything put together it can be tested to check that it actually works, through the use of some nicely placed print lines that you can see from the examples we can see how it makes it's way from `OrderTransactionController` and to `OrderTransactionReceiver`.
+Now we have everything put together it can be tested to check that it actually works, through the use of some nicely placed log lines that you can see from the examples we can see how it makes it's way from `OrderTransactionController` and to `OrderTransactionReceiver`.
 
 By making a POST request to
 
@@ -167,7 +176,8 @@ Going back to the console output it also mentioned not having an `ErrorHandler` 
 @Bean
 public JmsListenerContainerFactory<?> myFactory(
     ConnectionFactory connectionFactory,
-    DefaultJmsListenerContainerFactoryConfigurer configurer) {
+    DefaultJmsListenerContainerFactoryConfigurer configurer
+) {
   DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
 
   // anonymous class
@@ -175,12 +185,12 @@ public JmsListenerContainerFactory<?> myFactory(
       new ErrorHandler() {
         @Override
         public void handleError(Throwable t) {
-          System.err.println("An error has occurred in the transaction");
+          log.warn("An error has occurred in the transaction", t);
         }
       });
 
   // lambda function
-  factory.setErrorHandler(t -> System.err.println("An error has occurred in the transaction"));
+  factory.setErrorHandler(t -> log.warn("An error has occurred in the transaction", t));
 
   configurer.configure(factory, connectionFactory);
   return factory;
