@@ -1,5 +1,5 @@
 ---
-title: Mapping a path in Spring Data Neo4j
+title: Mapping a path query in Spring Data Neo4j
 date: "2020-07-19"
 published: true
 tags: [spring, spring data, spring data neo4j, neo4j, java]
