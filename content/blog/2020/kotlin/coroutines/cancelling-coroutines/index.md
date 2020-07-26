@@ -244,4 +244,6 @@ It is important to remember that a coroutine must cooperate to be cancellable. Y
 
 It is highly likely that your coroutines will call at least one of the provided suspending functions. Doing so removes the need to explicitly make your coroutines cancellable. That being said, it is an important subject to be aware of when you do eventually write a coroutine that does not call any of the `kotlinx.coroutines` suspending functions.
 
+----
+
 If you enjoyed this post or found it helpful (or both) then please feel free to follow me on Twitter at [@LankyDanDev](https://twitter.com/LankyDanDev) and remember to share with anyone else who might find this useful!

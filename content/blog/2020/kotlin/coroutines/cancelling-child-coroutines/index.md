@@ -120,3 +120,7 @@ A benefit it does provide is a clear point where new coroutines will not start. 
 ## Summary
 
 Coroutines can create parent-child relationships allowing a parent to cancel the child coroutines/jobs running within its context. This ability will enable you to easier control the execution of your coroutines. You can choose to cancel only a parent coroutine and allow the library to handle the rest. You can use either `Job.cancel` or `CoroutineScope.cancel`, even though under the hood they do the exact same thing.
+
+----
+
+If you enjoyed this post or found it helpful (or both) then please feel free to follow me on Twitter at [@LankyDanDev](https://twitter.com/LankyDanDev) and remember to share with anyone else who might find this useful!
