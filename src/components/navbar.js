@@ -1,6 +1,7 @@
 import React from "react"
 import { Link, StaticQuery } from "gatsby"
-import Logo from "../../content/assets/logo.svg"
+import Logo from "../../content/assets/Logo_group_2.svg"
+// import Logo from "../../content/assets/Logo_small.svg"
 import TwitterIcon from "../../content/assets/twitter.svg"
 import GithubIcon from "../../content/assets/github.svg"
 import DevIcon from "../../content/assets/dev.svg"
@@ -17,13 +18,17 @@ export default class Navbar extends React.Component {
           const socials = data.site.siteMetadata.social
           return (
             <nav>
-              <span className="navbar-links">
-                <Link className="icon-link" to={`/`}>
-                  <Logo className="icon" />
+              <Link className="logo-link" to={`/`}>
+                  <Logo className="icon logo" />
                 </Link>
-                <Link to={`/`}>Lanky Dan Blog</Link>
-              </span>
-              <span>
+              {/* <span className="navbar-links"> */}
+                {/* <Link className="icon-link" to={`/`}> */}
+                {/* <Link className="logo-link" to={`/`}>
+                  <Logo className="icon logo" />
+                </Link> */}
+                {/* <Link to={`/`}>Lanky Dan Blog</Link> */}
+              {/* </span> */}
+              <span className="navbar-links">
                 <SocialLink link={`https://twitter.com/${socials.twitter}`}>
                   <TwitterIcon className="icon" />
                 </SocialLink>
@@ -41,6 +46,7 @@ export default class Navbar extends React.Component {
                 </Link>
                 <ThemeSelector/>
               </span>
+              {/* </span> */}
             </nav>
           )
         }}

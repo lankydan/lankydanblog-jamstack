@@ -55,7 +55,7 @@ export default class BlogIndexPageList extends React.Component {
             <h1 className="blog-header">{data.site.siteMetadata.title}</h1>
           )
           return (
-            <Layout location={location} header={header}>
+            <Layout location={location} /* header={header} */>
               <SEO
                 title="All posts"
                 keywords={[
