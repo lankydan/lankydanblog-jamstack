@@ -29,14 +29,6 @@ nav {
   background: var(--bg-color);
 }
 
-nav a svg {
-  /* fill: var(--primary-color); */
-}
-
-/* nav a svg .logo-background {
-  fill: var(--primary-color);
-} */
-
 nav a {
   background-image: none;
   /* text-transform: uppercase;
@@ -66,6 +58,15 @@ nav a {
 .icon {
   width: 22px;
   /* height: 22px; */
+   fill: var(--icon-color); 
+  /*background: rgb(210,113,227);
+background: linear-gradient(180deg, rgba(210,113,227,1) 0%, rgba(130,170,255,1) 85%, rgba(130,170,255,1) 100%);
+background-clip: text;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent; */
 }
 
 .logo {

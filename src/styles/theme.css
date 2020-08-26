@@ -20,6 +20,7 @@
     rgba(142, 85, 153, 1) 52%,
     rgb(31, 48, 122) 100%
   );
+  --icon-color: var(--code-bg-color)
 }
 
 [data-theme="dark"] {
@@ -44,6 +45,7 @@
     rgba(227, 146, 243, 1) 52%,
     rgb(97, 120, 197) 100%
   );
+  --icon-color: white;
 }
 
 body {

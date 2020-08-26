@@ -21,7 +21,7 @@ export default class Navbar extends React.Component {
               <div className="navbar-wrapper-inner">
                 <nav>
                   <Link className="logo-link" to={`/`}>
-                    <Logo className="icon logo" />
+                    <Logo className="logo" />
                   </Link>
                   {/* <span className="navbar-links"> */}
                   {/* <Link className="icon-link" to={`/`}> */}
