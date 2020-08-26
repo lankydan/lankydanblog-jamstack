@@ -11,8 +11,8 @@ nav {
 }
 
 .navbar-wrapper {
-  background: rgb(210,113,227);
-  background: linear-gradient(90deg, rgba(210,113,227,1) 0%, rgba(130,170,255,1) 100%);
+  background: var(--sideways-gradient-color-default-background);
+  background: var(--sideways-gradient-color);
   padding-bottom: 2px
 }
 
