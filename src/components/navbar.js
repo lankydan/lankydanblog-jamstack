@@ -1,7 +1,7 @@
 import React from "react"
 import { Link, StaticQuery } from "gatsby"
-import Logo from "../../content/assets/Logo_group_2.svg"
-// import Logo from "../../content/assets/Logo_small.svg"
+// import Logo from "../../content/assets/Logo_group_2.svg"
+import Logo from "../../content/assets/Logo_small.svg"
 import TwitterIcon from "../../content/assets/twitter.svg"
 import GithubIcon from "../../content/assets/github.svg"
 import DevIcon from "../../content/assets/dev.svg"
@@ -14,40 +14,44 @@ export default class Navbar extends React.Component {
     return (
       <StaticQuery
         query={socialsQuery}
-        render={data => {
+        render={(data) => {
           const socials = data.site.siteMetadata.social
           return (
-            <nav>
-              <Link className="logo-link" to={`/`}>
-                  <Logo className="icon logo" />
-                </Link>
-              {/* <span className="navbar-links"> */}
-                {/* <Link className="icon-link" to={`/`}> */}
-                {/* <Link className="logo-link" to={`/`}>
+            <div className="navbar-wrapper">
+              <div className="navbar-wrapper-inner">
+                <nav>
+                  <Link className="logo-link" to={`/`}>
+                    <Logo className="icon logo" />
+                  </Link>
+                  {/* <span className="navbar-links"> */}
+                  {/* <Link className="icon-link" to={`/`}> */}
+                  {/* <Link className="logo-link" to={`/`}>
                   <Logo className="icon logo" />
                 </Link> */}
-                {/* <Link to={`/`}>Lanky Dan Blog</Link> */}
-              {/* </span> */}
-              <span className="navbar-links">
-                <SocialLink link={`https://twitter.com/${socials.twitter}`}>
-                  <TwitterIcon className="icon" />
-                </SocialLink>
-                <SocialLink link={socials.dev}>
-                  <DevIcon className="icon" />
-                </SocialLink>
-                <SocialLink link={socials.github}>
-                  <GithubIcon className="icon" />
-                </SocialLink>
-                <SocialLink link={socials.linkedin}>
-                  <LinkedInIcon className="icon" />
-                </SocialLink>
-                <Link className="icon-link" to={`/rss`}>
-                  <RssIcon className="icon" />
-                </Link>
-                <ThemeSelector/>
-              </span>
-              {/* </span> */}
-            </nav>
+                  {/* <Link to={`/`}>Lanky Dan Blog</Link> */}
+                  {/* </span> */}
+                  <span className="navbar-links">
+                    <SocialLink link={`https://twitter.com/${socials.twitter}`}>
+                      <TwitterIcon className="icon" />
+                    </SocialLink>
+                    <SocialLink link={socials.dev}>
+                      <DevIcon className="icon" />
+                    </SocialLink>
+                    <SocialLink link={socials.github}>
+                      <GithubIcon className="icon" />
+                    </SocialLink>
+                    <SocialLink link={socials.linkedin}>
+                      <LinkedInIcon className="icon" />
+                    </SocialLink>
+                    <Link className="icon-link" to={`/rss`}>
+                      <RssIcon className="icon" />
+                    </Link>
+                    <ThemeSelector />
+                  </span>
+                  {/* </span> */}
+                </nav>
+              </div>
+            </div>
           )
         }}
       />
