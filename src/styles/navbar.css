@@ -1,20 +1,11 @@
 nav {
-  /* span { */
-  /* position: sticky; */
-  /* border-bottom: 1px solid #9b9b9b; */
   top: 0;
   z-index: 3;
   display: flex;
-  /* flex-direction: row; */
   /* This wrap lets the nav links wrap instead of going below the logo */
   flex-wrap: wrap;
-  /* justify-content: center; */
   flex-grow: 1;
-  /* flex: 0; */
   background-color: var(--bg-color);
-  /* padding-left: calc((100vw - 800px) / 2);
-  padding-right: calc((100vw - 800px) / 2); */
-  /* might not need the padding cos of the jusitfy content */
   padding-left: calc((80vw - 800px) / 2);
   padding-right: calc((80vw - 800px) / 2);
 }
@@ -31,96 +22,55 @@ nav {
 
 nav a {
   background-image: none;
-  /* text-transform: uppercase;
-  font: 400 20px Oswald;
-  letter-spacing: 1px; */
-  /* color: var(--secondary-color-light); */
 }
 
-/* nav a svg .logo-letter {
-  fill: var(--logo-color);
-} */
-
 .navbar-links {
-  /* display: inline-flex; */
   display: flex;
   flex-wrap: wrap;
-  /* flex-direction: row; */
-  /* flex-grow: 1; */
   align-items: center;
 }
 
 .icon-link {
   padding: 10px 10px 5px 10px;
-  /* display: inline-block; */
 }
 
 .icon {
   width: 22px;
-  /* height: 22px; */
    fill: var(--icon-color); 
-  /*background: rgb(210,113,227);
-background: linear-gradient(180deg, rgba(210,113,227,1) 0%, rgba(130,170,255,1) 85%, rgba(130,170,255,1) 100%);
-background-clip: text;
-  background-repeat: repeat;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-background-clip: text;
-  -moz-text-fill-color: transparent; */
 }
 
 .logo {
   width: 200px;
-  /* height: 150px; */
-  /* width: 100px;
-  height: 50px; */
   z-index: 10;
 }
 
 .logo-link {
-  /* padding: 10px 10px 5px 10px; */
-  /* margin-top: -20px; */
-  /* margin-top: -5px; */
-  /* margin-top: -60px; */
-  /* display: inline-block; */
   display: block;
   margin-bottom: -70px;
-  /* margin-bottom: -120px; */
   width: 200px;
   height: 85px;
   margin-right: auto;
-  /* margin-left: auto; */
 }
 
 @media screen and (max-width: 470px) {
   nav {
     display: initial;
-    /* display: flex;
-      flex-wrap: wrap;
-      flex-grow: 1; */
-    /* background-color: var(--bg-color); */
-    /* border-bottom: 1px solid #9b9b9b; */
+  
     padding-left: calc((80vw - 800px) / 2);
     padding-right: calc((80vw - 800px) / 2);
   }
 
   .icon {
     width: 15px;
-    /* height: 15px; */
   }
 
   .logo {
-    /* width: 145px; */
     width: 170px;
-    /* height: 110px; */
     z-index: 10;
-    /* margin-right: auto;
-    margin-left: auto; */
   }
 
   .logo-link {
     width: 170px;
-    /* margin-top: 5px; */
     margin-bottom: 0px;
     height: 75px;
     margin-right: auto;
