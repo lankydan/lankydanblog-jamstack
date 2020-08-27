@@ -22,13 +22,6 @@ export default class Navbar extends React.Component {
                   <Link className="logo-link" to={`/`}>
                     <Logo className="logo" />
                   </Link>
-                  {/* <span className="navbar-links"> */}
-                  {/* <Link className="icon-link" to={`/`}> */}
-                  {/* <Link className="logo-link" to={`/`}>
-                  <Logo className="icon logo" />
-                </Link> */}
-                  {/* <Link to={`/`}>Lanky Dan Blog</Link> */}
-                  {/* </span> */}
                   <span className="navbar-links">
                     <SocialLink link={`https://twitter.com/${socials.twitter}`}>
                       <TwitterIcon className="icon" />
@@ -47,7 +40,6 @@ export default class Navbar extends React.Component {
                     </Link>
                     <ThemeSelector />
                   </span>
-                  {/* </span> */}
                 </nav>
               </div>
             </div>
