@@ -11,6 +11,7 @@ import BlogTags from "../components/blog-tags"
 import BlogSeries from "../components/blog-series"
 import BlogPostDate from "../components/blog-post-date"
 import urljoin from "url-join"
+import getShareImage from '@jlengstorf/get-share-image';
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -39,13 +40,30 @@ class BlogPostTemplate extends React.Component {
         </div>
       </div>
     )
+
+    const socialImage = getShareImage({
+      title: post.frontmatter.title,
+      tagline: post.frontmatter.tags.map(tag => `#${tag}`).join(' '),
+      cloudName: "lankydan-dev",
+      imagePublicID: "blog-post-card",
+      // imagePublicID: "https://res.cloudinary.com/lankydan-dev/image/upload/v1598542727/blog-post-card.png",
+      titleFont: "Roboto",
+      // titleExtraConfig: "_line_spacing_-10",
+      taglineFont: "Roboto",
+      taglineExtraConfig: "_light",
+      // textColor: "232129",
+      textLeftOffset: 500,
+      titleBottomOffset: 330,
+      taglineTopOffset: 369
+    })
+
     return (
       <Layout header={header} location={this.props.location}>
         <SEO
           url={postUrl}
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
-          image={urljoin(postUrl, `twitter-card.jpg`)}
+          image={socialImage}
           date={post.frontmatter.date}
           timeToRead={post.timeToRead}
           keywords={post.frontmatter.tags}
