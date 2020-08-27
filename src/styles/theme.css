@@ -14,12 +14,19 @@
   --blog-card-border-color: #d6d6d6;
   --divider-color: hsla(0, 0%, 0%, 0.2);
   --faded-highlight: #f3e6f1;
+  --gradient-color-default-background: var(--primary-color);
   --gradient-color: linear-gradient(
     45deg,
-    rgba(17, 84, 122, 1) 0%,
-    rgba(142, 85, 153, 1) 52%,
-    rgb(31, 48, 122) 100%
+    rgb(133, 37, 150) 0%,
+    rgb(36, 72, 151) 100%
   );
+  --sideways-gradient-color-default-background: rgb(210,113,227);
+  --sideways-gradient-color: linear-gradient(
+    90deg,
+    rgba(210, 113, 227, 1) 0%,
+    rgba(130, 170, 255, 1) 100%
+  );
+  --icon-color: var(--code-bg-color);
 }
 
 [data-theme="dark"] {
@@ -40,10 +47,10 @@
   --faded-highlight: #e28cd531;
   --gradient-color: linear-gradient(
     45deg,
-    rgba(22, 116, 171, 1) 0%,
-    rgba(227, 146, 243, 1) 52%,
-    rgb(97, 120, 197) 100%
+    rgba(210, 113, 227, 1) 0%,
+    rgba(130, 170, 255, 1) 100%
   );
+  --icon-color: white;
 }
 
 body {

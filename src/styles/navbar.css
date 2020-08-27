@@ -1,60 +1,83 @@
 nav {
-  position: sticky;
-  border-bottom: 1px solid #9b9b9b;
   top: 0;
   z-index: 3;
   display: flex;
-  flex-direction: row;
+  /* This wrap lets the nav links wrap instead of going below the logo */
+  flex-wrap: wrap;
   flex-grow: 1;
-  flex: 0;
   background-color: var(--bg-color);
+  padding-left: calc((80vw - 800px) / 2);
+  padding-right: calc((80vw - 800px) / 2);
 }
 
-nav a svg {
-  fill: var(--primary-color);
+.navbar-wrapper {
+  background: var(--sideways-gradient-color-default-background);
+  background: var(--sideways-gradient-color);
+  padding-bottom: 2px
 }
 
-nav a svg .logo-background {
-  fill: var(--primary-color);
+.navbar-wrapper-inner {
+  background: var(--bg-color);
 }
 
 nav a {
   background-image: none;
-  text-transform: uppercase;
-  font: 400 20px Oswald;
-  letter-spacing: 1px;
-  color: var(--secondary-color-light);
-}
-
-nav a svg .logo-letter {
-  fill: var(--logo-color);
 }
 
 .navbar-links {
-  display: inline-flex;
-  flex-direction: row;
-  flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
 }
 
 .icon-link {
   padding: 10px 10px 5px 10px;
-  display: inline-block;
 }
 
 .icon {
   width: 22px;
-  height: 22px;
+   fill: var(--icon-color); 
+}
+
+.logo {
+  width: 200px;
+  z-index: 10;
+}
+
+.logo-link {
+  display: block;
+  margin-bottom: -70px;
+  width: 200px;
+  height: 85px;
+  margin-right: auto;
 }
 
 @media screen and (max-width: 470px) {
-  .icon {
-    width: 15px;
-    height: 15px;
+  nav {
+    display: initial;
+  
+    padding-left: calc((80vw - 800px) / 2);
+    padding-right: calc((80vw - 800px) / 2);
   }
 
-  nav a {
-    font: 400 12px Oswald;
-    letter-spacing: 1px;
+  .icon {
+    width: 15px;
+  }
+
+  .logo {
+    width: 170px;
+    z-index: 10;
+  }
+
+  .logo-link {
+    width: 170px;
+    margin-bottom: 0px;
+    height: 75px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .navbar-links {
+    justify-content: center;
   }
 }

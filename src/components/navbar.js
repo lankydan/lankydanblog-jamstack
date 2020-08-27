@@ -13,35 +13,36 @@ export default class Navbar extends React.Component {
     return (
       <StaticQuery
         query={socialsQuery}
-        render={data => {
+        render={(data) => {
           const socials = data.site.siteMetadata.social
           return (
-            <nav>
-              <span className="navbar-links">
-                <Link className="icon-link" to={`/`}>
-                  <Logo className="icon" />
-                </Link>
-                <Link to={`/`}>Lanky Dan Blog</Link>
-              </span>
-              <span>
-                <SocialLink link={`https://twitter.com/${socials.twitter}`}>
-                  <TwitterIcon className="icon" />
-                </SocialLink>
-                <SocialLink link={socials.dev}>
-                  <DevIcon className="icon" />
-                </SocialLink>
-                <SocialLink link={socials.github}>
-                  <GithubIcon className="icon" />
-                </SocialLink>
-                <SocialLink link={socials.linkedin}>
-                  <LinkedInIcon className="icon" />
-                </SocialLink>
-                <Link className="icon-link" to={`/rss`}>
-                  <RssIcon className="icon" />
-                </Link>
-                <ThemeSelector/>
-              </span>
-            </nav>
+            <div className="navbar-wrapper">
+              <div className="navbar-wrapper-inner">
+                <nav>
+                  <Link className="logo-link" to={`/`}>
+                    <Logo className="logo" />
+                  </Link>
+                  <span className="navbar-links">
+                    <SocialLink link={`https://twitter.com/${socials.twitter}`}>
+                      <TwitterIcon className="icon" />
+                    </SocialLink>
+                    <SocialLink link={socials.dev}>
+                      <DevIcon className="icon" />
+                    </SocialLink>
+                    <SocialLink link={socials.github}>
+                      <GithubIcon className="icon" />
+                    </SocialLink>
+                    <SocialLink link={socials.linkedin}>
+                      <LinkedInIcon className="icon" />
+                    </SocialLink>
+                    <Link className="icon-link" to={`/rss`}>
+                      <RssIcon className="icon" />
+                    </Link>
+                    <ThemeSelector />
+                  </span>
+                </nav>
+              </div>
+            </div>
           )
         }}
       />
