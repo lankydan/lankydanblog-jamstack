@@ -1,7 +1,6 @@
 import React from "react"
 import { Link, StaticQuery } from "gatsby"
-// import Logo from "../../content/assets/Logo_group_2.svg"
-import Logo from "../../content/assets/Logo_small.svg"
+import Logo from "../../content/assets/logo.svg"
 import TwitterIcon from "../../content/assets/twitter.svg"
 import GithubIcon from "../../content/assets/github.svg"
 import DevIcon from "../../content/assets/dev.svg"
