@@ -281,7 +281,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#613380`,
         display: `minimal-ui`,
-        icon: `content/assets/Logo_group_2.svg`,
+        icon: `content/assets/logo-browser-icon.svg`,
       },
     },
     `gatsby-plugin-offline`,
@@ -325,7 +325,6 @@ module.exports = {
       // Used information from this blog post to add `lastmod` to the sitemap
         serialize: ({ site, allSitePage }) => {
           return allSitePage.edges.map(({ node }) => {
-            console.log("lastMod = " + node.context.lastMod)
             return {
               url: site.siteMetadata.siteUrl + node.path,
               lastmod: node.context.lastMod,
