@@ -4,6 +4,7 @@ date: "2019-05-05"
 published: true
 tags: [corda, corda 4, kotlin, dlt, distributed ledger technology, blockchain]
 github_url: https://github.com/lankydan/corda-csv-contract-validation
+cover_image: blog-card.png
 ---
 
 Attachments in Corda can be more than just PDFs sent along with a transaction. They can actually be used programmatically when running a flow or even inside of a contract's `verify` function. Why would you want to do that though? 🤔 The answer makes a lot of sense when you think about it. Let's take an attachment containing CSV data as an example. Actually, that is what this post is about. Anyway. The attachment could contain all the valid IDs (or whatever else) that a state is allowed to have. Now, that could be done within your code, but this is not practical for a system that needs to change over time. Maybe there are new IDs that need to be added. If they live inside the code then an updated CorDapp needs to be compiled and distributed whenever new values are allowed. Not entirely practical. But, uploading a new version of the file containing the data allows the validation to change over time, without the need for recompilation. That is an idea that makes perfect sense 👏.

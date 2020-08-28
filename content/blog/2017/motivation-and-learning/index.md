@@ -4,6 +4,7 @@ date: "2017-02-27"
 published: true
 tags: [personal]
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 Something strange happened to me a few months ago where I found this urge that I could be better myself. It all started with one of my higher ups at work telling me and my colleagues that we should be spending some time out of work doing some extra learning, whether that was listening to podcasts, reading blogs or spending some time on a side project. For some reason, something clicked in my head and I thought "yeah, I want to do that", although I didn't do anything about it right away I had this thought in the back of my mind that I eventually acted upon.

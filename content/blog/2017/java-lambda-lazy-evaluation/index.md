@@ -4,6 +4,7 @@ date: "2017-04-22"
 published: true
 tags: [java, java 8]
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 Everyone is a bit lazy, so why not our code? Lambda expressions in Java 8 allow us to make our code that bit more lazy. In this short post I will cover how using Lambda expressions can make code more lazy.

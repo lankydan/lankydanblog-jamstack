@@ -5,6 +5,7 @@ published: true
 tags: [java, spring, spring boot, spring web]
 github_url: https://github.com/lankydan/spring-boot-dto-tutorial-1
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 GET requests should be used to pass data to a Rest Controller when the state of the data is not being changed. This is a little tutorial on how to pass a DTO (data transfer object) with GET requests in Spring Boot.

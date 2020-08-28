@@ -5,6 +5,7 @@ published: true
 tags: [spring, java, spring boot, spring data, mongo, mongodb, spring data mongodb]
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-data-mongodb-basic
+cover_image: blog-card.png
 ---
 
 In this post we will have a look at some of the basics of using Spring Data and MongoDB. Firstly what is MongoDB? It is a NoSQL database that uses JSON-like documents which allows fields to vary between documents and have the data structure change over time. A document model maps to an object that is defined within our code (we will be using Spring Data to do this). That is only a very short and minimalist view of what MongoDB is but for the scope of this post it should be enough information as we will focus on implementation rather than it's definition.

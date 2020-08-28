@@ -5,6 +5,7 @@ published: true
 tags: [corda, dlt, distributed ledger technology, blockchain, performance]
 include_date_in_url: true
 github_url: https://github.com/lankydan/corda-multiple-notaries
+cover_image: blog-card.png
 ---
 
 Do you need a very high throughput Corda network? Has the network's throughput levelled out? Have you already squeezed out all the performance you could from other areas? If your answers to these questions are "yes", then I may have some useful information for you. I have listed out these questions to decrease the chance of you prematurely optimising your Corda network/application. Switching to using multiple Notaries is only going to have a noticeable performance impact if it is one of the slowest parts involved in processing requests/transactions. It is highly likely that other areas need to be improved before looking into using multiple Notaries.

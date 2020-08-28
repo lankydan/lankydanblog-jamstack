@@ -5,6 +5,7 @@ published: true
 tags: [spring, spring data, spring boot, spring data cassandra, cassandra, java]
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-data-cassandra-prepared-statements
+cover_image: blog-card.png
 ---
 
 Today I have a short post on using Prepared Statements in Spring Data Cassandra. Spring provides you with some utilities to make using Prepared Statements easier rather than relying on registering queries manually yourself with the Datastax Java Driver. The Spring code provides a cache to store prepared statements that are frequently used. Allowing you to execute your queries via the cache which either retrieves the prepared query from the cache or adds a new one before executing it.

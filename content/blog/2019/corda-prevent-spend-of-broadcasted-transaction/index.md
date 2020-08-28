@@ -4,6 +4,7 @@ date: "2019-06-12"
 published: true
 tags: [corda, kotlin, dlt, distributed ledger technology, blockchain]
 github_url: https://github.com/lankydan/corda-broadcast-transaction
+cover_image: blog-card.png
 ---
 
 Corda is super flexible and will allow you to put together the code needed to write many complex workflows. This flexibility does come with one disadvantage. You, the developer, need to spend some time and thought on designing your application. No more blank contracts. No more responder flows that sign anything they receive. You'll be glad you put in the effort when your application is working seamlessly in production. Luckily for you, I am here to protect your vaults from dodgy transactions and invalid spending of your states.

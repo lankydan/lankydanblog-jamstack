@@ -5,6 +5,7 @@ date: "2019-07-24"
 published: true
 tags: [kotlin, ktor]
 github_url: https://github.com/lankydan/ktor-with-kodein-di
+cover_image: blog-card.png
 ---
 
 [Ktor](https://ktor.io/) is an asynchronous web framework written in and designed for Kotlin. Allowing the more impressive features of Kotlin, such as coroutines, to not only be used but supported as a first-class citizen. Typically, Spring is my go-to general framework and usually what I use when I need to put a REST API together. But, after recently attending a London Kotlin meetup where there was a presentation on Ktor, I decided I'd try something new for once. That is how I ended up here, writing a blog post about Ktor. So, this post is a learning experience for both you and me. The content of this post will lack experienced advice but will instead document my journey as I play around with Ktor for the first time.

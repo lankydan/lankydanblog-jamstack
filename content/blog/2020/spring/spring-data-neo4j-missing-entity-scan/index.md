@@ -4,6 +4,7 @@ date: "2020-07-20"
 published: true
 tags: [spring, spring data, spring data neo4j, neo4j, java]
 github_url: https://github.com/lankydan/spring-data-neo4j
+cover_image: blog-card.png
 ---
 
 Not including the `@EntityScan` annotation and specifying the correct packages in your Spring Data Neo4j application can cause the following error:

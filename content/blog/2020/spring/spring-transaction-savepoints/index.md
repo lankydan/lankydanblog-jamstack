@@ -3,6 +3,7 @@ title: Transaction savepoints in Spring JDBC
 date: "2020-06-14"
 published: true
 tags: [spring, spring data, spring data jdbc, kotlin, java]
+cover_image: blog-card.png
 ---
 
 Savepoints allow you to create markers within a transaction which you can rollback to, without preventing the transaction from being committed at a later point. These can be treated like intermediate transactions within a single overarching transaction. At the end of the day, you either commit the transaction and persist all the changes to the database or rollback everything. Using savepoints, you can handle potential database errors and return to a safe point within the transaction and carry on.

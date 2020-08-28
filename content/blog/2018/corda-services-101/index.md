@@ -5,6 +5,7 @@ published: true
 tags: [corda, kotlin, dlt, blockchain, distributed ledger technology]
 include_date_in_url: true
 github_url: https://github.com/lankydan/corda-services
+cover_image: blog-card.png
 ---
 
 I'm in the mood to write a short and to the point post today. I'm actually curious how quickly I can get this published. So let's go.

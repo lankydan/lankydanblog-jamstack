@@ -5,6 +5,7 @@ published: true
 tags: [corda, dlt, distributed ledger technology, blockchain, kotlin]
 include_date_in_url: true
 github_url: https://github.com/lankydan/corda-service-trackby-flows
+cover_image: blog-card.png
 ---
 
 Still continuing my trend of looking at Corda Services, I have some more tips to help your CorDapp work smoothly. This time around, we will focus on using `trackBy` to initiate Flows from inside a Service and the discrete problem that can arise if you are not careful.

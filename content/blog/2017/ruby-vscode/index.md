@@ -4,6 +4,7 @@ date: "2017-05-12"
 published: true
 tags: [ruby, beginners, vscode, visual studio code, rails]
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 I have been using Visual Studio Code as my IDE while coding in Ruby as I didn't want to fork out a load of money to purchase RubyMine (I hate spending money) and so far have been getting by without being able to debug my code. Now the only reason as I haven't needed to debug so far is that I am still learning Ruby and Rails and therefore the code I am writing isn't exactly the most difficult to fix when something goes wrong. But I got stuck recently and it took me a long long time to figure out what was going wrong and started to wish that I had a debugger setup. Anyway time for me to stop blabbing on and actually give you some information.

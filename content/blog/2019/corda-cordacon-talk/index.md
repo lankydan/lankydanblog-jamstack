@@ -3,6 +3,7 @@ title: Common CorDapp mistakes and how to fix them
 date: "2019-11-23"
 published: true
 tags: [corda, dlt, distributed ledger technology, blockchain, presentation, conference talk]
+cover_image: blog-card.png
 ---
 
 This is the talk I gave at CordaCon in October.

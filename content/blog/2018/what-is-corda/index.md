@@ -4,6 +4,7 @@ date: "2018-06-05"
 published: true
 tags: [corda, kotlin, dlt, blockchain, distributed ledger technology]
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 I've recently started a project (top secret, can't say anymore) which involves using Corda. So, what is it? If you've found this post on Google then you probably already have some sort of idea, but if you've come from most other sources then it most likely doesn't sound familiar. Well, Corda is a Distributed Ledger Technology (DLT for short). Some might say this is a blockchain, but I definitely believe it has its differences from other blockchains like Ethereum and Bitcoin and is more similar to other DLTs such as Hyperledger Fabric and Quorum (which itself is a fork of Ethereum). These differences are important. They are what allow Corda to perform better for its particular use cases. In this post I will give a brief overview of the factors that influenced the design of Corda.

@@ -4,6 +4,7 @@ date: "2017-01-14"
 published: true
 tags: [java, java 8]
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 Lambda expressions are thought to be one of the biggest features in the release of Java 8 as they allow a more functional approach to Java programming. This is something that wasn't built into Java in previous versions. Java follows the Object-Oriented programming paradigm which uses object which can store data in fields and manipulate them. The Functional programming on the other hand is declarative and uses expressions or declarations instead of statements.

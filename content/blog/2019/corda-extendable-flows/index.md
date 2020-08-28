@@ -5,6 +5,7 @@ published: true
 tags: [corda, corda 4, kotlin, dlt, distributed ledger technology, blockchain]
 include_date_in_url: true
 github_url: https://github.com/lankydan/corda-extendable-flows
+cover_image: blog-card.png
 ---
 
 Corda 4 was released last week (21st Feb) bringing with it a ton of new features to make Corda more enjoyable to work with. To be honest, I am kind of assuming there are a lot of new features. I had a quick browse through the changelog, mainly to see my contributions being referenced, but I remember seeing a lot of lines of text. That has to be a good thing right?

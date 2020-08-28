@@ -4,6 +4,7 @@ slug: kotlin-implementing-multiple-interfaces-through-delegation
 date: "2019-09-05"
 published: true
 tags: [kotlin]
+cover_image: blog-card.png
 ---
 
 In Kotlin, a class can implement multiple interfaces. This is common knowledge. A class can also use delegation to implement numerous interfaces where the implementations come from any delegated objects passed into the constructor. For example:

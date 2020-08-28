@@ -5,6 +5,7 @@ date: "2017-03-04"
 published: true
 tags: [testing, basics, beginner]
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 Unit tests are required to test singular sections of code. In java this would normally be a class. They provide confidence to programmers allowing changes to be made and by running tests throughout development any changes that break the tests can be reevaluated, whether that results in the production code being corrected or altering the test to make it pass. In this post I will discuss the FIRST rules that are defined in the [Clean Code](https://sites.google.com/site/unclebobconsultingllc/books) book written by uncle Bob Martin.

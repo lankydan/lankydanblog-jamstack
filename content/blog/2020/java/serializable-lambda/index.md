@@ -3,6 +3,7 @@ title: Serializable Java Lambdas
 date: "2020-01-24"
 published: true
 tags: [java, kryo, lambdas, functions]
+cover_image: blog-card.png
 ---
 
 Recently I was presented with the following error when serializing a lambda with Kryo:

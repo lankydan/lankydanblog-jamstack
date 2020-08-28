@@ -3,6 +3,7 @@ title: Class delegation in Kotlin
 date: "2019-05-09"
 published: true
 tags: [kotlin]
+cover_image: blog-card.png
 ---
 
 > In software engineering, the delegation pattern is an object-oriented design pattern that allows object composition to achieve the same code reuse as inheritance.

@@ -4,6 +4,7 @@ date: "2019-01-26"
 published: true
 tags: [kotlin, testing]
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 I wanted to write this short post to highlight the `assertFailsWith` function available to Kotlin that makes testing exceptions a bit easier. Testing exceptions isn't something fancy or new to JVM languages (from now on I will use Java for comparisons) but Kotlin comes with the nice extra benefit of providing this functionality as part of its standard library. Comparing this to Java, you are likely to bring [AssertJ](http://joel-costigliola.github.io/assertj/) into the mix to achieve similar results.

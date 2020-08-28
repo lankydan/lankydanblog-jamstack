@@ -6,6 +6,7 @@ published: true
 tags: [activemq, spring, spring boot, spring boot jms]
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-boot-jms
+cover_image: blog-card.png
 ---
 
 JMS (Java Message Service) is a Java Message Oriented Middleware used to send messages between clients and works by sending messages to a message queue which are then taken when possible to execute a transaction. This post will focus on implementing JMS with Spring Boot, which doesn't take long at all to setup.

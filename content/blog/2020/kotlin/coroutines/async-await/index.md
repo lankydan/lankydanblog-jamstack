@@ -5,6 +5,7 @@ published: true
 tags: [kotlin, coroutines]
 series: Kotlin coroutines
 slug: async-await-in-coroutines
+cover_image: blog-card.png
 ---
 
 Async/await is a common feature in many languages (naming might vary), that allows you to execute functions asynchronously while waiting for their results at a later point. Doing this can improve the performance of your applications by doing work on multiple threads instead of synchronously doing one operation after another. Executing long-running operations that have no dependencies on each other in this manner can significantly reduce the overall runtime.

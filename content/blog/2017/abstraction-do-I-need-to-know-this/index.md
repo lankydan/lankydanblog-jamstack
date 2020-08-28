@@ -4,6 +4,7 @@ date: "2017-01-29"
 published: true
 tags: [theory, general]
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 Abstraction is a concept that is that is not only relevant to software engineering but also to many scenarios in the world. According to Wikipedia "The essence of abstractions is preserving information that is relevant in a given context, and forgetting information that is irrelevant in that context". In a very simplified way this means that you don't need to know how everything works.

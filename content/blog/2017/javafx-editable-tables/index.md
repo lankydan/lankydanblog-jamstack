@@ -5,6 +5,7 @@ published: true
 tags: [java, javafx]
 github_url: https://github.com/lankydan/JavaFX-Table-Tutorial
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 After hearing my colleague constantly talking about the editable grids that the company I work at designed a long time ago, I decided to do something to make him proud of me. So I wrote a application that creates an editable `TableView` in JavaFX that can be used to brainlessly enter in data, if that's what you want to do. Unfortunately JavaFX didn't want to make this nice and simple to do and I even found a bug in the JavaFX code while writing the example code... So buckle up as there is a lot of code in this post and don't worry I'll put some explanations and even pictures in so you don't get lost.

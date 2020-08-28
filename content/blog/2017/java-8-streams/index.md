@@ -4,6 +4,7 @@ date: "2017-01-22"
 published: true
 tags: [java, java 8, java streams]
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 Streams are another feature that were added with Java 8. It provides a different way of performing operations on a `Collection`. Rather than implementing how to perform an operation on a `Collection` you instead define what you want to come out of it, which follows the Functional Programming paradigm that was made available with Java 8. This is similar to how SQL queries work, you define what you want it to select, pass it some criteria to meet, press run and out pops the result of the query. You didn't need to tell it how to go through all the records in the table, it just does it. That's basically what using a `Stream` does in Java 8.

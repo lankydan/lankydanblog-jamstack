@@ -4,6 +4,7 @@ date: "2017-06-11"
 published: true
 tags: [jenkins, heroku, maven]
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 Jenkins is a open source automation server that allows users to setup workflows to that can enable continuous integration. For example a user could create a workflow that would pull some code from a repository, run some tests and deploy it onto a server, removing a lot of the user interaction from process so the user can keep on writing code and only have to pay attention if something goes wrong. This is what we will look at in this post, firstly we will need to setup Jenkins and then create a process/workflow/build (you can call it whatever you want). We will be using Heroku for the server as it allows Java applications to be hosted where Spring Boot will be utilised to do so. On a side note I tried to do this with a Ruby on Rails app originally but I got all sorts of problems arising due to using Windows...

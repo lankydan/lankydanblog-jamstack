@@ -4,6 +4,7 @@ date: "2017-05-13"
 published: true
 tags: [ruby, beginners]
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 So I am still reasonably new to Ruby and I have only been working on it at home and therefore have had no one review my code and comment on whether I am writing my code in the correct way. The only input I have is from code that I see online and the book I bought about Rails. Now most things are pretty straight forward and being I work as a developer I have a basis on what is readable and what is not which leaves most of my code looking good (in my opinion) but the one problem I have are parentheses. I have no clue when I can omit them and when they should be used and even looking through my book I couldn't find consistency.

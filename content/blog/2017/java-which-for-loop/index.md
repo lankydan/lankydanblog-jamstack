@@ -4,6 +4,7 @@ date: "2017-01-15"
 published: true
 tags: [java, java 8]
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 Java 8 has introduced another type of `for` loop. This gives us the third way to use them. You would think that releasing another way to use the loop would suggest that it must be better than the others. But that is not the case, each one has subtle differences meaning you should have a little think before you decide which one to use.

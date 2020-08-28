@@ -5,6 +5,7 @@ date: "2018-12-14"
 published: true
 tags: [corda, dlt, distributed ledger technology, blockchain, performance]
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 I recently rolled off a project focusing on the performance of Corda for a particular use-case. The result of this project lead to us processing 115 million requests within a single day over a network of over 170 nodes. Furthermore, Corda was able to handle 6300 requests per second confirming that the highest requirement of the network was met. This is by far the largest Corda network that has been deployed and the highest throughput achieved to date. Proving that Corda can deliver in a very demanding environment.

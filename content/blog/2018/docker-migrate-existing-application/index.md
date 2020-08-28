@@ -5,6 +5,7 @@ published: true
 tags: [java, spring, spring boot, mongodb, activemq, docker, containers, jms, docker-compose]
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-boot-jms-docker
+cover_image: blog-card.png
 ---
 
 I have finally got round to learning how to use Docker past the level of knowing what it is and does without ever using it. This is the first post that I have attempted to use Docker in and will probably be what I refer to whenever I start a new project (for Java or Kotlin anyway).

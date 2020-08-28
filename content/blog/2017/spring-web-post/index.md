@@ -6,6 +6,7 @@ published: true
 tags: [java, spring, spring boot, spring web]
 github_url: https://github.com/lankydan/spring-boot-post-tutorial
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 A very quick and little tutorial into sending a POST request to a Rest Controller in Spring Boot.

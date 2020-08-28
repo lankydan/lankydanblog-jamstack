@@ -5,6 +5,7 @@ published: true
 tags: [java, spring, spring boot, spring web]
 github_url: https://github.com/lankydan/spring-boot-rest-controllers-tutorial
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 In this post we will look at a possible problem when multiple rest controllers are defined onto the same path and how to use multiple rest controllers within your application. I used Spring Boot to write this application.

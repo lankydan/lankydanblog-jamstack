@@ -4,6 +4,7 @@ date: "2017-08-13"
 published: true
 tags: [java, java 8, java 9]
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 In this tutorial we will look at default and private methods within interfaces. Default methods were added in Java 8 allowing methods to be added to an interface that comes with a default implementation that could be used, overridden or ignored without causing issues to existing classes that have implemented an interface. Private methods were missing when default methods were added, preventing code being split out into smaller methods within an interface. This is something that was a bit off putting to me as if you had a default method that became a bit long there was no way to tidy it up. So now that both default and private methods can exist within an interface we can write methods like we are used to, although if you haven't used default methods yet then you will first need to get past the fact that there is now actual code living in an interface.

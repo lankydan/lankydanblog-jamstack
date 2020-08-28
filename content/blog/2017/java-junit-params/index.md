@@ -5,6 +5,7 @@ published: true
 tags: [java, junit, testing]
 github_url: https://github.com/lankydan/JUnitParamsTutorial
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 Do you write enough tests? Even if the answer is yes there might be some scenarios where you could add a few more to cover extra possibilities. But do you really want to go through the effort of having to write out another test for the extra inputs you are going to test? JUnitParams provides a solution to this, allowing you to write fewer individual tests while keeping the coverage the same. It does so by defining parameters to pass into each test and then you use these parameters to replace what would have originally been static values.

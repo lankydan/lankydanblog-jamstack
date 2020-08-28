@@ -5,6 +5,7 @@ published: true
 tags: [spring, spring data, spring data cassandra, cassandra, spring boot, java]
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-data-cassandra/tree/multiple_keyspaces_with_cassandra_template
+cover_image: blog-card.png
 ---
 
 Following on from my last post [Separate keyspaces with Spring Data Cassandra](https://lankydan.dev/2017/10/22/separate-keyspaces-with-spring-data-cassandra/) we will continue looking into using multiple keyspaces in Cassandra but this time focusing on using a single `CassandraTemplate` to perform queries, rather than creating extra templates for each keyspace that is being used. This removes the need to create extra sessions as each `CassandraTemplate` uses a session to obtain the keyspace is it going to point to. So how do we get the template to actually query the correct keyspace? You quite simply add the name of the keyspace to the query in the same way that you can when writing a normal Cassandra query. Obviously there is slightly more to it than that from our perspective when writing the Java code but that is all the underlying Cassandra query will be doing.

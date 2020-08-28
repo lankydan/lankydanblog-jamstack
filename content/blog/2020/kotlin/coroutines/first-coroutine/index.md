@@ -4,6 +4,7 @@ date: "2020-04-17"
 published: true
 tags: [kotlin, coroutines]
 series: Kotlin coroutines
+cover_image: blog-card.png
 ---
 
 Coroutines are essentially lightweight threads that allow your applications to squeeze more juice out of the machines they are running on, without needing to manually manage the threads executing them. Coroutines add a new abstraction, further removing you (the developer) away from the lifecycle of threads. This abstraction allows a single thread to context switch between various tasks and therefore making better use of the thread's time. It spends less time sitting around awaiting a result (from a potentially slow I/O task) and can instead continue to be useful by working on a task issued by another coroutine.

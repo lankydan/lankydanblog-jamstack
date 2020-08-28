@@ -4,6 +4,7 @@ date: "2017-04-18"
 published: true
 tags: [ruby on rails, bootstrap]
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 This is a little post in how to setup Bootstrap-4-alpha6 in Rails 5.1.0.

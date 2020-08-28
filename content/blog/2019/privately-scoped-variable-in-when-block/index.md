@@ -5,6 +5,7 @@ date: "2019-01-03"
 published: true
 tags: [kotlin]
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 Super short post, on a change introduced in Kotlin 1.3 (yes I know it has been out for a while now). We will take a quick look at capturing the subject of a `when` block into a scoped variable. This is a quality of life improvement that saves a line or so of code while making the role of the variable clearer.

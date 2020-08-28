@@ -5,6 +5,7 @@ published: true
 tags: [corda, kotlin, dlt, blockchain, distributed ledger technology]
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-webflux-and-corda
+cover_image: blog-card.png
 ---
 
 It's been a while since my last post but I'm finally back! Since I am still on my project, I will be writing about using Corda again. This time, rather than focusing on Corda, we'll look at using Spring with Corda. More specifically, Spring WebFlux. Why do this? One, because we can. Two, because it allows us to stream events coming out of the Corda node. This provides us with the possibility to track the progress of flows or retrieve updates to the vault and send them to any clients registered to the relevant endpoints. Using WebFlux with Corda did introduce a few problems. Some originating from Corda and some from Spring. Although, the Spring issues were to do with me expecting the Spring Boot + WebFlux combo to do more by default for me.

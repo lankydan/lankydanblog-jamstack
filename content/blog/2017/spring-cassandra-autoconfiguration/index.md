@@ -6,6 +6,7 @@ published: true
 tags: [spring, spring data, spring data cassandra, cassandra, autoconfiguration, spring boot, java]
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-data-cassandra/tree/spring-data-cassandra-autoconfiguration
+cover_image: blog-card.png
 ---
 
 I received a few comments on my repository for [Reactive Streams with Spring Data Cassandra](https://lankydan.dev/2017/12/11/reactive-streams-with-spring-data-cassandra/) regarding configuration that was not required. This was due to me not making use of Spring Boot's auto-configuration which would of allowed me to remove a whole class from my code! Therefore, in an attempt to redeem myself for not taking advantage of auto-configuration I decided to write a post about what it does for you and how to use it in conjunction with Spring Data Cassandra.

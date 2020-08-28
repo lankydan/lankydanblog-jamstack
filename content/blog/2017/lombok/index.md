@@ -4,6 +4,7 @@ date: "2017-04-29"
 published: true
 tags: [lombok, java]
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 

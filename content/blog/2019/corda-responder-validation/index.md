@@ -4,6 +4,7 @@ date: "2019-11-25"
 published: true
 tags: [corda, kotlin, dlt, distributed ledger technology, blockchain]
 series: Responder flow validation
+cover_image: blog-card.png
 ---
 
 Do you want to prevent your node from accepting transactions that are not important to your business?

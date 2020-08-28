@@ -5,6 +5,7 @@ date: "2017-01-06"
 published: true
 tags: [personal]
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 I'm trying to write my first ever blog post and I have absolutely no idea how to start. It took me at least 5 minutes to figure out how to change the title, hence the name of the post.

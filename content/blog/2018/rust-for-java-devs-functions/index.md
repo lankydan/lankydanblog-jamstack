@@ -5,6 +5,7 @@ date: "2018-02-18"
 published: true
 tags: [rust, java]
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 In this post of Rust for Java Devs we will look at creating functions in Rust. Functions in Rust do not differ that much from Java methods but there are a few little differences. There is also the topic of Rust's lifetimes compared to Java's garbage collection that one could argue separates the two from each other a bit more, but for this post I will focus on the structure of writing a function in Rust. Due to the similarities between the two, I believe most Java developers will have no problem in figuring out what arguments a Rust function takes, what it outputs and where the output is returned from.

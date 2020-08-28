@@ -5,6 +5,7 @@ published: true
 tags: [corda, dlt, distributed ledger technology, kotlin, blockchain]
 include_date_in_url: true
 github_url: https://github.com/lankydan/corda-oracle
+cover_image: blog-card.png
 ---
 
 

@@ -4,6 +4,7 @@ date: "2017-01-08"
 published: true
 tags: [java, javafx]
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 JavaFX is used to create desktop applications and internet applications. It is meant to replace Swing as the main GUI library that comes included with Java SE. This post will cover some of the basics to help get started with using JavaFX.
