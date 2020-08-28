@@ -72,23 +72,6 @@ module.exports = {
           },
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
-          {
-            resolve: `gatsby-remark-twitter-cards`,
-            options: {
-              title: "Lanky Dan Blog",
-              separator: "|",
-              author: "Dan Newton",
-              background: require.resolve(
-                "./content/assets/blog-card-template.png"
-              ),
-              fontColor: "#ffffff",
-              titleFontSize: 96,
-              subtitleFontSize: 60,
-              fontFile: require.resolve(
-                "./content/assets/fonts/Roboto-Regular.ttf"
-              ),
-            },
-          },
         ],
       },
     },
