@@ -5,6 +5,7 @@ published: true
 tags: [spring, spring data, spring data cassandra, cassandra, spring boot, java]
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-data-cassandra/tree/multiple_key_spaces
+cover_image: blog-card.png
 ---
 
 Following on from my previous post [Getting started with Spring Data Cassandra](https://lankydan.dev/2017/10/12/getting-started-with-spring-data-cassandra) we will look into using multiple keyspaces within an application. This will be a relatively short post due to most of the content being covered in the earlier post allowing us to focus on the code needed to allow multiple keyspaces and reasons why you might want to switch from a single one to using multiple.

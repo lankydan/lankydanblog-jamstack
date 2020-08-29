@@ -5,6 +5,7 @@ published: true
 tags: [spring, java, spring boot, spring data, mongo, mongodb, spring data mongodb]
 include_date_in_url: true
 github_url: https://github.com/lankydan/mongodb-relationships-with-spring
+cover_image: blog-card.png
 ---
 
 Continuing on from [Getting started with Spring Data and MongoDB](https://lankydan.dev/2017/05/20/getting-started-with-spring-data-and-mongodb/) we will look at implementing embedded documents. This allows one to one and one to many relationships to be modelled within a document and allows data to be retrieved in a singular query. Although as more relationships are modelled through extra embedded documents the write performance onto it the parent document will decrease and cause fragmentation of the data.

@@ -4,6 +4,7 @@ date: "2019-05-07"
 published: true
 tags: [spring, r2dbc, spring data, spring boot, java, kotlin, spring data r2dbc, mssql, sql server, reactive, reactive streams]
 github_url: https://github.com/lankydan/spring-data-r2dbc/tree/mssql_r2dbc
+cover_image: blog-card.png
 ---
 
 This post is the sibling of another blog post I wrote that focused on [Spring Data R2DBC and Postgres](https://lankydan.dev/2019/02/16/asynchronous-rdbms-access-with-spring-data-r2dbc). Hopefully, you read the title before traversing to this page. So, you should know that I will be writing about Spring Data R2DBC's integration with Microsoft SQL Server. As Spring provides a lot of magic 🧙‍♀️, most of the code from my previous [Postgres post](https://lankydan.dev/2019/02/16/asynchronous-rdbms-access-with-spring-data-r2dbc) will still work and only requires a few changes to get up and running with MSSQL.

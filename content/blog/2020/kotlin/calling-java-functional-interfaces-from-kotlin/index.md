@@ -3,6 +3,7 @@ title: Calling Java Functional Interfaces from Kotlin
 date: "2020-02-10"
 published: true
 tags: [kotlin, java]
+cover_image: blog-card.png
 ---
 
 ## Basics

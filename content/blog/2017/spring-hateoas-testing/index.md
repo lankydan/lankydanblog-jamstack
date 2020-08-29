@@ -5,6 +5,7 @@ published: true
 tags: [spring, testing, hateoas, spring boot, java, spring hateoas, spring rest]
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-boot-hateoas
+cover_image: blog-card.png
 ---
 
 This post is a follow up post to a few that I have written recently relating to writing a HATEOAS service and handling exceptions with Spring ([Applying HATEOAS to a REST API with Spring Boot](https://lankydan.dev/2017/09/10/applying-hateoas-to-a-rest-api-with-spring-boot/) and [Global exception handling with @ControllerAdvice](https://lankydan.dev/2017/09/12/global-exception-handling-with-controlleradvice/)). Now that we have looked through setting up a service and how to add some error handling via controller advice, it's probably now worth writing some tests to ensure that it works as expected.

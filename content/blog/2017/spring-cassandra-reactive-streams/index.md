@@ -5,6 +5,7 @@ published: true
 tags: [spring, spring data, spring data cassandra, cassandra, spring boot, java]
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-data-cassandra/tree/reactive-spring-data-cassandra
+cover_image: blog-card.png
 ---
 
 Today we are going to look at reactive Spring Data Cassandra. This post is actually very similar to one that I did on [Reactive Spring Data MongoDB](https://lankydan.dev/2017/07/16/a-quick-look-into-reactive-streams-with-spring-data-and-mongodb/) with the only real difference being that they are obviously using different databases.

@@ -4,6 +4,7 @@ date: "2018-06-05"
 published: true
 tags: [corda, kotlin, dlt, blockchain, distributed ledger technology]
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 This post was written for Corda 3. If you are looking for a more up to date version, I recommend looking at my updated version of this post, [Developing with Corda 4](https://lankydan.dev/developing-with-corda-4).

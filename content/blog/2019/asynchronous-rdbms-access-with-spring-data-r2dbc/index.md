@@ -16,6 +16,7 @@ tags:
   ]
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-data-r2dbc
+cover_image: blog-card.png
 ---
 
 Not too long ago, a reactive variant of the JDBC driver was released. Known as R2DBC. It allows data to be streamed asynchronously to any endpoints that have subscribed to it. Using a reactive driver like R2DBC together with Spring WebFlux allows you to write a full application that handles receiving and sending of data asynchronously. In this post, we will focus on the database. From connecting to the database and then finally saving and retrieving data. To do this, we will be using Spring Data. As with all Spring Data modules, it provides us with out of the box configuration. Decreasing the amount of boilerplate code that we need to write to get our application setup. On top of that, it provides a layer upon the database driver that makes doing the simple tasks easier and the more difficult tasks a little less painful.

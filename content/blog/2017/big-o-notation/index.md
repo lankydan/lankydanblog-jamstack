@@ -4,6 +4,7 @@ date: "2017-04-23"
 published: true
 tags: [computer science, theory]
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 Big O Notation is one of those things that I was taught at university but never really grasped the concept. I knew enough to answer very basic questions on it but that was about it. Nothing has changed since then as I have not used or heard any of my colleagues mention it since I started working. So I thought I'd spend some time going back over it and wrote this post summarising the basics of Big O Notation and along with some code examples to help explain it.

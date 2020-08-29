@@ -3,6 +3,7 @@ title: Streaming live updates from a reactive Spring Data repository
 date: "2019-08-29"
 published: true
 tags: [spring, spring data, kotlin, java, r2dbc, spring data r2dbc, reactive, reactive streams]
+cover_image: blog-card.png
 ---
 
 This post details a naive implementation of _streaming_ updates from a database to any other components that are interested in that data. More precisely, how to alter a Spring Data R2DBC repository to emit events to relevant subscribers.

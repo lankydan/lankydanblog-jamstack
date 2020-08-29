@@ -5,6 +5,7 @@ published: true
 tags: [corda, dlt, distributed ledger technology, blockchain, performance, kotlin]
 include_date_in_url: true
 github_url: https://github.com/lankydan/corda-services-multi-threading-flows
+cover_image: blog-card.png
 ---
 
 How can I make my Flows faster? There's a good chance you have thought about this before if you have been working with Corda for a while. You can make reasonable tweaks to eke out performance improvements by changing a few things: transaction size, optimising queries and reducing the number of network hops required throughout the Flow's execution. There is one other possibility that probably also crossed your mind at some point. Multi-threading.

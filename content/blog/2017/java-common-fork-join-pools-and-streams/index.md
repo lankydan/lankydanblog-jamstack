@@ -4,6 +4,7 @@ date: "2017-02-01"
 published: true
 tags: [java, java 8, java streams, threading]
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 In my post [Dipping into Java 8](https://dzone.com/articles/dipping-into-java-8-streams) Streams a comment was added that I should explain what the Common Fork Join Pool is and how it is linked to parallel streams. Honestly I had never heard of it so I set out on my quest to find the answer somewhere on the internet and make this post to attempt to follow up on the posted comment. Unfortunately I wasn't able to reach the understanding about this subject that I hoped I would, so I am going to write what I found out from doing some research and from debugging some code myself and if you think anything is missing then leave a comment. This is after all a place to learn!

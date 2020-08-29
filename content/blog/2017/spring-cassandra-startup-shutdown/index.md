@@ -5,6 +5,7 @@ published: true
 tags: [spring, spring data, spring data cassandra, cassandra, spring boot, java]
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-data-cassandra/tree/cassandra_startup_shutdown_scripts
+cover_image: blog-card.png
 ---
 
 Shorter post this time round, it feels nice to get something finished faster than 2 weeks for once. Today we will look at startup and shutdown scripts in Spring Data Cassandra. This is something I probably should of done myself ages ago as it would of made testing my earlier posts much easier. I spent so much time (slightly over exaggerated) constantly truncating tables between each execution which was pretty annoying.

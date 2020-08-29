@@ -4,6 +4,7 @@ date: "2017-01-07"
 published: true
 tags: [general]
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 To comment or not to comment, that is the question. I had a little argument with some of my family who have also done some coding, although one of them is still in secondary school, about this subject. They came a had a quick look at some code I was writing at home and asked where are my comments and were shocked at my reply when I told them I don't. So I'm going to write some of the things I told them. When is it the write time to write them into your code, how helpful are they and what should they contain? These are the questions I want to answer.

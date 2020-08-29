@@ -4,6 +4,7 @@ date: "2017-03-02"
 published: true
 tags: [java]
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 This is something I came across at work that wasn't working as I expected. After a little playing around it seemed pretty obvious but even after a few years of working with Java this wasn't a situation I came across before.

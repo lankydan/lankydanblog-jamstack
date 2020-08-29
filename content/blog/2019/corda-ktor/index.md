@@ -4,6 +4,7 @@ date: "2019-08-12"
 published: true
 tags: [corda, kotlin, dlt, distributed ledger technology, blockchain]
 github_url: https://github.com/lankydan/corda-ktor-webserver
+cover_image: blog-card.png
 ---
 
 The preparation for this blog post began several weeks ago (probably over a month by now). Before I could write about melding Corda and Ktor together, I first needed to lay the groundwork and focus solely on Ktor. That is where my blog post, [Ktor - a Kotlin web framework](https://lankydan.dev/ktor-a-kotlin-web-framework) came into existence. If you haven't used or seen Ktor before, I recommend taking a browse at that post either before or after reading this post. Reading it in advance is probably a better idea, but you are in control of your own life 🤷.

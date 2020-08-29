@@ -4,6 +4,7 @@ date: "2018-03-21"
 published: true
 tags: [java, spring, spring boot, spring webflux]
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 In this post we will be looking at defining multiple router functions to different logical domains in Spring WebFlux. This might not be a problem if you are creating "Microservices" as you will most likely only be working within a single domain for each service, but if you are not, then you will likely have the need to include multiple domains within your application that users or your own services can interact with. The code to do this is as simple as I hoped it would be and could be explained in a few sentences. To make this post a little more interesting we will look at some of the Spring code that makes this all possible.

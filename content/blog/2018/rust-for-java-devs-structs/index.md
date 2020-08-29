@@ -5,6 +5,7 @@ date: "2018-03-01"
 published: true
 tags: [rust, java]
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 Next up in Rust for Java Devs we have structs. They are used to hold data within a logical unit that can be passed to other functions or execute their own methods on the values that they store. Now this sounds very familiar... Java objects do the same thing. For example if you took a POJO (Plain Old Java Object) you also pass it to other methods or execute the object's own methods. In this nature they are alike, but they do have their differences. In this post we will look into creating structs, retrieving their values, defining their own methods and how to execute them.

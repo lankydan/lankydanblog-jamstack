@@ -5,6 +5,7 @@ published: true
 tags: [java, javafx]
 github_url: https://github.com/lankydan/Stopping-JavaFX-Context-Menus-from-auto-hiding
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 This is a post that I wanted to write as it was a problem I ran into at my previous job probably around this time last year. I was doing some general testing around a JavaFX table application I had written and I ran into this really annoying problem (I find it frustrating anyway). Upon loading up the `TableView`'s context menu at the top right corner which is used to show/hide columns if you click on one of the menu items the menu will close itself down. Now this doesn't seem like much of a problem at this point but I still had some columns I wanted to hide so I opened up the menu again and chose an item and the menu closed, so I did it again... and again... now do you see what I mean! That menu should stay open so I can show/hide multiple columns without reopening it. As us humans are a lazy bunch so reducing how many mouse clicks we need to make will make us much happier.

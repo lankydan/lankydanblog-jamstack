@@ -6,6 +6,7 @@ published: true
 tags: [spring, spring boot, java, spring web, controlleradvice, exception handling, spring hateoas, hateoas]
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-boot-hateoas
+cover_image: blog-card.png
 ---
 
 `@ControllerAdvice` is a annotation provided by Spring allowing you to write global code that can be applied to a wide range of controllers, varying from all controllers to a chosen package or even a specific annotation. In this brief tutorial we will focus on handling exceptions using `@ControllerAdvice` and `@ExceptionHandler` (`@InitBinder` and `@ModalAttribute` can also be used with `@ControllerAdvice`).

@@ -4,6 +4,7 @@ date: "2020-07-19"
 published: true
 tags: [spring, spring data, spring data neo4j, neo4j, java]
 github_url: https://github.com/lankydan/spring-data-neo4j
+cover_image: blog-card.png
 ---
 
 Spring data does a lot to help you focus on writing your cypher queries while it handles mapping the results for you. However, when your queries become more complex, it starts to struggle. This is where you need to step in and explicitly map the query results into your domain objects.

@@ -5,6 +5,7 @@ published: true
 tags: [java, cassandra, datastax, spring, spring boot]
 include_date_in_url: true
 github_url: https://github.com/lankydan/datastax-java-driver
+cover_image: blog-card.png
 ---
 
 I'm back with more Cassandra and Java integration today this time focusing on using the Datastax Java driver rather than Spring Data Cassandra which I have already written about quite a lot. The Datastax driver is actually used by Spring Data to interact with Cassandra but comes with some extra goodies built on top of it. But we don't want any of these today! We are going to use the Datastax driver directly and at the end of the post once we have seen how use it we will compare it against Spring Data.

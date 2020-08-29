@@ -5,6 +5,7 @@ published: true
 tags: [java, spring, spring boot, spring web]
 github_url: https://github.com/lankydan/spring-boot-dto-tutorial-2
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 In this post I will cover returning a DTO (Data Transfer Object) from a Rest Controller in Spring Boot. Returning data from a REST call in a DTO is a tidy way of retrieving data from the server which otherwise would be returned as a `List<Object>`.

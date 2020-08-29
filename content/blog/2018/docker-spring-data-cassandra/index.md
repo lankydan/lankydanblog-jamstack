@@ -5,6 +5,7 @@ published: true
 tags: [java, spring, spring data, spring boot, cassandra, spring data cassandra, docker, containers]
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-data-cassandra-docker
+cover_image: blog-card.png
 ---
 
 I'm continuing my journey of learning Docker. I am still keeping it simple at this point. This time around, I am going to tackle converting a Spring and Cassandra application to use containers instead of running locally on the host machine. More precisely, using Spring Data Cassandra to sort out the application.

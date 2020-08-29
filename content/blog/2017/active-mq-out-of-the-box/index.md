@@ -5,6 +5,7 @@ published: true
 tags: [activemq, spring, spring boot, spring boot jms]
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-boot-activemq-default-tutorial
+cover_image: blog-card.png
 ---
 
 In my previous post [Using JMS in Spring Boot](https://lankydan.dev/2017/06/18/using-jms-in-spring-boot/) I mentioned some characteristics that message queues exhibit, redundancy and asynchronous messaging but didn't mention them any further. ActiveMQ, which was used in the earlier post, provides both of these by default and therefore does not require any sort of special setup to get them working. In this post we will look at some evidence that proves that ActiveMQ provides redundancy and asynchronous messaging out of the box.

@@ -5,6 +5,7 @@ date: "2018-01-13"
 published: true
 tags: [rust, java]
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 I'm going to do something different today and write about Rust instead of Java. This is something that I want to give a try and if it all goes well I will continue writing some posts about Rust in the future.

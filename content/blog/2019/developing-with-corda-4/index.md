@@ -4,6 +4,7 @@ date: "2019-04-05"
 published: true
 tags: [corda, corda 4, kotlin, dlt, distributed ledger technology, blockchain]
 github_url: https://github.com/corda/corda-training-solutions
+cover_image: blog-card.png
 ---
 
 This is an updated version of the [Developing with Corda](https://lankydan.dev/2018/06/05/developing-with-corda/) post that I wrote last year. Since then quite a lot has changed, but from your perspective, as a developer, it should feel very similar. Corda has changed a lot to increase its performance, improve security and provide a better developer experience. Touching on the last point, improving the developer experience requires adding better functionality while removing less desirable parts. But, to do so while maintaining backwards compatibility allows you to go through the process of working with Corda 3 to 4 come with little issues. That being said, there are a few differences. These are the things that will be highlighted throughout this post while mainly focusing on providing a base for any newer Corda developers reading this.

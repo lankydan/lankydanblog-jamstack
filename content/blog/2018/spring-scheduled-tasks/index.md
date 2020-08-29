@@ -6,6 +6,7 @@ published: true
 tags: [java, spring, spring boot, scheduling]
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-scheduled-tasks
+cover_image: blog-card.png
 ---
 
 Do you need to run a process everyday at the exact same time like an alarm? Then Spring's scheduled tasks are for you. Allowing you to annotate a method with `@Scheduled` causing it to run at the specific time or interval that is denoted inside it. In this post we will look at setting up a project that can use scheduled tasks as well as how to use the different methods for defining when they execute.

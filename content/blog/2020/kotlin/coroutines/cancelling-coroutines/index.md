@@ -4,6 +4,7 @@ date: "2020-05-11"
 published: true
 tags: [kotlin, coroutines]
 series: Kotlin coroutines
+cover_image: blog-card.png
 ---
 
 Sooner or later, you will need to cancel a coroutine that you started. Let's look at how you can do just that.

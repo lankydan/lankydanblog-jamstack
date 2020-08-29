@@ -4,6 +4,7 @@ date: "2017-01-29"
 published: true
 tags: [java, javafx]
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 When I was doing my 3rd year project in university I needed a good looking chart to use in my user interface and now I have grown older (nearly 2 whole years!) I wish I would have turned to the charts in JavaFX rather than the ugly looking JChart2D API that I used. Now don't get me wrong I'm not hating on JChart2D as it was easy to use and at the time I was really happy with it. But the charts / graphs that you can use in JavaFX look really good, they even come with some fancy animations by default. Okay, I'm finished hyping up these graphs, so I'm going to show you a little example application I wrote and hopefully you will feel the same about them as me...

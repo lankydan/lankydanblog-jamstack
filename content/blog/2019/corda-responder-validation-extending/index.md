@@ -5,6 +5,7 @@ date: "2019-12-10"
 published: true
 tags: [corda, kotlin, dlt, distributed ledger technology, blockchain]
 series: Responder flow validation
+cover_image: blog-card.png
 ---
 
 In [Responder flow validation](/responder-flow-validation) I closed the post with the following:

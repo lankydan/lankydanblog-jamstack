@@ -4,6 +4,7 @@ date: "2019-05-18"
 published: true
 tags: [corda, corda 4, kotlin, dlt, distributed ledger technology, blockchain]
 github_url: https://github.com/lankydan/corda-extendable-flows/tree/extra-validation-logic-in-responder-flow
+cover_image: blog-card.png
 ---
 
 Through the use of flow extension, nodes running the same CorDapp can include extra validation to ensure that a transaction meets their specific requirements. The validation inside contracts focuses on the rules that must be adhered to by all transacting parties. Because of this, they are more general and focus on ensuring that no one is putting together invalid transactions. This leaves out any checks that individual organisations require. By providing a base CorDapp between the organisations with the ability to add further checks, they can each tailor the CorDapp to meet their needs. Flow extension makes this possible. Continuing the push for organisations to communicate together through common CorDapps while still providing enough customisation to meet each of their specific requirements.

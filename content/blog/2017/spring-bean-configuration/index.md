@@ -5,6 +5,7 @@ published: true
 tags: [spring, java, beginners]
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-bean-config
+cover_image: blog-card.png
 ---
 
 In this tutorial we will have a look at something more basic on the Spring spectrum, but as most things can sometimes be forgotten and is something that personally I have not looked at properly since switching from XML to Java configuration. The creation of beans is pretty important to the use of Spring (probably more like very important) allowing us to have Java classes that live within the application context that can be used within other beans/classes without constantly creating new instances every time we need to use one of their methods.

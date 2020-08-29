@@ -6,6 +6,7 @@ updated_date: "2020-06-30"
 published: true
 tags: [kotlin, java]
 series: Java friendly Kotlin
+cover_image: blog-card.png
 ---
 
 Kotlin functions and constructors can define default arguments, allowing calls to them to skip any argument that has a default value.

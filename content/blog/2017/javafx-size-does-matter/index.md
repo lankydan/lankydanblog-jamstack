@@ -5,6 +5,7 @@ published: true
 tags: [java, javafx]
 github_url: https://github.com/lankydan/JavaFX-Size-Example
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 Does size matter? That's a question that's been around for a while and the answer is up for debate. But this is JavaFX and the answer is a resounding yes size does matter. I'm not saying that user interfaces need to bigger to be better, I'm talking about controlling size. If you don't control it properly you will end up having undesirable results, what  if the user makes the window so small that part of the display gets cut out never to be seen again, unless the window is made larger again of course. Maybe its resized so large that there is loads of empty space around the edge of the interface. So your going to need to keep size under control and your in luck as in this post I will cover some ways to do this.

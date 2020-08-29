@@ -45,7 +45,10 @@ class BlogPostTemplate extends React.Component {
           url={postUrl}
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
-          image={urljoin(postUrl, `twitter-card.jpg`)}
+          image={
+            post.frontmatter.cover_image &&
+            post.frontmatter.cover_image.childImageSharp.original.src
+          }
           date={post.frontmatter.date}
           timeToRead={post.timeToRead}
           keywords={post.frontmatter.tags}
@@ -154,6 +157,13 @@ export const pageQuery = graphql`
         tags
         github_url
         series
+        cover_image {
+          childImageSharp {
+            original {
+              src
+            }
+          }
+        }
       }
       timeToRead
     }

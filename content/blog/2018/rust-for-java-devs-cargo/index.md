@@ -5,6 +5,7 @@ date: "2018-01-21"
 published: true
 tags: [rust, java]
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 After my last post seemed to be well received I am back with another Rust for Java Devs post. Today we will look at a compiling Rust code and have a brief look at using the basics of Cargo. For a developer there isn't much difference between how to compile Rust code compared to Java, but where they vary are their build tools. Rust comes built in with Cargo to manage projects whereas Java does not and relies on external build tools like Maven and Gradle. We can then use Cargo to build and run projects instead of directly compiling and executing the created `.exe` file.

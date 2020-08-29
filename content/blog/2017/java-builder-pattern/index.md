@@ -4,6 +4,7 @@ date: "2017-04-01"
 published: true
 tags: [java, patterns]
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 If you have ever looked at a long constructor and got confused about the order that input values need to be added then I am here to help! The Builder Pattern helps expel& this confusion as it removes the need for this long constructor and replaces it the a series of setters which make it clear as to what the input values represent. But why not just add a default constructor and use setters? This is a possible solution if you do not care about immutability at all whereas using the Builder Pattern allows this constraint to be kept.

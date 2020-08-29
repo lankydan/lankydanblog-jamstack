@@ -4,6 +4,7 @@ date: "2017-06-07"
 published: true
 tags: [spring, java, spring boot, spring data, mongo, mongodb, spring data mongodb]
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 When working with large amounts of data the use of indexes will greatly improve the time it takes for your queries to run by storing part of a collection's data in a form that is easy to traverse. To add some indexes to your collections you could run some functions directly via the Mongo Shell or Spring Data can be used to handle it for you. As the title suggests that it was we will be looking into in this post.

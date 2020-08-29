@@ -3,6 +3,7 @@ title: Running a Java class as a subprocess
 date: "2019-05-17"
 published: true
 tags: [java]
+cover_image: blog-card.png
 ---
 
 Running a Java class (not a jar) as a subprocess is something I needed to do this week. More precisely, I wanted to spawn a new process from within a test, instead of running it inside the test directly (in-process). I don't think this is anything fancy or a complex thing to do. But, this is not something I have ever needed to do before and didn't know the exact code to write.

@@ -4,6 +4,7 @@ date: "2020-07-26"
 published: true
 tags: [kotlin, coroutines]
 series: Kotlin coroutines
+cover_image: blog-card.png
 ---
 
 Following on from my previous post, [Cancelling coroutines](../cancelling-coroutines/index.md), we will look at how cancelling a coroutine affects its children.

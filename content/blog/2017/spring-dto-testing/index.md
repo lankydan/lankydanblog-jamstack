@@ -5,6 +5,7 @@ published: true
 tags: [java, spring, spring boot, spring web]
 github_url: https://github.com/lankydan/spring-boot-dto-test-tutorial
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 In this post I will cover some tests that can be run to ensure that your DTOs (Data Transfer Objects) are being serialized and deserialized correctly leading onto testing whether they are being passed to and returned from a Rest Controller without errors.

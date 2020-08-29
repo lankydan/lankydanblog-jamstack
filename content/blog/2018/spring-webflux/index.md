@@ -5,6 +5,7 @@ published: true
 tags: [java, spring, spring boot, spring webflux, reactive streams, reactor, java 8, spring data cassandra]
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-boot-webflux
+cover_image: blog-card.png
 ---
 
 Spring Boot 2.0 went GA recently, so I decided to write my first post about Spring for quite a while. Since the release I have been seeing more and more mentions of Spring WebFlux along with tutorials on how to use it. But after reading through them and trying to get it working myself, I found it a bit hard to make the jump from the code included in the posts and tutorials I read to writing code that actually does something a tiny bit more interesting than returning a string from the back-end. Now, I'm hoping I'm not shooting myself in the foot by saying that as you could probably make the same criticism of the code I use in this post, but here is my attempt to give a tutorial of Spring WebFlux that actually resembles something that you might use in the wild.

@@ -3,6 +3,7 @@ title: Saving transactions where only a subset of parties are signers
 date: "2019-07-05"
 published: true
 tags: [corda, kotlin, dlt, distributed ledger technology, blockchain]
+cover_image: blog-card.png
 ---
 
 It took a while for me to think of a title that could summarise the contents of this post without becoming a full sentence itself. I think I have managed to choose something legible 😅. Either way, let me clarify what I am actually talking about.

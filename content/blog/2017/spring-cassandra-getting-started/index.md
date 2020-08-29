@@ -5,6 +5,7 @@ published: true
 tags: [spring, spring data, spring data cassandra, cassandra, spring boot, java]
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-data-cassandra
+cover_image: blog-card.png
 ---
 
 I have recently been learning Apache Cassandra to use at work and I think it is about time I consolidated my experience within a blog post. But rather than focusing on how Cassandra works itself this post will look at how to use Spring Data Cassandra.

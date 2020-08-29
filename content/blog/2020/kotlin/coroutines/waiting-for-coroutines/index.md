@@ -4,6 +4,7 @@ date: "2020-04-26"
 published: true
 tags: [kotlin, coroutines]
 series: Kotlin coroutines
+cover_image: blog-card.png
 ---
 
 Coroutines allow you to execute tasks asynchronously without blocking the calling thread, such as the main thread. Great, but sometimes you will need to wait for all of these tasks to finish. In this post, we will look at how to wait for a coroutine to finish using `join`.

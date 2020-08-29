@@ -5,6 +5,7 @@ published: true
 tags: [spring, java, spring boot, spring data, mongo, mongodb, spring data mongodb]
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-data-reactive-mongodb
+cover_image: blog-card.png
 ---
 
 This is a short post looking into Reactive Streams and how they can be used with MongoDB and Spring Data. This post won't go into the depths of what Reactive Programming and Reactive Streams are as there have been plenty of posts covering that recently, such as [What are Reactive Streams in Java](https://dzone.com/articles/what-are-reactive-streams-in-java) and [Reactive Spring 5 and Application Design Impact](https://dzone.com/articles/reactive-spring-5-and-application-design-impact). Instead it will simply demonstrate how to use the newer versions (at the time of writing) of Spring Data which come equipped with the features necessary to use Reactive Streams. In this post we will be using MongoDB due to it being one of the few currently available databases with a reactive implementation with Spring Data, the others include (at the time of writing) [Cassandra](https://github.com/spring-projects/spring-data-examples/tree/master/cassandra/reactive) and [Redis](https://github.com/spring-projects/spring-data-examples/tree/master/redis/reactive).

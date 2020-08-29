@@ -5,6 +5,7 @@ published: true
 tags: [rust, diesel, rocket]
 include_date_in_url: true
 github_url: https://github.com/lankydan/rust-web-with-rocket
+cover_image: blog-card.png
 ---
 
 Sorry if that title seemed stupid. The super serious title would be "Creating a REST API in Rust using Rocket and Diesel", but that's boring. Anyway...

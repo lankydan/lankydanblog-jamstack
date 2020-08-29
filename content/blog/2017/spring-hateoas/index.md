@@ -2,9 +2,10 @@
 title: Applying HATEOAS to a REST API with Spring Boot
 date: "2017-09-10"
 published: true
-tags: [spring, spring boot, java, spring web, controlleradvice, exception handling, spring hateoas, hateoas]
+tags: [spring, spring boot, java, spring web, spring hateoas, hateoas]
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-boot-hateoas
+cover_image: blog-card.png
 ---
 
 HATEOAS is an acronym for <strong> H</strong>ypermedia <strong> A</strong>s <strong> T</strong>he <strong> E</strong>ngine <strong> O</strong>f <strong> A</strong>pplication <strong> S</strong>tate. Even after expanding that for you it still might not mean a lot. HATEOAS is an extra level upon REST and is used to present information about the REST API to the client, allowing for a better understanding of the API without the need to bring up the specification or documentation. This is done by including links in a returned response and using only these links to further communicate with the sever. This reduces the likely hood of the client breaking due to changes to the service. If there are some static endpoints that the client can make use of and further calls are done via the links included in the response, the client's code should not break (I am not claiming it is 100% safe). This makes the assumption that the links returned with the response have already implemented the standard REST verbs, lets face it, it would be pretty silly to link to an endpoint that isn't actually there. This post will go through how to implement HATEOAS Rest service using Spring Boot.

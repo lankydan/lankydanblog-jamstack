@@ -4,6 +4,7 @@ date: "2019-05-31"
 published: true
 tags: [corda, kotlin, dlt, distributed ledger technology, blockchain]
 github_url: https://github.com/lankydan/corda-broadcast-transaction
+cover_image: blog-card.png
 ---
 
 There is a misconception that Corda cannot _broadcast_ data across a network. This is simply wrong. In fact, Corda can send anything between nodes in a network. What Corda does not do, is share unnecessary data (transactions) with nodes that have nothing to do with an individual interaction. Privacy by default is a central component of Corda's design. Compared to other DLT (Distributed Ledger Technology) platforms and blockchains, this is indeed a big difference. Sharing data with non-transacting parties might not be part of Corda's default behaviour, but it is definitely within its capabilities. In this post, I will demonstrate the small amount of code required to send a transaction to any desired node.

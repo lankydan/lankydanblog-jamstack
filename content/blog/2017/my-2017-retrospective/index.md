@@ -4,6 +4,7 @@ date: "2017-12-29"
 published: true
 tags: [personal]
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 I'm going to go for something a bit different in this post and have my own little retrospective on my last year both professionally and personally. I feel like I achieved quite a lot this year now that I'm looking back at it and have built the foundations that I need for my future.

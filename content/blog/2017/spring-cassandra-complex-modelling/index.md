@@ -5,6 +5,7 @@ published: true
 tags: [spring, spring data, spring data cassandra, cassandra, spring boot, java]
 include_date_in_url: true
 github_url: https://github.com/lankydan/spring-data-cassandra/tree/using_entities_the_cassandra_way
+cover_image: blog-card.png
 ---
 
 I've got a bit more Spring Data Cassandra for you now, this will be my 4th post on the subject and I should probably get onto something else but your stuck with this for now! In this post we will look at a slightly larger example than what I have shown in my previous posts so that we can have a proper look into writing an application that uses Spring Data Cassandra. Most tutorials will only include one example of a small entity that represents a table, which is good enough to get started but doesn't bring you much closer to really understanding what is going on. After googling for a post that covers something like this and coming up with nothing, below we have my take on writing the components of a little application that uses Spring Data to model tables in Cassandra.

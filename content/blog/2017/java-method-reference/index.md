@@ -4,6 +4,7 @@ date: "2017-01-18"
 published: true
 tags: [java, java 8]
 include_date_in_url: true
+cover_image: blog-card.png
 ---
 
 Method references are a feature of Java 8. They are effectively a subset of Lambda expressions because if a Lambda expression can be used then it might be possible to use a method reference, but not always. They can only be used to call a singular method, which obviously reduces the possible places they can be used unless your code is written to cater for them.

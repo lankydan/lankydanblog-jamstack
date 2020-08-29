@@ -4,6 +4,7 @@ slug: defined-by-failure
 date: "2020-02-27"
 published: true
 tags: [personal]
+cover_image: blog-card.png
 ---
 
 I am going to go with a more personal blog post today. This is something that I have wanted to write for several years now. Better late than never is what people always say, right? I'll keep it short since there isn't too much to talk about anyway.
