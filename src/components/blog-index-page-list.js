@@ -65,7 +65,7 @@ export default class BlogIndexPageList extends React.Component {
                   `corda`,
                   `software development`,
                 ]}
-                image={data.homePageImage.childImageSharp.resize.src}
+                image={data.homePageImage.childImageSharp.original.src}
               />
               <BlogList posts={this.props.posts} />
               {postButtons}
@@ -81,7 +81,7 @@ export const blogListQuery = graphql`
   query {
     homePageImage: file(absolutePath: { regex: "/home-page-image.png/" }) {
       childImageSharp {
-        resize(width: 1378, height: 1086) {
+        original {
           src
         }
       }
