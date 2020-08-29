@@ -1,12 +1,10 @@
 import React from "react"
 import { Link } from "gatsby"
-import Img from "gatsby-image"
-import { rhythm } from "../utils/typography"
 import BlogTags from "./blog-tags"
 
 class BlogList extends React.Component {
   render() {
-    const { posts, cardWidth, cardHeight, isFooter } = this.props
+    const { posts, isFooter } = this.props
     const className = isFooter
       ? "blog-card-list footer-blog-list"
       : "blog-card-list"

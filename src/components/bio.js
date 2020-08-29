@@ -1,5 +1,5 @@
 import React from "react"
-import { StaticQuery, graphql, Link } from "gatsby"
+import { StaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
 
 import { rhythm } from "../utils/typography"
@@ -119,7 +119,7 @@ class FollowButton extends React.Component {
   render() {
     const { text, link, colour, fontColour } = this.props
     return (
-      <a href={link} target="_blank">
+      <a href={link} target="_blank" rel="noreferrer">
         <Button text={`${text}++`} colour={colour} fontColour={fontColour} />
       </a>
     )
@@ -130,7 +130,7 @@ class RssButton extends React.Component {
   render() {
     const { text, link, colour, fontColour } = this.props
     return (
-      <a href={link} target="_blank">
+      <a href={link} target="_blank" rel="noreferrer">
         <Button text={text} colour={colour} fontColour={fontColour} />
       </a>
     )
