@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, StaticQuery } from "gatsby"
+import { Link, StaticQuery, graphql } from "gatsby"
 import Logo from "../../content/assets/logo.svg"
 import TwitterIcon from "../../content/assets/twitter.svg"
 import GithubIcon from "../../content/assets/github.svg"

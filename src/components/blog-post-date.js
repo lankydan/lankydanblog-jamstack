@@ -1,5 +1,4 @@
 import React from "react"
-import { rhythm, scale } from "../utils/typography"
 
 export default class BlogPostDate extends React.Component {
   render() {

@@ -1,10 +1,8 @@
 import React from "react"
 import { StaticQuery, graphql, Link } from "gatsby"
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import BlogList from "../components/blog-list"
-import { rhythm } from "../utils/typography"
 
 export default class BlogIndexPageList extends React.Component {
   render() {
@@ -50,20 +48,17 @@ export default class BlogIndexPageList extends React.Component {
     return (
       <StaticQuery
         query={blogListQuery}
-        render={data => {
-          const header = (
-            <h1 className="blog-header">{data.site.siteMetadata.title}</h1>
-          )
+        render={(data) => {
           return (
             <Layout location={location}>
               <SEO
                 title="All posts"
                 keywords={[
-                  `blog`,
                   `java`,
                   `kotlin`,
                   `corda`,
                   `software development`,
+                  `software engineering`,
                 ]}
                 image={data.homePageImage.childImageSharp.original.src}
               />

@@ -7,19 +7,19 @@ class ThemeSelector extends React.Component {
 
       // check local storage
       if (localStorage.getItem("theme")) {
-        if (localStorage.getItem("theme") == "dark") {
-          var theme = "dark"
+        if (localStorage.getItem("theme") === "dark") {
+          theme = "dark"
         }
       } else if (!window.matchMedia) {
         // if not supported
         return false
       } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
         // OS uses dark mode
-        var theme = "dark"
+        theme = "dark"
       }
 
       // dark theme preferred, set document with a `data-theme` attribute
-      if (theme == "dark") {
+      if (theme === "dark") {
         document.documentElement.setAttribute("data-theme", "dark")
       }
 
