@@ -5,7 +5,6 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
-import Socials from "../components/socials"
 import FooterBlogList from "../components/footer-blog-list"
 import BlogTags from "../components/blog-tags"
 import BlogSeries from "../components/blog-series"
@@ -86,11 +85,6 @@ class BlogPostTemplate extends React.Component {
           posts={series}
         />
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        <Socials
-          siteUrl={this.props.data.site.siteMetadata.siteUrl}
-          postPath={this.props.pageContext.slug}
-          postNode={post}
-        />
         <hr
           style={{
             marginBottom: rhythm(1),
