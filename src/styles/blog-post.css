@@ -1,9 +1,10 @@
 .post-header {
   /* https://css-tricks.com/fun-viewport-units/ */
-  height: 70vh;
+  min-height: 70vh;
   background-color: #5f709c25;
   display: grid;
   text-align: center;
+  padding: 20px;
 }
 
 .post-header-grid {
@@ -24,14 +25,23 @@
   -moz-background-clip: text;
   -moz-text-fill-color: transparent;
   font-size: 5rem;
-  /* letter-spacing: -.06em; */
+  /* 
+  Not 100% sure of the suitability of vmin/vh for IOS at the moment
+  Possibly using vmin would be the best option, review at some point in the future
+   */
+  /* font-size: 10vmin; */
 }
 
 .post-date {
   font-size: 2rem;
+  /* 
+  Not 100% sure of the suitability of vmin/vh for IOS at the moment
+  Possibly using vmin would be the best option, review at some point in the future
+   */
+  /* font-size: 4vmin; */
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1000px), (max-height: 900px) {
   .post-header-title {
     font-size: 4rem;
   }
@@ -41,7 +51,7 @@
   }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 640px), (max-height: 600px) {
   .post-header-title {
     font-size: 3rem;
   }
@@ -51,7 +61,7 @@
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 450px) {
   .post-header-title {
     font-size: 2rem;
   }
