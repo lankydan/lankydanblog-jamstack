@@ -27,6 +27,7 @@
     rgba(130, 170, 255, 1) 100%
   );
   --icon-color: var(--code-bg-color);
+  --java-border-color: #292D3E;
 }
 
 [data-theme="dark"] {
@@ -51,6 +52,7 @@
     rgba(130, 170, 255, 1) 100%
   );
   --icon-color: white;
+  --java-border-color: #818dc2;
 }
 
 body {
