@@ -59,7 +59,7 @@ class BlogList extends React.Component {
     switch (name) {
       case `java`:
         return {
-          borderColor: `#292D3E`,
+          borderColor: `var(--java-border-color)`,
         }
       case `kotlin`:
         return {
