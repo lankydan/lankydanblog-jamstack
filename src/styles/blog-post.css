@@ -1,7 +1,7 @@
 .post-header {
   /* https://css-tricks.com/fun-viewport-units/ */
   min-height: 70vh;
-  background-color: #5f709c25;
+  background-color: var(--post-header-color);
   display: grid;
   text-align: center;
   padding: 20px;
@@ -39,6 +39,38 @@
   Possibly using vmin would be the best option, review at some point in the future
    */
   /* font-size: 4vmin; */
+}
+
+.post-written-by-wrapper {
+  background: var(--sideways-gradient-color-default-background);
+  background: var(--sideways-gradient-color);
+  padding: 2px;
+  margin: 0 5%;
+  border-radius: 4px;
+}
+
+.post-written-by {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  background-color: var(--post-header-color);
+  border-radius: 4px;
+  padding: 1rem 0.5rem;
+}
+
+.post-written-by-socials {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.post-social-button {
+  margin: 0 0.25rem 0.25rem 0;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.post-social-link {
+  background-image: none;
 }
 
 @media screen and (max-width: 1000px), (max-height: 900px) {

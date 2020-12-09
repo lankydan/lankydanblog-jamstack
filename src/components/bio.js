@@ -2,84 +2,42 @@ import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
 
-import { rhythm } from "../utils/typography"
-
 function Bio() {
   return (
     <StaticQuery
       query={bioQuery}
-      render={data => {
+      render={(data) => {
         const { author, social } = data.site.siteMetadata
         return (
-          <div
-            style={{
-              display: `flex`,
-              marginBottom: rhythm(2.5),
-            }}
-          >
-            <Image
-              fixed={data.avatar.childImageSharp.fixed}
-              alt={author}
-              style={{
-                marginRight: rhythm(1 / 2),
-                marginBottom: 0,
-                minWidth: 50,
-                borderRadius: `100%`,
-              }}
-              imgStyle={{
-                borderRadius: `50%`,
-              }}
-            />
-            <div
-              style={{
-                width: `100%`,
-              }}
-            >
-              Written by <strong>{author}</strong>.{` `}
+          <div class="post-written-by-wrapper">
+            <div class="post-written-by">
+              <Image
+                fixed={data.avatar.childImageSharp.fixed}
+                alt={author}
+                style={{
+                  marginRight: `1rem`,
+                }}
+                imgStyle={{
+                  borderRadius: `50%`,
+                }}
+              />
               <div>
-                <div
-                  style={{
-                    display: `inline-block`,
-                    width: rhythm(5),
-                  }}
-                >
+                Written by {author}
+                <div class="post-written-by-socials">
                   <FollowButton
-                    text={`TWITTER`}
+                    text={`Twitter`}
                     link={`https://twitter.com/${social.twitter}`}
                     colour={`#00ACEE`}
                   />
                   <FollowButton
-                    text={`LINKEDIN`}
+                    text={`LinkedIn`}
                     link={`${social.linkedin}`}
                     colour={`#0077B5`}
                   />
                   <FollowButton
-                    text={`GITHUB`}
+                    text={`GitHub`}
                     link={`${social.github}`}
                     colour={`#333`}
-                  />
-                </div>
-                <div
-                  style={{
-                    display: `inline-block`,
-                    width: rhythm(5),
-                  }}
-                >
-                  <RssButton
-                    text={`ALL RSS FEED`}
-                    link={`/rss/all.xml`}
-                    colour={`rgba(97, 51, 128, 0.612)`}
-                  />
-                  <RssButton
-                    text={`JVM RSS FEED`}
-                    link={`/rss/jvm.xml`}
-                    colour={`#292D3E`}
-                    fontColour={`#82AAFF`}
-                  />
-                  <RssButton
-                    text={`CORDA RSS FEED`}
-                    link={`/rss/corda.xml`}
-                    colour={`#e11c1b`}
                   />
                 </div>
               </div>
@@ -93,9 +51,9 @@ function Bio() {
 
 const bioQuery = graphql`
   query BioQuery {
-    avatar: file(absolutePath: { regex: "/me.jpg/" }) {
+    avatar: file(absolutePath: { regex: "/me.png/" }) {
       childImageSharp {
-        fixed(width: 50, height: 50) {
+        fixed(width: 90, height: 90, cropFocus: CENTER, pngQuality: 100) {
           ...GatsbyImageSharpFixed
         }
       }
@@ -119,19 +77,13 @@ class FollowButton extends React.Component {
   render() {
     const { text, link, colour, fontColour } = this.props
     return (
-      <a href={link} target="_blank" rel="noreferrer">
-        <Button text={`${text}++`} colour={colour} fontColour={fontColour} />
-      </a>
-    )
-  }
-}
-
-class RssButton extends React.Component {
-  render() {
-    const { text, link, colour, fontColour } = this.props
-    return (
-      <a href={link} target="_blank" rel="noreferrer">
-        <Button text={text} colour={colour} fontColour={fontColour} />
+      <a
+        href={link}
+        className="post-social-link"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <Button text={`${text}`} colour={colour} fontColour={fontColour} />
       </a>
     )
   }
@@ -142,13 +94,10 @@ class Button extends React.Component {
     const { text, colour, fontColour } = this.props
     return (
       <div
+        className="post-social-button"
         style={{
           backgroundColor: colour,
-          textAlign: `center`,
           color: fontColour !== undefined ? fontColour : `white`,
-          marginBottom: `2px`,
-          marginRight: `2px`,
-          fontSize: `14px`,
         }}
       >
         {`${text}`}

@@ -28,6 +28,7 @@
   );
   --icon-color: var(--code-bg-color);
   --java-border-color: #292D3E;
+  --post-header-color: #e6e8ee;
 }
 
 [data-theme="dark"] {
@@ -53,6 +54,7 @@
   );
   --icon-color: white;
   --java-border-color: #818dc2;
+  --post-header-color: #323744;
 }
 
 body {
