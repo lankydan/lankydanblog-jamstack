@@ -16,6 +16,8 @@ function Bio() {
                 alt={author}
                 style={{
                   marginRight: `1rem`,
+                  minWidth: `90px`,
+                  minHeight: `90px`
                 }}
                 imgStyle={{
                   borderRadius: `50%`,
