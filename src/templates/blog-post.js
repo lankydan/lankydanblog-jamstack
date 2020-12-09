@@ -85,17 +85,7 @@ class BlogPostTemplate extends React.Component {
           posts={series}
         />
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        <hr
-          style={{
-            marginBottom: rhythm(1),
-          }}
-        />
         <Bio />
-        <hr
-          style={{
-            marginBottom: rhythm(1),
-          }}
-        />
         <FooterBlogList posts={posts} />
         <div>
           <ul
