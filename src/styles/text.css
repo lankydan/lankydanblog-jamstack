@@ -41,3 +41,9 @@ a {
 blockquote {
   border-left: 5px solid var(--primary-color);
 }
+
+ul.no-bullets {
+  list-style-type: none;
+  padding: 0; 
+  margin: 3px;
+}
