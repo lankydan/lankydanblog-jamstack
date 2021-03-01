@@ -197,4 +197,134 @@ Hopefully that all made sense, if not, give it another read. If it still doesn't
 
 ## Why this affects backwards compatibility
 
+First I'll define what I mean as "backwards compatibility". I quite liked how [Wikipedia](https://en.wikipedia.org/wiki/Backward_compatibility) stated it, so I'll put that below:
+
+> Backward compatibility (also known as backwards compatibility) is a property of a system, product, or technology that allows for interoperability with an older legacy system, or with input designed for such a system, especially in telecommunications and computing.
+
+In terms of what I am writing about, it means that a library, framework or platform should be able to evolve and release new versions without breaking existing code. 
+
+More precisely for this post, that a function with default arguments can evolve without breaking existing usages of the function.
+
+We will use the code from before and explore what happens as we evolve the interface's function, added again since it's so far away now:
+
+```kotlin
+interface MyInterface {
+
+  fun function(a: A = A(), b: B = B(), c: C = C(), d: D = D(), e: E = E())
+}
+```
+
+While keeping the call-site the same as it represents "existing code":
+
+```kotlin
+myInterface.function(b = MyInterface.B(), c = MyInterface.C())
+```
+
+Before I continue, I want to point out that removing an argument or adding a new one that does not have a default value from an existing function will never be backwards compatible. 
+
+```kotlin
+// Removing an argument
+❌ fun function(a: A = A(), b: B = B(), c: C = C(), d: D = D())
+// Adding an argument without a default value
+❌ fun function(a: A = A(), b: B = B(), c: C = C(), d: D = D(), e: E = E(), f: F)
+```
+
+You are guaranteed to break existing code if you do that. The only way to do this without breaking anything is to add an overload with the change in arguments. As this post is focusing on default arguments I won't explain through these two scenarios any further.
+
+By excluding basic removing and adding, we are left with adding a new argument that comes with a default value. This scenario is different from adding a new one without a default value, because existing callers of the function _should_ work. These callers will still be using the previous version of the function and that's ok due to their reliance on default values for missing arguments. Therefore the function's new argument is not enough to break these applications.
+
+```kotlin
+// Adding an argument with a default value
+✅ fun function(a: A = A(), b: B = B(), c: C = C(), d: D = D(), e: E = E(), f: F = F())
+```
+
+But, and a big but 😏, the existing code will __only__ continue to work if it is __recompiled__. 
+
+Now, this is ok in a lot of situations. If you are using a library or framework and you update them, then you will most likely recompile your project as your application is what starts everything and therefore cannot benefit from the updates without a rebuild. 
+
+However, if you are using something that resembles a platform, that runs you application rather than the other way around, then your application should still work without recompilation. This is where the inner workings of Kotlin's default arguments unravel.
+
+> An analogy for this is, when your operating system updates you don't want to also update every application on your machine. Instead you want them to continue working as they were with the possibility of updating to benefit from specific improvements that were made.
+
+To understand why it breaks without recompilation, we need to look at the decompiled bytecode of the function and call-site again:
+
+```java
+// Decompiled code of the function with default arguments
+public static void function$default(MyInterface var0, MyInterface.A var1, MyInterface.B var2, 
+  MyInterface.C var3, MyInterface.D var4, MyInterface.E var5, int var6, Object var7)
+```
+
+```java
+// Decompiled code of the call-site
+DefaultImpls.function$default(myInterface, (A)null, new B(), new C(), (D)null, (E)null, 25, (Object)null);
+```
+
+Now we'll introduce the updated version with a new argument with a default value and take a look at the decompiled code:
+
+```java
+public static void function$default(MyInterface var0, MyInterface.A var1, MyInterface.B var2,
+  MyInterface.C var3, MyInterface.D var4, MyInterface.E var5, MyInterface.F var6, int var7, Object var8)
+```
+
+> Note, that this is now the only version of the function in the bytecode.
+
+Let's much up the old call-site with the function's new version:
+
+| Call-site       | Extra argument  |    |
+|-----------------|-----------------|----|
+| `MyInterface`   | `MyInterface`   | ✅ |
+| `MyInterface.A` | `MyInterface.A` | ✅ |
+| `MyInterface.B` | `MyInterface.B` | ✅ |
+| `MyInterface.C` | `MyInterface.C` | ✅ |
+| `MyInterface.D` | `MyInterface.D` | ✅ |
+| `MyInterface.E` | `MyInterface.E` | ✅ |
+| `int`           | `MyInterface.F` | ❌ |
+| `Object`        | `int`           | ❌ |
+| -               | `Object`        | ❌ |
+
+The call-site no longer passes in the correct inputs for the function. Trying to run the existing code against the updated function will cause the following error (nicely formatted to make it easier to read):
+
+```java
+Caused by: java.lang.NoSuchMethodError: 
+'void dev.lankydan.api.MyInterface$DefaultImpls.function$default(
+  dev.lankydan.api.MyInterface, 
+  dev.lankydan.api.MyInterface$A,
+  dev.lankydan.api.MyInterface$B,
+  dev.lankydan.api.MyInterface$C,
+  dev.lankydan.api.MyInterface$D, 
+  dev.lankydan.api.MyInterface$E,
+  int,
+  java.lang.Object
+)'
+```
+
+Ok, so we've seen what goes wrong when a new argument with a default value is added to a function without recompiling the code using it. Does this mean there is no hope? Stop worrying and read the next section!
+
 ## What can be done about it
+
+The previous section showed why platform writers need to be careful adding new arguments with default values to existing functions. However I didn't detail any solutions, which I'll now rectify.
+
+As mentioned previously, depending on the situation, recompiling the depending code might be the simplest solution. If that is a valid choice, I would probably just go with that. From now on though, we'll assume that it's not a good idea and consider how to keep everything working without recompilation.
+
+Evolving the function without breaking anything will require a new overload. In the same way that I briefly mentioned removing or adding a non-default argument, this is the only choice you really have (I'll touch on a completely different choice in a second). 
+
+```kotlin
+// Original version
+✅ fun function(a: A = A(), b: B = B(), c: C = C(), d: D = D(), e: E = E())
+// New overload with the extra argument
+✅ fun function(a: A = A(), b: B = B(), c: C = C(), d: D = D(), e: E = E(), f: F = F())
+```
+
+As shown earlier, you unfortunately cannot rely on the code to work without handling it yourself.
+
+From a bytecode perspective this works because there will be a synthetic function for each overload. Keeping the original version around so that it can be used from existing applications.
+
+A different choice to circumvent this problem is to not use default arguments at all. I know, that sounds odd, but one way to not fall into this trap is to stay on the well trodden path. In Java to evolve an API without breaking anything you would always use a new overload. It worked for Java, so why wouldn't it work for Kotlin. 
+
+The obvious downside is that you lose the benefit of default values all together, but you'll have to decide what works best for you and stick to it. Maybe a rule of "no default arguments" is easier to follow that "always add an overload" even though the outcome is completely the same (for that singular change).
+
+> You might have to include _a lot_ of overloads to keep the same functionality of default arguments.
+
+
+
+## Why are the 2 args at the end there and not at the from (this of a heading)
