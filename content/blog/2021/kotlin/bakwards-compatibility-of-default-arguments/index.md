@@ -1,6 +1,6 @@
 ---
-title: Backwards compatibility of Kotlin default arguments
-date: "2021-02-28"
+title: Backwards compatibility of Kotlin's default arguments
+date: "2021-03-07"
 published: true
 tags: [kotlin]
 cover_image: blog-card.png
@@ -8,7 +8,7 @@ cover_image: blog-card.png
 
 Kotlin's default arguments can make APIs easier to understand as a user and more effortless to write as a developer. No more manually writing out function overloads with every possible useful combination of arguments. Furthermore, when reading these functions, it's easy to see what arguments can be left out and what values they use if you do.
 
-That all sounds great, right? Most uses of Kotlin default arguments will work perfectly, bar any lousy code you write, but that isn't really Kotlin's fault. However, in some use-cases, there is a flaw with how default arguments work. More precisely, evolving the API of a platform without requiring existing code to recompile.
+That all sounds great, right? Most uses of Kotlin's default arguments will work perfectly, bar any lousy code you write, but that isn't really Kotlin's fault. However, in some use-cases, there is a flaw with how default arguments work. More precisely, evolving the API of a platform without requiring existing code to recompile.
 
 This post will focus on how Kotlin's default arguments work under the hood, why that affects backwards compatibility, and what you can do about it.
 
@@ -195,7 +195,7 @@ From this version, we can now see how the `int` and `Object` are being used.
 
 Finally, as seen in the decompiled code, now that all variables are correctly set (`var1` to `var5`), they are passed into the _real_ function, reaching the end of the process.
 
-Hopefully, that all made sense. If not, give it another read. If it still doesn't, then you can blame me for failing to explain it well enough. Anyway, you will need this knowledge in the next section to understand how Kotlin's default arguments affect backwards compatibility.
+Hopefully, that all made sense. If not, give it another read. If it still doesn't, then you can blame me for failing to explain it well enough. You will need this knowledge in the next section to understand how Kotlin's default arguments affect backwards compatibility.
 
 ## Why this affects backwards compatibility
 
@@ -242,9 +242,9 @@ By excluding basic removing and adding, we are left with adding a new argument w
 
 But, and a big but 😏, the existing code will __only__ continue to work if it is __recompiled__. 
 
-Now, this is ok in a lot of situations. Suppose you are using a library or framework and you update them. In that case, you will most likely recompile your project as your application is what starts everything and therefore cannot benefit from the updates without a rebuild. 
+Now, this is ok in a lot of situations. Suppose you are using a library or framework and you update them. In that case, you will most likely recompile your project as your application is what starts everything and therefore cannot benefit from the updates without a rebuild.
 
-However, if you are using something that resembles a platform that runs your application rather than the other way around, then it should still work without recompilation. A platform should evolve without breaking everything using it, assuming it's not a major version update. This is where the inner workings of Kotlin's default arguments unravel.
+However, if you are building something that resembles a platform that runs application code written by other developers, then these applications should continue to work without recompilation. A platform should evolve without breaking everything using it, assuming it's not a major version update. This is where the inner workings of Kotlin's default arguments unravel.
 
 > An analogy for this is, when your operating system updates, you don't want to also update every application on your machine. Instead, you want them to continue working as they were with the possibility of updating to benefit from any specific improvements.
 
