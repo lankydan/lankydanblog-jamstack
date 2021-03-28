@@ -1,6 +1,6 @@
 ---
 title: Running Kafka locally with Docker
-date: "2021-03-30"
+date: "2021-03-28"
 published: true
 tags: [kafka, docker]
 cover_image: blog-card.png
