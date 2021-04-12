@@ -1,5 +1,6 @@
 ---
 title: Intro to Kafka - Topics and partitions
+slug: intro-to-kafka-topics-and-partitions
 date: "2021-04-12"
 published: true
 tags: [kafka]
