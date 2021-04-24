@@ -4,6 +4,7 @@ slug: intro-to-kafka-topics-and-partitions
 date: "2021-04-12"
 published: true
 tags: [kafka]
+series: Intro to Kafka
 cover_image: blog-card.png
 ---
 
