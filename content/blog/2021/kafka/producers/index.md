@@ -8,7 +8,7 @@ series: Intro to Kafka
 cover_image: blog-card.png
 ---
 
-Producers make up the Kafka client code that sends records to topics. These clients dramatically reduce the complexity of leveraging Kafka as it handles problems like connecting pooling and network buffering. You can choose to interact with a small amount of API while still writing highly effective applications.
+Producers make up the Kafka client code that sends records to topics. These clients dramatically reduce the complexity of leveraging Kafka as it handles problems like connection pooling and network buffering. You can choose to interact with a small amount of API while still writing highly effective applications.
 
 The diagram below demonstrates how a producer sends a record to a broker, who then records it in one of its topics' partitions.
 
@@ -135,7 +135,7 @@ fun createProducer(): Producer<String, String> {
   return KafkaProducer(props)
 }
 
-fun produceMessages(producer: Producer<String, String>, topic: String) {
+fun produceRecords(producer: Producer<String, String>, topic: String) {
   // Execute every 2 seconds
   fixedRateTimer(daemon = true, period = Duration.ofSeconds(2).toMillis()) {
     val time = LocalDateTime.now()
@@ -145,7 +145,7 @@ fun produceMessages(producer: Producer<String, String>, topic: String) {
       time.toString(), // Key
       "Record sent at $time" // Value
     )
-    println("Producer sending message: $record")
+    println("Producer sending record: $record")
     // Send the record
     producer.send(record)
   }
