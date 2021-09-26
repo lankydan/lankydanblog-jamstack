@@ -2,7 +2,7 @@
 title: Documenting a Spring REST API following the OpenAPI specification
 date: "2021-09-26"
 published: true
-tags: [java, spring, spring boot, springdoc-openapi, open api, swagger]
+tags: [spring, spring boot, java, springdoc-openapi, open api, swagger]
 cover_image: blog-card.png
 github_url: https://github.com/lankydan/spring-rest-api-with-swagger
 ---
@@ -23,7 +23,7 @@ The library provides support for _standard_ (don't know what to really call this
 
 To top everything off, springdoc-openapi can start a [Swagger UI](https://swagger.io/tools/swagger-ui/) based on the documentation it generates, making it even easier for users to understand and interact with your APIs.
 
-## `springdoc-openapi` dependency
+## springdoc-openapi dependency
 
 To include `springdoc-openapi` in your project, use the following dependency:
 
@@ -39,7 +39,7 @@ This dependency should be used alongside Spring Boot.
 
 > For more information on supported functionality and their dependencies, refer to the official [springdoc-openapi documentation](https://springdoc.org/#modules).
 
-## Taking your first steps with `springdoc-openapi`
+## Taking your first steps with springdoc-openapi
 
 After including the library in your project, how do you start generating documentation?
 
@@ -93,7 +93,13 @@ public class PersonController {
         if (!personRepository.existsById(id)) {
             return ResponseEntity.notFound().build();
         } else {
-            Person saved = personRepository.save(new Person(id, person.getFirstName(), person.getLastName()));
+            Person saved = personRepository.save(
+                new Person(
+                    id, 
+                    person.getFirstName(),
+                    person.getLastName()
+                )
+            );
             return ResponseEntity.ok(saved);
         }
     }
