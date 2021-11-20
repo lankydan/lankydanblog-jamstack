@@ -1,6 +1,6 @@
 ---
 title: Building a modular REST API with Javalin
-date: "2021-11-21"
+date: "2021-11-20"
 published: true
 tags: [javalin, kodein, kotlin]
 cover_image: blog-card.png
@@ -315,6 +315,13 @@ interface Controller {
 }
 
 // In the `people` module
+object People {
+  val module = DI.Module("People module") {
+    bindSingleton { PersonRepository() }
+    bindSingleton { PersonController(instance()) }
+  }
+}
+
 class PersonController(private val personRepository: PersonRepository) : Controller {
 
   override val path = "/people"
