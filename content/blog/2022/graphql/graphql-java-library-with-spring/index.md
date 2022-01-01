@@ -41,45 +41,157 @@ type Relationship {
 
 I'll cover how we register the schema later on, for now knowing the shape of the types in the schema will set up the following sections.
 
-## Writing `DataFetcher`s to reply to queries
+## Fetching data with `DataFetcher`s
 
-GraphQL Java uses `DataFetcher`s to define the code that executes when an incoming query is processed.
+GraphQL Java uses `DataFetcher`s to fetch data to include in the result of a query. More specifically, a `DataFetcher` retrieves the data for a single field when a query is executed.
 
-In simple terms, `DataFetcher` fetch data to include in the result of a query.
+Every field has an assigned `DataFetcher`. When an incoming GraphQL query is received, the library will call the registered `DataFetcher` for each field in the query.
 
-I've included the interface below:
+> The official `DataFetcher` documentation can be found [here](https://www.graphql-java.com/documentation/data-fetching).
+
+It is worth pointing out now, as it personally caused me a lot of confusion to begin with, that a "field" can mean two things:
+
+- The name of a query.
+- The field of a schema type.
+
+This is important as it means that a `DataFetcher` can be linked to a query. In fact, every query __must__ have an associated `DataFetcher`. Not doing this will cause GraphQL query requests to fail as there is no entry point to begin processing the query.
+
+I keep mentioning `DataFetcher`s, but what are they really in terms of code? Below is the `DataFetcher` interface:
 
 ```java
-/**
- * A data fetcher is responsible for returning a data value back for a given graphql field.  The graphql engine
- * uses data fetchers to resolve / fetch a logical field into a runtime object that will be sent back as part
- * of the overall graphql {@link graphql.ExecutionResult}
- *
- * In other implementations, these are sometimes called "Resolvers" or "Field Resolvers", because that is there function,
- * they resolve a logical graphql field into an actual data value.
- *
- * @param <T> the type of object returned. May also be wrapped in a {@link graphql.execution.DataFetcherResult}
- */
-@PublicSpi
 public interface DataFetcher<T> {
 
-    /**
-     * This is called by the graphql engine to fetch the value.  The {@link graphql.schema.DataFetchingEnvironment} is a composite
-     * context object that tells you all you need to know about how to fetch a data value in graphql type terms.
-     *
-     * @param environment this is the data fetching environment which contains all the context you need to fetch a value
-     *
-     * @return a value of type T. May be wrapped in a {@link graphql.execution.DataFetcherResult}
-     *
-     * @throws Exception to relieve the implementations from having to wrap checked exceptions. Any exception thrown
-     *                   from a {@code DataFetcher} will eventually be handled by the registered {@link graphql.execution.DataFetcherExceptionHandler}
-     *                   and the related field will have a value of {@code null} in the result.
-     */
     T get(DataFetchingEnvironment environment) throws Exception;
-
-
 }
 ```
+
+So when I say `DataFetcher` I'm really talking about implementations of the `DataFetcher` interface.
+
+Lets look at an example `DataFetcher` that will respond to the `people` query:
+
+```graphql
+type Query {
+    people: [Person]
+}
+```
+
+The `DataFetcher` for this query:
+
+```kotlin
+@Component
+class PeopleDataFetcher(private val personRepository: PersonRepository) : DataFetcher<List<PersonDTO>> {
+
+  override fun get(environment: DataFetchingEnvironment): List<PersonDTO> {
+    return personRepository.findAll().map { PersonDTO(it.id, it.firstName, it.lastName) }
+  }
+}
+```
+
+The `PeopleDataFetcher` returns a `List<PersonDTO>` to correspond to the `[Person]` specified as the turn type of the GraphQL query. The `PersonDTO` contains fields found in the `Person` GraphQL type.
+
+When `DataFetcher.get` is executed it queries the database, maps the results to `PersonDTO`s and returns them.
+
+When an incoming GraphQL query, like the following is received:
+
+```graphql
+query {
+    people {
+        firstName
+        lastName
+        id
+    }
+}
+```
+
+The following is returned after GraphQL Java has called the `PeopleDataFetcher`:
+
+```json
+{
+    "data": {
+        "people": [
+            {
+                "firstName": "John",
+                "lastName": "Doe",
+                "id": "00a0d4f2-637f-469c-9ecf-ba8839307996"
+            },
+            {
+                "firstName": "Dan",
+                "lastName": "Newton",
+                "id": "27a08c14-d0ad-476c-ba09-9edad3e4c8f9"
+            }
+        ]
+    }
+}
+```
+
+That covers a first look at what `DataFetcher`s do, in following sections we'll expand on them to improve your understanding of GraphQL Java.
+
+## The default `PropertyDataFatcher`
+
+As mentioned in the previous section, every field must have an assigned `DataFetcher`. That means for the `Person` type:
+
+```graphql
+type Person {
+    id: ID,
+    firstName: String,
+    lastName: String
+    relationships: [Relationship]
+}
+```
+
+You would need to associate `DataFetchers` to:
+
+- `Person.id`
+- `Person.firstName`
+- `Person.lastName`
+- `Person.relationships`
+
+That seems a bit onerous, especially when you might be able to retrieve all of this data in one go. For example, if data was being retrieve from a database, then this could be the difference between 1 SQL query vs 4.
+
+To resolve this, any field without an assigned `DataFetcher` uses the `PropertyDataFetcher` by default. The `PropertyDataFetcher` uses various methods (e.g. getters or keys in a map) to extract field values from the parent field (could be a query or schema type).
+
+To provide a concrete example, previously the `PeopleDataFetcher` was used to respond to the `people` GraphQL query:
+
+```graphql
+type Query {
+    people: [Person]
+}
+
+type Person {
+    id: ID,
+    firstName: String,
+    lastName: String
+    relationships: [Relationship]
+}
+```
+
+```kotlin
+@Component
+class PeopleDataFetcher(private val personRepository: PersonRepository) : DataFetcher<List<PersonDTO>> {
+
+  override fun get(environment: DataFetchingEnvironment): List<PersonDTO> {
+    return personRepository.findAll().map { PersonDTO(it.id, it.firstName, it.lastName) }
+  }
+}
+```
+
+The `PeopleDataFetcher` returns a `PersonDTO` for each `Person` it finds as its response to the top level query. This can be thought of as the "parent field".
+
+The GraphQL library will then move down to fetch values for each queried field in `Person`, for example `firstName` and `lastName`. By using the `PropertyDataFetcher`, it accesses each `PersonDTO` returned by the parent field's `DataFetcher` (`PeopleDataFetcher`) and extracts the values using each instances' getters.
+
+The same process would occur when querying `Person.relationships`. The `DataFetcher` assigned to `Person.relationships` is called and then the `DataFetcher`s linked to `Relationship`s fields. If these are `PropertyDataFetcher`s then whatever object was returned when evaluating `Person.relationships` has values extracted from it that match the queried fields.
+
+You might need to run that through your head a few times so it makes sense. I only properly understood this after debugging the library a little bit when my code wasn't working correctly.
+
+
+
+
+
+
+
+
+
+
 
 There are two ways that implementations of `DataFetcher` can be used.
 
