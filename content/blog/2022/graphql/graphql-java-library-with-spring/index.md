@@ -9,15 +9,41 @@ github_url: https://github.com/lankydan/spring-kotlin-graphql
 
 [GraphQL Java](https://github.com/graphql-java/graphql-java) is one of the most popular GraphQL server side implementations for Java that I've found with over 5k stars (at the time of writing). If you're planning to expose a GraphQL API from a Java or JVM application, then this is a good library to start using.
 
-In this blog post I will cover how to use GraphQL Java within a Spring application. GraphQL Java does have their own [official documentation covering this subject](https://www.graphql-java.com/tutorials/getting-started-with-spring-boot/), however I found it a bit too simplistic which made it harder for me to wrap my head around it. I hope that you don't think the same about the content of this post, although I guess you could write your own that is even more complicated than my examples!
+In this blog post I will cover how to use GraphQL Java within a Spring application that exposes an endpoint for clients to send queries to. GraphQL Java does have their own [official documentation covering this subject](https://www.graphql-java.com/tutorials/getting-started-with-spring-boot/), however I found it a bit too simplistic which made it harder for me to wrap my head around it. I hope that you don't think the same about the content of this post, although I guess you could write your own that is even more complicated than my examples!
 
-I'll also give you a heads up to the fact that I have written my examples in Kotlin, although I tried to keep it friendly for Java readers.
+I will be writing this from the assumption that your understand some of the basics of GraphQL. I won't be covering anything extremely complicated so the basics will give you a good base for the content of this blog post. Knowing how to create a schema type and a query that does nothing fancy will be all you need. You can find this information from the official [graphql.org](https://graphql.org/learn/) site.
 
-I will also be writing this from the assumption that your understand some of the basics of GraphQL. I won't be covering anything extremely complicated so the basics will give you a good base for the content of this blog post. Knowing how to create a schema type and a query that does nothing fancy will be all you need. You can find this information from the official [graphql.org](https://graphql.org/learn/) site.
+Also, here's a heads up to the fact that I have written my examples in Kotlin, although I tried to keep it friendly for Java readers.
 
 ## Dependencies
 
-FILL THIS IN!!
+Below are the Spring and GraphQL related dependencies used in this post:
+
+```xml
+<parent>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-parent</artifactId>
+  <version>2.6.1</version>
+</parent>
+
+<dependencies>
+  <dependency>
+    <groupId>com.graphql-java</groupId>
+    <artifactId>graphql-java</artifactId>
+    <version>16.2</version>
+  </dependency>
+  <dependency>
+    <groupId>com.graphql-java</groupId>
+    <artifactId>graphql-java-spring-boot-starter-webmvc</artifactId>
+    <version>2.0</version>
+  </dependency>
+  <dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+    <version>2.6.1</version>
+  </dependency>
+</dependencies>
+```
 
 ## The schema we'll use
 
@@ -25,21 +51,21 @@ Below is the schema that we'll use throughout this post:
 
 ```graphql
 type Query {
-    people: [Person]
-    peopleByFirstName(firstName: String): [Person]
-    personById(id: ID): Person
+  people: [Person]
+  peopleByFirstName(firstName: String): [Person]
+  personById(id: ID): Person
 }
 
 type Person {
-    id: ID,
-    firstName: String,
-    lastName: String
-    relationships: [Relationship]
+  id: ID,
+  firstName: String,
+  lastName: String
+  relationships: [Relationship]
 }
 
 type Relationship {
-    relation: Person,
-    relationship: String
+  relation: Person,
+  relationship: String
 }
 ```
 
@@ -65,7 +91,7 @@ I keep mentioning `DataFetcher`s, but what are they really in terms of code? Bel
 ```java
 public interface DataFetcher<T> {
 
-    T get(DataFetchingEnvironment environment) throws Exception;
+  T get(DataFetchingEnvironment environment) throws Exception;
 }
 ```
 
@@ -111,20 +137,20 @@ The following is returned after GraphQL Java has called the `PeopleDataFetcher`:
 
 ```json
 {
-    "data": {
-        "people": [
-            {
-                "firstName": "John",
-                "lastName": "Doe",
-                "id": "00a0d4f2-637f-469c-9ecf-ba8839307996"
-            },
-            {
-                "firstName": "Dan",
-                "lastName": "Newton",
-                "id": "27a08c14-d0ad-476c-ba09-9edad3e4c8f9"
-            }
-        ]
-    }
+  "data": {
+    "people": [
+      {
+        "firstName": "John",
+        "lastName": "Doe",
+        "id": "00a0d4f2-637f-469c-9ecf-ba8839307996"
+      },
+      {
+        "firstName": "Dan",
+        "lastName": "Newton",
+        "id": "27a08c14-d0ad-476c-ba09-9edad3e4c8f9"
+      }
+    ]
+  }
 }
 ```
 
@@ -136,10 +162,10 @@ As mentioned in the previous section, every field must have an assigned `DataFet
 
 ```graphql
 type Person {
-    id: ID,
-    firstName: String,
-    lastName: String
-    relationships: [Relationship]
+  id: ID,
+  firstName: String,
+  lastName: String
+  relationships: [Relationship]
 }
 ```
 
@@ -158,14 +184,14 @@ To provide a concrete example, previously the `PeopleDataFetcher` was used to re
 
 ```graphql
 type Query {
-    people: [Person]
+  people: [Person]
 }
 
 type Person {
-    id: ID,
-    firstName: String,
-    lastName: String
-    relationships: [Relationship]
+  id: ID,
+  firstName: String,
+  lastName: String
+  relationships: [Relationship]
 }
 ```
 
@@ -223,7 +249,7 @@ Take the query:
 
 ```graphql
 type Query {
-    peopleByFirstName(firstName: String): [Person]
+  peopleByFirstName(firstName: String): [Person]
 }
 ```
 
@@ -302,7 +328,103 @@ After registering each `DataFetcher`, the `RuntimeWiring` instance is finalised 
 
 Finally the `TypeDefinitionRegistry` and `RuntimeWiring` created previously are passed through a `SchemaGenerator` and then into `GraphQL.newGraphQL` to retrieve a fully functional `GraphQL` instance.
 
-With the setup complete, the application now exposes a `/graphql` endpoint provided by the auto-configured code in `graphql-java-spring-boot-starter-webmvc`.
+## Sending a GraphQL query to the application
+
+With the setup complete the application now exposes a `/graphql` endpoint provided by the auto-configured code in `graphql-java-spring-boot-starter-webmvc`. This endpoint is where clients will send GraphQL queries to.
+
+In this section, we'll look at how to send a query using cURL and Postman (which has GraphQL functionality) and view the data that is returned.
+
+Tzhe query we are trying to send:
+
+```graphql
+query {
+    peopleByFirstName(firstName: "Dan") {
+        firstName
+        lastName
+        id
+        relationships {
+            relation {
+                firstName
+                lastName
+            }
+            relationship
+        }
+    }
+}
+```
+
+- cURL:
+
+  ```shell
+  curl 'localhost:8080/graphql/' \
+  -X POST \
+  -H 'content-type: application/json' \
+  --data '{ "query": "query { peopleByFirstName(firstName: \"Dan\") { firstName lastName id relationships { relation { firstName lastName } relationship }}}"}'
+  ```
+
+- Postman:
+
+![GraphQL call using Postman](./postman-graphql-call.png)
+
+
+Both of these methods return the same data (I would be worried if they didn't):
+
+```json
+{
+  "data": {
+    "peopleByFirstName": [
+      {
+        "firstName": "Dan",
+        "lastName": "Newton",
+        "id": "27a08c14-d0ad-476c-ba09-9edad3e4c8f9",
+        "relationships": [
+          {
+            "relation": {
+              "firstName": "Laura",
+              "lastName": "So"
+            },
+            "relationship": "Wife"
+          },
+          {
+            "relation": {
+              "firstName": "Random",
+              "lastName": "Person"
+            },
+            "relationship": "Friend"
+          }
+        ]
+      },
+      {
+        "firstName": "Dan",
+        "lastName": "Doe",
+        "id": "3c07b717-8b9c-4d88-926f-c892be38ee85",
+        "relationships": []
+      },
+    ]
+  }
+}
+```
+
+The most important factor here is that a `POST` request is used. It seems to be common place for GraphQL API to use `POST` requests for fetching and mutating data. This through me off for a while as the error I received from the `/graphql` endpoint added by the library didn't cause me to believe it was due to using the wrong HTTP verb. 
+
+For clarity, using the wrong HTTP verb (e.g. a `GET`) leads to the following response and log line:
+
+```json
+{
+    "timestamp": "2022-01-03T16:50:58.376+00:00",
+    "status": 400,
+    "error": "Bad Request",
+    "path": "/graphql"
+}
+```
+
+```log
+Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'query' for method parameter type String is not present]
+```
+
+## Improving the registration of `DataFetcher`s
+
+## Summary
 
 There are two ways that implementations of `DataFetcher` can be used.
 
