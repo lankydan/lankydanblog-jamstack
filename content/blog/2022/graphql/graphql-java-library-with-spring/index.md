@@ -5,15 +5,16 @@ published: true
 tags: [graphql, graphql-java, spring, java, kotlin]
 cover_image: blog-card.png
 github_url: https://github.com/lankydan/spring-kotlin-graphql
+series: GraphQL Java
 ---
 
-[GraphQL Java](https://github.com/graphql-java/graphql-java) is one of the most popular GraphQL server side implementations for Java that I've found with over 5k stars (at the time of writing). If you're planning to expose a GraphQL API from a Java or JVM application, then this is a good library to start using.
+[GraphQL Java](https://github.com/graphql-java/graphql-java) is one of the most popular GraphQL server-side implementations for Java that I've found (with over 5k stars at the time of writing). If you're planning to expose a GraphQL API from a Java or JVM application, then this is an excellent library to start using.
 
-In this blog post I will cover how to use GraphQL Java within a Spring application that exposes an endpoint for clients to send queries to. GraphQL Java does have their own [official documentation covering this subject](https://www.graphql-java.com/tutorials/getting-started-with-spring-boot/), however I found it a bit too simplistic which made it harder for me to wrap my head around it. I hope that you don't think the same about the content of this post, although I guess you could write your own that is even more complicated than my examples!
+This blog post will cover how to use GraphQL Java within a Spring application that exposes an endpoint for clients to send queries to. GraphQL Java does have its own [official documentation covering this subject](https://www.graphql-java.com/tutorials/getting-started-with-spring-boot/); however, I found it a bit too simplistic, which made it harder for me to wrap my head around it. I hope you don't think the same about the content of this post, although I guess you could write your own that is even more complicated than my examples!
 
-I will be writing this from the assumption that your understand some of the basics of GraphQL. I won't be covering anything extremely complicated so the basics will give you a good base for the content of this blog post. Knowing how to create a schema type and a query that does nothing fancy will be all you need. You can find this information from the official [graphql.org](https://graphql.org/learn/) site.
+I will be writing this from the assumption that you understand some of the basics of GraphQL. I won't be covering anything extremely complicated, so the basics will give you a good base for the content of this blog post. Knowing how to create a schema type and a query that does nothing fancy will be all you need. You can find this information from the official [graphql.org](https://graphql.org/learn/) site.
 
-Also, here's a heads up to the fact that I have written my examples in Kotlin, although I tried to keep it friendly for Java readers.
+Also, here's a heads up that I have written my examples in Kotlin, although I tried to keep it friendly for Java readers.
 
 ## Dependencies
 
@@ -47,7 +48,7 @@ Below are the Spring and GraphQL related dependencies used in this post:
 
 ## The schema we'll use
 
-Below is the schema that we'll use throughout this post:
+Below is the GraphQL schema that we'll use throughout this post:
 
 ```graphql
 type Query {
@@ -69,7 +70,7 @@ type Relationship {
 }
 ```
 
-I'll cover how we register the schema later on, for now knowing the shape of the types in the schema will set up the following sections.
+I'll cover how we register and interact with the schema later on; knowing the shape of the types in the schema will set up the following sections.
 
 ## Fetching data with `DataFetcher`s
 
@@ -82,7 +83,7 @@ Every field has an assigned `DataFetcher`. When an incoming GraphQL query is rec
 It is worth pointing out now, as it personally caused me a lot of confusion to begin with, that a "field" can mean two things:
 
 - The name of a query.
-- The field of a schema type.
+- A property/field in a schema type.
 
 This is important as it means that a `DataFetcher` can be linked to a query. In fact, every query __must__ have an associated `DataFetcher`. Not doing this will cause GraphQL query requests to fail as there is no entry point to begin processing the query.
 
@@ -95,9 +96,9 @@ public interface DataFetcher<T> {
 }
 ```
 
-So when I say `DataFetcher` I'm really talking about implementations of the `DataFetcher` interface.
+So when I say `DataFetcher`, I'm really talking about implementations of the `DataFetcher` interface.
 
-Lets look at an example `DataFetcher` that will respond to the `people` query:
+Let's look at an example `DataFetcher` that will respond to the `people` query:
 
 ```graphql
 type Query {
@@ -112,14 +113,25 @@ The `DataFetcher` for this query:
 class PeopleDataFetcher(private val personRepository: PersonRepository) : DataFetcher<List<PersonDTO>> {
 
   override fun get(environment: DataFetchingEnvironment): List<PersonDTO> {
-    return personRepository.findAll().map { PersonDTO(it.id, it.firstName, it.lastName) }
+    return personRepository.findAll().map { person -> PersonDTO(
+        person.id,
+        person.firstName,
+        person.lastName
+      ) 
+    }
   }
 }
 ```
 
-The `PeopleDataFetcher` returns a `List<PersonDTO>` to correspond to the `[Person]` specified as the turn type of the GraphQL query. The `PersonDTO` contains fields found in the `Person` GraphQL type.
+The `PeopleDataFetcher` returns a `List<PersonDTO>` to correspond to the `[Person]` specified as the turn type of the GraphQL query. The `PersonDTO` contains the same fields found in the `Person` GraphQL type:
 
-When `DataFetcher.get` is executed it queries the database, maps the results to `PersonDTO`s and returns them.
+```kotlin
+data class PersonDTO(val id: UUID, val firstName: String, val lastName: String)
+```
+
+> A field for relationships has been omitted to simplify the examples 
+
+When `PeopleDataFetcher.get` is executed, it queries the database, maps the results to `PersonDTO`s and returns them.
 
 When an incoming GraphQL query, like the following is received:
 
@@ -154,7 +166,7 @@ The following is returned after GraphQL Java has called the `PeopleDataFetcher`:
 }
 ```
 
-That covers a first look at what `DataFetcher`s do, in following sections we'll expand on them to improve your understanding of GraphQL Java.
+That covers a first look at what `DataFetcher`s do. We'll expand on them in the following sections to improve your understanding of GraphQL Java.
 
 ## The default `PropertyDataFatcher`
 
@@ -176,11 +188,13 @@ You would need to associate `DataFetchers` to:
 - `Person.lastName`
 - `Person.relationships`
 
-That seems a bit onerous, especially when you might be able to retrieve all of this data in one go. For example, if data was being retrieve from a database, then this could be the difference between 1 SQL query vs 4.
+That seems a bit onerous, especially when you might be able to retrieve all of this data in one go. For example, retrieving data from a database could be the difference between 1 SQL query vs 4.
 
-To resolve this, any field without an assigned `DataFetcher` uses the `PropertyDataFetcher` by default. The `PropertyDataFetcher` uses various methods (e.g. getters or keys in a map) to extract field values from the parent field (could be a query or schema type).
+To resolve this, any field without an assigned `DataFetcher` uses the `PropertyDataFetcher` by default. 
 
-To provide a concrete example, previously the `PeopleDataFetcher` was used to respond to the `people` GraphQL query:
+The `PropertyDataFetcher` uses various methods (e.g. getters or keys in a map) to extract field values from the parent field (could be a query or schema type).
+
+To provide a concrete example, the `PeopleDataFetcher` we saw previously was used to respond to the `people` GraphQL query (the query, type and `PeopleDataFetcher` are included below):
 
 ```graphql
 type Query {
@@ -200,22 +214,34 @@ type Person {
 class PeopleDataFetcher(private val personRepository: PersonRepository) : DataFetcher<List<PersonDTO>> {
 
   override fun get(environment: DataFetchingEnvironment): List<PersonDTO> {
-    return personRepository.findAll().map { PersonDTO(it.id, it.firstName, it.lastName) }
+    return personRepository.findAll().map { person -> PersonDTO(
+        person.id,
+        person.firstName,
+        person.lastName
+      ) 
+    }
   }
 }
 ```
 
-The `PeopleDataFetcher` returns a `PersonDTO` for each `Person` it finds as its response to the top level query. This can be thought of as the "parent field".
+The `PeopleDataFetcher` returns a `PersonDTO` for each `Person` it finds to respond to the top-level query. This can be thought of as the "parent field".
 
-The GraphQL library will then move down to fetch values for each queried field in `Person`, for example `firstName` and `lastName`. By using the `PropertyDataFetcher`, it accesses each `PersonDTO` returned by the parent field's `DataFetcher` (`PeopleDataFetcher`) and extracts the values using each instances' getters.
+The GraphQL library will then move down to fetch values for each queried field in `Person`, for example, `firstName` and `lastName`. Using the `PropertyDataFetcher`, it accesses each `PersonDTO` returned by the parent field's `DataFetcher` (`PeopleDataFetcher`) and extracts the values using their getters.
 
-The same process would occur when querying `Person.relationships`. The `DataFetcher` assigned to `Person.relationships` is called and then the `DataFetcher`s linked to `Relationship`s fields. If these are `PropertyDataFetcher`s then whatever object was returned when evaluating `Person.relationships` has values extracted from it that match the queried fields.
+In concrete terms, this means:
 
-You might need to run that through your head a few times so it makes sense. I only properly understood this after debugging the library a little bit when my code wasn't working correctly.
+- `Person.id` -> Value provided by `PersonDTO.id`.
+- `Person.firstName` -> Value provided by `PersonDTO.firstName`.
+- `Person.lastName` -> Value provided by `PersonDTO.lastName`.
+- `Person.relationships` -> Empty because no value was provided.
+
+> `PersonDTO.id` is how you write `Person.getId` in Kotlin (the applies to the other fields).
+
+You might need to run that through your head a few times so it makes sense. I only properly understood this after debugging the library when my code wasn't working correctly.
 
 ## Writing a `DataFetcher` for a schema type's field
 
-The `PeopleDataFetcher` we've seen throughout this post responds to a query. Now let's look at a custom `DataFetcher` that should be associated to a schema type's field.
+The `PeopleDataFetcher` we've seen throughout this post responds to a query. Now let's look at a custom `DataFetcher` that should be associated with a schema type's field.
 
 The `PersonRelationshipsDataFetcher` fetches data for the `Person.relationships` field:
 
@@ -229,21 +255,21 @@ class PersonRelationshipsDataFetcher(
     // Gets the object wrapping the [relationships] field
     // In this case a [PersonDTO] object.
     val source = environment.getSource<PersonDTO>()
-    return relationshipRepository.findAllByPersonId(source.id).map {
+    return relationshipRepository.findAllByPersonId(source.id).map { relationship ->
       RelationshipDTO(
-        relation = it.relatedPerson.toDTO(),
-        relationship = it.relationship
+        relation = relationship.relatedPerson.toDTO(),
+        relationship = relationship.relationship
       )
     }
   }
 }
 ```
 
-It looks similar to the `PeopleDataFetcher` we look at previously, except for the call to `DataFetchingEnvironment.getSource`. This method is what allows a `DataFetcher` to access the object returned by the `DataFetcher` associated to the parent field. After accessing this object, information is extracted from it (the person's id) to be used in the SQL query executed by the `PersonRelationshipsDataFetcher`.
+It looks similar to the `PeopleDataFetcher` we saw previously, except for the new call to `DataFetchingEnvironment.getSource`. This method allows a `DataFetcher` to access the object returned by the `DataFetcher` associated with the parent field. After accessing this object, information is extracted from it (`PersonDTO.id`) to be used in the SQL query executed by the `PersonRelationshipsDataFetcher`.
 
 ## Writing a `DataFetcher` for a query containing an argument
 
-Queries become far more useful when you can pass arguments into them.
+Queries become far more worthwhile when you can pass arguments into them.
 
 Take the query:
 
@@ -263,18 +289,18 @@ class PeopleByFirstNameDataFetcher(private val personRepository: PersonRepositor
 		// The argument is extracted from the GraphQL query
     val argument = environment.getArgument<String>("firstName")
     return personRepository.findAllByFirstName(firstName)
-      .map { PersonDTO(it.id, it.firstName, it.lastName, emptyList()) }
+      .map { person -> PersonDTO(person.id, person.firstName, person.lastName) }
   }
 }
 ```
 
 The important method call here is to `DataFetchingEnvironment.getArgument`, which does as it says and extracts an argument from the incoming GraphQL query. Handily, `getArgument` allows you to specify the type the argument should be (so you don't have to convert it yourself). 
 
-> `DataFetchingEnvironment` also contains a few other methods revolving around arguments, e.g. `getArguments` and `containsArgument`.
+> `DataFetchingEnvironment` also contains other methods regarding arguments, e.g. `getArguments` and `containsArgument`.
 
 ## Setting up a GraphQL instance
 
-You've seen how to write a few `DataFetcher`s by this point, we now need to tie everything together by creating a `GraphQL` instance and registering an application's `DataFetcher`s.
+You've seen how to write a few `DataFetcher`s by this point; we now need to tie everything together by creating a `GraphQL` instance and registering an application's `DataFetcher`s.
 
 The `@Configuration` code below does just that:
 
@@ -312,9 +338,9 @@ class GraphQLConfiguration(
 }
 ```
 
-The purpose of this `@Configuration` class is to create a `GraphQL` instance to that GraphQL Java uses. Further set up is not required as it will be picked up by Spring Boot's auto-configuration.
+The purpose of this `@Configuration` class is to create a `GraphQL` instance that GraphQL Java uses. Further setup is not required as it will be picked up by Spring Boot's auto-configuration.
 
-The first step of creating the `GraphQL` instance requires reading the application's GraphQL schema. `SchemaParser.parse` can take in `File`s, `InputStream`s, `Reader`s or `String`s which it parses (as the class name suggests) and returns a `TypeDefinitionRegistry` to be used later. In this application, the schema is defined in a resource file which gets fed into `SchemaParser.parse`. This is what allows the GraphQL library to understand incoming queries and what can or cannot be handled.
+The first step of creating the `GraphQL` instance requires reading the application's GraphQL schema. `SchemaParser.parse` can take in `File`s, `InputStream`s, `Reader`s or `String`s, which it parses (as the class name suggests) and returns a `TypeDefinitionRegistry` to be used later. In this application, the schema is defined in a resource file which gets fed into `SchemaParser.parse`. This is what allows the GraphQL library to understand incoming queries and what can or cannot be handled.
 
 The `DataFetcher`s are then registered with a `RuntimeWiring` instance (through a `RuntimeWiring.Builder` returned by `RuntimeWiring.newRuntimeWiring`). Every time I mentioned "gets the `DataFetcher` associated to the field", this is where the association actually happens. I can stop hand waving all the time now since you've seen the code. 
 
@@ -322,19 +348,19 @@ Each `DataFetcher` in this example application is injected into the configuratio
 
 - The name of the schema type (`"Query"` or a type name).
 - The name of the field (query name or schema type field).
-- The `DataFetcher` to wire calls to the type and field to.
+- The `DataFetcher` associated with the type and field.
 
 After registering each `DataFetcher`, the `RuntimeWiring` instance is finalised using `build`.
 
-Finally the `TypeDefinitionRegistry` and `RuntimeWiring` created previously are passed through a `SchemaGenerator` and then into `GraphQL.newGraphQL` to retrieve a fully functional `GraphQL` instance.
+Finally, the `TypeDefinitionRegistry` and `RuntimeWiring` created previously are passed through a `SchemaGenerator` and then into `GraphQL.newGraphQL` to retrieve a fully functional `GraphQL` instance.
 
 ## Sending a GraphQL query to the application
 
-With the setup complete the application now exposes a `/graphql` endpoint provided by the auto-configured code in `graphql-java-spring-boot-starter-webmvc`. This endpoint is where clients will send GraphQL queries to.
+With the setup complete, the application now exposes a `/graphql` endpoint provided by the auto-configured code in `graphql-java-spring-boot-starter-webmvc`. This endpoint is where clients will send GraphQL queries to.
 
-In this section, we'll look at how to send a query using cURL and Postman (which has GraphQL functionality) and view the data that is returned.
+In this section, we'll look at how to send a query using cURL and Postman (which has GraphQL functionality) and view the returned data.
 
-Tzhe query we are trying to send:
+The query we are trying to send:
 
 ```graphql
 query {
@@ -405,9 +431,9 @@ Both of these methods return the same data (I would be worried if they didn't):
 }
 ```
 
-The most important factor here is that a `POST` request is used. It seems to be common place for GraphQL API to use `POST` requests for fetching and mutating data. This through me off for a while as the error I received from the `/graphql` endpoint added by the library didn't cause me to believe it was due to using the wrong HTTP verb. 
+The most crucial factor here is that a `POST` request is used. It seems standard for GraphQL APIs to use `POST` requests for both fetching and mutating data. This threw me off for a while, as the error I received from the `/graphql` endpoint didn't cause me to believe it was due to using the wrong HTTP verb. 
 
-For clarity, using the wrong HTTP verb (e.g. a `GET`) leads to the following response and log line:
+For clarity, using the wrong HTTP verb (e.g. a `GET`) through Postman leads to the following response and logline:
 
 ```json
 {
@@ -424,25 +450,15 @@ Resolved [org.springframework.web.bind.MissingServletRequestParameterException: 
 
 ## Improving the registration of `DataFetcher`s
 
-## Summary
+The registration of `DataFetcher`s could be improved as they are currently registered by injecting every `DataFetcher` by name into the `GraphQLConfiguration` class and manually associating each with a type and field name. This isn't too bad right now since the application is small; if you argued that it already looks dodgy, then I'd agree with you.
 
-There are two ways that implementations of `DataFetcher` can be used.
+To make the code more maintainable and extensible moving forward, we can introduce a new structure for defining `DataFetcher`s and registering them. 
 
-- To respond directly to a query.
-- To return data for a specific field in a schema type.
-
-How a `DataFetcher` is registered determines which path it goes down:
-
-- Respond directly to a query - Registered with the name of the query.
-- Return data for a specific field in a schema type - Registered with the schema type name and the name of the field.
-
-Trying to write this out in a way that makes sense has been challenging, I believe the following code snippets should be easier to understand.
-
-To simplify the process of registering `DataFetcher`s I added my own custom interface, `TypedDataFetcher`:
+We can achieve this by defining a new interface that specifies the type and field name a `DataFetcher` should be linked to:
 
 ```kotlin
 /**
- * [TypedDataFetcher] is a instance of a [DataFetcher] that specifies schema types and fields it processes.
+ * [TypedDataFetcher] is an instance of a [DataFetcher] that specifies the schema type and field it processes.
  *
  * Instances of [TypedDataFetcher] are registered into an instance of [RuntimeWiring] after being picked up by Spring (the instances must be
  * annotated with @[Component] or a similar annotated to be injected).
@@ -469,108 +485,37 @@ interface TypedDataFetcher<T> : DataFetcher<T> {
 }
 ```
 
-The two properties on this interface allow an implementation to specify how they should be used.
+By using `TypedDataFetcher`, you can retrieve all its implementations as Spring allows injecting of `List`s containing all instances implementing an interface. 
 
-To respond directly to a query:
-
-```kotlin
-class PeopleByFirstNameDataFetcher : TypedDataFetcher<List<PersonDTO>> {
-
-  override val typeName = "Query"
-  override val fieldName = "peopleByFirstName"
-
-  override fun get(environment: DataFetchingEnvironment): List<PersonDTO> { /* Implementation */ }
-}
-```
-
-The `DataFetcher`'s `typeName` should be set to `"Query"` and `fieldName` should be the name of the query to tie it to.
-
-To link a `DataFetcher` to a specific field of a type:
+Combining this interface with modifications to the `DataFetcher` registration code in `GraphQLConfiguration` brings it all together:
 
 ```kotlin
-class PersonRelationshipsDataFetcher : TypedDataFetcher<List<RelationshipDTO>> {
+@Configuration
+class GraphQLConfiguration(private val dataFetchers: List<TypedDataFetcher<*>>) {
 
-  override val typeName = "Person"
-  override val fieldName = "relationships"
+  // Create the GraphQL instance (no changes from the previous example).
 
-  override fun get(environment: DataFetchingEnvironment): List<RelationshipDTO> { /* Implementation */ }
-}
-```
-
-The `DataFetcher`'s `typeName` should be set to the name of the schema type an `fieldName` should be the field found in that type.
-
-Now that we've covered how to link `DataFetcher` to queries or type fields, what are the _real_ contents of a `DataFetcher` implementation; there's no use knowing how to register a `DataFetcher` if you don't know how to return something useful from one.
-
-So let's fix that and expand on the `PeopleByFirstNameDataFetcher` shown a minute ago:
-
-```kotlin
-@Component
-class PeopleByFirstNameDataFetcher(private val personRepository: PersonRepository) : TypedDataFetcher<List<PersonDTO>> {
-
-  override val typeName = "Query"
-  override val fieldName = "peopleByFirstName"
-
-  override fun get(environment: DataFetchingEnvironment): List<PersonDTO> {
-		// The argument is extracted from the GraphQL query
-    return personRepository.findAllByFirstName(environment.getArgument("firstName"))
-      .map { PersonDTO(it.id, it.firstName, it.lastName, emptyList()) }
+  /**
+   * Loops through all injected [TypedDataFetcher] instances and includes them in the output [RuntimeWiring] instance.
+   */
+  private fun buildWiring(): RuntimeWiring {
+    val wiring = RuntimeWiring.newRuntimeWiring()
+    for (dataFetcher in dataFetchers) {
+      wiring.type(newTypeWiring(dataFetcher.typeName).dataFetcher(dataFetcher.fieldName, dataFetcher))
+    }
+    return wiring.build()
   }
 }
 ```
 
-To help with the example, remember the `peopleByFirstName` query looks like:
+The registration now uses the `typeName` and `fieldName` provided by each `TypedDataFetcher`, breaking the rigid link between `DataFetcher` implementations and the types, fields or queries they represent. Adding new `TypedDataFetcher`s becomes straightforward after making this alteration; you create a new implementation, define the `typeName` and `fieldName`, annotate with it `@Component`, and the rest is handled for you.
 
-```graphql
-type Query {
-    peopleByFirstName(firstName: String): [Person]
-}
-```
+## Summary
 
-The query takes in `firstName` as an argument and returns an array of `Person`s. The `PeopleByFirstNameDataFetcher` will need to implement this behaviour.
+GraphQL Java lets you do what the name suggests, support GraphQL queries within Java (or other JVM languages).
 
-To extract the `firstName` argument specified in the incoming query, `DataFetchingEnvironment.getArgument` is used:
+It does this through associating `DataFetcher`s to types and fields that you write and pointing incoming queries their way. With the library handling the parsing of queries, it frees you to focus on implementing the `DataFetcher`s that contain your application's primary functionality.
 
-```kotlin
-environment.getArgument("firstName")
-```
+I'd love to try and summarise how to use GraphQL Java further; however, I already struggled to write the post in the most coherent way as possible; there is no way I could condense it to a few sentences.
 
-> `DataFetchingEnvironment` can get further information from the query but this is enough for this scenario.
-
-Using the `firstName` from the GraphQL query, a SQL query is executed (abstracted away in `PersonRepository`). The returned data is then mapped to `PersonDTO`.
-
-The conversion to `PersonDTO` is important, because its fields should resemble those of the `Person` GraphQL schema type.
-
-I've include them both below:
-
-```graphql
-type Person {
-    id: ID,
-    firstName: String,
-    lastName: String
-    relationships: [Relationship]
-}
-```
-
-```kotlin
-data class PersonDTO(
-  val id: UUID,
-  val firstName: String,
-  val lastName: String,
-  val relationships: List<RelationshipDTO>
-)
-```
-
-
-
-
-We will cover the code of registering `DataFetcher`s later on.
-
-The GraphQL Java library code will 
-
-Implementations of `DataFetcher` can do do one of the fo
-
-Implementation of `DataFetcher` must be registered to a `RuntimeWiring` instance to be used, which we will cover later on.
-
-When registering a `DataFetcher` i
-
-- A query - The name of the query is registered
+Anyway, the end!
