@@ -5,7 +5,6 @@ published: true
 tags: [graphql, graphql-java, spring, java, kotlin]
 cover_image: blog-card.png
 github_url: https://github.com/lankydan/spring-kotlin-graphql
-series: GraphQL Java
 ---
 
 [GraphQL Java](https://github.com/graphql-java/graphql-java) is one of the most popular GraphQL server-side implementations for Java that I've found (with over 5k stars at the time of writing). If you're planning to expose a GraphQL API from a Java or JVM application, then this is an excellent library to start using.
@@ -72,7 +71,7 @@ type Relationship {
 
 I'll cover how we register and interact with the schema later on; knowing the shape of the types in the schema will set up the following sections.
 
-## Fetching data with `DataFetcher`s
+## Fetching data with DataFetchers
 
 GraphQL Java uses `DataFetcher`s to fetch data to include in the result of a query. More specifically, a `DataFetcher` retrieves the data for a single field when a query is executed.
 
@@ -168,7 +167,7 @@ The following is returned after GraphQL Java has called the `PeopleDataFetcher`:
 
 That covers a first look at what `DataFetcher`s do. We'll expand on them in the following sections to improve your understanding of GraphQL Java.
 
-## The default `PropertyDataFatcher`
+## The default PropertyDataFatcher
 
 As mentioned in the previous section, every field must have an assigned `DataFetcher`. That means for the `Person` type:
 
@@ -239,7 +238,7 @@ In concrete terms, this means:
 
 You might need to run that through your head a few times so it makes sense. I only properly understood this after debugging the library when my code wasn't working correctly.
 
-## Writing a `DataFetcher` for a schema type's field
+## Writing a DataFetcher for a schema type's field
 
 The `PeopleDataFetcher` we've seen throughout this post responds to a query. Now let's look at a custom `DataFetcher` that should be associated with a schema type's field.
 
@@ -267,7 +266,7 @@ class PersonRelationshipsDataFetcher(
 
 It looks similar to the `PeopleDataFetcher` we saw previously, except for the new call to `DataFetchingEnvironment.getSource`. This method allows a `DataFetcher` to access the object returned by the `DataFetcher` associated with the parent field. After accessing this object, information is extracted from it (`PersonDTO.id`) to be used in the SQL query executed by the `PersonRelationshipsDataFetcher`.
 
-## Writing a `DataFetcher` for a query containing an argument
+## Writing a DataFetcher for a query containing an argument
 
 Queries become far more worthwhile when you can pass arguments into them.
 
@@ -286,8 +285,8 @@ To handle this you'd want a `DataFetcher` like the one below:
 class PeopleByFirstNameDataFetcher(private val personRepository: PersonRepository) : DataFetcher<List<PersonDTO>> {
 
   override fun get(environment: DataFetchingEnvironment): List<PersonDTO> {
-		// The argument is extracted from the GraphQL query
-    val argument = environment.getArgument<String>("firstName")
+    // The argument is extracted from the GraphQL query
+    val firstName = environment.getArgument<String>("firstName")
     return personRepository.findAllByFirstName(firstName)
       .map { person -> PersonDTO(person.id, person.firstName, person.lastName) }
   }
@@ -448,7 +447,7 @@ For clarity, using the wrong HTTP verb (e.g. a `GET`) through Postman leads to t
 Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'query' for method parameter type String is not present]
 ```
 
-## Improving the registration of `DataFetcher`s
+## Improving the registration of DataFetchers
 
 The registration of `DataFetcher`s could be improved as they are currently registered by injecting every `DataFetcher` by name into the `GraphQLConfiguration` class and manually associating each with a type and field name. This isn't too bad right now since the application is small; if you argued that it already looks dodgy, then I'd agree with you.
 
@@ -458,10 +457,12 @@ We can achieve this by defining a new interface that specifies the type and fiel
 
 ```kotlin
 /**
- * [TypedDataFetcher] is an instance of a [DataFetcher] that specifies the schema type and field it processes.
+ * [TypedDataFetcher] is an instance of a [DataFetcher] that specifies the schema type 
+ * and field it processes.
  *
- * Instances of [TypedDataFetcher] are registered into an instance of [RuntimeWiring] after being picked up by Spring (the instances must be
- * annotated with @[Component] or a similar annotated to be injected).
+ * Instances of [TypedDataFetcher] are registered into an instance of [RuntimeWiring] 
+ * after being picked up by Spring (the instances must be annotated with @[Component]
+ * or a similar annotated to be injected).
  */
 interface TypedDataFetcher<T> : DataFetcher<T> {
 
@@ -470,16 +471,19 @@ interface TypedDataFetcher<T> : DataFetcher<T> {
    *
    * Use `Query` if the [TypedDataFetcher] responds to incoming queries.
    *
-   * Use a schema type name if the [TypedDataFetcher] fetches data for a single field in the specified type.
+   * Use a schema type name if the [TypedDataFetcher] fetches data for a single field
+   * in the specified type.
    */
   val typeName: String
 
   /**
    * The field that the [TypedDataFetcher] should apply to.
    *
-   * If the [typeName] is `Query`, then [fieldName] will be the name of the query the [TypedDataFetcher] handles.
+   * If the [typeName] is `Query`, then [fieldName] will be the name of the query the 
+   * TypedDataFetcher] handles.
    *
-   * If the [typeName] is a schema type, then [fieldName] should be the name of a single field in [typeName].
+   * If the [typeName] is a schema type, then [fieldName] should be the name of a single
+   * field in [typeName].
    */
   val fieldName: String
 }
