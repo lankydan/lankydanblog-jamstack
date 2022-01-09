@@ -1,6 +1,6 @@
 ---
 title: Using GraphQL Java with Spring
-date: "2022-01-10"
+date: "2022-01-09"
 published: true
 tags: [graphql, graphql-java, spring, java, kotlin]
 cover_image: blog-card.png
