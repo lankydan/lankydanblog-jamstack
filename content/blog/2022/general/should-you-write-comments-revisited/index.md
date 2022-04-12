@@ -6,11 +6,11 @@ tags: [general]
 cover_image: blog-card.png
 ---
 
-5 years ago, I wrote a blog post about [leaving comments in your code](/2017-01-07/should-you-write-comments?). I leant heavily towards the side of not writing comments, and I see other people writing their own posts agreeing with that assertion. However, during these 5 years, even though my logical foundations of reducing comment usage remain, I have been presented with more and more scenarios where comments are a must-have. As it turns out, even if you write clean, structured and well thought out code, there reaches a point where the complexity is too high to fully process what the code does. In these situations, you must not be scared of writing comments; these are the exact moments that you should be.
+5 years ago, I wrote a blog post about [leaving comments in your code](/2017/01/07/should-you-write-comments?). I leant heavily towards the side of not writing comments, and I see other people writing their own posts agreeing with that assertion. However, during these 5 years, even though my logical foundations of reducing comment usage remain, I have been presented with more and more scenarios where comments are a must-have. As it turns out, even if you write clean, structured and well thought out code, there reaches a point where the complexity is too high to fully process what the code does. In these situations, you must not be scared of writing comments; these are the exact moments that you should be.
 
 It's hard to really define a straightforward rule that one can follow on "when to write a comment"; experience will start to give you that gut feeling and was probably why I had a hardline stance on not writing comments in the past. That, or the software I'm producing, has increased in complexity over time.
 
-I do stand by the two main points I wrote in my [original post](/2017-01-07/should-you-write-comments?), which were:
+I do stand by the two main points I wrote in my [original post](/2017/01/07/should-you-write-comments?), which were:
 
 - Extract code into well-named methods instead of having long continuous streams of code.
 - Give variables descriptive names, so they don't need a comment to explain them.
