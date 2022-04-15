@@ -29,8 +29,9 @@
       "program": "${workspaceRoot}/node_modules/gatsby/dist/bin/gatsby",
       "args": ["build"],
       "stopOnEntry": false,
-      "runtimeArgs": ["--nolazy"],
-      "sourceMaps": false
+      // "runtimeArgs": ["--nolazy"],
+      // "sourceMaps": false,
+      "console": "integratedTerminal"
     }
   ]
 }

@@ -2,6 +2,8 @@ console.log(
   `Google tracking id: '${process.env.GOOGLE_ANALYTICS_TRACKING_CODE}'`
 )
 
+const siteUrl = `https://lankydan.dev`
+
 module.exports = {
   siteMetadata: {
     title: `Lanky Dan Blog`,
@@ -293,28 +295,33 @@ module.exports = {
             }
           }
           allSitePage {
-            edges {
-              node {
-                path
-                context {
-                  lastMod
-                }
-              }
+            nodes {
+              path
+              pageContext
             }
           }
         }
       `,
+      resolveSiteUrl: () => siteUrl,
+      resolvePages: ({ site, allSitePage }) => {
+        return allSitePage.nodes.map(node => {
+          console.log("here")
+          return {
+          path: `${site.siteMetadata.siteUrl}${node.path}`,
+          lastMod: node.pageContext.lastMod
+        }
+      })
+      },
       // https://joshwcomeau.com/gatsby/seo-friendly-sitemap/
       // Used information from this blog post to add `lastmod` to the sitemap
-        serialize: ({ site, allSitePage }) => {
-          return allSitePage.edges.map(({ node }) => {
+      serialize: ({ path, lastMod }) => {
+        console.log(`lastMod: ${lastMod}`)
             return {
-              url: site.siteMetadata.siteUrl + node.path,
-              lastmod: node.context.lastMod,
+              url: path,
+              lastmod: lastMod,
               changefreq: "daily",
               priority: 0.7,
-            }
-          })
+          }
         },
       },
     },
