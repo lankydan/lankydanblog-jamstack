@@ -305,7 +305,6 @@ module.exports = {
       resolveSiteUrl: () => siteUrl,
       resolvePages: ({ site, allSitePage }) => {
         return allSitePage.nodes.map(node => {
-          console.log("here")
           return {
           path: `${site.siteMetadata.siteUrl}${node.path}`,
           lastMod: node.pageContext.lastMod
@@ -315,7 +314,6 @@ module.exports = {
       // https://joshwcomeau.com/gatsby/seo-friendly-sitemap/
       // Used information from this blog post to add `lastmod` to the sitemap
       serialize: ({ path, lastMod }) => {
-        console.log(`lastMod: ${lastMod}`)
             return {
               url: path,
               lastmod: lastMod,
