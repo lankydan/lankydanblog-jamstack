@@ -1,6 +1,6 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
+import { StaticImage } from "gatsby-plugin-image"
 
 function Bio() {
   return (
@@ -9,15 +9,15 @@ function Bio() {
       render={(data) => {
         const { author, social } = data.site.siteMetadata
         return (
-          <div class="post-written-by-wrapper">
-            <div class="post-written-by">
-              <Image
-                fixed={data.avatar.childImageSharp.fixed}
+          <div className="post-written-by-wrapper">
+            <div className="post-written-by">
+              <StaticImage
+                src="../../content/assets/me.png"
                 alt={author}
                 style={{
                   marginRight: `1rem`,
-                  minWidth: `90px`,
-                  minHeight: `90px`
+                  width: `90px`,
+                  height: `90px`
                 }}
                 imgStyle={{
                   borderRadius: `50%`,
@@ -25,7 +25,7 @@ function Bio() {
               />
               <div>
                 Written by {author}
-                <div class="post-written-by-socials">
+                <div className="post-written-by-socials">
                   <FollowButton
                     text={`Twitter`}
                     link={`https://twitter.com/${social.twitter}`}
@@ -53,13 +53,6 @@ function Bio() {
 
 const bioQuery = graphql`
   query BioQuery {
-    avatar: file(absolutePath: { regex: "/me.png/" }) {
-      childImageSharp {
-        fixed(width: 90, height: 90, cropFocus: CENTER, pngQuality: 100) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
     site {
       siteMetadata {
         author
