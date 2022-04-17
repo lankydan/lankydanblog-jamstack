@@ -77,13 +77,14 @@ module.exports = {
         ],
       },
     },
-    `gatsby-transformer-sharp`,
+    `gatsby-plugin-image`,
     {
       resolve: `gatsby-plugin-sharp`,
       options: {
         defaultQuality: 80,
       },
     },
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-react-svg`,
       options: {
