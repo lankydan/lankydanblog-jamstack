@@ -1,8 +1,8 @@
 ---
-title: Getting started with RSocket Kotlin 
-date: "2022-05-30"
+title: Getting started with RSocket Kotlin
+date: "2022-06-04"
 published: true
-tags: [kotlin, ktor, rsocket, rsocket-ktor]
+tags: [kotlin, ktor, rsocket, rsocket-kotlin]
 cover_image: blog-card.png
 github_url: https://github.com/lankydan/rsocket-kotlin
 ---
@@ -161,7 +161,7 @@ Building upon the previous section's knowledge, there is not much of a differenc
 ```kotlin
 fun Routing.requestResponse(client: HttpClient) {
     get("requestResponse") {
-        val rSocket: RSocket = client.rSocket(path = "requestResponse", port = 9000) // request stream
+        val rSocket: RSocket = client.rSocket(path = "requestResponse", port = 9000)
         val response: Payload = rSocket.requestResponse(buildPayload { data("Hello") })
         val text = response.data.readText()
 
@@ -207,7 +207,7 @@ fun Routing.requestStream(client: HttpClient) {
         val rSocket: RSocket = client.rSocket(path = "requestStream", port = 9000)
         val stream: Flow<Payload> = rSocket.requestStream(buildPayload { data("Hello") })
         
-        // Receives data data via a WebSocket
+        // Receives data via a WebSocket
         incoming.receiveAsFlow().onEach { frame ->
             log.info("Received frame: $frame")
             if (frame is Frame.Text && frame.readText() == "stop") {
@@ -304,6 +304,7 @@ fun Routing.requestChannel(client: HttpClient) {
     webSocket("requestChannel") {
         val rSocket: RSocket = client.rSocket(path = "requestChannel", port = 9000)
 
+        // Receives data via a WebSocket and transforms it
         val payloads: Flow<Payload> = incoming.receiveAsFlow().transform { frame ->
             if (frame is Frame.Text) {
                 val text = frame.readText()
@@ -319,6 +320,7 @@ fun Routing.requestChannel(client: HttpClient) {
 
         val stream: Flow<Payload> = rSocket.requestChannel(buildPayload { data("Hello") }, payloads)
 
+        // Handles data sent back over the RSocket connection
         stream.onCompletion {
             log.info("Connection terminated")
         }.collect { payload: Payload ->
