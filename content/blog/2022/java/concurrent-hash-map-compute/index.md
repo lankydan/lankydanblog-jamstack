@@ -1,6 +1,6 @@
 ---
 title: Reading and writing with a ConcurrentHashMap
-date: "2022-04-09"
+date: "2022-07-09"
 published: true
 tags: [java, concurrency]
 cover_image: blog-card.png
@@ -102,7 +102,7 @@ This shows that reads occur on every key (1, 2, 3) even though key 1 is being wr
 
 ## Writing
 
-`ConcurrentHashMap` prevents multiple threads from writing to a key simultaneously. From a superficial perspective, when a write operation begins, such as `compute`, it takes a lock for the specified key and blocks any other threads trying to write to the same key. Once the write finishes, the lock is released, and the process begins again with one of the blocked threads taking the lock. 
+`ConcurrentHashMap` prevents multiple threads from writing to the same key simultaneously. From a superficial perspective, when a write operation begins, such as `compute`, it takes a lock for the specified key and blocks any other threads trying to write to the same key. Once the write finishes, the lock is released, and the process begins again with one of the blocked threads taking the lock. 
 
 The more complicated explanation is that `ConcurrentHashMap` keeps key-value pairs in buckets/bins/segments (I'll refer to them as buckets from now on), which hold many pairs and can be locked. Writing to a key locks its bucket, preventing writes to any key within the bucket. This means that seemingly unrelated writes to separate keys can still block each other; however, this is unlikely to noticeably impact your application. Writes to unlocked buckets are not blocked, with these buckets then transitioning to a locked state while the write executes.
 
@@ -235,7 +235,7 @@ map.compute(key, (k, value) -> {
 
 This example removes from the map if the `input` and existing `value` surpass a specific number or updates the mapping to the new total.
 
-### Do not use `get` and `put` for atomic updates of existing mappings
+### Do not use get and put for atomic updates of existing mappings
 
 `ConcurrentHashMap` cannot ensure deterministic behaviour if you write code like the following:
 
@@ -248,7 +248,12 @@ static class MyThread implements Runnable {
   private int maxSharedCount;
   private Map<Integer, Integer> sharedMap;
 
-  public MyThread(int number, AtomicInteger sharedUpdateCounter, int maxSharedCount, Map<Integer, Integer> sharedMap) {
+  public MyThread(
+    int number,
+    AtomicInteger sharedUpdateCounter,
+    int maxSharedCount,
+    Map<Integer, Integer> sharedMap
+  ) {
     this.number = number;
     this.sharedUpdateCounter = sharedUpdateCounter;
     this.maxSharedCount = maxSharedCount;
@@ -300,7 +305,7 @@ public static void main(String[] args) {
 }
 ```
 
-This code allows the updates to overwrite each other, leading to an indeterministic outcome.
+This code which reads a key's current value using `get` and then updates it using `put`, allows updates from separate threads to overwrite each other, leading to an indeterministic outcome.
 
 ```
 Thread [2] 1 -> 2
