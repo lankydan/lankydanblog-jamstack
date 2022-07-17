@@ -2,7 +2,7 @@
 title: Configuring Logback with Spring Boot
 slug: 2019/01/09/configuring-logback-with-spring-boot
 date: "2017-08-31"
-updated_date: "2020-07-04"
+updated_date: "2022-07-17"
 published: true
 tags: [spring, spring boot, java, logback, logging]
 github_url: https://github.com/lankydan/logback-with-springboot-config
@@ -15,7 +15,7 @@ In this post I have used the dependency `spring-boot-starter` to pull in `spring
 
 ```xml
 <dependency>
-  <!-- Tested against spring boot versions 2.0.0 - 2.3.1 -->
+  <!-- Tested against spring boot versions 2.0.0.RELEASE, 2.3.1.RELEASE, 2.7.1 -->
   <groupId>org.springframework.boot</groupId>
   <artifactId>spring-boot-starter</artifactId>
 </dependency>
@@ -46,7 +46,7 @@ This will make use of `spring-boot-starter-logging` which in turn has dependenci
 </dependencies>
 ```
 
-`logback-classic` contains the `logback-core` dependency and between them they contain everything we need to get started. The versions of the libraries shown above are for version `2.3.1.RELEASE` of Spring Boot. These dependencies stay the same between Spring Boot versions, but their own versions might differ slightly. No changes have been required to any of the examples since originally writing this post against version `2.0.0`.
+`logback-classic` contains the `logback-core` dependency and between them they contain everything we need to get started. The versions of the libraries shown above are for version `2.7.1` of Spring Boot. These dependencies stay the same between Spring Boot versions, but their own versions might differ slightly. No changes have been required to any of the examples since originally writing this post against version `2.0.0` (tested against `2.0.0.RELEASE`, `2.3.1.RELEASE` and `2.7.1`).
 
 Before we start looking at configuring Logback its worth having a quick look through how to send a message to the log from within a class.
 
@@ -378,7 +378,7 @@ As you can see it contains the `maxFileSize`, `maxHistory` and `totalSizeCap` pr
 Now that we have looked at how to define multiple appenders that can output to the console or to file we can combine them to output to both forms at once. Simply by referencing multiple appenders within the logger.
 
 ```xml
-<logger name="com.lankydan.service.MyServiceImpl" additivity="false" level="debug">
+<logger name="com.lankydan.service" additivity="false" level="debug">
   <appender-ref ref="STDOUT"/>
   <appender-ref ref="SAVE-TO-FILE"/>
 </logger>
@@ -407,7 +407,7 @@ A useful feature that Spring Boot provides when using Logback is the ability to 
       <appender-ref ref="STDOUT"/>
       <appender-ref ref="SAVE-TO-FILE"/>
     </root>
-    <logger name="com.lankydan.service.MyServiceImpl" additivity="false" level="debug">
+    <logger name="com.lankydan.service" additivity="false" level="debug">
       <appender-ref ref="STDOUT"/>
       <appender-ref ref="SAVE-TO-FILE"/>
     </logger>
@@ -417,7 +417,7 @@ A useful feature that Spring Boot provides when using Logback is the ability to 
     <root level="info">
       <appender-ref ref="SAVE-TO-FILE"/>
     </root>
-    <logger name="com.lankydan.service.MyServiceImpl" additivity="false" level="error">
+    <logger name="com.lankydan.service" additivity="false" level="error">
       <appender-ref ref="SAVE-TO-FILE"/>
     </logger>
   </springProfile>
