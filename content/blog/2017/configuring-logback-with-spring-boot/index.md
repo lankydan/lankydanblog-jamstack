@@ -46,7 +46,7 @@ This will make use of `spring-boot-starter-logging` which in turn has dependenci
 </dependencies>
 ```
 
-`logback-classic` contains the `logback-core` dependency and between them they contain everything we need to get started. The versions of the libraries shown above are for version `2.7.1` of Spring Boot. These dependencies stay the same between Spring Boot versions, but their own versions might differ slightly. No changes have been required to any of the examples since originally writing this post against version `2.0.0` (tested against `2.0.0.RELEASE`, `2.3.1.RELEASE` and `2.7.1`).
+`logback-classic` contains the `logback-core` dependency and between them they contain everything we need to get started. The versions of the libraries shown above are for version `2.7.1` of Spring Boot. These dependencies stay the same between Spring Boot versions, but their own versions might differ slightly. No changes have been required to any of the examples since originally writing this post against version `2.0.0.RELEASE` (tested against `2.0.0.RELEASE`, `2.3.1.RELEASE` and `2.7.1`).
 
 Before we start looking at configuring Logback its worth having a quick look through how to send a message to the log from within a class.
 
