@@ -1,12 +1,14 @@
 ---
-title: Ktor - a Kotlin web framework
+title: Ktor - a Kotlin web framework (Ktor 1.2.2)
 slug: ktor-a-kotlin-web-framework
 date: "2019-07-24"
 published: true
 tags: [kotlin, ktor]
-github_url: https://github.com/lankydan/ktor-with-kodein-di
+github_url: https://github.com/lankydan/ktor-with-kodein-di/tree/ktor-1.2.2
 cover_image: blog-card.png
 ---
+
+> For an updated post using the more recent Ktor `2.0.3` see ["Ktor - a Kotlin web framework updated"](/ktor-a-kotlin-web-framework).
 
 [Ktor](https://ktor.io/) is an asynchronous web framework written in and designed for Kotlin. Allowing the more impressive features of Kotlin, such as coroutines, to not only be used but supported as a first-class citizen. Typically, Spring is my go-to general framework and usually what I use when I need to put a REST API together. But, after recently attending a London Kotlin meetup where there was a presentation on Ktor, I decided I'd try something new for once. That is how I ended up here, writing a blog post about Ktor. So, this post is a learning experience for both you and me. The content of this post will lack experienced advice but will instead document my journey as I play around with Ktor for the first time.
 
@@ -72,7 +74,7 @@ A few things are going on here.
 
 - [Logback](https://logback.qos.ch/) is brought in to handle logging. This is not included in the Ktor dependencies and is needed if you plan on doing any sort of logging.
 
-- [Kodein](https://kodein.org/Kodein-DI/) is a dependency injection framework written in Kotlin. I have used it loosely in this post, and due to the size of the code examples, I could probably remove it altogether. The main reason it is there is to provide me with another chance to use something other than Spring. Remember this is also one of the reasons that I am trying out Ktor.
+- [Kodein](https://kosi-libs.org/kodein/7.14.0/index.html) is a dependency injection framework written in Kotlin. I have used it loosely in this post, and due to the size of the code examples, I could probably remove it altogether. The main reason it is there is to provide me with another chance to use something other than Spring. Remember this is also one of the reasons that I am trying out Ktor.
 
 ### Starting the web server
 
@@ -222,11 +224,11 @@ fun Application.module() {
 - `DefaultHeaders` adds a header to every response with the name of the server.
 - `CallLogging` logs information about outgoing responses and specifies what level to log them at. A logging library needs to be included for this to work. The output will look something like:
   
-  ```java
+  ```log
   INFO  ktor.application.log - 200 OK: GET - /people/302a1a73-173b-491c-b306-4d95387a8e36
   ```
 
-- `ContentNegotiation` tells the server to use Jackson for incoming and outbound requests. Remember this required including `ktor-jackson` as a dependency. You could also use [GSON](https://ktor.io/samples/feature/gson.html) if you prefer.
+- `ContentNegotiation` tells the server to use Jackson for incoming and outbound requests. Remember this required including `ktor-jackson` as a dependency. You could also use [GSON](https://ktor.io/docs/serialization.html#add_json_dependency) if you prefer.
 
 For a long list of the other features that Ktor includes, here is a handy link to their [docs](https://ktor.io/servers/features.html).
 
@@ -246,7 +248,7 @@ Whatever floats your boat, but I'd just stick to using `routing`. Hopefully that
 
 ### Brief mention for Kodein
 
-I want to have a very brief look at [Kodein](https://kodein.org/Kodein-DI/) since I used it in this post. Kodein is a dependency injection framework written in Kotlin, for Kotlin. Below is the super small amount of DI that I used for the example application:
+I want to have a very brief look at [Kodein](https://kosi-libs.org/kodein/7.14.0/index.html) since I used it in this post. Kodein is a dependency injection framework written in Kotlin, for Kotlin. Below is the super small amount of DI that I used for the example application:
 
 ```kotlin
 val kodein = Kodein {
