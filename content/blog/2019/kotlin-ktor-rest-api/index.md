@@ -1,5 +1,5 @@
 ---
-title: Ktor - a Kotlin web framework (Ktor 1.2.2)
+title: Ktor - A Kotlin web framework (Ktor 1.2.2)
 slug: ktor-a-kotlin-web-framework
 date: "2019-07-24"
 published: true
