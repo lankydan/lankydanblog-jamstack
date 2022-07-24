@@ -1,6 +1,7 @@
 ---
-title: Ktor - A Kotlin web framework
-date: "2022-07-24"
+title: Ktor - a Kotlin web framework
+date: "2022-07-20"
+slug: ktor-a-kotlin-web-framework-2
 published: true
 tags: [kotlin, ktor, ktor 2.0.3]
 github_url: https://github.com/lankydan/ktor-with-kodein-di
@@ -9,7 +10,7 @@ cover_image: blog-card.png
 
 [Ktor](https://ktor.io/) is an asynchronous web framework written in and designed for Kotlin, leveraging coroutines and allowing you to write asynchronous code without having to manage any threads yourself.
 
-Here is a bit more background information on Ktor. It is backed by [Jetbrains](https://www.jetbrains.com/) who are also the creators of Kotlin itself. Who better to make a Kotlin web framework than the people that work on the language.
+Here is a bit more background information on Ktor. It is backed by [Jetbrains](https://www.jetbrains.com/), who are also the creators of Kotlin itself. Who better to make a Kotlin web framework than the people that work on the language.
 
 ## Implementation
 
@@ -59,9 +60,9 @@ dependencies {
 
 A few things are going on here.
 
-- Ktor `2.0.3` uses a minimum version of Kotlin `1.7` from what I've been able to determine from their documentation.
+- Ktor `2.0.3` uses a minimum version of Kotlin `1.7` from what I've determined from their documentation.
 
-- Dependencies on `ktor-server-netty` and and several `ktor-server` plugins are brought in. As `ktor-server-netty` suggests, [Netty](https://netty.io/) will be used for this post. Different underlying web servers can be used depending on which you choose to import. The other available options are Netty, Jetty, Tomcat and CIO. More information can be found in the [supported engines](https://ktor.io/docs/engines.html#supported-engines) documentation.
+- Dependencies on `ktor-server-netty` and several `ktor-server` plugins are brought in. As `ktor-server-netty` suggests, [Netty](https://netty.io/) will be used for this post. Depending on which you choose to import, different underlying web servers can be used. The other available options are Netty, Jetty, Tomcat and CIO. More information can be found in the [supported engines](https://ktor.io/docs/engines.html#supported-engines) documentation.
 
 - [Logback](https://logback.qos.ch/) is brought in to handle logging. This is not included in the Ktor dependencies and is needed if you plan on doing any sort of logging.
 
@@ -86,13 +87,13 @@ fun Application.module() {
 
 Bam. There you have it. A web server running with Ktor and Netty. Ok, yes, it doesn't really do anything, but we'll expand on this in the following sections. 
 
-The code is pretty self-explanatory. The only piece worth highlighting is the `Application.module` function. The `module` parameter of `embeddedServer` requires an `Application.() -> Unit` function to be provided that configures the server and is going to be the _main_ entry pont into the server code.
+The code is pretty self-explanatory. The only piece worth highlighting is the `Application.module` function. The `module` parameter of `embeddedServer` requires an `Application.() -> Unit` function to be provided that configures the server and will be the _main_ entry point into the server code.
 
 In the following sections, we will expand the contents of `Application.module` so that your web server actually does something worthwhile.
 
 ### Routing
 
-At the moment, all incoming requests will be rejected since there are no endpoints to handle them. By setting up the routing, you can specify valid paths that requests can travel along and the functions that will process the requests when they reach their destinations.
+All incoming requests will be rejected at the moment since there are no endpoints to handle them. By setting up the routing, you can specify valid paths that requests can travel along and the functions that will process the requests when they reach their destinations.
 
 This is done inside of a `Routing` block (or multiple `Routing` blocks). Inside of a block, routes to different endpoints are set up:
 
@@ -129,7 +130,7 @@ routing {
 
 > The imports have been included due to the reliance on extension functions, making discovering functions without an IDE difficult.
 
-`routing` is a convenience function to make the code flow a little smoother. The context (a.k.a `this`) inside of `routing` is of type `Routing`. Furthermore, the functions `route`, `get` and `post` are all extension functions of `Routing`.
+`routing` is a convenience function to make the code flow smoothly. The context (a.k.a `this`) inside of `routing` is of type `Routing`. Furthermore, the functions `route`, `get`, and `post` are all extension functions of `Routing`.
 
 `route` sets a base path to all its following endpoints. In this scenario, `/people`. `get` and `post` do not specify a path themselves since the base path is suffice for their needs. If desired, a path could be added to each one, for example:
 
@@ -180,15 +181,15 @@ fun Routing.people(personRepository: PersonRepository) {
 }
 ```
 
-I extracted the code to a separate function to decrease the contents of `Application.module`. This is going to be a good idea when you are trying to write a more significant application. Whether how I went about it is the _Ktor_ way or not, is another question. From having a quick look at the Ktor docs, it looks like this is a decent solution. I believe I saw another way to do this, but I would need to spend more time with it.
+I extracted the code to a separate function to decrease the contents of `Application.module`. When trying to write a more significant application, this will be a good idea. Whether the way I went about it is the _Ktor_ way or not is another question. From having a quick look at the Ktor docs, it looks like this is a decent solution. I believe I saw another way to do this, but I would need to spend more time with it.
 
 ### Contents of a request handler
 
 The code that executes when a request is routed to a request handler is obviously pretty important. The function needs to do something after all...
 
-Each handler function executes within the context of a coroutine. I did not really make any use of this fact since each of the functions I have shown are fully synchronous.
+Each handler function executes within the context of a coroutine. I did not really use this fact since each of the functions I have shown are fully synchronous.
 
-For the remainder of this post, I am going to try and not mention coroutines too much since they are not particularly important for this simple REST API.
+For the remainder of this post, I will try not to mention coroutines too much since they are not particularly important for this simple REST API.
 
 In this section, the `get` function will be examined a little closer:
 
@@ -201,19 +202,19 @@ get("/{id}") {
 }
 ```
 
-`{id}` indicates that a path variable is expected in the request and its value will be stored as `id`. Multiple path variables can be included, but only one is needed for this example 👍. The value of `id` is retrieved from `call.parameters` which takes in the name of the variable you want to access.
+`{id}` indicates that a path variable is expected in the request, and its value will be stored as `id`. Multiple path variables can be included, but only one is needed for this example 👍. The value of `id` is retrieved from `call.parameters`, which takes in the name of the variable you want to access.
 
 - `call` represents the context of the current request.
 - `parameters` is a list of the request's parameters.
 
-Using the `id` from the path variables, the database searches for the corresponding record. In this scenario, if it exists, the record is returned along with the appropriate `200 OK`. If it doesn't, an error response is returned. Both `respond` and `respondText` alter the underlying `response` of the current `call`. You could do this manually, for example, by using:
+The database searches for the corresponding record using the `id` from the path variables. In this scenario, if it exists, the record is returned along with the appropriate `200 OK`. If it doesn't, an error response is returned. Both `respond` and `respondText` alter the underlying `response` of the current `call`. You could do this manually, for example, by using:
 
 ```kotlin
 call.response.status(HttpStatusCode.OK)
 call.response.pipeline.execute(call, it)
 ```
 
-You could do that, but there isn't any need to since that is actually just the implementation of `respond`. `respondText` has some extra logic but delegates down to `response` to finalise everything. The final call to `execute` in this function represents the return value of the function.
+You could do that, but there isn't any need to since that is actually just the implementation of `respond`. `respondText` has some extra logic but delegates down to `response` to finalise everything. The final call to `execute` in this function represents the function's return value.
 
 ### Installing plugins
 
@@ -240,8 +241,8 @@ fun Application.module() {
 }
 ```
 
-- `DefaultHeaders` adds a header to every response with the name of the server.
-- `CallLogging` logs information about outgoing responses and specifies what level to log them at. A logging library needs to be included for this to work. The output will look something like:
+- `DefaultHeaders` adds a header to every response with the server's name.
+- `CallLogging` logs information about outgoing responses and specifies what level to log them at. A logging library needs to be included for this to work. The output will look something like this:
   
   ```log
   INFO  ktor.application.log - 200 OK: GET - /people/302a1a73-173b-491c-b306-4d95387a8e36
@@ -249,7 +250,7 @@ fun Application.module() {
 
 - `ContentNegotiation` tells the server to use Jackson for incoming and outbound requests. Remember this required including `ktor-serialization-jackson` as a dependency. You could also use [GSON](https://ktor.io/docs/serialization.html#add_json_dependency) if you prefer.
 
-For a list of the other plugins that Ktor includes, you can go to [start.ktor.io](https://start.ktor.io) where you can view the existing plugins (by pretending to create a new application).
+For a list of the other plugins that Ktor includes, you can go to [start.ktor.io](https://start.ktor.io), where you can view the existing plugins (by pretending to create a new application).
 
 Installing plugins ties all the way back to the routing done earlier. `routing` delegates down to `install` inside its implementation. So you could write:
 
@@ -263,7 +264,7 @@ install(Routing) {
 }
 ```
 
-Whatever floats your boat, but I'd just stick to using `routing`. Hopefully that helped you understand what is going on under the hood, even if it was just a little bit.
+Whatever floats your boat, but I'd just stick to using `routing`. Hopefully, that helped you understand what is going on under the hood, even if it was just a little bit.
 
 ### Brief mention for Kodein
 
@@ -277,18 +278,18 @@ val kodein = Kodein {
 val personRepository by kodein.instance<PersonRepository>()
 ```
 
-Inside of the `Kodein` block, instances of the application's classes are created. In this scenario, only one instance of each class is needed. Calling `singleton` denotes this. `instance` is a placeholder provided by Kodein to pass into a constructor instead of the actual object.
+Inside the `Kodein` block, instances of the application's classes are created. In this scenario, only one instance of each class is needed. Calling `singleton` denotes this. `instance` is a placeholder provided by Kodein to pass into a constructor instead of the actual object.
 
 Outside of the `Kodein` block, an instance of `PersonRespository` is retrieved.
 
-Yeah, I know, there isn't really much point to the use of Kodein here since I could have replaced it with a single line...
+Yeah, I know; there isn't much point to using Kodein here since I could have replaced it with a single line...
 
 ```kotlin
 val personRepository = PersonRepository(cassandraSession())
 ```
 
-Instead, let's think about it as a very concise example to understand 👍.
+Instead, let's consider it a very concise example to understand 👍.
 
 ## Summary
 
-In this post we looked at initialising a web server using Ktor, routing requests to lambdas/handlers that generate responses and installing plugins to the server. We mainly stayed at the surface level in this post and focused on the foundational knowledge to get you up and running with Ktor. For more information it is definitely worth going to [ktor.io](https://ktor.io/) and view Ktor's documenation and samples.
+In this post, we looked at initialising a web server using Ktor, routing requests to lambdas/handlers that generate responses and installing plugins to the server. We mainly stayed at the surface level in this post and focused on the foundational knowledge to get you up and running with Ktor. For more information, it is worth going to [ktor.io](https://ktor.io/) and viewing Ktor's documentation and samples.
