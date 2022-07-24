@@ -1,6 +1,6 @@
 ---
 title: Ktor - a Kotlin web framework
-date: "2022-07-20"
+date: "2022-07-24"
 slug: ktor-a-kotlin-web-framework-2
 published: true
 tags: [kotlin, ktor, ktor 2.0.3]
