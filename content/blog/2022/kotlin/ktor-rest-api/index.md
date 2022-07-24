@@ -1,8 +1,8 @@
 ---
-title: Ktor - a Kotlin web framework
-date: "2022-07-20"
+title: Ktor - A Kotlin web framework
+date: "2022-07-24"
 published: true
-tags: [kotlin, ktor]
+tags: [kotlin, ktor, ktor 2.0.3]
 github_url: https://github.com/lankydan/ktor-with-kodein-di
 cover_image: blog-card.png
 ---
