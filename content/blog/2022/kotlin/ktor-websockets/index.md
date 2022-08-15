@@ -259,14 +259,9 @@ webSocket {
 
 The `webSocket` is terminated by completing it; however, calling `return` can be tricky depending on the code as you cannot return from a lambda/function. Placing this code into a `launch` block, would prevent the `return@webSocket` from compiling and a different solution would be needed.
 
-You could call `WebSocketSession.close`, which correctly closes the client, but it leaves the `webSocket` handler executing and consuming resources.
-
-Throwing an exception also doesn't work correctly. In this case, the client doesn't receive a `close` and remains open, but the `webSocket` does end, albiet, exceptionally.
-
-Leading us to another working solution, calling `close` _and_ throwing an exception:
+In this case, you should call `WebSocketSession.close` to terminate the socket:
 
 ```kotlin
-// Put in a [launch] to prevent [return@webSocket] from compiling.
 launch {
   for (frame in incoming) {
     (frame as? Frame.Text)?.let { text ->
@@ -275,7 +270,7 @@ launch {
         "deletes" -> PeopleFilter.DELETES
         "stop" -> {
           close() // Sends a [Frame.Close] to the client.
-          throw RuntimeException("closed")
+          return@let // Returning here lets the code compile.
         }
         else -> PeopleFilter.ALL
       }
@@ -284,15 +279,11 @@ launch {
 }
 ```
 
-> The type of exception thrown, doesn't seem to matter.
+`close` sends a `Frame.Close` over the connection causing it to terminate.
 
-So this works; however, filling our logs with error messages for a non-error scenario, is not ideal.
+Annoyingly though, when combining this solution with the `outgoing` code shown throughout this post, even after closing the WebSocket, the `Flow` sending the outgoing updates still executes on the next update. It only does so once, so its not the end of the world, but it is a bit annoying.
 
-### Working solution for termination
-
-### Cleanest solution for termination
-
-After trying a few iterations, I came to the following solution which effectively cleans up every resource:
+To prevent that _extra_ update from being processed, then you can use the following code:
 
 ```kotlin
 webSocket {
@@ -337,10 +328,10 @@ webSocket {
 }
 ```
 
-This solution still leverages `close` to terminate the socket; what sets it apart, is the proper and clean completion of the `webSocket` handler.
-
 The `incoming` and `outgoing` channels are processed as `Flow`s and launched so that the processing thread can continue.
 
 As the processing thread is not blocked, `closeReason.await` is reached (close reason is a property of `DefaultWebSocketSession`). As the naming suggests, this blocks the `webSocket` coroutine thread until the `incoming` channel is closed.
 
 After this point, the `Job`s created for processing the `incoming` and `outgoing` channels are cancelled, preventing any futher processing of their `Flow` callbacks and resolving the issue I highlighted in the previous solution.
+
+As you can see, this solution has way more code; therefore, in my opinion, you should stick to calling `close` and accept that a few side-effects may occur.
