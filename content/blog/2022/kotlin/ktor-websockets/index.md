@@ -9,7 +9,7 @@ cover_image: blog-card.png
 
 Ktor provides a WebSocket plugin to allow your applications to push real-time data between backend servers and clients over HTTP.
 
-> The code in this post was tested against `Ktor 2.0.3`.
+> The code in this post was tested against Ktor `2.1.0` and `2.0.3`.
 
 ## Including WebSockets
 
