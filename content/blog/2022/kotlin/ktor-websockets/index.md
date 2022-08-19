@@ -135,7 +135,7 @@ There are a few ways you can receive data from the `incoming` property:
 
       (frame as? Frame.Text)?.let { text ->
 
-        filter = when(text.readText()) {
+        filter = when (text.readText()) {
           "saves" -> PeopleFilter.SAVES
           "deletes" -> PeopleFilter.DELETES
           else -> PeopleFilter.ALL
