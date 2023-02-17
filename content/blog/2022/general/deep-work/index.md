@@ -73,6 +73,34 @@ At the time of writing, several months after reading Deep Work, I have scheduled
 
 I don't always stick to my schedule, if I don't have a task which I can focus all my time on, then I might cancel my "focus" time or I'll accept that I can still focus on a few tasks, but I won't complete any deep work.
 
+This chapter also says you __should__ be __lazy__. Now that's a bold statement. Before you take it literally, and stop reading here because you decided to be lazy, let me give you some extra context.
+
+You should be lazy, in that, you don't work all the time. You need time to recharge. This recovery time will help you perform during your working hours as your mind will be refreshed and ready to work deeply. Furthermore, deep work can be really draining, and if you are successfully working in that way for long periods of the day, you will eventually run out of gas. Forcing yourself to keep going might get some extra work done, but you'll be sacrificing the energy and willpower reserved for the next day. The author also points out, that the work you're doing so late in the day, is probably work that isn't all that important. Meaning you're burning yourself out for tasks that don't provide much value.
+
+## Rule #2 Embrace Boredom
+
+> "The ability to concentrate intensely is a skill that must be trained." (page 157)
+
+> "Efforts to deepen your focus will struggle if you don't simultaneously wean your mind from a dependence of distraction." (page 157)
+
+As described earlier in this post and in the book, life is full of distractions and if you always submit to them, then you'll never refine your ability to truly focus.
+
+> "Don't Take Breaks from Distraction. Instead Take Breaks from Focus." (page 159)
+
+For me, this works alongside my scheduled focus time, giving me a "reward" for focusing for a period of time. I give myself time to relax without feeling guilty because I know I just completed quality work (most of the time), rather than the opposite, where I feel bad while being distracted which almost creates a cycle of distraction that can be hard to break from.
+
+This chapter details much more extreme methods of having blocks of time without distractions, but personally I didn't really gravitate towards them.
+
+The author also writes about trying to think deeply while you're physically but not mentally distracted. This could be walking, running, cooking, cleaning and many more. For me, I've stopped listening to podcasts/music so much when walking around; instead focusing on my own thoughts about work, life or whatever I currently see. This has helped me eek out some useful insights without having to set aside specific time to think about something.
+
+# Rule #3 Quit Social Media
+
+While I agree with a lot of what was written in this chapter. I don't feel that it really gave noteworthy points that I'd like to write in this post.
+
+Onto the next one.
+
+## Rule #4 Drain the Shallows
+
 ## "why" from the book
 
 - "The ability to quickly master hard things." (29)
@@ -147,26 +175,26 @@ I don't always stick to my schedule, if I don't have a task which I can focus al
         - The author kept track of the number of hours that they spent in deep work each week.
       4) "Create a Cadence of Accountability" (140)
         - Review how well you've been working at the end/start of the week and adjust hours spent in deep work or distractions preventing you from doing so.
-    - "Be Lazy" (142)
-      - Have a specific time where you stop working until the next morning. No emails etc...
-      1) "Downtime Aids Insights" (144)
-        - "Some decisions are better left to your unconscious mind to untangle"
-        - Actively working through these decisions can actually lead to worse outcomes.
-      2) "Downtime Helps Recharge the Energy Needed to Work Deeply" (146)
-        - Studies supporting "Attention restoration theory (ART)"
-        - Going on walks in nature can help you perform better and allow your unconscious mind to process thoughts.
-        - Helps recharge willpower.
-        - Nature is a good example since it is easy to navigate while having interesting stimuli. Crowded streets require more brainpower to navigate.
-        - Simply having time where you are not working but not having to think to hard has the same benefits.
-        - Constantly bringing attention back to work with emails or slack can harm this recovery.
-      3) "The Work The Evening Downtime Replaces Is Usually Not That Important" (149)
-        - Generally people can only do a few hours of deep work a day until they run out of willpower.
-        - If you have done deep work during the day, the likelihood is that you do not have enough willpower left to work effectively at this point in the day.
-        - So the tasks you probably would work on are going to require lower cognitive load and therefore and probably less important and could wait.
-      - Have a "shutdown ritual" (151)
-        - Increases the probability that you stop for the day.
-        - Review the work you did for the day and what you need to do the next day and have a plan to address them. If you don't make a plan, then have all the information prepared so you can determine that the next day.
-        - Ensures that you don't have to worry about if there is something you didn't complete since you have checked.
+  - "Be Lazy" (142)
+    - Have a specific time where you stop working until the next morning. No emails etc...
+    1) "Downtime Aids Insights" (144)
+      - "Some decisions are better left to your unconscious mind to untangle"
+      - Actively working through these decisions can actually lead to worse outcomes.
+    2) "Downtime Helps Recharge the Energy Needed to Work Deeply" (146)
+      - Studies supporting "Attention restoration theory (ART)"
+      - Going on walks in nature can help you perform better and allow your unconscious mind to process thoughts.
+      - Helps recharge willpower.
+      - Nature is a good example since it is easy to navigate while having interesting stimuli. Crowded streets require more brainpower to navigate.
+      - Simply having time where you are not working but not having to think to hard has the same benefits.
+      - Constantly bringing attention back to work with emails or slack can harm this recovery.
+    3) "The Work The Evening Downtime Replaces Is Usually Not That Important" (149)
+      - Generally people can only do a few hours of deep work a day until they run out of willpower.
+      - If you have done deep work during the day, the likelihood is that you do not have enough willpower left to work effectively at this point in the day.
+      - So the tasks you probably would work on are going to require lower cognitive load and therefore and probably less important and could wait.
+    - Have a "shutdown ritual" (151)
+      - Increases the probability that you stop for the day.
+      - Review the work you did for the day and what you need to do the next day and have a plan to address them. If you don't make a plan, then have all the information prepared so you can determine that the next day.
+      - Ensures that you don't have to worry about if there is something you didn't complete since you have checked.
 
 2) Rule #2 Embrace Boredom (155)
   - "The ability to concentrate intensely is a skill that must be trained" (157)
