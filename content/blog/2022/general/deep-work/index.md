@@ -1,3 +1,78 @@
+---
+title: Deep Work - A summary
+date: "2022-08-19"
+published: true
+tags: [kotlin, ktor, websockets, ktor websockets]
+github_url: https://github.com/lankydan/ktor-with-kodein-di
+cover_image: blog-card.png
+---
+
+I read the book [Deep Work by Cal Newport](https://www.calnewport.com/books/deep-work/) several months ago and wanted to write a summary of the main takeaways I found within it. Originally I planned to write this not long after reading the book, but life happens... On a positive note, it's given me a chance to really see what parts stuck with me after finishing the book many months ago.
+
+There are many things in Deep Work that I agree with or have made improvements to my work; however, there are points that I disagree with or do not place as much importance upon.
+
+Before I start, remember this is a summary, my summary more precisely. I'm not going to replace the act of reading the book itself. I'll highlight parts that I found interesting and/or beneficial. Im not trying to advertise the book, I swear, but if you want or need more after reading this, then you'll probably have to buy the book!
+
+## Deep Work Is Valuable
+
+The first chapter of the book explains why the author believes deep work is valuable.
+
+Below are some quotes from this chapter:
+
+> "The ability to quickly master hard things." (page 29)
+
+> "High-Quality Work Produced = (Time Spent) x (Intensity of Focus) (page 40)
+
+## Deep Work Is Rare
+
+Life is full of distractions: emails, instant messaging and social media, all negatively affect our ability to focus. These points aren't entirely novel, you've probably thought this yourself or saw others discussing it; however, the thought that quick and easy access to information could be reducing your capability to plan and prepare was new to me.
+
+> "The Principle of Least Resistance: In a business setting, without clear feedback on the impact of various behaviors to the bottom line, we will tend toward behaviors that are easiest in the moment." (page 58)
+
+> "If you couldn't count on this quick response time you'd instead have to do more advance planning for your work, be more organized, and be prepared to put things aside for a while and turn your attention elsewhere while waiting for what you requested." (page 58)
+
+Personally, I used to have a tendency to run head first into my work and then ask questions to the first issues I faced. This solved the immediate problem, but inevitably I would have another issue and another question and so on. So why did I do it? Because it was the easiest thing to do.
+
+Thankfully I've moved away from this behaviour, and these quotes collected and labelled positive habits that I've adopted.
+## Deep Work Is Meaningful
+
+The most significant part to me for _why_ we should work deeply came in this chapter. An explanation of "Flow state", which as Software Engineer I've heard thrown around and have experienced first hand, really struck a cord with me.
+
+> "The best moments usually occur when a person's body or mind is stretched to its limits in a voluntary effort to accomplish something difficult and worthwhile." (page 84, Mihaly Csikszentmihalyi)
+
+This quote got to the core of why I felt frustrated about my current working habits and why I sought out this book. I was rarely entering a flow state anymore, and as a consequence, I waa rarely enjoying my job anymore.
+
+So I read on with vigor in search of guidance.
+
+## Rule #1 Work Deeply
+
+The previous chapters covered the _why_ and now the book moves onto the _how_.
+
+This chapter shares information on ways that you might increase your focus and lower the boundary into switching into a flow state.
+
+The author details different philosophies on deep working:
+
+- Monastic:
+  - Purposely being hard to reach to reduce distractions.
+  - Assign large periods of time to focus, could be weeks or months.
+- Bimodal:
+  - Separating your time, where blocks are spent in deep work and others are open to everything else.
+  - Assign blocks of time to focus, could be days to weeks.
+- Rhythmic:
+  - Create a habit of having deep work sessions.
+  - Generate a rhythm for this style of work so it doesn't take energy to continue doing it.
+  - Assign specific times within a day to focus.
+- Journalistic:
+  - Switch into a deep work state whenever you have the time available to do so.
+  - Hard to follow, because it requires flipping a switch into flow mode.
+  - Requires a lot of willpower to stick to.
+
+For me the "Rhythmic" philosophy appealed to me the most. Especially for someone who was finding it extremely hard to focus before reading this book, the systemic process of a schedule gave me a way to hold myself accountable. 
+
+At the time of writing, several months after reading Deep Work, I have scheduled a reoccurring meeting in my calendar for focusing. I pick a singular task, evict distractions and focus soley on the task until I've reached the end of the "focus" time. I started off scheduling 30 minute blocks and progressed to 1 hour blocks throughout the day.
+
+I don't always stick to my schedule, if I don't have a task which I can focus all my time on, then I might cancel my "focus" time or I'll accept that I can still focus on a few tasks, but I won't complete any deep work.
+
 ## "why" from the book
 
 - "The ability to quickly master hard things." (29)
