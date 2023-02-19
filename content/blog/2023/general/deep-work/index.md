@@ -1,5 +1,6 @@
 ---
 title: Deep Work - A summary
+slug: deep-work-a-summary
 date: "2023-02-19"
 published: true
 tags: [general]
