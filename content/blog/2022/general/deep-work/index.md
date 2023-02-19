@@ -7,7 +7,7 @@ github_url: https://github.com/lankydan/ktor-with-kodein-di
 cover_image: blog-card.png
 ---
 
-I read the book [Deep Work by Cal Newport](https://www.calnewport.com/books/deep-work/) several months ago and wanted to write a summary of the main takeaways I found within it. Originally I planned to write this not long after reading the book, but life happens... On a positive note, it's given me a chance to really see what parts stuck with me after finishing the book many months ago.
+I read the book [Deep Work, by Cal Newport](https://www.calnewport.com/books/deep-work/), several months ago and wanted to write a summary of the main takeaways I found within it. Originally I planned to write this not long after reading the book, but life happens... On a positive note, it's given me a chance to really see what parts stuck with me after finishing the book many months ago.
 
 There are many things in Deep Work that I agree with or have made improvements to my work; however, there are points that I disagree with or do not place as much importance upon.
 
@@ -131,6 +131,19 @@ If I wrote emails missing information, they might have to contact me again to as
 
 The content in a "good" email will always vary, but the point above should give you a strong foundation to work from.
 
+## My Main takeaways
+
+My main takeaway from reading Deep Work is that I must be deliberate in the decisions I make.
+
+Hoping to move away from being constantly distracted, aimless and unmotivated, and into someone that can focus deeply in a directed manner is pointless. Instead, I have to consciously work to address these flaws.
+
+For me, scheduling more of my time as "focus" time has worked wonders.
+
+I'm getting vast amounts of quality work done during these periods, I'm more easily entering a flow state, and most importantly, I'm finding enjoyment in my work again. 
+
+I can't promise that the same changes will work for you, but it might be worth a try.
+
+This has been my summary of [Deep Work, by Cal Newport](https://www.calnewport.com/books/deep-work/). I hope what I've wrote is useful to you, giving you some pointers; however, I do recommend reading the book itself.
 ## "why" from the book
 
 - "The ability to quickly master hard things." (29)
