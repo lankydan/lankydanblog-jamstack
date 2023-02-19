@@ -101,6 +101,36 @@ Onto the next one.
 
 ## Rule #4 Drain the Shallows
 
+Similar to life being full of distractions, there is also a good chance that significant amounts of your time are spent on tasks that don't require much thought or focus. These are low value tasks that need to be done, but if scattered throughout the day provide constant distractions preventing you from sitting down and really focusing on a singular piece of work.
+
+This chapter advises you to consider how much time you spend on these sort of tasks and when you do them.
+
+> "Quantify the Depth of Every Activity" (page 228)
+
+Once you know what tasks deliver the most value, prioritising the order you complete them and put your energy into becomes clearer. 
+
+That being said, sometimes these "low value" tasks might be urgent or unblock others, so figuring out the ranking between tasks isn't always cut and dry. This book is written from the perspective of a professor (since that is the author's profession), which doesn't always transfer over cleanly to working professionals. For example, as a Software Engineer, I have to review my team's code, while some reviews might seem low value to me, not reviewing them negatively impacts my team.
+
+> "Schedule Every Minute of Your Day" (page 221)
+
+I do believe there is a benefit in scheduling more of your time. By consciously deciding what you want to do beforehand gives you a target to aim for with the time you spend, more precisely focusing your energy.
+
+You might find that in your "unstructured" time you don't get so much done because you're constantly trying to determine _what_ to do next. With your mind constantly flicking from one thought to another and stopping you from giving any of these thoughts any real attention.
+
+I solve my problem of reviewing code mentioned a moment ago by blocking off time to do them. Even if some of them are "low value", grouping them together and giving direction to my time improves the overall quality of the reviews I give. Even if there is a context switch between each review, staying in the mindset of "I'm doing reviews" is extremely beneficial.
+
+Now, I'm not saying do it from every minute of your day. However, being more aware how you spend your time can be enlightening.
+
+> "Do More Work When You Send or Reply to E-mails" (page 248)
+
+I've been putting more effort in providing well-written emails, including enough information and next-steps or outcomes needs from the recipients increasing the likelihood they reply with precise emails themselves. 
+
+If I wrote emails missing information, they might have to contact me again to ask for more context. If I wrote emails not specifying the outcome I want, the feedback I'd receive might be undirected and not deep enough in the desired areas.  Both of these lead to each side investing more energy into reaching the original outcome of the email.
+
+> "What is the project represented by this message, and what is the most efficient (in terms of messages generated) process for bringing this project too a successful conclusion?" (page 249)
+
+The content in a "good" email will always vary, but the point above should give you a strong foundation to work from.
+
 ## "why" from the book
 
 - "The ability to quickly master hard things." (29)
