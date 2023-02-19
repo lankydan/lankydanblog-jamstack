@@ -131,7 +131,7 @@ If I wrote emails missing information, they might have to contact me again to as
 
 The content in a "good" email will always vary, but the point above should give you a strong foundation to work from.
 
-## My Main takeaways
+## My Main takeaway
 
 My main takeaway from reading Deep Work is that I must be deliberate in the decisions I make.
 
